@@ -1,0 +1,20 @@
+{
+  "drawer": {
+    "title": "Typy zabiegów",
+    "option1": "Masaże ciała",
+    "option2": "Peelingi",
+    "option3": "Kąpiele",
+    "option4": "FAQ ",
+    "option5": "Zabiegi rehabilitacyjne",
+    "option6": "Wszyskie zabiegi",
+    "price": "Cena",
+    "from": "od",
+    "to": "do",
+    "therapist": "Rehabilitant",
+    "availability": "dostępność"
+  },
+  "placeholder": "Szukaj zabiegu",
+  "more": "Więcej szczegółów",
+  "reservation": "Rezerwuj zabieg",
+  "type": "Rodzaj zabiegu"
+}

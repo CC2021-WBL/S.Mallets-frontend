@@ -1,0 +1,13 @@
+{
+  "welcome": "Witamy w",
+  "heading": "Zaloguj się wpisując login i hasło",
+  "password": "Hasło",
+  "login": "Zaloguj się",
+  "login2": "przez facebook'a",
+  "login3": "przez google",
+  "or": "lub",
+  "account": "Nie masz konta?",
+  "register": "Zarejestruj się",
+  "forgot": "Zapomniałeś hasła?",
+  "reset": "Zresetuj hasło"
+}

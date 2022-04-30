@@ -1,0 +1,21 @@
+{
+  "welcome": "Welcome in",
+  "heading": "Complete the form to create an account.",
+  "password": "Password",
+  "password2": "Repeat password",
+  "privacy": "I agree to the terms of use of the website",
+  "register": "Register",
+  "or": "or",
+  "account": "Already have an account?",
+  "login": "Log in",
+  "forgot": "Forgot your password?",
+  "reset": "Reset password",
+  "requiredEmail": "E-mail is required",
+  "wrongEmail": "Incorrect e-mail",
+  "passwordYup": "The password must be at least 6 characters long",
+  "passwordYup2": "Password is required",
+  "confirmPasswordYup": "Enter the password",
+  "confirmPasswordYup2": "The given passwords differ",
+  "policy": "Terms of use must be accepted.",
+  "policy2": "Terms of use must be accepted."
+}

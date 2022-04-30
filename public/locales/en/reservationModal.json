@@ -1,0 +1,7 @@
+{
+  "date": "select a date and time",
+  "morning": "morning",
+  "afternoon": "afternoon",
+  "evening": "evening",
+  "reservation": "reservation"
+}

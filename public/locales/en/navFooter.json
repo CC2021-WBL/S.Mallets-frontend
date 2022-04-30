@@ -1,0 +1,14 @@
+{
+  "nav1": "Our services",
+  "nav2": "About us",
+  "login": "Login",
+  "register": "Register",
+  "account": "Reservations & Your profile",
+  "logout": "Log out",
+  "footer": {
+    "about": "About us",
+    "faq": "FAQ ",
+    "terms": "Terms of use",
+    "privacy": "Privacy policy"
+  }
+}
