@@ -13,7 +13,7 @@ function App() {
     <I18nextProvider i18n={i18n}>
       <Suspense fallback={<Loader />}>
         <h1 className="text-3xl font-bold underline">Hello world!</h1>
-        <a href="https:/facebook.com">FB</a>
+        <a href="https://github.com/orgs/CC2021-WBL/">FB</a>
       </Suspense>
     </I18nextProvider>
   );
