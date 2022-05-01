@@ -1,7 +1,5 @@
-import React from 'react';
-
-function HeroImage() {
+const HeroImage = () => {
   return <div>HeroImage</div>;
-}
+};
 
 export default HeroImage;

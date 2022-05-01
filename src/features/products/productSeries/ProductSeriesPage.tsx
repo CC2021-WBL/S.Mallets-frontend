@@ -1,7 +1,5 @@
-import React from 'react';
-
-function ProductSeriesPage() {
+const ProductSeriesPage = () => {
   return <div>ProductSeriesPage</div>;
-}
+};
 
 export default ProductSeriesPage;

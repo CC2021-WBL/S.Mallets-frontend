@@ -1,7 +1,5 @@
-import React from 'react';
-
-function UserPage() {
+const UserPage = () => {
   return <div>UserPage</div>;
-}
+};
 
 export default UserPage;

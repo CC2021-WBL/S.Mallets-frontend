@@ -1,7 +1,5 @@
-import React from 'react';
-
-function CartSpec() {
+const CartSpec = () => {
   return <div>Cart-spec</div>;
-}
+};
 
 export default CartSpec;
