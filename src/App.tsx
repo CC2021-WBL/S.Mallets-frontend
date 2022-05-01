@@ -1,6 +1,8 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 
+// commits to have a prefix
+
 const navStyle = {
   background: 'orange',
   display: 'flex',
