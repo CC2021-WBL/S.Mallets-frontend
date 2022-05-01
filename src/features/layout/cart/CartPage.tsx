@@ -8,12 +8,11 @@ const mainStyle = {
   padding: '1rem 1rem',
 };
 
-const ContactPage = () => {
+const CartPage = () => {
   return (
     <div className="text-3xl font-bold underline" style={mainStyle}>
-      ContactPage
+      CartPage
     </div>
   );
 };
-
-export default ContactPage;
+export default CartPage;
