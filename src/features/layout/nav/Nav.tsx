@@ -18,6 +18,7 @@ const Nav = () => {
       <NavLink to="/contact"> ContactPage </NavLink>
       <NavLink to="/user"> UserPage </NavLink>
       <NavLink to="/product-series"> ProductSeriesPage </NavLink>
+      <NavLink to="/products-page"> ProductsPage </NavLink>
       <NavLink to="/admin"> AdminPage </NavLink>
     </div>
   );
