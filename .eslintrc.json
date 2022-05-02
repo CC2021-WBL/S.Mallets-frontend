@@ -31,11 +31,7 @@
     "prettier/prettier": 1,
     "no-unused-vars": 1,
     "@typescript-eslint/no-explicit-any": 0,
-<<<<<<< HEAD
-    "@typescript-eslint/no-non-null-assertion": "off"
-=======
     "@typescript-eslint/no-non-null-assertion": 0
->>>>>>> development
   },
   "settings": {
     "react": {
