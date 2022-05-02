@@ -1,6 +1,10 @@
 import './index.css';
 
 import React from 'react';
+<<<<<<< HEAD
+=======
+import { BrowserRouter } from 'react-router-dom';
+>>>>>>> development
 import { Provider } from 'react-redux';
 import { createRoot } from 'react-dom/client';
 
@@ -14,7 +18,9 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>,
 );
