@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
 import Footer from '../footer/Footer';
+import Products from './../../products/Products';
 
 const navStyle = {
   background: 'orange',
