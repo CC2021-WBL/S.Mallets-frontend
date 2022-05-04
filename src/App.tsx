@@ -1,4 +1,4 @@
-import { I18nextProvider, useTranslation } from 'react-i18next';
+import { I18nextProvider } from 'react-i18next';
 import { Route, Routes } from 'react-router-dom';
 import { Suspense } from 'react';
 
@@ -10,6 +10,7 @@ import HomePage from './features/homePage/HomePage';
 import Layout from './features/layout/Layout';
 import ProductSeriesPage from './features/products/productSeries/ProductSeriesPage';
 import UserPage from './features/userPage/UserPage';
+import i18n from './i18n';
 
 const Loader = () => (
   <div className="App">
@@ -17,34 +18,9 @@ const Loader = () => (
   </div>
 );
 function App() {
-  const { t, i18n } = useTranslation('navFooter');
-
-  const changeLanguage = (lng: any) => {
-    i18n.changeLanguage(lng);
-  };
   return (
     <I18nextProvider i18n={i18n}>
       <Suspense fallback={<Loader />}>
-        <h1 className="text-3xl font-bold underline">
-          Hello world! {t('account')}
-        </h1>
-        <a
-          href="https://github.com/orgs/CC2021-WBL/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          FB
-        </a>
-        <div>
-          <button type="button" onClick={() => changeLanguage('pl')}>
-            pl
-          </button>
-          <button type="button" onClick={() => changeLanguage('en')}>
-            en
-          </button>
-        </div>
-        <p>{t('account')}</p>
-        <p> {t('footer.about')}</p>
         <div className="App">
           <Routes>
             <Route element={<Layout />}>

@@ -1,14 +1,8 @@
 {
-  "nav1": "Nasze zabiegi",
-  "nav2": "O nas",
-  "login": "Zaloguj",
-  "register": "Zarejestruj",
-  "account": "Rezerwacje & Twój profil",
-  "logout": "Wyloguj",
-  "footer": {
-    "about": "O nas",
-    "faq": "FAQ",
-    "terms": "Warunki korzystania z serwisu",
-    "privacy": "Polityka prywatności"
-  }
+  "products": "produkty",
+  "about": "o mnie",
+  "service": "serwis",
+  "contact": "kontakt",
+  "contactData": "Dane kontaktowe",
+  "admin": "Admin"
 }
