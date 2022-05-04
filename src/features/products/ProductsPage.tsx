@@ -1,5 +1,4 @@
-const mockImg =
-  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==';
+import ProductCard from './ProductCard';
 
 const ProductsPage = () => {
   // const [imgUrl, setImgUrl] = useState<any | null>(null);
@@ -27,8 +26,8 @@ const ProductsPage = () => {
   // }, []);
 
   return (
-    <div className="container mx-auto grid max-w-[1240px]">
-      <img src={mockImg} alt="Red dot" width="100px" />
+    <div className="container mx-auto grid h-[80vh] max-w-[1240px] items-center justify-center">
+      <ProductCard />
     </div>
   );
 };
