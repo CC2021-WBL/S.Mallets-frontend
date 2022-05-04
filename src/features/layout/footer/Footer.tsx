@@ -5,7 +5,7 @@ import fb from '../../../assets/facebook.png';
 const Footer = () => {
   return (
     <footer className="h-[27.8125rem] w-full bg-black text-white ">
-      <div className="xl container  mx-auto columns-2 px-[60px] pt-[3.75rem]  sm:px-0">
+      <div className="xl container  mx-auto flex justify-between px-[60px] pt-[3.75rem]  sm:px-0">
         <div>
           <h2 className="text-[1.5625rem]">Dane kontaktowe</h2>
           <div className=" leading-[150%]">
@@ -22,7 +22,8 @@ const Footer = () => {
             <img src={fb} alt="facebook" className="mt-[3.75rem]" />
           </a>
         </div>
-        <div className="flex break-before-column flex-col items-end gap-y-[2rem]">
+
+        <div className="flex  flex-col items-end gap-y-[2rem]">
           <Link to="/product-series">Produkty</Link>
           <Link to="/about-me">O mnie</Link>
           <Link to="/">Serwis</Link>
