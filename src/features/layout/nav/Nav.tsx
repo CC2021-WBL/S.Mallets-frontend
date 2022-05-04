@@ -10,6 +10,7 @@ const navStyle = {
   padding: '1rem 1rem',
 };
 
+// comment for testing commit
 const Nav = () => {
   return (
     <div className="Nav" style={navStyle}>
