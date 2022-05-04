@@ -26,7 +26,7 @@ const ProductsPage = () => {
   // }, []);
 
   return (
-    <div className="container mx-auto grid h-[80vh] max-w-[1240px] items-center justify-center">
+    <div className="container mx-auto grid h-[80vh] max-w-[1240px] items-center justify-start">
       <ProductCard />
     </div>
   );
