@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/named
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 import { AppThunk, RootState } from '../../app/store';

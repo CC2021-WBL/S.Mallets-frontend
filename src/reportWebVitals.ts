@@ -1,4 +1,3 @@
-/* eslint-disable import/named */
 import { ReportHandler } from 'web-vitals';
 
 const reportWebVitals = (onPerfEntry?: ReportHandler) => {
