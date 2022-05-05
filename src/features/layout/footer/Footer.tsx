@@ -1,6 +1,5 @@
+import { BsFacebook } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-
-import fb from '../../../assets/facebook.png';
 
 const Footer = () => {
   return (
@@ -11,13 +10,8 @@ const Footer = () => {
           <div className="flex flex-col  leading-[150%]">
             <h4 className="mt-[2.3125rem] font-bold"> S.mallets</h4>
             <h4>Tomasz Skrętkowski</h4>
-            <a title="+48660748918" href="tel:+48660748918">
-              Tel: +48 660 748 918
-            </a>
-            <a
-              title="s.mallets.mail@gmail.com"
-              href="mailto:s.mallets.mail@gmail.com"
-            >
+            <a href="tel:+48660748918">Tel: +48 660 748 918</a>
+            <a href="mailto:s.mallets.mail@gmail.com">
               E-Mail: s.mallets.mail@gmail.com
             </a>
           </div>
@@ -26,7 +20,10 @@ const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <img src={fb} alt="facebook" className="mt-[3.75rem]" />
+            <BsFacebook
+              style={{ fontSize: '1.5rem' }}
+              className="mt-[3.75rem]"
+            />
           </a>
         </div>
 
