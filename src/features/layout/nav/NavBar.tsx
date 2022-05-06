@@ -16,7 +16,6 @@ const Navbar = () => {
   const changeLanguage = (lng: any) => {
     i18n.changeLanguage(lng);
   };
-
   const [nav, setNav] = useState(false);
 
   const handleNav = () => {
@@ -35,7 +34,8 @@ const Navbar = () => {
           <BsCart3 className="text-2xl" />
           <LanguageButtons
             changeLanguage={changeLanguage}
-            className="text-sm"
+            className={'text-sm'}
+            language={i18n.language}
           />
         </div>
         <nav className="hidden sm:flex">
@@ -60,7 +60,7 @@ const Navbar = () => {
       >
         {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
       </div>
-      <div
+      <aside
         className={
           nav
             ? 'menu fixed left-0 top-0 w-[60%] h-full border-r border-r-grey-900 ease-in-out duration-500 bg-white z-10'
@@ -72,6 +72,7 @@ const Navbar = () => {
           <LanguageButtons
             changeLanguage={changeLanguage}
             className="text-sm p-6"
+            language={i18n.language}
           />
         </header>
 
@@ -90,16 +91,22 @@ const Navbar = () => {
           </NavLink>
         </nav>
         <section className="px-4">
-          <div className="flex p-2 px-4 gap-8 justify-between">
+          <NavLink
+            className="flex w-full p-2 px-4 gap-8 justify-between"
+            to="/login"
+          >
             <p className="text-sm uppercase">{t('login')}</p>
             <BiUser className="text-2xl" />
-          </div>
-          <div className="flex p-4 px-4 gap-8 justify-between border-b">
+          </NavLink>
+          <NavLink
+            className="flex w-full p-4 px-4 gap-8 justify-between border-b"
+            to="/cart"
+          >
             <p className="text-sm uppercase">{t('cart')}</p>
             <BsCart3 className="text-2xl" />
-          </div>
+          </NavLink>
         </section>
-      </div>
+      </aside>
       {nav && <Backdrop handleNav={handleNav} />}
     </div>
   );
