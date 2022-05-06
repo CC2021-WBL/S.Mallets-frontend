@@ -29,7 +29,11 @@ const Nav = () => {
         <NavLink to="/product-series"> ProductSeriesPage </NavLink>
         <NavLink to="/admin"> AdminPage </NavLink>
         <div>
-          <button type="button" onClick={() => changeLanguage('pl')}>
+          <button
+            type="button"
+            onClick={() => changeLanguage('pl')}
+            className="mr-2.5"
+          >
             pl
           </button>
           <button type="button" onClick={() => changeLanguage('en')}>
