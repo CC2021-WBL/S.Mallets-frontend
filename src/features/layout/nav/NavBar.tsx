@@ -10,7 +10,7 @@ import LanguageButtons from './LanguageButtons';
 import logo from '../../../assets/s-logo.svg';
 import { burgerNavStyles, navStyles } from './navStyles';
 
-const Navbar = () => {
+const NavBar = () => {
   const { t, i18n } = useTranslation('navBar');
 
   const changeLanguage = (lng: any) => {
@@ -112,4 +112,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavBar;
