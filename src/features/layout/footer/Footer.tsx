@@ -3,11 +3,8 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
-  const { t, i18n } = useTranslation('navFooter');
+  const { t } = useTranslation('navFooter');
 
-  const changeLanguage = (lng: any) => {
-    i18n.changeLanguage(lng);
-  };
   return (
     <>
       <footer className="h-[27.8rem] w-full bg-[#232323] text-white">
@@ -45,15 +42,6 @@ const Footer = () => {
           </div>
         </div>
       </footer>
-
-      <div>
-        <button type="button" onClick={() => changeLanguage('pl')}>
-          pl
-        </button>
-        <button type="button" onClick={() => changeLanguage('en')}>
-          en
-        </button>
-      </div>
     </>
   );
 };
