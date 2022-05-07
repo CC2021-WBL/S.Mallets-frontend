@@ -7,9 +7,9 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="h-fit w-full bg-[#232323] text-white">
+      <footer className=" px-6 h-fit w-full bg-[#232323] text-white">
         <div className=" sm:px-3 md:px-6 lg:px-8 mx-auto flex flex-col-reverse justify-between p-14 sm:flex-row max-w-7xl ">
-          <div>
+          <div className="sm:pl-4">
             <h2 className="text-xl">{t('contactData')}</h2>
             <div className="flex flex-col  leading-[150%]">
               <p className="mt-3 sm:mt-8 font-bold"> S.mallets</p>
@@ -32,7 +32,7 @@ const Footer = () => {
             </a>
           </div>
 
-          <div className="mb-8  flex flex-col items-start gap-y-4 sm:items-end sm:text-right sm:gap-y-8">
+          <div className="mb-8  flex flex-col items-start gap-y-4 sm:items-end sm:text-right sm:gap-y-8 pr-4">
             <NavLink to="/product-series">{t('products')}</NavLink>
             <NavLink to="/about-me">{t('about')}</NavLink>
             <NavLink to="/service">{t('service')}</NavLink>
