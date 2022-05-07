@@ -59,7 +59,7 @@ const Nav = () => {
       <aside
         className={
           nav
-            ? 'menu fixed left-0 top-0 w-[60%] h-full border-r border-r-grey-900 ease-in-out duration-500 bg-white z-10'
+            ? 'menu fixed left-0 top-0 w-3/5 h-full border-r border-r-grey-900 ease-in-out duration-500 bg-white z-10'
             : 'fixed left-[-100%]'
         }
       >

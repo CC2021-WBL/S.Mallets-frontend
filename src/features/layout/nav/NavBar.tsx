@@ -14,10 +14,14 @@ const NavBar = (prop: {
         [`${prop.t('contact')}`, '/contact'],
       ].map(([title, link]) => (
         <NavLink
-          className={prop.className}
           to={link}
           key={title}
           onClick={prop.handleNav}
+          className={({ isActive }) =>
+            isActive
+              ? `${prop.className} md:text-lg sm:text-base font-medium`
+              : prop.className
+          }
         >
           {title}
         </NavLink>
