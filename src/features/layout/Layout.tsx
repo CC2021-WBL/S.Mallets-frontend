@@ -1,16 +1,16 @@
-// import { Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+
+import Nav from './nav/Nav';
 
 // import Footer from './footer/Footer';
-import Navbar from './nav/NavBar';
-
-// import Nav from './nav/Nav';
 
 const Layout = () => {
   return (
     <>
-      {/* <Nav /> */}
-      <Navbar />
-      <div>{/* <Outlet /> */}</div>
+      <Nav />
+      <div className="max-w-7xl mx-auto">
+        <Outlet />
+      </div>
 
       {/* <Footer /> */}
     </>

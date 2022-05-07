@@ -8,7 +8,9 @@ import CartPage from './features/layout/cart/CartPage';
 import ContactPage from './common/contact/ContactPage';
 import HomePage from './features/homePage/HomePage';
 import Layout from './features/layout/Layout';
+import LoginPage from './features/loginPage/LoginPage';
 import ProductSeriesPage from './features/products/productSeries/ProductSeriesPage';
+import ServicePage from './common/service/ServicePage';
 import UserPage from './features/userPage/UserPage';
 import i18n from './i18n';
 
@@ -28,7 +30,9 @@ function App() {
               <Route path="/about" element={<AboutUs />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/product-series" element={<ProductSeriesPage />} />
+              <Route path="/service" element={<ServicePage />} />
               <Route path="/cart" element={<CartPage />} />
+              <Route path="/login" element={<LoginPage />} />
               <Route path="/user" element={<UserPage />} />
               <Route path="/admin" element={<AdminPage />} />
             </Route>
