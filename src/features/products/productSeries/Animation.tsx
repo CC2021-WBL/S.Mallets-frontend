@@ -1,7 +1,8 @@
-import { CSSProperties } from 'react';
+// import { CSSProperties } from 'react';
+
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 
-export default function Animation(props: { style: CSSProperties | undefined }) {
+export default function Animation() {
   const x = useMotionValue(200);
   const y = useMotionValue(200);
 
@@ -15,30 +16,26 @@ export default function Animation(props: { style: CSSProperties | undefined }) {
 
   return (
     <div
-      style={{
-        width: '310px',
-        // height: 400,
-        ...props.style,
-        display: 'flex',
-        flexWrap: 'wrap',
-        placeItems: 'center',
-        placeContent: 'center',
-        perspective: 400,
-        transform: 'rotate(-75deg)',
-        position: 'fixed',
-        right: '-50px',
-      }}
+      className="hidden xl:flex flex-wrap w-80 place-items-center place-content-center rotate-[25deg] fixed top-[235.2px] right-[-89.6px] "
       onMouseMove={handleMouse}
     >
       <motion.img
         src={require('../../../assets/ellipse.png')}
         alt=""
         style={{
-          // width: '70px',
-          // height: '70px',
-          //   borderRadius: 30,
-          //   backgroundColor: '#bb2424',
-
+          // width: '4.4rem',
+          // height: '4.4rem',
+          rotateX: rotateX,
+          rotateY: rotateY,
+        }}
+        className="w-[4.4rem] h-[4.4rem]"
+      />
+      <motion.img
+        src={require('../../../assets/ellipse.png')}
+        alt=""
+        style={{
+          width: '4.4rem',
+          height: '4.4rem',
           rotateX: rotateX,
           rotateY: rotateY,
         }}
@@ -47,10 +44,8 @@ export default function Animation(props: { style: CSSProperties | undefined }) {
         src={require('../../../assets/ellipse.png')}
         alt=""
         style={{
-          //   width: 150,
-          //   height: 150,
-          //   borderRadius: 30,
-          //   backgroundColor: '#bb2424',
+          width: '4.4rem',
+          height: '4.4rem',
           rotateX: rotateX,
           rotateY: rotateY,
         }}
@@ -59,10 +54,8 @@ export default function Animation(props: { style: CSSProperties | undefined }) {
         src={require('../../../assets/ellipse.png')}
         alt=""
         style={{
-          //   width: 150,
-          //   height: 150,
-          //   borderRadius: 30,
-          //   backgroundColor: '#bb2424',
+          width: '4.4rem',
+          height: '4.4rem',
           rotateX: rotateX,
           rotateY: rotateY,
         }}
@@ -71,10 +64,8 @@ export default function Animation(props: { style: CSSProperties | undefined }) {
         src={require('../../../assets/ellipse.png')}
         alt=""
         style={{
-          //   width: 150,
-          //   height: 150,
-          //   borderRadius: 30,
-          //   backgroundColor: '#bb2424',
+          width: '4.4rem',
+          height: '4.4rem',
           rotateX: rotateX,
           rotateY: rotateY,
         }}
@@ -83,10 +74,10 @@ export default function Animation(props: { style: CSSProperties | undefined }) {
         src={require('../../../assets/ellipse.png')}
         alt=""
         style={{
-          //   width: 150,
-          //   height: 150,
-          //   borderRadius: 30,
-          //   backgroundColor: '#bb2424',
+          width: '4.4rem',
+          height: '4.4rem',
+          background: 'black',
+          borderRadius: '50%',
           rotateX: rotateX,
           rotateY: rotateY,
         }}
@@ -95,10 +86,8 @@ export default function Animation(props: { style: CSSProperties | undefined }) {
         src={require('../../../assets/ellipse.png')}
         alt=""
         style={{
-          //   width: 150,
-          //   height: 150,
-          //   borderRadius: 30,
-          //   backgroundColor: '#bb2424',
+          width: '4.4rem',
+          height: '4.4rem',
           rotateX: rotateX,
           rotateY: rotateY,
         }}
@@ -107,10 +96,8 @@ export default function Animation(props: { style: CSSProperties | undefined }) {
         src={require('../../../assets/ellipse.png')}
         alt=""
         style={{
-          // width: '45px',
-          // height: '45px',
-          //   borderRadius: 30,
-          //   backgroundColor: '#bb2424',
+          width: '4.4rem',
+          height: '4.4rem',
           rotateX: rotateX,
           rotateY: rotateY,
         }}
@@ -119,10 +106,8 @@ export default function Animation(props: { style: CSSProperties | undefined }) {
         src={require('../../../assets/ellipse.png')}
         alt=""
         style={{
-          //   width: 150,
-          //   height: 150,
-          //   borderRadius: 30,
-          //   backgroundColor: '#bb2424',
+          width: '4.4rem',
+          height: '4.4rem',
           rotateX: rotateX,
           rotateY: rotateY,
         }}
@@ -131,10 +116,8 @@ export default function Animation(props: { style: CSSProperties | undefined }) {
         src={require('../../../assets/ellipse.png')}
         alt=""
         style={{
-          //   width: 150,
-          //   height: 150,
-          //   borderRadius: 30,
-          //   backgroundColor: '#bb2424',
+          width: '4.4rem',
+          height: '4.4rem',
           rotateX: rotateX,
           rotateY: rotateY,
         }}
@@ -143,10 +126,8 @@ export default function Animation(props: { style: CSSProperties | undefined }) {
         src={require('../../../assets/ellipse.png')}
         alt=""
         style={{
-          //   width: 150,
-          //   height: 150,
-          //   borderRadius: 30,
-          //   backgroundColor: '#bb2424',
+          width: '4.4rem',
+          height: '4.4rem',
           rotateX: rotateX,
           rotateY: rotateY,
         }}
@@ -155,22 +136,8 @@ export default function Animation(props: { style: CSSProperties | undefined }) {
         src={require('../../../assets/ellipse.png')}
         alt=""
         style={{
-          //   width: 150,
-          //   height: 150,
-          //   borderRadius: 30,
-          //   backgroundColor: '#bb2424',
-          rotateX: rotateX,
-          rotateY: rotateY,
-        }}
-      />
-      <motion.img
-        src={require('../../../assets/ellipse.png')}
-        alt=""
-        style={{
-          //   width: 150,
-          //   height: 150,
-          //   borderRadius: 30,
-          //   backgroundColor: '#bb2424',
+          width: '4.4rem',
+          height: '4.4rem',
           rotateX: rotateX,
           rotateY: rotateY,
         }}

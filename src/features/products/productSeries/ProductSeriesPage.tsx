@@ -50,14 +50,13 @@ const ProductSeriesPage = (): JSX.Element => {
   const { t } = useTranslation('others');
   return (
     <>
-      {<Animation style={undefined} />}
-      {/* <div>{CC_26_Tracking_the_cursor()}</div> */}
+      {<Animation />}
       <p className="max-w-[33.3rem] text-xl">{t('textOnSeries')}</p>
-      <div className="container flex max-w-7xl flex-wrap justify-center">
+      <div className=" flex max-w-7xl flex-wrap justify-center">
         {mock.map((index) => (
           <div
             key={index.id}
-            className="flex h-[445px] w-[350px] flex-col items-center py-9"
+            className="flex h-[27.8rem] w-[21.8rem] flex-col items-center py-9"
           >
             <img
               src={index.productImage}
@@ -72,45 +71,3 @@ const ProductSeriesPage = (): JSX.Element => {
   );
 };
 export default ProductSeriesPage;
-
-// import { motion, useMotionValue, useTransform } from "framer-motion";
-
-//
-// export default function CC_26_Tracking_the_cursor(props) {
-//   const x = useMotionValue(200)
-//   const y = useMotionValue(200)
-
-//   const rotateX = useTransform(y, [0, 400], [45, -45])
-//   const rotateY = useTransform(x, [0, 400], [-45, 45])
-
-//   function handleMouse(event) {
-//       x.set(event.pageX)
-//       y.set(event.pageY)
-//   }
-
-//   return (
-//       <div
-//           style={{
-//               width: 400,
-//               height: 400,
-//               ...props.style,
-//               display: "flex",
-//               placeItems: "center",
-//               placeContent: "center",
-//               perspective: 400,
-//           }}
-//           onMouseMove={handleMouse}
-//       >
-//           <motion.div
-//               style={{
-//                   width: 150,
-//                   height: 150,
-//                   borderRadius: 30,
-//                   backgroundColor: "#fff",
-//                   rotateX: rotateX,
-//                   rotateY: rotateY,
-//               }}
-//           />
-//       </div>
-//   )
-// }
