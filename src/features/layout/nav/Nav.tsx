@@ -26,7 +26,7 @@ const Nav = () => {
     <div className="flex justify-between items-center h-20 sm:h-36 md:h-44 max-w-7xl mx-auto sm:px-3 md:px-6 lg:px-8">
       <div
         className={
-          !nav ? 'p-6 lg:p-4 w-36 sm:w-[11rem] md:w-64 lg:w-72' : 'hidden'
+          !nav ? 'p-6 sm:p-3 lg:p-4 w-36 sm:w-48  md:w-64 lg:w-72' : 'hidden'
         }
       >
         <img src={logo} alt="smallets logo" width="100%" height="100%" />
