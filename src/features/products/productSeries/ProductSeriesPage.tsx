@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import Animation from './Animation';
 
 const mock = [
@@ -45,14 +47,12 @@ const mock = [
   },
 ];
 const ProductSeriesPage = (): JSX.Element => {
+  const { t } = useTranslation('others');
   return (
     <>
       {<Animation style={undefined} />}
       {/* <div>{CC_26_Tracking_the_cursor()}</div> */}
-      <p className="max-w-[33.3rem] text-xl">
-        Pałeczki S.mallets to doskonałej jakości produkt, który jest odpowiedzią
-        na potrzeby profesjonalistów.
-      </p>
+      <p className="max-w-[33.3rem] text-xl">{t('textOnSeries')}</p>
       <div className="container flex max-w-7xl flex-wrap justify-center">
         {mock.map((index) => (
           <div
