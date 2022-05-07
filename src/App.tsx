@@ -4,7 +4,7 @@ import { Suspense } from 'react';
 
 import AboutUs from './common/aboutUs/AboutUs';
 import AdminPage from './features/adminPage/AdminPage';
-import CartPage from './features/layout/cart/CartPage';
+import CartPage from './features/cartPage/CartPage';
 import ContactPage from './common/contact/ContactPage';
 import HomePage from './features/homePage/HomePage';
 import Layout from './features/layout/Layout';
