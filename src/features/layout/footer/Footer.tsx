@@ -12,7 +12,7 @@ const Footer = () => {
           <div>
             <h2 className="text-base">{t('contactData')}</h2>
             <div className="flex flex-col  leading-[150%]">
-              <h4 className="mt-9 font-bold"> S.mallets</h4>
+              <h4 className="mt-3 sm:mt-8 font-bold"> S.mallets</h4>
               <h4>Tomasz Skrętkowski</h4>
               <a href="tel:+48660748918">Tel: +48 660 748 918</a>
               <a href="mailto:s.mallets.mail@gmail.com">
@@ -24,7 +24,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
             >
-              <BsFacebook style={{ fontSize: '1.5rem' }} className="mt-14" />
+              <BsFacebook className="mt-8 sm:mt-14 text-2xl" />
             </a>
           </div>
 
