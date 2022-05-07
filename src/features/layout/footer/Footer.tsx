@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <>
       <footer className="h-fit w-full bg-[#232323] text-white">
-        <div className="container mx-auto flex flex-col-reverse justify-between p-14 sm:flex-row sm:px-4 xl:max-w-7xl ">
+        <div className=" sm:px-3 md:px-6 lg:px-8 mx-auto flex flex-col-reverse justify-between p-14 sm:flex-row xl:max-w-7xl ">
           <div>
             <h2 className="text-xl">{t('contactData')}</h2>
             <div className="flex flex-col  leading-[150%]">

@@ -7,14 +7,13 @@ const Layout = () => {
   return (
     <>
       <Nav />
-      <main className=" container mx-auto flex h-[80vh] flex-col xl:max-w-7xl ">
+      <main className=" mx-auto flex h-[80vh] flex-col xl:max-w-7xl ">
         <div>
           <Outlet />
         </div>
       </main>
-      <div>
-        <Footer />
-      </div>
+
+      <Footer />
     </>
   );
 };
