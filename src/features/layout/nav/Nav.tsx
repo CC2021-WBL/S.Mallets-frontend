@@ -26,7 +26,6 @@ const Nav = () => {
 
   const toggleNavHandler = () => {
     dispatch(navActions.toggle());
-    console.log('dupa');
   };
   const showNav = useSelector((state: RootState) => state.nav.showNav);
 
