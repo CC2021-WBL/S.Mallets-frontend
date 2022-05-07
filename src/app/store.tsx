@@ -1,3 +1,11 @@
-// this is where the store is going to be
+import { configureStore } from '@reduxjs/toolkit';
 
-export {};
+import navSlice from '../features/layout/nav/languageSlice';
+
+const store = configureStore({
+  reducer: {
+    nav: navSlice.reducer,
+  },
+});
+export type RootState = ReturnType<typeof store.getState>;
+export default store;

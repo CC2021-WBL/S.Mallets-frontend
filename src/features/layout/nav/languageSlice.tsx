@@ -1,7 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-createSlice({
+const navSlice = createSlice({
   name: 'nav',
-  initialState: { showNav: true },
-  reducers: {},
+  initialState: { showNav: false },
+  reducers: {
+    toggle(state) {
+      state.showNav = !state.showNav;
+    },
+  },
 });
+
+export const navActions = navSlice.actions;
+
+export default navSlice;
