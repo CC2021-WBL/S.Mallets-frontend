@@ -1,3 +1,5 @@
+import Animation from './Animation';
+
 const mock = [
   {
     seriesName: 'Seria aaaa',
@@ -45,6 +47,12 @@ const mock = [
 const ProductSeriesPage = (): JSX.Element => {
   return (
     <>
+      {<Animation style={undefined} />}
+      {/* <div>{CC_26_Tracking_the_cursor()}</div> */}
+      <p className="max-w-[33.3rem] text-xl">
+        Pałeczki S.mallets to doskonałej jakości produkt, który jest odpowiedzią
+        na potrzeby profesjonalistów.
+      </p>
       <div className="container flex max-w-7xl flex-wrap justify-center">
         {mock.map((index) => (
           <div
@@ -64,3 +72,45 @@ const ProductSeriesPage = (): JSX.Element => {
   );
 };
 export default ProductSeriesPage;
+
+// import { motion, useMotionValue, useTransform } from "framer-motion";
+
+//
+// export default function CC_26_Tracking_the_cursor(props) {
+//   const x = useMotionValue(200)
+//   const y = useMotionValue(200)
+
+//   const rotateX = useTransform(y, [0, 400], [45, -45])
+//   const rotateY = useTransform(x, [0, 400], [-45, 45])
+
+//   function handleMouse(event) {
+//       x.set(event.pageX)
+//       y.set(event.pageY)
+//   }
+
+//   return (
+//       <div
+//           style={{
+//               width: 400,
+//               height: 400,
+//               ...props.style,
+//               display: "flex",
+//               placeItems: "center",
+//               placeContent: "center",
+//               perspective: 400,
+//           }}
+//           onMouseMove={handleMouse}
+//       >
+//           <motion.div
+//               style={{
+//                   width: 150,
+//                   height: 150,
+//                   borderRadius: 30,
+//                   backgroundColor: "#fff",
+//                   rotateX: rotateX,
+//                   rotateY: rotateY,
+//               }}
+//           />
+//       </div>
+//   )
+// }
