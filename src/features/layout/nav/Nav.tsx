@@ -25,7 +25,9 @@ const Nav = () => {
   return (
     <div className="flex justify-between items-center h-20 sm:h-36 md:h-44 max-w-7xl mx-auto sm:px-3 md:px-6 lg:px-8">
       <div
-        className={!nav ? 'p-6 lg:p-4 w-36 sm:w-48 md:w-64 lg:w-72' : 'hidden'}
+        className={
+          !nav ? 'p-6 lg:p-4 w-36 sm:w-[11rem] md:w-64 lg:w-72' : 'hidden'
+        }
       >
         <img src={logo} alt="smallets logo" width="100%" height="100%" />
       </div>
@@ -43,7 +45,7 @@ const Nav = () => {
             language={i18n.language}
           />
         </div>
-        <nav className="hidden sm:flex">
+        <nav className="hidden sm:flex tracking-wider">
           <NavBar t={t} className={navStyles} />
         </nav>
       </section>
@@ -62,7 +64,7 @@ const Nav = () => {
         }
       >
         <header className="flex justify-between items-center pl-6">
-          <h1 className="text-2xl font-semibold">Menu</h1>
+          <h1 className="text-2xl font-semibold tracking-wider">Menu</h1>
           <LanguageButtons
             changeLanguage={changeLanguage}
             className="text-sm p-6"
@@ -70,7 +72,7 @@ const Nav = () => {
           />
         </header>
 
-        <nav className="uppercase p-4  flex flex-col z-50">
+        <nav className="tracking-wider p-4 flex flex-col z-50">
           <NavBar t={t} className={navBurgerStyles} handleNav={handleNav} />
         </nav>
         <section className="px-4">
@@ -79,7 +81,7 @@ const Nav = () => {
             to="/login"
             onClick={handleNav}
           >
-            <p className="text-sm uppercase">{t('login')}</p>
+            <p className="text-sm tracking-wider">{t('login')}</p>
             <BiUser className="text-2xl" />
           </NavLink>
           <NavLink
@@ -87,7 +89,7 @@ const Nav = () => {
             to="/cart"
             onClick={handleNav}
           >
-            <p className="text-sm uppercase">{t('cart')}</p>
+            <p className="text-sm tracking-wider">{t('cart')}</p>
             <BsCart3 className="text-2xl" />
           </NavLink>
         </section>
