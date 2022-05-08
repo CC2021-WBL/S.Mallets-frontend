@@ -3,7 +3,7 @@ import group from '../../assets/groupLogo.png';
 const HomePage = () => {
   return (
     <>
-      <div className="mx-auto max-w-7xl bg-no-repeat  hero flex flex-col items-end text-right text-white pr-8 relative">
+      <div className="mx-auto max-w-7xl bg-no-repeat  hero flex flex-col items-end text-right text-white pr-8 relative mb-[15.6rem]">
         <p className="mb-2.5 mt-16">S.MALLETS</p>
         <h1 className="max-w-sm text-6xl font-bold leading-[4.8rem]">
           Premium quality / fair price
@@ -21,9 +21,12 @@ const HomePage = () => {
         <img
           src={group}
           alt="decoration logo"
-          className="z-50 hidden xl:block absolute right-[2.8rem] -bottom-[15.6rem]"
+          className="z-50 hidden xl:block absolute right-[2.8rem] -bottom-[15.6rem] bg-black"
           aria-hidden="true"
         />
+      </div>
+      <div>
+        <h2 className="text-2xl">Odkryj produkty</h2>
       </div>
     </>
   );
