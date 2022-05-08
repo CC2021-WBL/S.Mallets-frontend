@@ -1,6 +1,6 @@
 const CartPage = () => {
   const dumStyle = {
-    outline: '2px dotted grey',
+    border: '2px dotted grey',
   };
   const inputStyle = {
     height: '4rem',
@@ -21,7 +21,7 @@ const CartPage = () => {
           ...dumStyle,
         }}
       >
-        Strona główna Koszyk {'>'}
+        Strona główna {'>'} Koszyk {'>'}
         <b> Zarejestruj się</b>
       </div>
       <form>
@@ -63,16 +63,8 @@ const CartPage = () => {
               style={{ ...inputStyle }}
             ></input>
           </label>
-          <button
-            style={{
-              width: '25rem',
-              height: '4rem',
-              background: 'black',
-              color: 'white',
-              ...dumStyle,
-            }}
-          >
-            ZAREJSTRUJ SIĘ
+          <button className="bg-black hover:bg-red text-white font-bold h-16 w-96">
+            ZAREJESTRUJ SIĘ
           </button>
         </div>
       </form>
