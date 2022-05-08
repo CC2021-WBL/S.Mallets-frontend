@@ -1,4 +1,4 @@
-const AboutUs = () => {
-  return <h1 className="text-6xl p-8 text-center">AboutUs</h1>;
+const AboutMe = () => {
+  return <h1 className="text-6xl p-8 text-center">AboutMe</h1>;
 };
-export default AboutUs;
+export default AboutMe;

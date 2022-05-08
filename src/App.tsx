@@ -2,7 +2,7 @@ import { I18nextProvider } from 'react-i18next';
 import { Route, Routes } from 'react-router-dom';
 import { Suspense } from 'react';
 
-import AboutUs from './common/aboutUs/AboutUs';
+import AboutMe from './common/aboutUs/AboutUs';
 import AdminPage from './features/adminPage/AdminPage';
 import CartPage from './features/cartPage/CartPage';
 import ContactPage from './common/contact/ContactPage';
@@ -27,7 +27,7 @@ function App() {
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<HomePage />} />
-              <Route path="/about" element={<AboutUs />} />
+              <Route path="/about" element={<AboutMe />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/product-series" element={<ProductSeriesPage />} />
               <Route path="/service" element={<ServicePage />} />
@@ -35,6 +35,7 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/user" element={<UserPage />} />
               <Route path="/admin" element={<AdminPage />} />
+              <Route path="/service" element={<ServicePage />} />
             </Route>
           </Routes>
         </div>
