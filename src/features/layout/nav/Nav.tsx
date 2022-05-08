@@ -9,7 +9,7 @@ import Backdrop from './Backdrop';
 import LanguageButtons from './LanguageButtons';
 import NavBar from './NavBar';
 import logo from '../../../assets/s-logo.svg';
-import { navBurgerStyles, navStyles } from './navStyles';
+import { activeLogCart, navBurgerStyles, navStyles } from './navStyles';
 
 const Nav = () => {
   const { t, i18n } = useTranslation('navAndFooter');
@@ -35,10 +35,22 @@ const Nav = () => {
       </div>
       <section className="hidden sm:block">
         <div className="flex justify-end gap-8 p-4 pl-8 text-2xl">
-          <NavLink to="/login" aria-label="login">
+          <NavLink
+            to="/login"
+            aria-label="login"
+            className={({ isActive }) =>
+              isActive ? `${activeLogCart}` : undefined
+            }
+          >
             <BiUser />
           </NavLink>
-          <NavLink to="/cart" aria-label="cart">
+          <NavLink
+            to="/cart"
+            aria-label="cart"
+            className={({ isActive }) =>
+              isActive ? `${activeLogCart}` : undefined
+            }
+          >
             <BsCart3 />
           </NavLink>
           <LanguageButtons
