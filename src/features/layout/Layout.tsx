@@ -6,14 +6,13 @@ import Nav from './nav/Nav';
 const Layout = () => {
   return (
     <>
-      <Nav />
-      <main className=" mx-auto flex h-[80vh] flex-col max-w-7xl ">
-        <div>
+      <div className="flex min-h-screen flex-col">
+        <Nav />
+        <main className="mx-auto max-w-7xl grow">
           <Outlet />
-        </div>
-      </main>
-
-      <Footer />
+        </main>
+        <Footer />
+      </div>
     </>
   );
 };
