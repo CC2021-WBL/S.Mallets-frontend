@@ -7,12 +7,12 @@ const Footer = () => {
 
   return (
     <>
-      <footer className=" px-6 h-fit w-full bg-[#232323] text-white">
-        <div className=" sm:px-3 md:px-6 lg:px-8 mx-auto flex flex-col-reverse justify-between p-14 sm:flex-row max-w-7xl ">
+      <footer className=" h-fit w-full bg-[#232323] text-white">
+        <div className="mx-auto flex max-w-7xl flex-col-reverse justify-between py-14 px-6 sm:flex-row sm:px-3 md:px-6 lg:px-8">
           <div className="sm:pl-4">
             <h2 className="text-xl">{t('contactData')}</h2>
             <div className="flex flex-col  leading-[150%]">
-              <p className="mt-3 sm:mt-8 font-bold"> S.mallets</p>
+              <p className="mt-3 font-bold sm:mt-8"> S.mallets</p>
               <p>Tomasz Skrętkowski</p>
               <a href="tel:+48660748918">tel: +48 660 748 918</a>
               <a href="mailto:s.mallets.mail@gmail.com">
@@ -25,14 +25,14 @@ const Footer = () => {
               rel="noreferrer"
             >
               <BsFacebook
-                className="mt-8 sm:mt-14 text-2xl"
+                className="mt-8 text-2xl sm:mt-14"
                 role="link"
                 aria-label="Link to fb"
               />
             </a>
           </div>
 
-          <div className="mb-8  flex flex-col items-start gap-y-4 sm:items-end sm:text-right sm:gap-y-8 pr-4">
+          <div className="mb-8 flex flex-col items-start gap-y-4 pr-4 sm:items-end sm:gap-y-8 sm:text-right">
             <NavLink to="/product-series">{t('products')}</NavLink>
             <NavLink to="/about-me">{t('about')}</NavLink>
             <NavLink to="/service">{t('service')}</NavLink>
