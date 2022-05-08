@@ -1,5 +1,12 @@
 import { NavLink } from 'react-router-dom';
 
+const navLinkArray = [
+  ['products', '/product-series'],
+  ['about', '/about'],
+  ['service', '/service'],
+  ['contact', '/contact'],
+];
+
 const NavBar = (prop: {
   t: any;
   className: string;
@@ -7,23 +14,18 @@ const NavBar = (prop: {
 }) => {
   return (
     <>
-      {[
-        [`${prop.t('products')}`, '/product-series'],
-        [`${prop.t('about')}`, '/about'],
-        [`${prop.t('service')}`, '/service'],
-        [`${prop.t('contact')}`, '/contact'],
-      ].map(([title, link]) => (
+      {navLinkArray.map(([title, link]) => (
         <NavLink
           to={link}
           key={title}
           onClick={prop.handleNav}
           className={({ isActive }) =>
             isActive
-              ? `${prop.className} md:text-lg sm:text-base font-medium`
+              ? `${prop.className} sm:scale-110 md:scale-125 font-medium`
               : prop.className
           }
         >
-          {title}
+          {prop.t(title)}
         </NavLink>
       ))}
     </>

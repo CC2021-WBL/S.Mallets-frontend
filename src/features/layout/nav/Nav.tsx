@@ -29,7 +29,9 @@ const Nav = () => {
           !nav ? 'p-6 sm:p-3 lg:p-4 w-36 sm:w-48  md:w-64 lg:w-72' : 'hidden'
         }
       >
-        <img src={logo} alt="smallets logo" width="100%" height="100%" />
+        <NavLink to="/">
+          <img src={logo} alt="smallets logo" width="100%" height="100%" />
+        </NavLink>
       </div>
       <section className="hidden sm:block">
         <div className="flex p-4 pl-8 gap-8 justify-end text-2xl">
