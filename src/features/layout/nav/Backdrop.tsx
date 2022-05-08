@@ -1,7 +1,7 @@
 const Backdrop = (prop: { handleNav: () => void }) => {
   return (
     <div
-      className="fixed z-[1] bg-black opacity-20 w-full h-full top-0 left-0"
+      className="fixed top-0 left-0 z-[1] h-full w-full bg-black opacity-20"
       onClick={prop.handleNav}
       aria-hidden="true"
     ></div>

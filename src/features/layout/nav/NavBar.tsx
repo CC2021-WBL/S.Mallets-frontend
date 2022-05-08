@@ -21,7 +21,7 @@ const NavBar = (prop: {
           onClick={prop.handleNav}
           className={({ isActive }) =>
             isActive
-              ? `${prop.className} sm:scale-110 md:scale-125 font-medium`
+              ? `${prop.className} font-medium sm:scale-110 md:scale-125`
               : prop.className
           }
         >
