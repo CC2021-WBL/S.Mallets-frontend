@@ -1,26 +1,45 @@
-import { Link } from 'react-router-dom';
+import { BsFacebook } from 'react-icons/bs';
+import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
-  const { t, i18n } = useTranslation('navFooter');
+  const { t } = useTranslation('navAndFooter');
 
-  const changeLanguage = (lng: any) => {
-    i18n.changeLanguage(lng);
-  };
   return (
     <>
-      <div>{t('about')}</div>
-      <Link to="about-us">{t('about')}</Link>
-      <Link to="contact">{t('contact')}</Link>
-      <Link to="admin">{t('products')}</Link>
-      <div>
-        <button type="button" onClick={() => changeLanguage('pl')}>
-          pl
-        </button>
-        <button type="button" onClick={() => changeLanguage('en')}>
-          en
-        </button>
-      </div>
+      <footer className=" h-fit w-full bg-[#232323] text-white">
+        <div className="mx-auto flex max-w-7xl flex-col-reverse justify-between py-14 px-6 sm:flex-row sm:px-3 md:px-6 lg:px-8">
+          <div className="sm:pl-4">
+            <h2 className="text-xl">{t('contactData')}</h2>
+            <div className="flex flex-col  leading-[150%]">
+              <p className="mt-3 font-bold sm:mt-8"> S.mallets</p>
+              <p>Tomasz Skrętkowski</p>
+              <a href="tel:+48660748918">tel: +48 660 748 918</a>
+              <a href="mailto:s.mallets.mail@gmail.com">
+                e-mail: s.mallets.mail@gmail.com
+              </a>
+            </div>
+            <a
+              href="https://www.facebook.com/skrettomasz"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <BsFacebook
+                className="mt-8 text-2xl sm:mt-14"
+                role="link"
+                aria-label="Link to fb"
+              />
+            </a>
+          </div>
+
+          <div className="mb-8 flex flex-col items-start gap-y-4 pr-4 sm:items-end sm:gap-y-8 sm:text-right">
+            <NavLink to="/product-series">{t('products')}</NavLink>
+            <NavLink to="/about">{t('about')}</NavLink>
+            <NavLink to="/service">{t('service')}</NavLink>
+            <NavLink to="/contact">{t('contact')}</NavLink>
+          </div>
+        </div>
+      </footer>
     </>
   );
 };
