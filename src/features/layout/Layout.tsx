@@ -7,9 +7,11 @@ const Layout = () => {
   return (
     <>
       <Nav />
-      <div>
-        <Outlet />
-      </div>
+      <main className=" mx-auto flex h-[80vh] flex-col max-w-7xl ">
+        <div>
+          <Outlet />
+        </div>
+      </main>
 
       <Footer />
     </>
