@@ -17,10 +17,9 @@ code {
 }
 
 .hero {
+  max-width: 80rem;
+  height: 31.8rem;
   background: url('./assets/hero.png');
-  /* background-repeat: no-repeat; */
   background-position: center;
   background-size: cover;
-  max-width: 1280px;
-  height: 31.8rem;
 }
