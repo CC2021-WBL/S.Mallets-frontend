@@ -35,10 +35,10 @@ const Nav = () => {
       </div>
       <section className="hidden sm:block">
         <div className="flex justify-end gap-8 p-4 pl-8 text-2xl">
-          <NavLink to="/login">
+          <NavLink to="/login" aria-label="login">
             <BiUser />
           </NavLink>
-          <NavLink to="/cart">
+          <NavLink to="/cart" aria-label="cart">
             <BsCart3 />
           </NavLink>
           <LanguageButtons
