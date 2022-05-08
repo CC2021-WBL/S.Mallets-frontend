@@ -1,4 +1,10 @@
+import ProductCard from '../ProductCard';
+
 const ProductSeriesPage = () => {
-  return <h1 className="p-8 text-center text-6xl">Product Series</h1>;
+  return (
+    <div className="mx-auto grid max-w-7xl items-center justify-start">
+      <ProductCard />
+    </div>
+  );
 };
 export default ProductSeriesPage;
