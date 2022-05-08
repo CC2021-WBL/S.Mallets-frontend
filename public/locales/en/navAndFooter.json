@@ -3,5 +3,7 @@
   "about": "about me",
   "service": "service",
   "contact": "contact",
+  "login": "log in",
+  "cart": "your cart",
   "contactData": "Contact data"
 }
