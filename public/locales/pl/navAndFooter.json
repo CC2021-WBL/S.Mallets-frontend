@@ -4,5 +4,6 @@
   "service": "serwis",
   "contact": "kontakt",
   "login": "zaloguj",
-  "cart": "twój koszyk"
+  "cart": "twój koszyk",
+  "contactData": "Dane kontaktowe"
 }

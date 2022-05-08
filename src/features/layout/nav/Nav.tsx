@@ -12,7 +12,7 @@ import logo from '../../../assets/s-logo.svg';
 import { navBurgerStyles, navStyles } from './navStyles';
 
 const Nav = () => {
-  const { t, i18n } = useTranslation('mainNav');
+  const { t, i18n } = useTranslation('navAndFooter');
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
@@ -23,10 +23,10 @@ const Nav = () => {
     setNav(!nav);
   };
   return (
-    <div className="flex justify-between items-center h-20 sm:h-36 md:h-44 max-w-7xl mx-auto sm:px-3 md:px-6 lg:px-8">
+    <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between sm:h-36 sm:px-3 md:h-44 md:px-6 lg:px-8">
       <div
         className={
-          !nav ? 'p-6 sm:p-3 lg:p-4 w-36 sm:w-48  md:w-64 lg:w-72' : 'hidden'
+          !nav ? 'w-36 p-6 sm:w-48 sm:p-3 md:w-64  lg:w-72 lg:p-4' : 'hidden'
         }
       >
         <NavLink to="/">
@@ -34,7 +34,7 @@ const Nav = () => {
         </NavLink>
       </div>
       <section className="hidden sm:block">
-        <div className="flex p-4 pl-8 gap-8 justify-end text-2xl">
+        <div className="flex justify-end gap-8 p-4 pl-8 text-2xl">
           <NavLink to="/login">
             <BiUser />
           </NavLink>
@@ -47,13 +47,13 @@ const Nav = () => {
             language={i18n.language}
           />
         </div>
-        <nav className="hidden sm:flex tracking-wider">
+        <nav className="hidden tracking-wider sm:flex">
           <NavBar t={t} className={navStyles} />
         </nav>
       </section>
       <div
         onClick={handleNav}
-        className="block sm:hidden cursor-pointer absolute right-7 top-7 z-10"
+        className="absolute right-7 top-7 z-10 block cursor-pointer sm:hidden"
         aria-hidden="true"
       >
         {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
@@ -61,25 +61,25 @@ const Nav = () => {
       <aside
         className={
           nav
-            ? 'menu fixed left-0 top-0 w-3/5 h-full border-r border-r-grey-900 ease-in-out duration-500 bg-white z-10'
+            ? 'menu border-r-grey-900 fixed left-0 top-0 z-10 h-full w-3/5 border-r bg-white duration-500 ease-in-out'
             : 'fixed left-[-100%]'
         }
       >
-        <header className="flex justify-between items-center pl-6">
+        <header className="flex items-center justify-between pl-6">
           <h1 className="text-2xl font-semibold tracking-wider">Menu</h1>
           <LanguageButtons
             changeLanguage={changeLanguage}
-            className="text-sm p-6"
+            className="p-6 text-sm"
             language={i18n.language}
           />
         </header>
 
-        <nav className="tracking-wider p-4 flex flex-col z-50">
+        <nav className="z-50 flex flex-col p-4 tracking-wider">
           <NavBar t={t} className={navBurgerStyles} handleNav={handleNav} />
         </nav>
         <section className="px-4">
           <NavLink
-            className="flex w-full p-2 px-4 gap-8 justify-between hover:underline"
+            className="flex w-full justify-between gap-8 p-2 px-4 hover:underline"
             to="/login"
             onClick={handleNav}
           >
@@ -87,7 +87,7 @@ const Nav = () => {
             <BiUser className="text-2xl" />
           </NavLink>
           <NavLink
-            className="flex w-full p-4 px-4 gap-8 justify-between border-b hover:underline"
+            className="flex w-full justify-between gap-8 border-b p-4 px-4 hover:underline"
             to="/cart"
             onClick={handleNav}
           >
