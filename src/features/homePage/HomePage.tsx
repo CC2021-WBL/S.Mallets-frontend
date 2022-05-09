@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import emailjs from '@emailjs/browser';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
 import group from '../../assets/groupLogo.png';
@@ -9,17 +10,10 @@ export const loginSchema = Yup.object().shape({
     .email('Wpisz poprawny adres email')
     .required('Adres email jest wymagany'),
   message: Yup.string()
-    .min(50, 'wiadomość musi mieć min. 50 znaków')
+    .min(50, 'Wiadomość musi mieć min. 50 znaków')
     .required('Wpisz wiadomość'),
 });
-// const CustomInputComponent = () => (
-// props: JSX.IntrinsicAttributes &
-//   ClassAttributes<HTMLInputElement> &
-//   InputHTMLAttributes<HTMLInputElement>: any
-// <input className="my-custom-input" type="text" {...props} />;
-// <textarea value={formik.values.message}
-// onChange={formik.handleChange}
-// onBlur={formik.handleBlur}/>)
+
 const HomePage = () => {
   return (
     <>
@@ -76,8 +70,27 @@ const HomePage = () => {
             message: '',
           }}
           validationSchema={loginSchema}
-          onSubmit={(values) => {
+          onSubmit={(
+            values,
+            //  e
+          ) => {
             alert(JSON.stringify(values, null, 2));
+            emailjs
+              .sendForm(
+                'service_ypr0zj8',
+                'template_z0d7tqj',
+                // e.target,
+
+                'user_pR6XzZUshqc9XuxuBLUzf',
+              )
+              .then(
+                (result) => {
+                  console.log(result.text);
+                },
+                (error) => {
+                  console.log(error.text);
+                },
+              );
           }}
         >
           <div className="h-fit-content  w-full lg:w-[50%] ">
@@ -95,7 +108,11 @@ const HomePage = () => {
                 placeholder="email"
                 className=" flex h-[60px]  bg-[#F0F0F0] pl-6 text-xs"
               />
-              <ErrorMessage component="a" name="email" />
+              <ErrorMessage
+                component="a"
+                name="email"
+                className="text-red-600"
+              />
 
               {/* <label htmlFor="message">Message</label> */}
               <Field
@@ -104,7 +121,11 @@ const HomePage = () => {
                 placeholder="wpisz wiadomość"
                 className="mt-[37px] h-56 bg-[#F0F0F0] pt-6 pl-6 text-xs"
               />
-              <ErrorMessage component="a" name="message" />
+              <ErrorMessage
+                component="a"
+                name="message"
+                className="text-red-600"
+              />
 
               <button
                 type="submit"
@@ -115,7 +136,7 @@ const HomePage = () => {
             </Form>
           </div>
         </Formik>
-        <div className="bbb hidden w-[50%] bg-right bg-no-repeat lg:block" />
+        <div className="bbb hidden w-[50%] lg:block lg:bg-bottom" />
       </div>
     </>
   );
