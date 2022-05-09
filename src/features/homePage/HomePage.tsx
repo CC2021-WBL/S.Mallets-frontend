@@ -2,15 +2,7 @@ const HomePage = () => {
   return (
     <>
       HomePage
-      <div
-        style={{
-          position: 'absolute',
-          left: '50%',
-          width: '100px', // this decides on svg with (and height respectively
-          outline: '.5px dotted grey',
-          margin: '0 auto',
-        }}
-      >
+      <div className="left-1/2 w-28 outline-dotted outline-2 outline-gray-700 my-0 mx-auto">
         <svg
           version="1.1"
           viewBox="0 0 110 110"
