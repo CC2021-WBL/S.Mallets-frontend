@@ -1,5 +1,3 @@
-// import { productObjectKS } from '../../assets/mockData/mockPoductData';
-
 interface productDataType {
   id: number;
   productName: string;
