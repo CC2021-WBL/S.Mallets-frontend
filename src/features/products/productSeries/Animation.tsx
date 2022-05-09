@@ -16,19 +16,17 @@ export default function Animation() {
 
   return (
     <div
-      className="hidden xl:flex flex-wrap w-80 place-items-center place-content-center rotate-[25deg] fixed top-[235.2px] right-[-89.6px] "
+      className="absolute -top-[185px] right-[152px] flex w-80 rotate-[25deg] flex-wrap place-content-center place-items-center   "
       onMouseMove={handleMouse}
     >
       <motion.img
         src={require('../../../assets/ellipse.png')}
         alt=""
         style={{
-          // width: '4.4rem',
-          // height: '4.4rem',
           rotateX: rotateX,
           rotateY: rotateY,
         }}
-        className="w-[4.4rem] h-[4.4rem]"
+        className="h-[4.4rem] w-[4.4rem]"
       />
       <motion.img
         src={require('../../../assets/ellipse.png')}
@@ -76,8 +74,6 @@ export default function Animation() {
         style={{
           width: '4.4rem',
           height: '4.4rem',
-          background: 'black',
-          borderRadius: '50%',
           rotateX: rotateX,
           rotateY: rotateY,
         }}
