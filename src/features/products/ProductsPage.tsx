@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import ProductCard from './ProductCard';
+import carpet from '../../assets/carpet.png';
 import { productObjectArrayMock } from '../../assets/mockData/mockPoductData';
 
 export const initialStateMock = [
@@ -45,17 +46,20 @@ const ProductsPage = () => {
 
   return (
     <>
+      {pending && <h1>Loading...</h1>}
       <div className="p-4 px-10">
         <h1 className="py-2 font-bold">{productObjectArray[0].seriesId}</h1>
         <h2>{productObjectArray[0].productDescription}</h2>
       </div>
-      {pending ? (
-        <h1>loading...</h1>
-      ) : (
+      <img
+        src={carpet}
+        alt="logo carpet"
+        className="top-50 absolute right-0 z-[1] hidden lg:block"
+      />
+      {!pending &&
         productObjectArray.map((object, index) => (
           <ProductCard productObject={object} key={index} />
-        ))
-      )}
+        ))}
     </>
   );
 };

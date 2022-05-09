@@ -13,7 +13,7 @@ interface productDataType {
 
 const ProductCard = (prop: { productObject: productDataType }) => {
   return (
-    <div className="w-screen">
+    <div className="relative z-10 w-screen">
       <div
         className="flex w-full max-w-[810px] grow
      flex-col justify-between p-6 sm:h-fit sm:w-full sm:p-6 md:flex-row md:p-10"
