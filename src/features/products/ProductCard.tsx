@@ -33,7 +33,7 @@ const ProductCard = (prop: { productObject: productDataType }) => {
           <div className="md:w-64">
             <img
               src={prop.productObject.productImage}
-              alt="Red dot"
+              alt={prop.productObject.altText}
               className="mb-3 h-36 w-full cursor-pointer shadow-none transition-shadow duration-300 ease-in-out 
           hover:shadow-xl md:mb-0 md:h-full md:w-full"
               onClick={handleDetailsModal}
