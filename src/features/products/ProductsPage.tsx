@@ -1,34 +1,58 @@
+import { useEffect, useState } from 'react';
+
 import ProductCard from './ProductCard';
+import { productObjectArrayMock } from '../../assets/mockData/mockPoductData';
+
+export const initialStateMock = [
+  {
+    id: 0,
+    productName: '',
+    productDescription: '',
+    headDiameter: 0,
+    stickLength: 0,
+    weight: 0,
+    price: 0,
+    productImage: ``,
+    altText: '',
+    seriesId: '',
+  },
+];
 
 const ProductsPage = () => {
-  // const [imgUrl, setImgUrl] = useState<any | null>(null);
+  const [pending, setIsPending] = useState(true);
+  const [productObjectArray, setProductObjectArray] =
+    useState(initialStateMock);
 
-  // useEffect(() => {
-  //   const getImg = async () => {
-  //     try {
-  //       const response = await fetch(prop.serviceObject.image);
-  //       if (!response.ok) {
-  //         throw new Error();
-  //       } else {
-  //         const imageBlob = await response.blob();
-  //         const reader = new FileReader();
-  //         reader.readAsDataURL(imageBlob);
-  //         reader.onloadend = () => {
-  //           const base64data = reader.result;
-  //           setImgUrl(base64data);
-  //         };
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   getImg();
-  // }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      const getProductObjectArray = async () => {
+        try {
+          // const response = await fetch();
+          const response = productObjectArrayMock;
+          if (!response) {
+            throw new Error();
+          } else {
+            setProductObjectArray(response);
+          }
+        } catch (error) {
+          console.log(error);
+        }
+        setIsPending(false);
+      };
+      getProductObjectArray();
+    }, 1000);
+  }, []);
 
   return (
-    <div className="container mx-auto grid h-[80vh] max-w-[1240px] items-center justify-start">
-      <ProductCard />
-    </div>
+    <>
+      {pending ? (
+        <h1>loading...</h1>
+      ) : (
+        productObjectArray.map((object, index) => (
+          <ProductCard productObject={object} key={index} />
+        ))
+      )}
+    </>
   );
 };
 
