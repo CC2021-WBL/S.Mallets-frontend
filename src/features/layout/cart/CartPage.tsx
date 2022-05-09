@@ -1,69 +1,45 @@
+import inputStyle from './inputStyle';
+
+inputStyle;
 const CartPage = () => {
-  const dumStyle = {
-    border: '2px dotted grey',
-  };
-  const inputStyle = {
-    height: '4rem',
-    borderBottom: '1px solid black',
-    background: '#EDEDED',
-    width: '25rem',
-    marginBottom: '22px',
-    padding: '1rem',
-  };
   return (
     <>
       <div>CartPage</div>
-      <div
-        style={{
-          width: 'auto',
-          marginTop: '2rem',
-          marginLeft: '2rem',
-          ...dumStyle,
-        }}
-      >
+      <div className="w-auto mx-8 my-8">
         Strona główna {'>'} Koszyk {'>'}
         <b> Zarejestruj się</b>
       </div>
       <form>
-        <div
-          className="inputFormsWrapper"
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            marginLeft: '2rem',
-            marginTop: '2rem',
-            ...dumStyle,
-          }}
-        >
+        <div className="flex flex-col mx-8 my-4">
           <label>
             <input
               type="text"
               placeholder="Imię"
-              style={{ ...inputStyle }}
+              className={inputStyle}
             ></input>
           </label>
           <label>
             <input
               type="text"
               placeholder="Nazwisko"
-              style={{ ...inputStyle }}
+              className={inputStyle}
             ></input>
           </label>
           <label>
             <input
               type="text"
               placeholder="Adres Email"
-              style={{ ...inputStyle }}
+              className={inputStyle}
             ></input>
           </label>
           <label>
             <input
               type="text"
               placeholder="Hasło"
-              style={{ ...inputStyle }}
+              className={inputStyle}
             ></input>
           </label>
-          <button className="bg-black hover:bg-red text-white font-bold h-16 w-96">
+          <button className="bg-black bg hover:bg-slate-800 text-white font-bold h-16 w-96 p-">
             ZAREJESTRUJ SIĘ
           </button>
         </div>
