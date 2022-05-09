@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import Backdrop from '../layout/nav/Backdrop';
 
@@ -16,6 +17,8 @@ interface productDataType {
 }
 
 const ProductCard = (prop: { productObject: productDataType }) => {
+  const { t } = useTranslation('productCard');
+
   const [detailsModal, setDetailsModal] = useState(false);
   const handleDetailsModal = () => {
     setDetailsModal(!detailsModal);
@@ -41,7 +44,7 @@ const ProductCard = (prop: { productObject: productDataType }) => {
             <div className="flex h-10 items-center justify-between text-xl font-bold leading-6">
               <h3 className="model">{prop.productObject.productName}</h3>
               <div className="price h-full rounded-md border border-black p-2 text-center">
-                {prop.productObject.price} € / para
+                {prop.productObject.price} € / {t('pair')}
               </div>
             </div>
             <p className="text-lg sm:pr-20 sm:text-xl">
@@ -50,17 +53,17 @@ const ProductCard = (prop: { productObject: productDataType }) => {
             <div className="flex h-fit flex-col sm:h-12 sm:flex-row sm:justify-between">
               <div>
                 <p className="py-1 text-sm sm:py-0 sm:text-base">
-                  Head Diameter: {prop.productObject.headDiameter} mm Ø
+                  {t('headDiameter')}: {prop.productObject.headDiameter} mm Ø
                 </p>
                 <p className="text-sm sm:py-0 sm:text-base">
-                  Stick length: {prop.productObject.stickLength} cm
+                  {t('stickLength')}: {prop.productObject.stickLength} cm
                 </p>
               </div>
               <button
                 className="mt-10 h-12 w-56 rounded-md bg-[#232323] px-6 font-bold uppercase text-white shadow-none transition-shadow duration-300 
           ease-in-out hover:shadow-xl sm:mt-0"
               >
-                Dodaj do koszyka
+                {t('addToCart')}
               </button>
             </div>
           </div>
