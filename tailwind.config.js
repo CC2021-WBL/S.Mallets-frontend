@@ -3,13 +3,15 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        path1dance: 'path1dance 1.5s linear alternate 0s infinite',
-        path2dance: 'path2dance 1.5s linear alternate 0s infinite',
-        path3dance: 'path3dance 1.5s linear alternate 0s infinite',
-        path4dance: 'path4dance 1.5s linear alternate 0s infinite',
+        path1dance: 'dance1 1.5s linear alternate 0s infinite',
+        path2dance: 'dance2 1.5s linear alternate 0s infinite',
+        path3dance: 'dance3 1.5s linear alternate 0s infinite',
+        path4dance: 'dance4 1.5s linear alternate 0s infinite',
+        path5dance: 'dance3 2s linear alternate 0s infinite',
+        path6dance: 'dance3 2s linear alternate 0s infinite',
       },
       keyframes: {
-        path1dance: {
+        dance1: {
           '0%': {
             strokeDashoffset: '201.4988250732422px',
             strokeDasharray: '201.4988250732422px',
@@ -25,7 +27,7 @@ module.exports = {
             stroke: '#ccc',
           },
         },
-        path2dance: {
+        dance2: {
           '0%': {
             strokeDashoffset: '201.3398895263672px',
             strokeDasharray: '201.3398895263672px',
@@ -41,11 +43,10 @@ module.exports = {
             stroke: '#ccc',
           },
         },
-        path3dance: {
+        dance3: {
           '0%': {
             strokeDashoffset: '201.4988250732422px',
             strokeDasharray: '201.4988250732422px',
-            // transform: 'rotateY(0deg)',
             stroke: '#000',
           },
           '70%, 100%': {
@@ -53,15 +54,13 @@ module.exports = {
             strokeDasharray: '201.4988250732422px',
           },
           '100%': {
-            // transform: 'rotateY(360deg)',
             stroke: '#ccc',
           },
         },
-        path4dance: {
+        dance4: {
           '0%': {
             strokeDashoffset: '201.3398895263672px',
             strokeDasharray: '201.3398895263672px',
-            // transform: 'rotateY(0deg)',
             stroke: '#000',
           },
           '20%, 100%': {
@@ -69,7 +68,6 @@ module.exports = {
             strokeDasharray: '201.4988250732422px',
           },
           '100%': {
-            // transform: 'rotateY(360deg)',
             stroke: '#ccc',
           },
         },
