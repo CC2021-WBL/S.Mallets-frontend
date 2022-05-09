@@ -8,7 +8,7 @@ const Layout = () => {
     <>
       <div className="flex flex-col">
         <Nav />
-        <main className="mx-auto max-w-7xl grow">
+        <main className="mx-auto min-h-[calc(100vh-428px)] max-w-7xl">
           <Outlet />
         </main>
         <Footer />

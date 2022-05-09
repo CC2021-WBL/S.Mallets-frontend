@@ -5,22 +5,22 @@ const ProductCard = () => {
   return (
     <>
       <div
-        className="flex max-w-[810px] grow
-     flex-col justify-between p-6 sm:h-56 sm:flex-row sm:p-3"
+        className="flex w-full max-w-[810px] grow
+     flex-col justify-between p-6 sm:h-fit sm:w-full sm:p-6 md:flex-row md:p-10"
       >
-        <div className="md:h-48 md:w-48">
+        <div className=" md:w-64">
           <img
             src={mockImg}
             alt="Red dot"
-            className="sm:mb:0 mb-3 h-32 w-32 rounded-full shadow-none transition-shadow duration-300 
-          ease-in-out hover:shadow-xl  sm:h-48 sm:w-48"
+            className="mb-3 h-36 w-full shadow-none transition-shadow duration-300 ease-in-out hover:shadow-xl 
+          md:mb-0 md:h-full md:w-full"
           />
         </div>
-        <div className="card-data flex flex-col gap-5 sm:pl-4">
+        <div className="card-data flex w-full flex-col justify-between gap-5 md:pl-4">
           <div className="flex h-10 items-center justify-between text-xl font-bold leading-6">
             <h3 className="model">Model KH</h3>
-            <div className="price h-full w-32 rounded-md border border-black p-2 text-center">
-              cena: 75 €
+            <div className="price h-full rounded-md border border-black p-2 text-center">
+              75 € / para
             </div>
           </div>
           <p className="text-lg sm:pr-20 sm:text-xl">
@@ -32,7 +32,7 @@ const ProductCard = () => {
                 Head Diameter: 30 mm Ø
               </p>
               <p className="text-sm sm:py-0 sm:text-base">
-                Stick length: 75 mm
+                Stick length: 37,5 cm
               </p>
             </div>
             <button
