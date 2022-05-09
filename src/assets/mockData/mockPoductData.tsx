@@ -12,7 +12,7 @@ export const productObjectArrayMock = [
     price: 75,
     productImage: `${mockImg}`,
     altText: 'single mallet',
-    seriesId: 'Beethoven',
+    seriesId: 'Beethoven Series',
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ export const productObjectArrayMock = [
     price: 70,
     productImage: `${mockImg}`,
     altText: 'single mallet',
-    seriesId: 'Beethoven',
+    seriesId: 'Beethoven Series',
   },
   {
     id: 3,
@@ -37,6 +37,6 @@ export const productObjectArrayMock = [
     price: 69,
     productImage: `${mockImg}`,
     altText: 'single mallet',
-    seriesId: 'Beethoven',
+    seriesId: 'Beethoven Series',
   },
 ];
