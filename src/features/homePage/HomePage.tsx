@@ -1,12 +1,19 @@
+/* eslint-disable import/named */
+
 import * as Yup from 'yup';
-import { ErrorMessage, Field, Form, Formik } from 'formik';
+import emailjs from '@emailjs/browser';
+import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
 import { useTranslation } from 'react-i18next';
 
 import group from '../../assets/groupLogo.png';
 import { mock } from '../products/productSeries/mockSeries';
 
+interface IFormValues {
+  email: string;
+  message: string;
+}
 const HomePage = () => {
-  const { t } = useTranslation('home');
+  const { t, i18n } = useTranslation('home');
   const contactSchema = Yup.object().shape({
     email: Yup.string().email(t('emailError')).required(t('emailError2')),
     message: Yup.string().min(50, t('message')).required(t('message2')),
@@ -48,7 +55,12 @@ const HomePage = () => {
             >
               <img
                 src={index.productImage}
-                alt={index.altText}
+                alt={
+                  // index.altText
+                  i18n.language === 'en' ? index.altText.en : index.altText.pl
+
+                  // index.altText[i18n.language]
+                }
                 className="mb-20 h-52 w-52 rounded-full"
               />
               <h3 className="text-xl font-bold">{index.seriesName}</h3>
@@ -63,8 +75,31 @@ const HomePage = () => {
             message: '',
           }}
           validationSchema={contactSchema}
-          onSubmit={(values) => {
-            alert(JSON.stringify(values, null, 2));
+          onSubmit={(
+            values: IFormValues,
+            actions: FormikHelpers<IFormValues>,
+          ) => {
+            actions.setSubmitting(true);
+
+            emailjs
+              .send(
+                'service_ypr0zj8',
+                'template_z0d7tqj',
+                {
+                  email: values.email,
+                  message: values.message,
+                },
+                'user_pR6XzZUshqc9XuxuBLUzf',
+              )
+              .then(
+                () => {
+                  actions.setSubmitting(false);
+                  actions.resetForm();
+                },
+                () => {
+                  actions.setSubmitting(false);
+                },
+              );
           }}
         >
           <div className="h-fit-content  w-full lg:w-[50%] ">
