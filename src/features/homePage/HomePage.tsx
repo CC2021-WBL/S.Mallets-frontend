@@ -1,19 +1,16 @@
 import * as Yup from 'yup';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { useTranslation } from 'react-i18next';
 
 import group from '../../assets/groupLogo.png';
 import { mock } from '../products/productSeries/mockSeries';
 
-export const loginSchema = Yup.object().shape({
-  email: Yup.string()
-    .email('Wpisz poprawny adres email')
-    .required('Adres email jest wymagany'),
-  message: Yup.string()
-    .min(50, 'Wiadomość musi mieć min. 50 znaków')
-    .required('Wpisz wiadomość'),
-});
-
 const HomePage = () => {
+  const { t } = useTranslation('home');
+  const contactSchema = Yup.object().shape({
+    email: Yup.string().email(t('emailError')).required(t('emailError2')),
+    message: Yup.string().min(50, t('message')).required(t('message2')),
+  });
   return (
     <>
       <div className="hero relative mx-auto  mb-[15.6rem] flex max-w-7xl flex-col items-end bg-no-repeat pr-8 text-right text-white">
@@ -24,10 +21,7 @@ const HomePage = () => {
 
         <div className="absolute inset-x-0 -bottom-40 mx-auto flex h-60 max-w-[80%] justify-center rounded-lg bg-[#EDEDED] pt-10 pl-6 text-left text-black sm:justify-start sm:pl-[4.4rem] lg:max-w-[58.7rem]">
           <blockquote>
-            <p className="mb-5 max-w-[17rem]">
-              “To są zajebiste pałeczki. Nie chcę już żadnych innych. Mój
-              dyrygent jest wreszcie zadowolony, tylko Smallets!”
-            </p>
+            <p className="mb-5 max-w-[17rem]">{t('opinion')}</p>
             <p className="font-bold">Klemens Wariat</p>
           </blockquote>
         </div>
@@ -41,7 +35,7 @@ const HomePage = () => {
       </div>
 
       <div>
-        <h2 className="ml-6 text-2xl">Odkryj produkty</h2>
+        <h2 className="ml-6 text-2xl">{t('subtitle')}</h2>
       </div>
       <div className=" relative mb-[100px] flex max-w-7xl flex-wrap justify-center">
         {mock
@@ -68,27 +62,22 @@ const HomePage = () => {
             email: '',
             message: '',
           }}
-          validationSchema={loginSchema}
-          onSubmit={(
-            values,
-            //  e
-          ) => {
+          validationSchema={contactSchema}
+          onSubmit={(values) => {
             alert(JSON.stringify(values, null, 2));
           }}
         >
           <div className="h-fit-content  w-full lg:w-[50%] ">
             {/* <p className=""> */}
-            <h2 className="pb-[30px] text-[25px]">Chcesz wiedzieć więcej?</h2>
-            <h3 className="pb-[30px]">
-              Skontaktuj się ze mną za pomocą formularza kontaktowego:
-            </h3>
+            <h2 className="pb-[30px] text-[25px]">{t('more')}</h2>
+            <h3 className="pb-[30px]">{t('contactForm')}</h3>
             {/* </p> */}
             <Form className="flex flex-col">
               {/* <label htmlFor="Email">Email</label> */}
               <Field
                 id="email"
                 name="email"
-                placeholder="email"
+                placeholder="Email"
                 className=" flex h-[60px]  bg-[#F0F0F0] pl-6 text-xs"
               />
               <ErrorMessage
@@ -101,9 +90,15 @@ const HomePage = () => {
               <Field
                 name="message"
                 component="textarea"
-                placeholder="wpisz wiadomość"
+                placeholder={`${t('message2')}`}
                 className="mt-[37px] h-56 bg-[#F0F0F0] pt-6 pl-6 text-xs"
               />
+              {/* //padding wszędzie
+             //kółko na prawo
+             //paddingi na szarym
+             //mobilki gap pomiędzy caradami
+             //marginy na contact
+             */}
               <ErrorMessage
                 component="a"
                 name="message"
@@ -114,7 +109,7 @@ const HomePage = () => {
                 type="submit"
                 className="mt-6 h-20 w-full bg-black text-white"
               >
-                WYŚLIJ WIADOMOŚĆ
+                {t('send')}
               </button>
             </Form>
           </div>
