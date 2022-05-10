@@ -22,7 +22,7 @@ const HomePage = () => {
     <>
       <div className="hero relative mx-auto  mb-[15.6rem] flex max-w-7xl flex-col items-end bg-no-repeat pr-8 text-right text-white">
         <p className="mb-2.5 mt-16">S.MALLETS</p>
-        <h1 className="max-w-sm text-6xl font-bold leading-[4.8rem]">
+        <h1 className="max-w-sm text-5xl font-bold leading-[4.8rem]">
           Premium quality / fair price
         </h1>
 
@@ -44,7 +44,7 @@ const HomePage = () => {
       <div>
         <h2 className="ml-6 mb-9 text-2xl sm:mb-0">{t('subtitle')}</h2>
       </div>
-      <div className=" relative mb-[100px] flex max-w-7xl flex-wrap justify-center">
+      <div className=" relative mb-[6.3rem] flex max-w-7xl flex-wrap justify-center">
         {mock
           .sort(() => 0.5 - Math.random())
           .slice(0, 6)
@@ -68,7 +68,7 @@ const HomePage = () => {
           ))}
       </div>
 
-      <div className=" mx-6 mb-[50px] flex max-w-7xl justify-between sm:px-3 md:px-6 lg:px-8">
+      <div className=" mx-6 mb-[3.1rem] flex max-w-7xl justify-between sm:px-3 md:px-6 lg:px-8">
         <Formik
           initialValues={{
             email: '',
@@ -111,7 +111,7 @@ const HomePage = () => {
                 id="email"
                 name="email"
                 placeholder="Email"
-                className=" flex h-[3.75rem]  bg-[#F0F0F0] p-6 text-xs"
+                className=" flex h-[3.75rem]  bg-[#F0F0F0] p-6 "
               />
               <ErrorMessage
                 component="a"
@@ -123,7 +123,7 @@ const HomePage = () => {
                 name="message"
                 component="textarea"
                 placeholder={`${t('message2')}`}
-                className="mt-9 h-56 bg-[#F0F0F0] p-6 text-xs"
+                className="mt-9 h-56 bg-[#F0F0F0] p-6 "
               />
 
               <ErrorMessage
