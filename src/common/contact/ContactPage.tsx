@@ -1,5 +1,5 @@
 const ContactPage = () => {
-  return <div>ContactPage</div>;
+  return <h1 className="text-6xl p-8 text-center">Contact Us</h1>;
 };
 
 export default ContactPage;

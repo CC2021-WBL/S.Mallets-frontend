@@ -3,6 +3,7 @@
   "about": "o mnie",
   "service": "serwis",
   "contact": "kontakt",
-  "contactData": "Dane kontaktowe",
-  "admin": "Admin"
+  "login": "zaloguj",
+  "cart": "twój koszyk",
+  "contactData": "Dane kontaktowe"
 }
