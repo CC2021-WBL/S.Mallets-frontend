@@ -19,7 +19,7 @@ const HomePage = () => {
           Premium quality / fair price
         </h1>
 
-        <div className="absolute inset-x-0 -bottom-40 mx-auto flex h-60 max-w-[80%] justify-center rounded-lg bg-[#EDEDED] pt-10 pl-6 text-left text-black sm:justify-start sm:pl-[4.4rem] lg:max-w-[58.7rem]">
+        <div className="absolute inset-x-0 -bottom-40 mx-auto flex h-60 max-w-[80%] justify-center rounded-lg bg-[#EDEDED] p-10 text-left text-black sm:justify-start sm:pl-[4.4rem] lg:max-w-[58.7rem]">
           <blockquote>
             <p className="mb-5 max-w-[17rem]">{t('opinion')}</p>
             <p className="font-bold">Klemens Wariat</p>
@@ -35,16 +35,16 @@ const HomePage = () => {
       </div>
 
       <div>
-        <h2 className="ml-6 text-2xl">{t('subtitle')}</h2>
+        <h2 className="ml-6 mb-9 text-2xl sm:mb-0">{t('subtitle')}</h2>
       </div>
       <div className=" relative mb-[100px] flex max-w-7xl flex-wrap justify-center">
         {mock
-          // .sort(() => 0.5 - Math.random())
-          // .slice(0, 6)
+          .sort(() => 0.5 - Math.random())
+          .slice(0, 6)
           .map((index) => (
             <div
               key={index.id}
-              className="flex h-[27.8rem] w-[21.8rem] flex-col items-center py-9"
+              className="flex h-[27.8rem] w-[21.8rem] flex-col items-center py-0 sm:py-9"
             >
               <img
                 src={index.productImage}
@@ -56,7 +56,7 @@ const HomePage = () => {
           ))}
       </div>
 
-      <div className="mx-4 mb-[50px] flex max-w-7xl justify-between">
+      <div className=" mx-6 mb-[50px] flex max-w-7xl justify-between sm:px-3 md:px-6 lg:px-8">
         <Formik
           initialValues={{
             email: '',
@@ -68,17 +68,15 @@ const HomePage = () => {
           }}
         >
           <div className="h-fit-content  w-full lg:w-[50%] ">
-            {/* <p className=""> */}
-            <h2 className="pb-[30px] text-[25px]">{t('more')}</h2>
-            <h3 className="pb-[30px]">{t('contactForm')}</h3>
-            {/* </p> */}
+            <h2 className="pb-7 text-2xl">{t('more')}</h2>
+            <h3 className="pb-7">{t('contactForm')}</h3>
+
             <Form className="flex flex-col">
-              {/* <label htmlFor="Email">Email</label> */}
               <Field
                 id="email"
                 name="email"
                 placeholder="Email"
-                className=" flex h-[60px]  bg-[#F0F0F0] pl-6 text-xs"
+                className=" flex h-[3.75rem]  bg-[#F0F0F0] p-6 text-xs"
               />
               <ErrorMessage
                 component="a"
@@ -86,19 +84,13 @@ const HomePage = () => {
                 className="mt-3 text-red-600"
               />
 
-              {/* <label htmlFor="message">Message</label> */}
               <Field
                 name="message"
                 component="textarea"
                 placeholder={`${t('message2')}`}
-                className="mt-[37px] h-56 bg-[#F0F0F0] pt-6 pl-6 text-xs"
+                className="mt-9 h-56 bg-[#F0F0F0] p-6 text-xs"
               />
-              {/* //padding wszędzie
-             //kółko na prawo
-             //paddingi na szarym
-             //mobilki gap pomiędzy caradami
-             //marginy na contact
-             */}
+
               <ErrorMessage
                 component="a"
                 name="message"
@@ -114,7 +106,7 @@ const HomePage = () => {
             </Form>
           </div>
         </Formik>
-        <div className="bbb hidden w-[50%] lg:block lg:bg-bottom" />
+        <div className="circle hidden w-[50%] lg:block" />
       </div>
     </>
   );

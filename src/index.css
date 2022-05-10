@@ -23,8 +23,8 @@ code {
   background-size: cover;
 }
 
-.bbb {
+.circle {
   background: url('./assets/sticks.png');
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: bottom right;
 }
