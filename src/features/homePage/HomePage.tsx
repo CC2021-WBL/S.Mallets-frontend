@@ -106,7 +106,7 @@ const HomePage = () => {
             </Form>
           </div>
         </Formik>
-        <div className="circle hidden w-[50%] lg:block" />
+        <div className="circle hidden w-[50%] lg2:block" />
       </div>
     </>
   );
