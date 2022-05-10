@@ -5,12 +5,12 @@ const CartPage = () => {
   return (
     <>
       <div>CartPage</div>
-      <div className="w-auto mx-8 my-8">
+      <div className="mx-8 my-8 w-auto">
         Strona główna {'>'} Koszyk {'>'}
         <b> Zarejestruj się</b>
       </div>
       <form>
-        <div className="flex flex-col mx-8 my-4">
+        <div className="mx-8 my-4 flex flex-col">
           <label>
             <input
               type="text"
@@ -39,7 +39,7 @@ const CartPage = () => {
               className={inputStyle}
             ></input>
           </label>
-          <button className="bg-black bg hover:bg-slate-800 text-white font-bold h-16 w-96 p-">
+          <button className="bg p- h-16 w-96 bg-black font-bold text-white hover:bg-slate-800">
             ZAREJESTRUJ SIĘ
           </button>
         </div>
