@@ -2,35 +2,17 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Backdrop from '../layout/nav/Backdrop';
+import { productDataType } from './productTypes';
 
-interface productDataType {
-  id: number;
-  productName: string;
-  productDescription: productDescriptionType;
-  headDiameter: number;
-  stickLength: number;
-  weight: number;
-  price: number;
-  productImage: string;
-  altText: string;
-  seriesId: string;
-}
-
-interface productDescriptionType {
-  pl: string;
-  en: string;
-}
-
-const ProductCard = (prop: {
-  productObject: productDataType;
-  language?: string;
-}) => {
-  const { t } = useTranslation('productCard');
+const ProductCard = (prop: { productObject: productDataType }) => {
+  const { t, i18n } = useTranslation('productCard');
 
   const [detailsModal, setDetailsModal] = useState(false);
   const handleDetailsModal = () => {
     setDetailsModal(!detailsModal);
   };
+
+  const product = prop.productObject;
 
   return (
     <>
@@ -41,8 +23,10 @@ const ProductCard = (prop: {
         >
           <div className="flex justify-center sm:h-64 sm:justify-between md:h-fit md:w-64">
             <img
-              src={prop.productObject.productImage}
-              alt={prop.productObject.altText}
+              src={product.productImage}
+              alt={
+                i18n.language === 'en' ? product.altText.en : product.altText.pl
+              }
               className="h-36 w-36 max-w-[192px] cursor-pointer rounded-full shadow-none transition-shadow duration-300 ease-in-out hover:shadow-xl 
           sm:h-48 sm:w-48 md:mb-0 md:h-full md:w-full"
               onClick={handleDetailsModal}
@@ -51,25 +35,23 @@ const ProductCard = (prop: {
           </div>
           <div className="card-data flex flex-col items-center gap-5 sm:items-end md:w-full md:items-stretch md:justify-between md:pl-4">
             <div className="flex h-10 items-center justify-between gap-20 text-xl font-bold leading-6 sm:flex-col sm:items-end sm:justify-center sm:gap-2 md:flex-row md:items-center md:justify-between">
-              <h3 className="model sm:pt-8 md:pt-0">
-                {prop.productObject.productName}
-              </h3>
+              <h3 className="model sm:pt-8 md:pt-0">{product.productName}</h3>
               <div className="price h-full rounded-md border border-black p-2 text-center">
-                {prop.productObject.price} € / {t('pair')}
+                {product.price} € / {t('pair')}
               </div>
             </div>
             <p className="text-center text-lg sm:pt-8 sm:text-right sm:text-xl md:pt-0">
-              {prop.language === 'en'
-                ? prop.productObject.productDescription.en
-                : prop.productObject.productDescription.pl}
+              {i18n.language === 'en'
+                ? product.productDescription.en
+                : product.productDescription.pl}
             </p>
             <div className="flex h-fit flex-col items-center sm:items-stretch sm:justify-between md:h-12 md:flex-row">
               <div className="text-center text-sm sm:text-right sm:text-base md:text-left">
                 <p className="py-1 sm:py-0">
-                  {t('headDiameter')}: {prop.productObject.headDiameter} mm Ø
+                  {t('headDiameter')}: {product.headDiameter} mm Ø
                 </p>
                 <p className="sm:pb-8 md:py-0">
-                  {t('stickLength')}: {prop.productObject.stickLength} cm
+                  {t('stickLength')}: {product.stickLength} cm
                 </p>
               </div>
               <button

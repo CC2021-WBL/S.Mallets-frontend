@@ -14,8 +14,8 @@ export const productObjectArrayMock = [
     weight: 34,
     price: 75,
     productImage: `${mockImg}`,
-    altText: 'single mallet',
-    seriesId: 'Beethoven Series',
+    altText: { en: 'single mallet', pl: 'pojedyncza pałka' },
+    seriesId: 1,
   },
   {
     id: 2,
@@ -29,8 +29,8 @@ export const productObjectArrayMock = [
     weight: 32,
     price: 70,
     productImage: `${mockImg}`,
-    altText: 'single mallet',
-    seriesId: 'Beethoven Series',
+    altText: { en: 'single mallet', pl: 'pojedyncza pałka' },
+    seriesId: 1,
   },
   {
     id: 3,
@@ -44,7 +44,21 @@ export const productObjectArrayMock = [
     weight: 32,
     price: 69,
     productImage: `${mockImg}`,
-    altText: 'single mallet',
-    seriesId: 'Beethoven Series',
+    altText: { en: 'single mallet', pl: 'pojedyncza pałka' },
+    seriesId: 1,
   },
 ];
+
+export const seriesMock = {
+  seriesId: 1,
+  seriesName: 'Beethoven series',
+  seriesDescription: {
+    pl: 'Korkowy lub drewniany rdzeń, kilka warstw materiału, wysokiej jakości niemiecki filc.',
+    en: 'Cork or wooden core, textile and multilayers of high quality felt.',
+  },
+  seriesAltText: {
+    pl: 'przykład beethoven series',
+    en: 'beethoven series example',
+  },
+  products: productObjectArrayMock,
+};

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import ProductCard from './ProductCard';
 import carpet from '../../assets/carpet.png';
-import { productObjectArrayMock } from '../../assets/mockData/mockPoductData';
+import { seriesMock } from '../../assets/mockData/mockPoductData';
 
 export const initialStateMock = [
   {
@@ -18,8 +18,11 @@ export const initialStateMock = [
     weight: 0,
     price: 0,
     productImage: ``,
-    altText: '',
-    seriesId: '',
+    altText: {
+      en: '',
+      pl: '',
+    },
+    seriesId: 0,
   },
 ];
 
@@ -31,34 +34,33 @@ const ProductsPage = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      const getProductObjectArray = async () => {
+      const getSeriesObject = async () => {
         try {
           // const response = await fetch();
-          const response = productObjectArrayMock;
-          console.log(response);
+          const response = seriesMock;
           if (!response) {
             throw new Error();
           } else {
-            setProductObjectArray(productObjectArrayMock);
+            setProductObjectArray(seriesMock.products);
           }
         } catch (error) {
           console.log(error);
         }
         setIsPending(false);
       };
-      getProductObjectArray();
+      getSeriesObject();
     }, 1000);
   }, []);
 
+  const seriesLang = seriesMock.seriesDescription;
+
   return (
     <>
-      {pending && <h1>Loading...</h1>}
+      {pending && <h1 className="text-center">Loading...</h1>}
       <div className="py-4 px-12">
-        <h1 className="py-2 font-bold">{productObjectArray[0].seriesId}</h1>
-        <h2>
-          {i18n.language === 'en'
-            ? productObjectArray[0].productDescription.en
-            : productObjectArray[0].productDescription.pl}
+        <h1 className="py-2 text-2xl font-bold">{seriesMock.seriesName}</h1>
+        <h2 className="max-w-3xl py-2 text-xl">
+          {i18n.language === 'en' ? seriesLang.en : seriesLang.pl}
         </h2>
       </div>
       <img
@@ -68,11 +70,7 @@ const ProductsPage = () => {
       />
       {!pending &&
         productObjectArray.map((object, index) => (
-          <ProductCard
-            productObject={object}
-            key={index}
-            language={i18n.language}
-          />
+          <ProductCard productObject={object} key={index} />
         ))}
     </>
   );
