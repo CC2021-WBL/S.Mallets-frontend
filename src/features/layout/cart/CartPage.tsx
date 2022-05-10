@@ -1,6 +1,3 @@
-import inputStyle from './inputStyle';
-
-inputStyle;
 const CartPage = () => {
   return (
     <>
@@ -10,38 +7,20 @@ const CartPage = () => {
         <b> Zarejestruj się</b>
       </div>
       <form>
-        <div className="mx-8 my-4 flex flex-col">
-          <label>
-            <input
-              type="text"
-              placeholder="Imię"
-              className={inputStyle}
-            ></input>
-          </label>
-          <label>
-            <input
-              type="text"
-              placeholder="Nazwisko"
-              className={inputStyle}
-            ></input>
-          </label>
-          <label>
-            <input
-              type="text"
-              placeholder="Adres Email"
-              className={inputStyle}
-            ></input>
-          </label>
-          <label>
-            <input
-              type="text"
-              placeholder="Hasło"
-              className={inputStyle}
-            ></input>
-          </label>
-          <button className="bg p- h-16 w-96 bg-black font-bold text-white hover:bg-slate-800">
-            ZAREJESTRUJ SIĘ
-          </button>
+        <div className="form-wrapper m-[1rem_2rem_4rem_2rem] flex flex-col">
+          <input type="text" placeholder="Imię" className="form-input"></input>
+          <input
+            type="text"
+            placeholder="Nazwisko"
+            className="form-input"
+          ></input>
+          <input
+            type="text"
+            placeholder="Adres Email"
+            className="form-input"
+          ></input>
+          <input type="text" placeholder="Hasło" className="form-input"></input>
+          <button className="btn-primary">ZAREJESTRUJ SIĘ</button>
         </div>
       </form>
     </>

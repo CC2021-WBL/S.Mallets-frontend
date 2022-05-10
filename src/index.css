@@ -14,3 +14,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@layer components {
+  .btn-primary {
+    @apply h-16 w-96 bg-[#232323] font-bold text-white hover:bg-slate-800;
+  }
+  .form-input {
+    @apply mb-12 h-16 w-96 border-b border-black bg-[#ededed] p-4;
+  }
+}
