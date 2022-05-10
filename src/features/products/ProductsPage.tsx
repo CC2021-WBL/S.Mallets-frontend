@@ -47,7 +47,7 @@ const ProductsPage = () => {
   return (
     <>
       {pending && <h1>Loading...</h1>}
-      <div className="p-4 px-10">
+      <div className="py-4 px-12">
         <h1 className="py-2 font-bold">{productObjectArray[0].seriesId}</h1>
         <h2>{productObjectArray[0].productDescription}</h2>
       </div>
