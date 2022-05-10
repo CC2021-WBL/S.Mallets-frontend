@@ -1,5 +1,4 @@
 import * as Yup from 'yup';
-import emailjs from '@emailjs/browser';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 
 import group from '../../assets/groupLogo.png';
@@ -25,7 +24,7 @@ const HomePage = () => {
 
         <div className="absolute inset-x-0 -bottom-40 mx-auto flex h-60 max-w-[80%] justify-center rounded-lg bg-[#EDEDED] pt-10 pl-6 text-left text-black sm:justify-start sm:pl-[4.4rem] lg:max-w-[58.7rem]">
           <blockquote>
-            <p className=" mb-5 max-w-[17rem]  ">
+            <p className="mb-5 max-w-[17rem]">
               “To są zajebiste pałeczki. Nie chcę już żadnych innych. Mój
               dyrygent jest wreszcie zadowolony, tylko Smallets!”
             </p>
@@ -75,29 +74,13 @@ const HomePage = () => {
             //  e
           ) => {
             alert(JSON.stringify(values, null, 2));
-            emailjs
-              .sendForm(
-                'service_ypr0zj8',
-                'template_z0d7tqj',
-                // e.target,
-
-                'user_pR6XzZUshqc9XuxuBLUzf',
-              )
-              .then(
-                (result) => {
-                  console.log(result.text);
-                },
-                (error) => {
-                  console.log(error.text);
-                },
-              );
           }}
         >
           <div className="h-fit-content  w-full lg:w-[50%] ">
             {/* <p className=""> */}
             <h2 className="pb-[30px] text-[25px]">Chcesz wiedzieć więcej?</h2>
             <h3 className="pb-[30px]">
-              Skontaktuj się ze mna za pomoca formularza kontaktowego:
+              Skontaktuj się ze mną za pomocą formularza kontaktowego:
             </h3>
             {/* </p> */}
             <Form className="flex flex-col">
@@ -111,7 +94,7 @@ const HomePage = () => {
               <ErrorMessage
                 component="a"
                 name="email"
-                className="text-red-600"
+                className="mt-3 text-red-600"
               />
 
               {/* <label htmlFor="message">Message</label> */}
@@ -124,14 +107,14 @@ const HomePage = () => {
               <ErrorMessage
                 component="a"
                 name="message"
-                className="text-red-600"
+                className="mt-3 text-red-600"
               />
 
               <button
                 type="submit"
                 className="mt-6 h-20 w-full bg-black text-white"
               >
-                Wyślij wiadomość
+                WYŚLIJ WIADOMOŚĆ
               </button>
             </Form>
           </div>
