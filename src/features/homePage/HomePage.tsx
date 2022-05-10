@@ -63,7 +63,7 @@ const HomePage = () => {
                 }
                 className="mb-20 h-52 w-52 rounded-full"
               />
-              <h3 className="text-xl font-bold">{index.seriesName}</h3>
+              <h3 className="text-xl font-bold">{index.id}</h3>
             </div>
           ))}
       </div>
