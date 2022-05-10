@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import ProductCard from './ProductCard';
 import carpet from '../../assets/carpet.png';
@@ -8,7 +9,10 @@ export const initialStateMock = [
   {
     id: 0,
     productName: '',
-    productDescription: '',
+    productDescription: {
+      pl: '',
+      en: '',
+    },
     headDiameter: 0,
     stickLength: 0,
     weight: 0,
@@ -20,6 +24,7 @@ export const initialStateMock = [
 ];
 
 const ProductsPage = () => {
+  const { i18n } = useTranslation('navAndFooter');
   const [pending, setIsPending] = useState(true);
   const [productObjectArray, setProductObjectArray] =
     useState(initialStateMock);
@@ -30,10 +35,11 @@ const ProductsPage = () => {
         try {
           // const response = await fetch();
           const response = productObjectArrayMock;
+          console.log(response);
           if (!response) {
             throw new Error();
           } else {
-            setProductObjectArray(response);
+            setProductObjectArray(productObjectArrayMock);
           }
         } catch (error) {
           console.log(error);
@@ -49,7 +55,11 @@ const ProductsPage = () => {
       {pending && <h1>Loading...</h1>}
       <div className="py-4 px-12">
         <h1 className="py-2 font-bold">{productObjectArray[0].seriesId}</h1>
-        <h2>{productObjectArray[0].productDescription}</h2>
+        <h2>
+          {i18n.language === 'en'
+            ? productObjectArray[0].productDescription.en
+            : productObjectArray[0].productDescription.pl}
+        </h2>
       </div>
       <img
         src={carpet}
@@ -58,7 +68,11 @@ const ProductsPage = () => {
       />
       {!pending &&
         productObjectArray.map((object, index) => (
-          <ProductCard productObject={object} key={index} />
+          <ProductCard
+            productObject={object}
+            key={index}
+            language={i18n.language}
+          />
         ))}
     </>
   );

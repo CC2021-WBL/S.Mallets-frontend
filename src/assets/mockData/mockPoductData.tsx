@@ -5,7 +5,10 @@ export const productObjectArrayMock = [
   {
     id: 1,
     productName: 'KS',
-    productDescription: 'Full, soft and warm sound.',
+    productDescription: {
+      en: 'Full, soft and warm sound.',
+      pl: 'Pełna miękka i ciepła barwa.',
+    },
     headDiameter: 43,
     stickLength: 37.5,
     weight: 34,
@@ -17,7 +20,10 @@ export const productObjectArrayMock = [
   {
     id: 2,
     productName: 'KMS',
-    productDescription: 'Dark and full sound.',
+    productDescription: {
+      en: 'Dark, soft and warm sound.',
+      pl: 'Ciemna, miękka i ciepła barwa.',
+    },
     headDiameter: 40.5,
     stickLength: 37.5,
     weight: 32,
@@ -29,8 +35,10 @@ export const productObjectArrayMock = [
   {
     id: 3,
     productName: 'KM',
-    productDescription:
-      'General, all purpose mallets - dark, round and warm tone with clarity.',
+    productDescription: {
+      en: 'Full, soft and warm sound.',
+      pl: 'Pełna miękka i ciepła barwa.',
+    },
     headDiameter: 38,
     stickLength: 37.5,
     weight: 32,

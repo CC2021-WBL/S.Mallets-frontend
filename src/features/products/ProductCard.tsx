@@ -6,7 +6,7 @@ import Backdrop from '../layout/nav/Backdrop';
 interface productDataType {
   id: number;
   productName: string;
-  productDescription: string;
+  productDescription: productDescriptionType;
   headDiameter: number;
   stickLength: number;
   weight: number;
@@ -16,13 +16,22 @@ interface productDataType {
   seriesId: string;
 }
 
-const ProductCard = (prop: { productObject: productDataType }) => {
+interface productDescriptionType {
+  pl: string;
+  en: string;
+}
+
+const ProductCard = (prop: {
+  productObject: productDataType;
+  language?: string;
+}) => {
   const { t } = useTranslation('productCard');
 
   const [detailsModal, setDetailsModal] = useState(false);
   const handleDetailsModal = () => {
     setDetailsModal(!detailsModal);
   };
+
   return (
     <>
       <div className="relative z-10 max-w-7xl">
@@ -50,7 +59,9 @@ const ProductCard = (prop: { productObject: productDataType }) => {
               </div>
             </div>
             <p className="text-center text-lg sm:pt-8 sm:text-right sm:text-xl md:pt-0">
-              {prop.productObject.productDescription}
+              {prop.language === 'en'
+                ? prop.productObject.productDescription.en
+                : prop.productObject.productDescription.pl}
             </p>
             <div className="flex h-fit flex-col items-center sm:items-stretch sm:justify-between md:h-12 md:flex-row">
               <div className="text-center text-sm sm:text-right sm:text-base md:text-left">
