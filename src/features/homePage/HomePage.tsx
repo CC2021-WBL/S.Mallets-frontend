@@ -16,14 +16,14 @@ interface IFormValues {
 }
 const HomePage = () => {
   const { t, i18n } = useTranslation('home');
-  const contactSchema = Yup.object().shape({
-    email: Yup.string().email(t('emailError')).required(t('emailError2')),
-    message: Yup.string().min(50, t('message')).required(t('message2')),
-  });
   const [showModal, setShowModal] = useState<boolean>(false);
   const closeModal = () => {
     setShowModal(false);
   };
+  const contactSchema = Yup.object().shape({
+    email: Yup.string().email(t('emailError')).required(t('emailError2')),
+    message: Yup.string().min(50, t('message')).required(t('message2')),
+  });
 
   return (
     <>
