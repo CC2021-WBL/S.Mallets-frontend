@@ -27,7 +27,7 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="hero relative mx-auto  mb-[15.6rem] flex max-w-7xl flex-col items-end bg-no-repeat pr-8 text-right text-white">
+      <div className="hero relative mx-auto  mb-[15.6rem] flex max-w-7xl flex-col items-end bg-no-repeat pr-8 text-right text-slate-500 sm:text-white">
         <p className="mb-2.5 mt-16">S.MALLETS</p>
         <h1 className="max-w-sm text-5xl font-bold leading-[4.8rem]">
           Premium quality / fair price
