@@ -20,6 +20,7 @@ code {
     @apply h-16 w-96 bg-[#232323] font-bold text-white hover:bg-slate-800;
   }
   .form-input {
-    @apply mb-12 h-16 w-96 border-b border-black bg-[#ededed] p-4;
+    /* @apply mb-12 h-16 w-96 border-b border-black bg-[#ededed] p-4; */
+    @apply mb-6 h-16 w-96 border-b border-black bg-[#ededed] p-4;
   }
 }

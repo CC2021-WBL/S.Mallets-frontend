@@ -1,4 +1,25 @@
+import * as Yup from 'yup';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+
 const CartPage = () => {
+  const validationSchema = Yup.object({
+    name: Yup.string()
+      .required('Wpisz swoje imię')
+      .min(3, 'Imię musi się składać z min. 3 znaków')
+      .max(15, 'Imię może się składać z maks. 15 znaków'),
+    lastname: Yup.string()
+      .required('Wpisz nazwisko')
+      .min(3, 'Nazwisko musi się składać z min. 3 znaków')
+      .max(15, 'Nazwisko może się składać z maks. 15 znaków'),
+    password: Yup.string()
+      .required('Hasło jest wymagane')
+      .min(7, 'Hasło musi się składać z min. 7 znaków')
+      .matches(/[a-zA-Z]/, 'Nie używaj znaków diakrytycznych'),
+    email: Yup.string()
+      .email('Niepoprawny adres email')
+      .required('Adres email jest wymagany'),
+  });
+
   return (
     <>
       <div>CartPage</div>
@@ -6,23 +27,89 @@ const CartPage = () => {
         Strona główna {'>'} Koszyk {'>'}
         <b> Zarejestruj się</b>
       </div>
-      <form>
-        <div className="form-wrapper m-[1rem_2rem_4rem_2rem] flex flex-col">
-          <input type="text" placeholder="Imię" className="form-input"></input>
-          <input
-            type="text"
-            placeholder="Nazwisko"
-            className="form-input"
-          ></input>
-          <input
-            type="text"
-            placeholder="Adres Email"
-            className="form-input"
-          ></input>
-          <input type="text" placeholder="Hasło" className="form-input"></input>
-          <button className="btn-primary">ZAREJESTRUJ SIĘ</button>
-        </div>
-      </form>
+      <Formik
+        initialValues={{
+          name: '',
+          lastname: '',
+          email: '',
+          password: '',
+        }}
+        validationSchema={validationSchema}
+        onSubmit={async (values) => {
+          await new Promise((r) => setTimeout(r, 500));
+          alert(JSON.stringify(values, null, 3));
+        }}
+      >
+        <Form>
+          <div className="form-wrapper m-[1.5rem_1.5rem_1.5rem_2rem] flex flex-col">
+            <Field
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Imię"
+              className="form-input"
+            ></Field>
+            <ErrorMessage
+              component="p"
+              name="name"
+              className="text-xs text-red-600"
+            />
+
+            <Field
+              id="lastname"
+              name="lastname"
+              type="text"
+              placeholder="Nazwisko"
+              className="form-input"
+            ></Field>
+            <ErrorMessage
+              component="p"
+              name="lastname"
+              className="text-xs text-red-600"
+            />
+
+            <Field
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Adres Email"
+              className="form-input"
+            ></Field>
+            <ErrorMessage
+              component="p"
+              name="email"
+              className="text-xs text-red-600"
+            />
+
+            <Field
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Hasło"
+              className="form-input"
+            ></Field>
+            <ErrorMessage
+              component="p"
+              name="password"
+              className="text-xs text-red-600"
+            />
+
+            <button className="btn-primary">ZAREJESTRUJ SIĘ</button>
+          </div>
+          <div className="text-red-400">
+            {' '}
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab minima
+            consequuntur voluptate? Consequuntur quas dicta sint eaque officia
+            vitae voluptas eum obcaecati nulla labore? Vero ad rem provident
+            mollitia suscipit quod illum minima harum, ullam ipsam asperiores!
+            At sequi rem omnis quis ratione fugiat et quas cum quam repellat
+            earum vitae sit quia eaque velit, cumque dolor ipsa hic tempora
+            nesciunt repudiandae quaerat. Dolor, corporis a labore accusamus
+            neque illum molestiae commodi possimus nulla obcaecati placeat nam
+            quos ullam et odit. Veniam officia voluptas quisquam
+          </div>
+        </Form>
+      </Formik>
     </>
   );
 };
