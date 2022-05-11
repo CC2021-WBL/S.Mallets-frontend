@@ -16,11 +16,6 @@ import i18n from './i18n';
 import { Loader } from './features/Loader';
 import { mock } from './assets/mockData/mockSeriesData';
 
-// const FallbackLoader = () => (
-//   <div className="App">
-//     <Loader />
-//   </div>
-// );
 function App() {
   return (
     <I18nextProvider i18n={i18n}>
