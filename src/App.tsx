@@ -15,15 +15,10 @@ import UserPage from './features/userPage/UserPage';
 import i18n from './i18n';
 import { Loader } from './features/Loader';
 
-const FallbackLoader = () => (
-  <div className="App">
-    <Loader />
-  </div>
-);
 function App() {
   return (
     <I18nextProvider i18n={i18n}>
-      <Suspense fallback={<FallbackLoader />}>
+      <Suspense fallback={<Loader />}>
         <div className="App">
           <Routes>
             <Route element={<Layout />}>
