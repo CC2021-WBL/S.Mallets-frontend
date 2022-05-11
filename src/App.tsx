@@ -13,13 +13,14 @@ import ProductSeriesPage from './features/products/productSeries/ProductSeriesPa
 import ServicePage from './common/service/ServicePage';
 import UserPage from './features/userPage/UserPage';
 import i18n from './i18n';
+import { Loader } from './features/Loader';
 import { mock } from './assets/mockData/mockSeriesData';
 
-const Loader = () => (
-  <div className="App">
-    <div>loading...</div>
-  </div>
-);
+// const FallbackLoader = () => (
+//   <div className="App">
+//     <Loader />
+//   </div>
+// );
 function App() {
   return (
     <I18nextProvider i18n={i18n}>
