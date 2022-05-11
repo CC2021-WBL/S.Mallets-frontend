@@ -13,16 +13,17 @@ import ProductSeriesPage from './features/products/productSeries/ProductSeriesPa
 import ServicePage from './common/service/ServicePage';
 import UserPage from './features/userPage/UserPage';
 import i18n from './i18n';
+import { Loader } from './features/Loader';
 
-const Loader = () => (
+const FallbackLoader = () => (
   <div className="App">
-    <div>loading...</div>
+    <Loader />
   </div>
 );
 function App() {
   return (
     <I18nextProvider i18n={i18n}>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<FallbackLoader />}>
         <div className="App">
           <Routes>
             <Route element={<Layout />}>
