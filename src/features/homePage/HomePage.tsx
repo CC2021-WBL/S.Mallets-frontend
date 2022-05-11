@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable import/named */
 
 import * as Yup from 'yup';
@@ -9,7 +8,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import group from '../../assets/groupLogo.png';
-import { mock } from '../products/productSeries/mockSeries';
+import { mock } from '../../assets/mockData/mockSeriesData';
 
 interface IFormValues {
   email: string;
@@ -132,7 +131,7 @@ const HomePage = () => {
                   role="button"
                   tabIndex={0}
                 >
-                  Dziękuję za wiadomość. Odpowiem najszybciej jak to możliwe
+                  {t('modal')}
                   <button
                     onClick={closeModal}
                     onKeyDown={closeModal}

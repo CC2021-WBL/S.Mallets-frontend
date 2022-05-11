@@ -7,5 +7,6 @@
   "emailError": "Please enter a valid email address",
   "emailError2": "Please, add your email",
   "message": "The message must be min. 50 characters",
-  "message2": "Please enter your message"
+  "message2": "Please enter your message",
+  "modal": "Thank you for your message. I will reply as soon as possible."
 }

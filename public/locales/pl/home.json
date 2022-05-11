@@ -7,5 +7,6 @@
   "emailError": "Wpisz poprawny adres email",
   "emailError2": "Adres email jest wymagany",
   "message": "Wiadomość musi mieć min. 50 znaków",
-  "message2": "Wpisz wiadomość"
+  "message2": "Wpisz wiadomość",
+  "modal": "Dziękuję za wiadomość. Odpowiem najszybciej jak to możliwe."
 }
