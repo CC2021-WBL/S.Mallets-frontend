@@ -10,14 +10,12 @@ import { useTranslation } from 'react-i18next';
 import group from '../../assets/groupLogo.png';
 import { mockDataType } from '../../assets/mockData/mockSeriesData';
 
-// import { mock } from '../../assets/mockData/mockSeriesData';
-
 interface IFormValues {
   email: string;
   message: string;
 }
 
-const HomePage: React.FC<{ mocka: mockDataType[] }> = (props) => {
+const HomePage: React.FC<{ mockSeries: mockDataType[] }> = (props) => {
   const { t, i18n } = useTranslation('home');
   const [showModal, setShowModal] = useState<boolean>(false);
   const closeModal = () => {
@@ -57,7 +55,7 @@ const HomePage: React.FC<{ mocka: mockDataType[] }> = (props) => {
         </h2>
       </div>
       <div className=" relative mb-[6.3rem] flex max-w-7xl flex-wrap justify-center">
-        {props.mocka
+        {props.mockSeries
           .sort(() => 0.5 - Math.random())
           .slice(0, 6)
           .map((index: any) => (

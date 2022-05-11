@@ -27,7 +27,7 @@ function App() {
         <div className="App">
           <Routes>
             <Route element={<Layout />}>
-              <Route path="/" element={<HomePage mocka={mock} />} />
+              <Route path="/" element={<HomePage mockSeries={mock} />} />
               <Route path="/about" element={<AboutMe />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/product-series" element={<ProductSeriesPage />} />
