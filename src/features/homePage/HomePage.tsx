@@ -2,19 +2,22 @@
 
 import * as Yup from 'yup';
 import emailjs from '@emailjs/browser';
+import React, { useState } from 'react';
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import group from '../../assets/groupLogo.png';
-import { mock } from '../../assets/mockData/mockSeriesData';
+import { mockDataType } from '../../assets/mockData/mockSeriesData';
+
+// import { mock } from '../../assets/mockData/mockSeriesData';
 
 interface IFormValues {
   email: string;
   message: string;
 }
-const HomePage = () => {
+
+const HomePage: React.FC<{ mocka: mockDataType[] }> = (props) => {
   const { t, i18n } = useTranslation('home');
   const [showModal, setShowModal] = useState<boolean>(false);
   const closeModal = () => {
@@ -54,10 +57,10 @@ const HomePage = () => {
         </h2>
       </div>
       <div className=" relative mb-[6.3rem] flex max-w-7xl flex-wrap justify-center">
-        {mock
+        {props.mocka
           .sort(() => 0.5 - Math.random())
           .slice(0, 6)
-          .map((index) => (
+          .map((index: any) => (
             <Link
               key={index.id}
               className="flex h-[27.8rem] w-[21.8rem] flex-col items-center py-0 hover:cursor-pointer hover:shadow-lg sm:py-9"
@@ -67,9 +70,9 @@ const HomePage = () => {
                 src={index.productImage}
                 alt={
                   // index.altText
-                  i18n.language === 'en' ? index.altText.en : index.altText.pl
+                  // i18n.language === 'en' ? index.altText.en : index.altText.pl
 
-                  // index.altText[i18n.language]
+                  index.altText[i18n.language]
                 }
                 className="mb-20 h-52 w-52 rounded-full"
               />

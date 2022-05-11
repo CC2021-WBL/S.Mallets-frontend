@@ -13,6 +13,7 @@ import ProductSeriesPage from './features/products/productSeries/ProductSeriesPa
 import ServicePage from './common/service/ServicePage';
 import UserPage from './features/userPage/UserPage';
 import i18n from './i18n';
+import { mock } from './assets/mockData/mockSeriesData';
 
 const Loader = () => (
   <div className="App">
@@ -26,7 +27,7 @@ function App() {
         <div className="App">
           <Routes>
             <Route element={<Layout />}>
-              <Route path="/" element={<HomePage />} />
+              <Route path="/" element={<HomePage mocka={mock} />} />
               <Route path="/about" element={<AboutMe />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/product-series" element={<ProductSeriesPage />} />
