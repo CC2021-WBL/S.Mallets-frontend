@@ -6,9 +6,9 @@ import Nav from './nav/Nav';
 const Layout = () => {
   return (
     <>
-      <div className="flex min-h-screen flex-col">
+      <div className="flex flex-col">
         <Nav />
-        <main className="mx-auto max-w-7xl grow">
+        <main className="main mx-auto min-h-[calc(100vh-428px)] lg:w-[1280px]">
           <Outlet />
         </main>
         <Footer />

@@ -1,8 +1,10 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable import/named */
 
 import * as Yup from 'yup';
 import emailjs from '@emailjs/browser';
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import group from '../../assets/groupLogo.png';
@@ -18,6 +20,16 @@ const HomePage = () => {
     email: Yup.string().email(t('emailError')).required(t('emailError2')),
     message: Yup.string().min(50, t('message')).required(t('message2')),
   });
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const closeModal = () => {
+    // e.stopPropagation();
+    setShowModal(false);
+  };
+
+  // const openModal = (e: any) => {
+  //   e.stopPropagation();
+  //   setShowModal(true);
+  // };
   return (
     <>
       <div className="hero relative mx-auto  mb-[15.6rem] flex max-w-7xl flex-col items-end bg-no-repeat pr-8 text-right text-white">
@@ -36,13 +48,15 @@ const HomePage = () => {
         <img
           src={group}
           alt="decoration logo"
-          className="absolute right-[2.8rem] -bottom-[15.6rem] z-50 hidden  xl:block"
+          className="absolute right-[2.8rem] -bottom-[15.6rem] z-10 hidden  xl:block"
           aria-hidden="true"
         />
       </div>
 
       <div>
-        <h2 className="ml-6 mb-9 text-2xl sm:mb-0">{t('subtitle')}</h2>
+        <h2 className="ml-6 mb-9 text-center text-2xl sm:mb-0 sm:text-left">
+          {t('subtitle')}
+        </h2>
       </div>
       <div className=" relative mb-[6.3rem] flex max-w-7xl flex-wrap justify-center">
         {mock
@@ -81,6 +95,7 @@ const HomePage = () => {
           ) => {
             actions.setSubmitting(true);
 
+            setShowModal(true);
             emailjs
               .send(
                 'service_ypr0zj8',
@@ -105,7 +120,33 @@ const HomePage = () => {
           <div className="h-fit-content  w-full lg:w-[50%] ">
             <h2 className="pb-7 text-2xl">{t('more')}</h2>
             <h3 className="pb-7">{t('contactForm')}</h3>
-
+            {showModal ? (
+              <div
+                className="fixed top-0 left-0  z-20 h-full w-full bg-[#6864649f]"
+                onClick={closeModal}
+                onKeyDown={closeModal}
+                role="button"
+                tabIndex={0}
+              >
+                <div
+                  className="  fixed top-[50%] left-[50%]  z-30 flex h-[12.5rem] w-[12.5rem] -translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-lg bg-[#8a8686] p-4 hover:cursor-default sm:h-[50%] sm:w-[50%] "
+                  onClick={(e: any) => e.stopPropagation()}
+                  onKeyDown={(e: any) => e.stopPropagation()}
+                  role="button"
+                  tabIndex={0}
+                >
+                  Dziękuję za wiadomość. Odpowiem najszybciej jak to możliwe
+                  <button
+                    onClick={closeModal}
+                    onKeyDown={closeModal}
+                    aria-label="close handler"
+                    className="absolute top-10 right-10 text-xl"
+                  >
+                    X
+                  </button>
+                </div>
+              </div>
+            ) : null}
             <Form className="flex flex-col">
               <Field
                 id="email"
