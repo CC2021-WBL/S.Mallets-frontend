@@ -4,6 +4,7 @@
 import * as Yup from 'yup';
 import emailjs from '@emailjs/browser';
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -22,14 +23,9 @@ const HomePage = () => {
   });
   const [showModal, setShowModal] = useState<boolean>(false);
   const closeModal = () => {
-    // e.stopPropagation();
     setShowModal(false);
   };
 
-  // const openModal = (e: any) => {
-  //   e.stopPropagation();
-  //   setShowModal(true);
-  // };
   return (
     <>
       <div className="hero relative mx-auto  mb-[15.6rem] flex max-w-7xl flex-col items-end bg-no-repeat pr-8 text-right text-white">
@@ -63,9 +59,10 @@ const HomePage = () => {
           .sort(() => 0.5 - Math.random())
           .slice(0, 6)
           .map((index) => (
-            <div
+            <Link
               key={index.id}
-              className="flex h-[27.8rem] w-[21.8rem] flex-col items-center py-0 sm:py-9"
+              className="flex h-[27.8rem] w-[21.8rem] flex-col items-center py-0 hover:cursor-pointer hover:shadow-lg sm:py-9"
+              to="/product-series"
             >
               <img
                 src={index.productImage}
@@ -78,7 +75,7 @@ const HomePage = () => {
                 className="mb-20 h-52 w-52 rounded-full"
               />
               <h3 className="text-xl font-bold">{index.id}</h3>
-            </div>
+            </Link>
           ))}
       </div>
 
@@ -175,7 +172,7 @@ const HomePage = () => {
 
               <button
                 type="submit"
-                className="mt-6 h-20 w-full bg-black text-white"
+                className="mt-6 h-[3.75rem] w-full bg-black text-white hover:opacity-75"
               >
                 {t('send')}
               </button>
