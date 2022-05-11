@@ -151,7 +151,7 @@ const HomePage: React.FC<{ mocka: mockDataType[] }> = (props) => {
                 id="email"
                 name="email"
                 placeholder="Email"
-                className=" flex h-[3.75rem]  bg-[#F0F0F0] p-6 "
+                className=" flex h-[3.75rem]  border-b border-solid border-black bg-[#F0F0F0] p-6 "
               />
               <ErrorMessage
                 component="a"
@@ -163,7 +163,7 @@ const HomePage: React.FC<{ mocka: mockDataType[] }> = (props) => {
                 name="message"
                 component="textarea"
                 placeholder={`${t('message2')}`}
-                className="mt-9 h-56 bg-[#F0F0F0] p-6 "
+                className="mt-9 h-56 border-b border-solid border-black bg-[#F0F0F0] p-6 "
               />
 
               <ErrorMessage
