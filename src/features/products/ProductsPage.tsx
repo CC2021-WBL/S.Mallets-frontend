@@ -55,7 +55,7 @@ const ProductsPage = () => {
   const seriesLang = seriesMock.seriesDescription;
 
   return (
-    <>
+    <div className="">
       {pending && <h1 className="text-center">Loading...</h1>}
       <div className="py-4 px-12">
         <h1 className="py-2 text-2xl font-bold">{seriesMock.seriesName}</h1>
@@ -72,7 +72,7 @@ const ProductsPage = () => {
         productObjectArray.map((object, index) => (
           <ProductCard productObject={object} key={index} />
         ))}
-    </>
+    </div>
   );
 };
 
