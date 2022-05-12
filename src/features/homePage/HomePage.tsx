@@ -66,7 +66,7 @@ const HomePage: React.FC<{ mockSeries: mockDataType[] }> = (props) => {
               to="/product-series"
             >
               <img
-                src={index.productImage}
+                src={index.seriesImage}
                 alt={
                   // index.altText
                   // i18n.language === 'en' ? index.altText.en : index.altText.pl
@@ -75,7 +75,7 @@ const HomePage: React.FC<{ mockSeries: mockDataType[] }> = (props) => {
                 }
                 className="mb-10 h-52 w-52 rounded-full md:mb-20"
               />
-              <h3 className="text-xl font-bold">{index.id}</h3>
+              <h3 className="text-xl font-bold">{index.seriesName}</h3>
             </Link>
           ))}
       </div>
