@@ -1,7 +1,6 @@
 /* eslint-disable import/named */
 
 import * as Yup from 'yup';
-import emailjs from '@emailjs/browser';
 import React, { useState } from 'react';
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
 import { Link } from 'react-router-dom';
@@ -9,6 +8,8 @@ import { useTranslation } from 'react-i18next';
 
 import group from '../../assets/groupLogo.png';
 import { mockDataType } from '../../assets/mockData/mockSeriesData';
+
+// import emailjs from '@emailjs/browser';
 
 interface IFormValues {
   email: string;
@@ -28,7 +29,7 @@ const HomePage: React.FC<{ mockSeries: mockDataType[] }> = (props) => {
   });
 
   return (
-    <>
+    <div className="mx-auto w-full max-w-7xl">
       <div className="hero relative mx-auto  mb-[15.6rem] flex max-w-7xl flex-col items-end bg-no-repeat pr-8 text-right text-slate-500 sm:text-white">
         <p className="mb-2.5 mt-16">S.MALLETS</p>
         <h1 className="max-w-sm text-5xl font-bold leading-[4.8rem]">
@@ -92,27 +93,22 @@ const HomePage: React.FC<{ mockSeries: mockDataType[] }> = (props) => {
             actions: FormikHelpers<IFormValues>,
           ) => {
             actions.setSubmitting(true);
-
+            actions.resetForm();
             setShowModal(true);
-            emailjs
-              .send(
-                'service_ypr0zj8',
-                'template_z0d7tqj',
-                {
-                  email: values.email,
-                  message: values.message,
-                },
-                'user_pR6XzZUshqc9XuxuBLUzf',
-              )
-              .then(
-                () => {
-                  actions.setSubmitting(false);
-                  actions.resetForm();
-                },
-                () => {
-                  actions.setSubmitting(false);
-                },
-              );
+            // emailjs
+            //   .send(
+            //     'service_ypr0zj8',
+            //     'template_z0d7tqj',
+            //     {
+            //       email: values.email,
+            //       message: values.message,
+            //     },
+            //     'user_pR6XzZUshqc9XuxuBLUzf',
+            //   )
+            //   .then(() => {
+            //     actions.setSubmitting(false);
+            //     actions.resetForm();
+            //   });
           }}
         >
           <div className="h-fit-content  w-full lg:w-[50%] ">
@@ -120,14 +116,15 @@ const HomePage: React.FC<{ mockSeries: mockDataType[] }> = (props) => {
             <h3 className="pb-7">{t('contactForm')}</h3>
             {showModal ? (
               <div
-                className="fixed top-0 left-0  z-20 h-full w-full bg-[#6864649f]"
                 onClick={closeModal}
                 onKeyDown={closeModal}
                 role="button"
                 tabIndex={0}
               >
+                <div className="fixed top-0 left-0  z-20 h-full w-full bg-black opacity-20" />
+                {/* czcionka różna */}
                 <div
-                  className="  fixed top-[50%] left-[50%]  z-30 flex h-[12.5rem] w-[12.5rem] -translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-lg bg-[#8a8686] p-4 hover:cursor-default sm:h-[50%] sm:w-[50%] "
+                  className="  fixed top-[50%] left-[50%]  z-30 flex h-[12.5rem] w-[12.5rem] -translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-lg bg-white p-4 shadow-xl  hover:cursor-default sm:h-[50%] sm:w-[50%] "
                   onClick={(e: any) => e.stopPropagation()}
                   onKeyDown={(e: any) => e.stopPropagation()}
                   role="button"
@@ -182,7 +179,7 @@ const HomePage: React.FC<{ mockSeries: mockDataType[] }> = (props) => {
         </Formik>
         <div className="circle hidden w-[50%] lg2:block" />
       </div>
-    </>
+    </div>
   );
 };
 
