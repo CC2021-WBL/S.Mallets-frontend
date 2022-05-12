@@ -61,7 +61,7 @@ const HomePage: React.FC<{ mockSeries: mockDataType[] }> = (props) => {
           .map((index: any) => (
             <Link
               key={index.id}
-              className="flex h-[27.8rem] w-[21.8rem] flex-col items-center py-0 hover:cursor-pointer hover:shadow-lg sm:py-9"
+              className="mb-10 flex h-[18.7rem] w-[21.8rem] flex-col items-center py-0 hover:cursor-pointer sm:py-9 sm:hover:shadow-lg md:h-[27.8rem]"
               to="/product-series"
             >
               <img
@@ -72,7 +72,7 @@ const HomePage: React.FC<{ mockSeries: mockDataType[] }> = (props) => {
 
                   index.altText[i18n.language]
                 }
-                className="mb-20 h-52 w-52 rounded-full"
+                className="mb-10 h-52 w-52 rounded-full md:mb-20"
               />
               <h3 className="text-xl font-bold">{index.id}</h3>
             </Link>
