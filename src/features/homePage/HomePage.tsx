@@ -17,6 +17,7 @@ interface IFormValues {
 
 const HomePage: React.FC<{ mockSeries: mockDataType[] }> = (props) => {
   const { t, i18n } = useTranslation('home');
+  const language = i18n.language as 'pl' | 'en';
   const [showModal, setShowModal] = useState<boolean>(false);
   const closeModal = () => {
     setShowModal(false);
@@ -58,7 +59,7 @@ const HomePage: React.FC<{ mockSeries: mockDataType[] }> = (props) => {
         {props.mockSeries
           .sort(() => 0.5 - Math.random())
           .slice(0, 6)
-          .map((index: any) => (
+          .map((index: mockDataType) => (
             <Link
               key={index.id}
               className="mb-10 flex h-[18.7rem] w-[21.8rem] flex-col items-center py-0 hover:cursor-pointer sm:py-9 sm:hover:shadow-lg md:h-[27.8rem]"
@@ -70,7 +71,7 @@ const HomePage: React.FC<{ mockSeries: mockDataType[] }> = (props) => {
                   // index.altText
                   // i18n.language === 'en' ? index.altText.en : index.altText.pl
 
-                  index.altText[i18n.language]
+                  index.altText[language]
                 }
                 className="mb-10 h-52 w-52 rounded-full md:mb-20"
               />
