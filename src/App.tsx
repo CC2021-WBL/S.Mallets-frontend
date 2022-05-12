@@ -8,28 +8,32 @@ import CartPage from './features/layout/cart/CartPage';
 import ContactPage from './common/contact/ContactPage';
 import HomePage from './features/homePage/HomePage';
 import Layout from './features/layout/Layout';
+import LoginPage from './features/loginPage/LoginPage';
 import ProductSeriesPage from './features/products/productSeries/ProductSeriesPage';
-import ServicePage from './features/servicePage/ServicePage';
+import ServicePage from './common/service/ServicePage';
 import UserPage from './features/userPage/UserPage';
 import i18n from './i18n';
+import { Loader } from './features/Loader';
 
-const Loader = () => (
+const FallbackLoader = () => (
   <div className="App">
-    <div>loading...</div>
+    <Loader />
   </div>
 );
 function App() {
   return (
     <I18nextProvider i18n={i18n}>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<FallbackLoader />}>
         <div className="App">
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<HomePage />} />
-              <Route path="/about-me" element={<AboutMe />} />
+              <Route path="/about" element={<AboutMe />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/product-series" element={<ProductSeriesPage />} />
+              <Route path="/service" element={<ServicePage />} />
               <Route path="/cart" element={<CartPage />} />
+              <Route path="/login" element={<LoginPage />} />
               <Route path="/user" element={<UserPage />} />
               <Route path="/admin" element={<AdminPage />} />
               <Route path="/service" element={<ServicePage />} />

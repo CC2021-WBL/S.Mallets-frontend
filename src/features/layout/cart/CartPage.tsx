@@ -96,18 +96,6 @@ const CartPage = () => {
 
             <button className="btn-primary">ZAREJESTRUJ SIĘ</button>
           </div>
-          <div className="text-red-400">
-            {' '}
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab minima
-            consequuntur voluptate? Consequuntur quas dicta sint eaque officia
-            vitae voluptas eum obcaecati nulla labore? Vero ad rem provident
-            mollitia suscipit quod illum minima harum, ullam ipsam asperiores!
-            At sequi rem omnis quis ratione fugiat et quas cum quam repellat
-            earum vitae sit quia eaque velit, cumque dolor ipsa hic tempora
-            nesciunt repudiandae quaerat. Dolor, corporis a labore accusamus
-            neque illum molestiae commodi possimus nulla obcaecati placeat nam
-            quos ullam et odit. Veniam officia voluptas quisquam
-          </div>
         </Form>
       </Formik>
     </>
