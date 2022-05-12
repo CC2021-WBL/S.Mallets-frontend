@@ -1,6 +1,6 @@
 export const Loader = () => {
   return (
-    <div className="left-1/2 w-16 sm:w-20 lg:w-28 my-0 mx-auto">
+    <div className="left-1/2 my-0 mx-auto w-16 sm:w-20 lg:w-28">
       <svg
         version="1.1"
         viewBox="0 0 110 110"
