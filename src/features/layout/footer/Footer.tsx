@@ -33,7 +33,7 @@ const Footer = () => {
           </div>
 
           <div className="mb-8 flex flex-col items-start gap-y-4 pr-4 sm:items-end sm:gap-y-8 sm:text-right">
-            <NavLink to="/product-series">{t('products')}</NavLink>
+            <NavLink to="/products-series">{t('products')}</NavLink>
             <NavLink to="/about">{t('about')}</NavLink>
             <NavLink to="/service">{t('service')}</NavLink>
             <NavLink to="/contact">{t('contact')}</NavLink>
