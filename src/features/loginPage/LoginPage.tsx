@@ -16,8 +16,8 @@ const LoginPage = () => {
     password: Yup.string().required(t('password2')),
   });
   return (
-    <div className="mt-8 mb-16 flex w-full max-w-7xl flex-col md:flex-row md:gap-28">
-      <div className="h-fit-content  w-full md:w-1/2">
+    <div className="mx-auto mt-8 mb-16 flex w-full max-w-7xl flex-col sm:px-3 md:flex-row md:gap-20 md:px-6 lg:px-8 ">
+      <div className="h-fit-content  w-full p-3 md:w-1/2">
         <Formik
           initialValues={{
             email: '',
@@ -33,7 +33,7 @@ const LoginPage = () => {
           }}
         >
           <div className="">
-            <h2 className="pb-7 text-2xl">{t('loginText')}</h2>
+            <h2 className="pb-7 text-xl lg:text-2xl">{t('loginText')}</h2>
 
             <Form className="flex flex-col">
               <Field
@@ -72,8 +72,8 @@ const LoginPage = () => {
         </Formik>
         <Link to="#">{t('forgot')}</Link>
       </div>
-      <div className="flex w-full flex-col items-end  justify-self-end md:w-1/2 ">
-        <h2 className=" self-start pb-7 text-2xl">{t('first')}</h2>
+      <div className="flex w-full flex-col items-end justify-self-end  p-3 md:w-1/2 ">
+        <h2 className=" self-start pb-7 text-xl lg:text-2xl">{t('first')}</h2>
         <button className="mb-5 h-[3.75rem] w-full rounded bg-black text-white hover:opacity-75 ">
           {t('register')}
         </button>
