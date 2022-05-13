@@ -23,7 +23,7 @@ const LoginPage = () => {
       validationSchema={contactSchema}
       onSubmit={(values: IFormValues, actions: FormikHelpers<IFormValues>) => {
         actions.setSubmitting(true);
-        console.log(values);
+        actions.resetForm();
       }}
     >
       <div className="h-fit-content  w-full lg:w-[50%] ">
