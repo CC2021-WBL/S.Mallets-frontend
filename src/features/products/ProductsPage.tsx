@@ -27,7 +27,7 @@ export const initialStateMock = [
 ];
 
 const ProductsPage = () => {
-  const { i18n } = useTranslation('navAndFooter');
+  const { i18n } = useTranslation();
   const [pending, setIsPending] = useState(true);
   const [productObjectArray, setProductObjectArray] =
     useState(initialStateMock);
