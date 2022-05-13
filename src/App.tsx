@@ -11,7 +11,7 @@ import Layout from './features/layout/Layout';
 import LoginPage from './features/loginPage/LoginPage';
 import ProductsPage from './features/products/ProductsPage';
 import ProductsSeriesPage from './features/products/productsSeries/ProductsSeriesPage';
-import ScrollToTop from './features/layout/footer/ScrollToTop';
+import ScrollToTop from './tools/ScrollToTop';
 import ServicePage from './common/service/ServicePage';
 import UserPage from './features/userPage/UserPage';
 import i18n from './i18n';
