@@ -14,6 +14,7 @@ import ServicePage from './common/service/ServicePage';
 import UserPage from './features/userPage/UserPage';
 import i18n from './i18n';
 import { Loader } from './features/Loader';
+import { mock } from './assets/mockData/mockSeriesData';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
         <div className="App">
           <Routes>
             <Route element={<Layout />}>
-              <Route path="/" element={<HomePage />} />
+              <Route path="/" element={<HomePage mockSeries={mock} />} />
               <Route path="/about" element={<AboutMe />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/product-series" element={<ProductSeriesPage />} />
