@@ -9,11 +9,11 @@ i18n
   .use(initReactI18next)
   .init({
     debug: true,
-    // lng: 'pl',
     fallbackLng: 'pl',
     interpolation: {
       escapeValue: false,
     },
+    supportedLngs: ['en', 'pl'],
   });
 
 export default i18n;
