@@ -7,7 +7,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer className=" h-fit w-full bg-[#232323] text-white">
+      <footer className="w-full bg-[#232323] text-white">
         <div className="mx-auto flex max-w-7xl flex-col-reverse justify-between py-14 px-6 sm:flex-row sm:px-3 md:px-6 lg:px-8">
           <div className="sm:pl-4">
             <h2 className="text-xl">{t('contactData')}</h2>
@@ -33,7 +33,7 @@ const Footer = () => {
           </div>
 
           <div className="mb-8 flex flex-col items-start gap-y-4 pr-4 sm:items-end sm:gap-y-8 sm:text-right">
-            <NavLink to="/product-series">{t('products')}</NavLink>
+            <NavLink to="/products-series">{t('products')}</NavLink>
             <NavLink to="/about">{t('about')}</NavLink>
             <NavLink to="/service">{t('service')}</NavLink>
             <NavLink to="/contact">{t('contact')}</NavLink>

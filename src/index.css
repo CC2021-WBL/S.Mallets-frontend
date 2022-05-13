@@ -14,3 +14,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.hero {
+  max-width: 80rem;
+  height: 31.8rem;
+  background: url('./assets/hero.png');
+  background-size: cover;
+}
+
+.circle {
+  background: url('./assets/sticks.png');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
