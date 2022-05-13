@@ -1,6 +1,6 @@
 import { I18nextProvider } from 'react-i18next';
 import { Route, Routes } from 'react-router-dom';
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 
 import AboutMe from './common/aboutUs/AboutUs';
 import AdminPage from './features/adminPage/AdminPage';
@@ -17,14 +17,17 @@ import { Loader } from './features/Loader';
 import { mock } from './assets/mockData/mockSeriesData';
 
 function App() {
-  // useEffect(() => {
-  //   const getLanguage = () => {
-  //     localStorage.getItem('i18nextLng') !== ('pl' && 'en') &&
-  //       localStorage.setItem('i18nextLng', 'pl');
-  //   };
-
-  //   getLanguage();
-  // }, []);
+  const aaa = localStorage.getItem('i18nextLng') as string;
+  useEffect(() => {
+    const getLanguage = () => {
+      // localStorage.getItem('i18nextLng') !== ('pl' && 'en') &&
+      //   localStorage.setItem('i18nextLng', 'pl');
+      if (!['en', 'pl'].includes(aaa)) {
+        localStorage.setItem('i18nextLng', 'pl');
+      }
+    };
+    getLanguage();
+  }, []);
   return (
     <I18nextProvider i18n={i18n}>
       <Suspense fallback={<Loader />}>
