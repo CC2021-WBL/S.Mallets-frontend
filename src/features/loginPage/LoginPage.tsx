@@ -9,10 +9,10 @@ interface IFormValues {
   password: string;
 }
 const LoginPage = () => {
-  const { t } = useTranslation('home');
+  const { t } = useTranslation('login');
   const contactSchema = Yup.object().shape({
     email: Yup.string().email(t('emailError')).required(t('emailError2')),
-    password: Yup.string().required('Password is required'),
+    password: Yup.string().required(t('password2')),
   });
   return (
     <Formik
@@ -27,38 +27,27 @@ const LoginPage = () => {
       }}
     >
       <div className="h-fit-content  w-full lg:w-[50%] ">
-        <h2 className="pb-7 text-2xl">
-          {t('more')}
-          ffffffffffff{' '}
-        </h2>
-        <h3 className="pb-7">{t('contactForm')} dddd</h3>
+        <h2 className="pb-7 text-2xl">{t('loginText')}</h2>
 
         <Form className="flex flex-col">
           <Field
             id="email"
             name="email"
-            placeholder="Email"
-            className=" flex h-[3.75rem]  border-b border-solid border-black bg-[#F0F0F0] p-6 "
+            placeholder="email"
+            className=" mb-5 flex  h-[3.75rem] border-b border-solid border-black bg-[#F0F0F0] p-6"
           />
           <ErrorMessage
             component="a"
             name="email"
-            className="mt-3 text-red-600"
+            className="mt-3 mb-5 text-red-600"
           />
 
           <Field
             type="password"
             name="password"
-            // className={'form-control'}
-            placeholder="Password"
-            className=" flex h-[3.75rem]  border-b border-solid border-black bg-[#F0F0F0] p-6 "
+            placeholder={`${t('password')}`}
+            className=" mb-5 flex  h-[3.75rem] border-b border-solid border-black bg-[#F0F0F0] p-6"
           />
-          {/* <Field
-            name="password"
-            // component="textarea"
-            placeholder={`${t('message2')}`}
-            className="mt-9 h-56 border-b border-solid border-black bg-[#F0F0F0] p-6 "
-          /> */}
 
           <ErrorMessage
             component="a"
@@ -70,7 +59,7 @@ const LoginPage = () => {
             type="submit"
             className="mt-6 h-[3.75rem] w-full bg-black text-white hover:opacity-75"
           >
-            {t('send')}
+            {t('login')}
           </button>
         </Form>
       </div>

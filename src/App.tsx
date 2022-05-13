@@ -17,6 +17,14 @@ import { Loader } from './features/Loader';
 import { mock } from './assets/mockData/mockSeriesData';
 
 function App() {
+  // useEffect(() => {
+  //   const getLanguage = () => {
+  //     localStorage.getItem('i18nextLng') !== ('pl' && 'en') &&
+  //       localStorage.setItem('i18nextLng', 'pl');
+  //   };
+
+  //   getLanguage();
+  // }, []);
   return (
     <I18nextProvider i18n={i18n}>
       <Suspense fallback={<Loader />}>

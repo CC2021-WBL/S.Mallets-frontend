@@ -1,0 +1,12 @@
+{
+  "loginText": "Do you have an account? Log in:",
+  "password": "password",
+  "login": "LOGIN",
+  "forgot": "Have you forgotten your password?",
+  "first": "First time?",
+  "register": "REGISTER",
+  "continue": "CONTINUE AS A GUEST",
+  "emailError": "Please enter a valid email address",
+  "emailError2": "Please, add your email",
+  "password2": "Password is required"
+}

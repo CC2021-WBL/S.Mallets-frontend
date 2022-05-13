@@ -168,7 +168,7 @@ const HomePage: React.FC<{ mockSeries: mockDataType[] }> = (props) => {
 
               <button
                 type="submit"
-                className="mt-6 h-[3.75rem] w-full bg-black text-white hover:opacity-75"
+                className="mt-6 h-[3.75rem] w-full rounded bg-black text-white hover:opacity-75"
               >
                 {t('send')}
               </button>
