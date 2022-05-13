@@ -29,7 +29,6 @@ const LoginPage = () => {
             actions: FormikHelpers<IFormValues>,
           ) => {
             actions.setSubmitting(true);
-            actions.resetForm();
           }}
         >
           <div className="">
@@ -45,7 +44,7 @@ const LoginPage = () => {
               <ErrorMessage
                 component="a"
                 name="email"
-                className="mt-3 mb-5 text-red-600"
+                className="mt-3 mb-5 text-sm text-red-600"
               />
 
               <Field
@@ -58,7 +57,7 @@ const LoginPage = () => {
               <ErrorMessage
                 component="a"
                 name="password"
-                className="mt-3 text-red-600"
+                className="mt-3 text-sm text-red-600"
               />
 
               <button
