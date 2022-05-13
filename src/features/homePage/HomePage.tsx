@@ -119,7 +119,6 @@ const HomePage: React.FC<{ mockSeries: mockDataType[] }> = (props) => {
                 tabIndex={0}
               >
                 <div className="fixed top-0 left-0  z-20 h-full w-full bg-black opacity-20" />
-                {/* czcionka różna */}
                 <div
                   className="bg- fixed top-1/2 left-1/2  z-30 flex h-40 w-10/12 -translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-lg bg-stone-200 p-6 text-center shadow-xl hover:cursor-default sm:h-60 sm:p-8 sm:text-lg md:text-xl lg:text-2xl lg2:w-1/2 "
                   onClick={(e: any) => e.stopPropagation()}
