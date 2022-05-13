@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import ProductCard from './ProductCard';
 import carpet from '../../assets/carpet.png';
+import { Loader } from '../Loader';
 import { seriesMock } from '../../assets/mockData/mockPoductData';
 
 export const initialStateMock = [
@@ -56,7 +57,7 @@ const ProductsPage = () => {
 
   return (
     <div className="mx-auto w-full max-w-7xl">
-      {pending && <h1 className="text-center">Loading...</h1>}
+      {pending && <Loader />}
       <div className="py-4 px-12">
         <h1 className="py-2 text-2xl font-bold">{seriesMock.seriesName}</h1>
         <h2 className="max-w-3xl py-2 text-xl">
