@@ -56,7 +56,7 @@ const ProductsPage = () => {
   const seriesLang = seriesMock.seriesDescription;
 
   return (
-    <div className="mx-auto w-full max-w-7xl">
+    <div className="relative mx-auto w-full max-w-7xl">
       {pending && <Loader />}
       <div className="py-4 px-12">
         <h1 className="py-2 text-2xl font-bold">{seriesMock.seriesName}</h1>
@@ -67,7 +67,7 @@ const ProductsPage = () => {
       <img
         src={carpet}
         alt="logo carpet"
-        className="top-50 absolute right-0 z-[1] hidden lg:block"
+        className="top-50 absolute right-8 z-[1] hidden lg:block"
       />
       {!pending &&
         productObjectArray.map((object, index) => (

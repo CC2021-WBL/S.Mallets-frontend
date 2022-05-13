@@ -18,8 +18,8 @@ const ProductCard = (prop: { productObject: productDataType }) => {
     <>
       <div className="relative z-10 max-w-7xl">
         <div
-          className="flex w-full max-w-[810px] grow
-     flex-col gap-5 p-6 sm:h-fit sm:w-full sm:flex-row sm:justify-between md:flex-row md:p-12"
+          className="mb-3 flex w-full max-w-[810px] grow
+     flex-col gap-5 p-6 hover:shadow-xl sm:h-fit sm:w-full sm:flex-row sm:justify-between md:flex-row md:p-12"
         >
           <div className="flex justify-center sm:h-64 sm:justify-between md:h-fit md:w-64">
             <img
