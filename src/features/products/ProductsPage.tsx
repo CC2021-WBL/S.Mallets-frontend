@@ -64,11 +64,13 @@ const ProductsPage = () => {
           {i18n.language === 'en' ? seriesLang.en : seriesLang.pl}
         </h2>
       </div>
-      <img
-        src={carpet}
-        alt="logo carpet"
-        className="top-50 absolute right-8 z-[1] hidden lg:block"
-      />
+      {!pending && (
+        <img
+          src={carpet}
+          alt="logo carpet"
+          className="top-50 absolute right-8 z-[1] hidden lg:block"
+        />
+      )}
       {!pending &&
         productObjectArray.map((object, index) => (
           <ProductCard productObject={object} key={index} />
