@@ -77,7 +77,7 @@ const LoginPage = () => {
         <button className="mb-5 h-[3.75rem] w-full rounded bg-black text-white hover:opacity-75 ">
           {t('register')}
         </button>
-        <button className="h-[3.75rem] w-full rounded border border-black bg-white text-black hover:opacity-75  ">
+        <button className="h-[3.75rem] w-full rounded border border-black bg-white text-black hover:bg-black hover:text-white hover:opacity-75  ">
           {t('continue')}
         </button>
       </div>
