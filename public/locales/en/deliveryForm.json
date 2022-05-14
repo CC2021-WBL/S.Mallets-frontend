@@ -3,6 +3,9 @@
   "lastname": "Lastname",
   "streetAndHouseNr": "Street and House number",
   "postalCode": "Postal Code",
+  "city": "City",
+  "country": "Country",
+  "phoneNumber": "Phone Number",
   "aggrementText": "I agree for the processing of my data",
   "confirmData": "Confirm Contact Data",
   "errNoName": "Enter your name",
@@ -15,5 +18,11 @@
   "errStreetAndHouseNr": "Min. 6 characters",
   "errNoPostalCode": "Postal Code is required",
   "errPostalCode": "Postal Code must consist of min. 4 characters",
+  "errNoCity": "City name is required",
+  "errCity": "City name must consist of min. 4 characters",
+  "errNoCountry": "Country name is required",
+  "errCountry": "Country name must consist of min. 4 characters",
+  "errNoPhoneNumber": "Phone Number is required",
+  "errPhoneNumber": "Phone number is not valid",
   "errCondition": "You must agree for the processing of Your data"
 }

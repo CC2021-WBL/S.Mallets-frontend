@@ -23,6 +23,14 @@ const DeliveryForm = () => {
       .required(t('errNoPostalCode'))
       .min(4, t('errPostalCode')),
     condition: Yup.boolean().oneOf([true], t('errCondition')),
+    city: Yup.string().required(t('errNoCity')).min(4, t('errCity')),
+    country: Yup.string().required(t('errNoCountry')).min(4, t('errCountry')),
+    phoneNumber: Yup.string()
+      .required(t('errNoPhoneNumber'))
+      .matches(
+        /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+        t('errPhoneNumber'),
+      ),
   });
 
   return (
@@ -34,6 +42,9 @@ const DeliveryForm = () => {
           streetAndHouseNr: '',
           postalCode: '',
           condition: false,
+          city: '',
+          country: '',
+          phoneNumber: '',
         }}
         validationSchema={validationSchema}
         onSubmit={async (values) => {
@@ -97,6 +108,48 @@ const DeliveryForm = () => {
               <ErrorMessage
                 component="p"
                 name="postalCode"
+                className="absolute top-16 text-xs text-red-600"
+              />
+            </div>
+            <div className="relative">
+              <Field
+                id="city"
+                name="city"
+                type="text"
+                placeholder={t('city')}
+                className="form-input"
+              ></Field>
+              <ErrorMessage
+                component="p"
+                name="city"
+                className="absolute top-16 text-xs text-red-600"
+              />
+            </div>
+            <div className="relative">
+              <Field
+                id="country"
+                name="country"
+                type="text"
+                placeholder={t('country')}
+                className="form-input"
+              ></Field>
+              <ErrorMessage
+                component="p"
+                name="country"
+                className="absolute top-16 text-xs text-red-600"
+              />
+            </div>
+            <div className="relative">
+              <Field
+                id="phoneNumber"
+                name="phoneNumber"
+                type="text"
+                placeholder={t('phoneNumber')}
+                className="form-input"
+              ></Field>
+              <ErrorMessage
+                component="p"
+                name="phoneNumber"
                 className="absolute top-16 text-xs text-red-600"
               />
             </div>

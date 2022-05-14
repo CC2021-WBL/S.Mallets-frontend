@@ -3,6 +3,9 @@
   "lastname": "Nazwisko",
   "streetAndHouseNr": "Ulica i numer domu",
   "postalCode": "Kod pocztowy",
+  "city": "Miasto",
+  "country": "Kraj",
+  "phoneNumber": "Numer Telefonu",
   "aggrementText": "Wyrażam zgodę na przetwarzanie danych",
   "confirmData": "Zatwierdź dane kontaktowe",
   "errNoName": "Wpisz swoje imię",
@@ -15,5 +18,11 @@
   "errStreetAndHouseNr": "Minimum 6 znaków",
   "errNoPostalCode": "Podaj kod pocztowy",
   "errPostalCode": "Kod pocztowy musi się składać z min. 4 znaków",
+  "errNoCity": "Podaj miasto",
+  "errCity": "Nazwa miasta musi się składać z min. 4 znaków",
+  "errNoCountry": "Podaj kraj",
+  "errCountry": "Nazwa kraju musi się składać z min. 4 znaków",
+  "errNoPhoneNumber": "Podaj numer telefonu",
+  "errPhoneNumber": "Numer telefonu jest nieprawidłowy",
   "errCondition": "Pozwól na przetwarzanie Twoich danych"
 }
