@@ -1,22 +1,25 @@
 import { I18nextProvider } from 'react-i18next';
 import { Route, Routes } from 'react-router-dom';
-import { Suspense } from 'react';
+import { Suspense, lazy } from 'react';
 
-import AboutMe from './common/aboutUs/AboutUs';
-import AdminPage from './features/adminPage/AdminPage';
-import CartPage from './features/cartPage/CartPage';
-import ContactPage from './common/contact/ContactPage';
-import HomePage from './features/homePage/HomePage';
-import Layout from './features/layout/Layout';
-import LoginPage from './features/loginPage/LoginPage';
-import ProductsPage from './features/products/ProductsPage';
-import ProductsSeriesPage from './features/products/productsSeries/ProductsSeriesPage';
 import ScrollToTop from './tools/ScrollToTop';
-import ServicePage from './common/service/ServicePage';
-import UserPage from './features/userPage/UserPage';
 import i18n from './i18n';
 import { Loader } from './features/Loader';
 import { mock } from './assets/mockData/mockSeriesData';
+
+const ServicePage = lazy(() => import('./common/service/ServicePage'));
+const UserPage = lazy(() => import('./features/userPage/UserPage'));
+const ProductsPage = lazy(() => import('./features/products/ProductsPage'));
+const ProductsSeriesPage = lazy(
+  () => import('./features/products/productsSeries/ProductsSeriesPage'),
+);
+const LoginPage = lazy(() => import('./features/loginPage/LoginPage'));
+const Layout = lazy(() => import('./features/layout/Layout'));
+const HomePage = lazy(() => import('./features/homePage/HomePage'));
+const ContactPage = lazy(() => import('./common/contact/ContactPage'));
+const CartPage = lazy(() => import('./features/cartPage/CartPage'));
+const AdminPage = lazy(() => import('./features/adminPage/AdminPage'));
+const AboutMe = lazy(() => import('./common/aboutUs/AboutUs'));
 
 function App() {
   return (
