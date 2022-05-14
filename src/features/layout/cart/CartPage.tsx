@@ -1,32 +1,33 @@
 import * as Yup from 'yup';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { useTranslation } from 'react-i18next';
 
 const CartPage = () => {
+  const { t } = useTranslation('registerForm');
+
   const validationSchema = Yup.object({
     name: Yup.string()
-      .required('Wpisz swoje imię')
-      .min(3, 'Imię musi się składać z min. 3 znaków')
-      .max(15, 'Imię może się składać z maks. 15 znaków'),
+      .required(t('errNoName'))
+      .min(3, t('errName'))
+      .max(15, t('errName2')),
     lastname: Yup.string()
-      .required('Wpisz nazwisko')
-      .min(3, 'Nazwisko musi się składać z min. 3 znaków')
-      .max(15, 'Nazwisko może się składać z maks. 15 znaków'),
+      .required(t('errNoLastname'))
+      .min(3, t('errLastname'))
+      .max(15, t('errLastname2')),
     password: Yup.string()
-      .required('Hasło jest wymagane')
-      .min(7, 'Hasło musi się składać z min. 7 znaków')
-      .matches(/[a-zA-Z]/, 'Nie używaj znaków diakrytycznych'),
-    email: Yup.string()
-      .email('Niepoprawny adres email')
-      .required('Adres email jest wymagany'),
+      .required(t('errNoPassword'))
+      .min(8, t('errPassword1'))
+      .matches(/[a-zA-Z]/, t('errPassword2')),
+    email: Yup.string().required(t('errNoEmail')).email(t('errEmail')),
   });
 
   return (
     <>
       <div>CartPage</div>
-      <div className="mx-8 my-8 w-auto">
+      {/* <div className="mx-8 my-8 w-auto">
         Strona główna {'>'} Koszyk {'>'}
         <b> Zarejestruj się</b>
-      </div>
+      </div> */}
       <Formik
         initialValues={{
           name: '',
@@ -42,59 +43,69 @@ const CartPage = () => {
       >
         <Form>
           <div className="form-wrapper m-[1.5rem_1.5rem_1.5rem_2rem] flex flex-col">
-            <Field
-              id="name"
-              name="name"
-              type="text"
-              placeholder="Imię"
-              className="form-input"
-            ></Field>
-            <ErrorMessage
-              component="p"
-              name="name"
-              className="text-xs text-red-600"
-            />
-
-            <Field
-              id="lastname"
-              name="lastname"
-              type="text"
-              placeholder="Nazwisko"
-              className="form-input"
-            ></Field>
-            <ErrorMessage
-              component="p"
-              name="lastname"
-              className="text-xs text-red-600"
-            />
-
-            <Field
-              id="email"
-              name="email"
-              type="email"
-              placeholder="Adres Email"
-              className="form-input"
-            ></Field>
-            <ErrorMessage
-              component="p"
-              name="email"
-              className="text-xs text-red-600"
-            />
-
-            <Field
-              id="password"
-              name="password"
-              type="password"
-              placeholder="Hasło"
-              className="form-input"
-            ></Field>
-            <ErrorMessage
-              component="p"
-              name="password"
-              className="text-xs text-red-600"
-            />
-
-            <button className="btn-primary">ZAREJESTRUJ SIĘ</button>
+            <div className="relative">
+              <Field
+                id="name"
+                name="name"
+                type="text"
+                placeholder={t('name')}
+                className="form-input"
+              ></Field>
+              <ErrorMessage
+                component="p"
+                name="name"
+                className="absolute top-16 text-xs text-red-600"
+              />
+            </div>
+            <div className="relative">
+              <Field
+                id="lastname"
+                name="lastname"
+                type="text"
+                placeholder={t('lastname')}
+                className="form-input"
+              ></Field>
+              <ErrorMessage
+                component="p"
+                name="lastname"
+                className="absolute top-16 text-xs text-red-600"
+              />
+            </div>
+            <div className="relative">
+              <Field
+                id="email"
+                name="email"
+                type="email"
+                placeholder={t('email')}
+                className="form-input"
+              ></Field>
+              <ErrorMessage
+                component="p"
+                name="email"
+                className="absolute top-16 text-xs text-red-600"
+              />
+            </div>
+            <div className="relative">
+              <Field
+                id="password"
+                name="password"
+                type="password"
+                placeholder={t('password')}
+                className="form-input"
+              ></Field>
+              <ErrorMessage
+                component="p"
+                name="password"
+                className="absolute top-16 text-xs text-red-600"
+              />
+            </div>
+            <button className="btn-primary">{t('register')}</button>
+            <div className=" my-8 w-96 border border-black p-4 text-sm ">
+              {t('errAccountP1')}
+              <br />
+              <br />
+              {t('errAccountP2')}
+            </div>
           </div>
         </Form>
       </Formik>

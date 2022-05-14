@@ -1,0 +1,19 @@
+{
+  "name": "Imię",
+  "lastname": "Nazwisko",
+  "email": "Adres Email",
+  "password": "Hasło",
+  "register": "ZAREJESTRUJ SIĘ",
+  "==": "==",
+  "errNoName": "Wpisz swoje imię",
+  "errName": "Imię musi się składac z nim. 3 znaków",
+  "errNoLastname": "Wpisz nazwisko",
+  "errLastname": "Nazwisko musi się składać z nim. 3 znaków",
+  "errNoEmail": "Adres email jest wymagany",
+  "errEmail": "Niepoprawny adres email",
+  "errNoPassword": "Hasło jest wymagane",
+  "errPassword": "Hasło musi się składać z nim. 8 znaków",
+  "===": "===",
+  "errAccountP1": "Wyglada na to, że masz już konto. Spróbuj zalogować się ponownie",
+  "errAccountP2": "Nie pamiętasz hasła - zresetuj je"
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Name",
+  "lastname": "Lastname",
+  "email": "Email address",
+  "password": "Password",
+  "register": "REGISTER",
+  "==": "==",
+  "errNoName": "Enter your name",
+  "errName": "Name must consist of min. 3 characters",
+  "errName2": "Name must consist of max. 15 characters",
+  "errNoLastname": "Enter your lastname",
+  "errLastname": "Lastname must consist of min. 3 characters",
+  "errLastname2": "Lastname must consist of max. 15 characters",
+  "errNoEmail": "Email address is required",
+  "errEmail": "Invalid email address",
+  "errNoPassword": "Password is required",
+  "errPassword1": "Password must consist of min. 8 characters",
+  "errPassword2": "Diacritical characters are not allowed",
+  "===": "===",
+  "errAccountP1": "Looks like you already have an account. Try to log in again.",
+  "errAccountP2": "Recover forgotten password."
+}
