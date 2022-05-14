@@ -27,3 +27,13 @@ code {
   background-repeat: no-repeat;
   background-position: bottom right;
 }
+
+@layer components {
+  .btn-primary {
+    @apply h-16 w-full bg-[#232323] font-bold text-white hover:bg-slate-800 sm:w-96;
+  }
+  .form-input {
+    /* @apply mb-12 h-16 w-96 border-b border-black bg-[#ededed] p-4; */
+    @apply mb-6 h-16 w-full border-b border-black bg-[#ededed] p-4 focus:border-transparent focus:outline focus:outline-2 focus:outline-black sm:w-96;
+  }
+}

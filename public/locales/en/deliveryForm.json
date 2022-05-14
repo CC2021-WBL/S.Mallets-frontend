@@ -1,0 +1,17 @@
+{
+  "name": "Name",
+  "lastname": "Lastname",
+  "streetAndHouseNr": "Street and House number",
+  "postalCode": "Postal Code",
+  "confirmData": "Confirm Contact Data",
+  "errNoName": "Enter your name",
+  "errName": "Name must consist of min. 3 characters",
+  "errName2": "Name must consist of max. 15 characters",
+  "errNoLastname": "Enter your lastname",
+  "errLastname": "Lastname must consist of min. 3 characters",
+  "errLastname2": "Lastname must consist of max. 15 characters",
+  "errNoStreetAndHouseNr": "Street and house number are required",
+  "errNoStreetAndHouseNr1": "Min. 6 characters",
+  "errNoPostalCode": "Postal Code is required",
+  "errNoPostalCode1": "Postal Code must consist of min. 4 characters"
+}

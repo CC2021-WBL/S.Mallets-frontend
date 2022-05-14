@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import LogoCarpet from '../../tools/LogoCarpet';
 import ProductCard from './ProductCard';
-import carpet from '../../assets/carpet.png';
 import { Loader } from '../Loader';
 import { seriesMock } from '../../assets/mockData/mockPoductData';
 
@@ -65,11 +65,7 @@ const ProductsPage = () => {
         </h2>
       </div>
       {!pending && (
-        <img
-          src={carpet}
-          alt="logo carpet"
-          className="top-50 absolute right-8 z-[1] hidden lg:block"
-        />
+        <LogoCarpet className="absolute top-12 right-8 z-[1] hidden lg:block" />
       )}
       {!pending &&
         productObjectArray.map((object, index) => (

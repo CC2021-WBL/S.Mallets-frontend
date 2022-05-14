@@ -1,0 +1,17 @@
+{
+  "name": "Imię",
+  "lastname": "Nazwisko",
+  "streetAndHouseNr": "Ulica i numer domu",
+  "postalCode": "Kod pocztowy",
+  "confirmData": "Zatwierdź dane kontaktowe",
+  "errNoName": "Wpisz swoje imię",
+  "errName": "Imię musi się składac z min. 3 znaków",
+  "errName2": "Imię musi się składac z max. 15 znaków",
+  "errNoLastname": "Wpisz nazwisko",
+  "errLastname": "Nazwisko musi się składać z min. 3 znaków",
+  "errLastname2": "Nazwisko musi się składać z max. 15 znaków",
+  "errNoStreetAndHouseNr": "Podaj ulice i numer domu",
+  "errNoStreetAndHouseNr1": "Minimum 6 znaków",
+  "errNoPostalCode": "Podaj kod pocztowy",
+  "errNoPostalCode1": "Kod pocztowy musi składać z min. 4 znaków"
+}
