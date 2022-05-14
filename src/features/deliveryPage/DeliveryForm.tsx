@@ -18,14 +18,11 @@ const DeliveryForm = () => {
       .max(15, t('errLastname2')),
     streetAndHouseNr: Yup.string()
       .required(t('errNoStreetAndHouseNr'))
-      .min(6, t('errNoStreetAndHouseNr')),
-    postalCode: Yup.number()
+      .min(6, t('errStreetAndHouseNr')),
+    postalCode: Yup.string()
       .required(t('errNoPostalCode'))
       .min(4, t('errPostalCode')),
-    terms_and_condition: Yup.boolean().oneOf(
-      [true],
-      'You must accept terms and conditions',
-    ),
+    condition: Yup.boolean().oneOf([true], t('errCondition')),
   });
 
   return (
@@ -34,9 +31,9 @@ const DeliveryForm = () => {
         initialValues={{
           name: '',
           lastname: '',
-          email: '',
-          password: '',
-          terms_and_condition: false,
+          streetAndHouseNr: '',
+          postalCode: '',
+          condition: false,
         }}
         validationSchema={validationSchema}
         onSubmit={async (values) => {
@@ -103,11 +100,14 @@ const DeliveryForm = () => {
                 className="absolute top-16 text-xs text-red-600"
               />
             </div>
-            <div className="relative mb-5 flex">
-              <Field type="checkbox" name="terms_and_condition" value="three" />
-              <p className="ml-5 text-sm font-semibold">
-                Wyrażam zgodę na przetwarzanie informacji
-              </p>
+            <div className="relative mb-6 flex">
+              <Field type="checkbox" name="condition" />
+              <p className="ml-5 text-sm font-semibold">{t('aggrementText')}</p>
+              <ErrorMessage
+                component="p"
+                name="condition"
+                className="absolute top-5 text-xs text-red-600"
+              />
             </div>
             <button className="btn-primary">{t('confirmData')}</button>
           </div>

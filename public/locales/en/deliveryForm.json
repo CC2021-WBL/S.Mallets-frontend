@@ -3,6 +3,7 @@
   "lastname": "Lastname",
   "streetAndHouseNr": "Street and House number",
   "postalCode": "Postal Code",
+  "aggrementText": "I agree for the processing of my data",
   "confirmData": "Confirm Contact Data",
   "errNoName": "Enter your name",
   "errName": "Name must consist of min. 3 characters",
@@ -11,7 +12,8 @@
   "errLastname": "Lastname must consist of min. 3 characters",
   "errLastname2": "Lastname must consist of max. 15 characters",
   "errNoStreetAndHouseNr": "Street and house number are required",
-  "errNoStreetAndHouseNr1": "Min. 6 characters",
+  "errStreetAndHouseNr": "Min. 6 characters",
   "errNoPostalCode": "Postal Code is required",
-  "errPostalCode": "Postal Code must consist of min. 4 characters"
+  "errPostalCode": "Postal Code must consist of min. 4 characters",
+  "errCondition": "You must agree for the processing of Your data"
 }

@@ -3,6 +3,7 @@
   "lastname": "Nazwisko",
   "streetAndHouseNr": "Ulica i numer domu",
   "postalCode": "Kod pocztowy",
+  "aggrementText": "Wyrażam zgodę na przetwarzanie danych",
   "confirmData": "Zatwierdź dane kontaktowe",
   "errNoName": "Wpisz swoje imię",
   "errName": "Imię musi się składac z min. 3 znaków",
@@ -11,7 +12,8 @@
   "errLastname": "Nazwisko musi się składać z min. 3 znaków",
   "errLastname2": "Nazwisko musi się składać z max. 15 znaków",
   "errNoStreetAndHouseNr": "Podaj ulice i numer domu",
-  "errNoStreetAndHouseNr1": "Minimum 6 znaków",
+  "errStreetAndHouseNr": "Minimum 6 znaków",
   "errNoPostalCode": "Podaj kod pocztowy",
-  "errNoPostalCode1": "Kod pocztowy musi składać z min. 4 znaków"
+  "errPostalCode": "Kod pocztowy musi się składać z min. 4 znaków",
+  "errCondition": "Pozwól na przetwarzanie Twoich danych"
 }
