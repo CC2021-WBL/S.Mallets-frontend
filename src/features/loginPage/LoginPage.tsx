@@ -2,10 +2,10 @@
 
 import * as Yup from 'yup';
 import { AiOutlineClose } from 'react-icons/ai';
+import { Dispatch, useState } from 'react';
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { authActions } from '../../app/store';
@@ -15,14 +15,17 @@ interface IFormValues {
   password: string;
 }
 const LoginPage = () => {
-  const dispatch = useDispatch();
+  const dispatch: Dispatch<any> = useDispatch();
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState<boolean>(false);
-
+  const isAuth = useSelector((state: any) => state.auth.isAuthenticated);
   const loginHandler = () => {
     dispatch(authActions.login());
 
     setShowModal(true);
+  };
+  const logoutHandler = () => {
+    dispatch(authActions.logout());
   };
   const { t } = useTranslation('login');
   const loginSchema = Yup.object().shape({
@@ -31,6 +34,16 @@ const LoginPage = () => {
   });
   return (
     <div className="mx-auto mt-8 mb-16 flex w-full max-w-7xl flex-col sm:px-3 md:flex-row md:gap-20 md:px-6 lg:px-8 ">
+      {isAuth ? (
+        <>
+          <h1 className="fixed top-0 left-0 z-50">zalogowany</h1>
+          <button onClick={logoutHandler} className="fixed top-10 left-0 z-50">
+            Wyloguj
+          </button>
+        </>
+      ) : (
+        <h6>😥Niezalogowany</h6>
+      )}
       <div className="h-fit-content  w-full p-3 md:w-1/2">
         <Formik
           initialValues={{
