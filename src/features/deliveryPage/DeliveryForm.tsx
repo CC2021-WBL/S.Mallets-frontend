@@ -22,6 +22,10 @@ const DeliveryForm = () => {
     postalCode: Yup.number()
       .required(t('errNoPostalCode'))
       .min(4, t('errPostalCode')),
+    terms_and_condition: Yup.boolean().oneOf(
+      [true],
+      'You must accept terms and conditions',
+    ),
   });
 
   return (
@@ -32,11 +36,13 @@ const DeliveryForm = () => {
           lastname: '',
           email: '',
           password: '',
+          terms_and_condition: false,
         }}
         validationSchema={validationSchema}
         onSubmit={async (values) => {
+          console.log('dupa');
           await new Promise((r) => setTimeout(r, 500));
-          alert(JSON.stringify(values, null, 3));
+          alert(JSON.stringify(values, null, 6));
         }}
       >
         <Form>
@@ -98,8 +104,10 @@ const DeliveryForm = () => {
               />
             </div>
             <div className="relative mb-5 flex">
-              <Field type="checkbox" name="aggrement" value="Three" />
-              <p className="ml-5">blablablabl</p>
+              <Field type="checkbox" name="terms_and_condition" value="three" />
+              <p className="ml-5 text-sm font-semibold">
+                Wyrażam zgodę na przetwarzanie informacji
+              </p>
             </div>
             <button className="btn-primary">{t('confirmData')}</button>
           </div>

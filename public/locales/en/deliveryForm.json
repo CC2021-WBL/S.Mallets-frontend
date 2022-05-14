@@ -13,5 +13,5 @@
   "errNoStreetAndHouseNr": "Street and house number are required",
   "errNoStreetAndHouseNr1": "Min. 6 characters",
   "errNoPostalCode": "Postal Code is required",
-  "errNoPostalCode1": "Postal Code must consist of min. 4 characters"
+  "errPostalCode": "Postal Code must consist of min. 4 characters"
 }
