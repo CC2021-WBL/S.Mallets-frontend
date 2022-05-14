@@ -1,7 +1,8 @@
 import * as Yup from 'yup';
-import { ErrorMessage, Field, Form, Formik } from 'formik';
+import { Field, Form, Formik } from 'formik';
 import { useTranslation } from 'react-i18next';
 
+import Error from './Error';
 import LogoCarpet from '../../tools/LogoCarpet';
 
 const DeliveryForm = () => {
@@ -63,11 +64,7 @@ const DeliveryForm = () => {
                 placeholder={t('name')}
                 className="form-input"
               ></Field>
-              <ErrorMessage
-                component="p"
-                name="name"
-                className="absolute top-16 text-xs text-red-600"
-              />
+              <Error name="name" />
             </div>
             <div className="relative">
               <Field
@@ -77,11 +74,7 @@ const DeliveryForm = () => {
                 placeholder={t('lastname')}
                 className="form-input"
               ></Field>
-              <ErrorMessage
-                component="p"
-                name="lastname"
-                className="absolute top-16 text-xs text-red-600"
-              />
+              <Error name="lastname" />
             </div>
             <div className="relative">
               <Field
@@ -91,11 +84,7 @@ const DeliveryForm = () => {
                 placeholder={t('streetAndHouseNr')}
                 className="form-input"
               ></Field>
-              <ErrorMessage
-                component="p"
-                name="streetAndHouseNr"
-                className="absolute top-16 text-xs text-red-600"
-              />
+              <Error name="streetAndHouseNr" />
             </div>
             <div className="relative">
               <Field
@@ -105,11 +94,7 @@ const DeliveryForm = () => {
                 placeholder={t('postalCode')}
                 className="form-input"
               ></Field>
-              <ErrorMessage
-                component="p"
-                name="postalCode"
-                className="absolute top-16 text-xs text-red-600"
-              />
+              <Error name="postalCode" />
             </div>
             <div className="relative">
               <Field
@@ -119,11 +104,7 @@ const DeliveryForm = () => {
                 placeholder={t('city')}
                 className="form-input"
               ></Field>
-              <ErrorMessage
-                component="p"
-                name="city"
-                className="absolute top-16 text-xs text-red-600"
-              />
+              <Error name="city" />
             </div>
             <div className="relative">
               <Field
@@ -133,11 +114,7 @@ const DeliveryForm = () => {
                 placeholder={t('country')}
                 className="form-input"
               ></Field>
-              <ErrorMessage
-                component="p"
-                name="country"
-                className="absolute top-16 text-xs text-red-600"
-              />
+              <Error name="country" />
             </div>
             <div className="relative">
               <Field
@@ -147,20 +124,12 @@ const DeliveryForm = () => {
                 placeholder={t('phoneNumber')}
                 className="form-input"
               ></Field>
-              <ErrorMessage
-                component="p"
-                name="phoneNumber"
-                className="absolute top-16 text-xs text-red-600"
-              />
+              <Error name="phoneNumber" />
             </div>
             <div className="relative mb-6 flex">
               <Field type="checkbox" name="condition" />
               <p className="ml-5 text-sm font-semibold">{t('aggrementText')}</p>
-              <ErrorMessage
-                component="p"
-                name="condition"
-                className="absolute top-5 text-xs text-red-600"
-              />
+              <Error name="condition" className="top-5" />
             </div>
             <button className="btn-primary">{t('confirmData')}</button>
           </div>
