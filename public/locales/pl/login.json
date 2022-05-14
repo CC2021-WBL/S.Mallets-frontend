@@ -8,5 +8,7 @@
   "continue": "KONTYNUUJ JAKO GOŚĆ",
   "emailError": "Wpisz poprawny adres email",
   "emailError2": "Adres email jest wymagany",
-  "password2": "Hasło jest wymagane"
+  "password2": "Hasło jest wymagane",
+  "modalOk": "Jesteś zalogowany.",
+  "modalBad": "Coś poszło nie tak.Spróbuj ponownie później"
 }
