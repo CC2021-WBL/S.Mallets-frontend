@@ -35,7 +35,7 @@ const ProductsSeriesPage: React.FC<{ mockSeries: mockDataType[] }> = (
               }
               className="mb-10 h-52 w-52 rounded-full md:mb-20"
             />
-            <h3 className="text-xl font-bold">{index.seriesName}</h3>
+            <p className="text-xl font-bold">{index.seriesName}</p>
           </Link>
         ))}
       </div>
