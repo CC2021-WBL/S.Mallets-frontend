@@ -6,6 +6,7 @@
   "city": "Miasto",
   "country": "Kraj",
   "phoneNumber": "Numer Telefonu",
+  "additional": "Dodatkowe informację",
   "aggrementText": "Wyrażam zgodę na przetwarzanie danych",
   "confirmData": "Zatwierdź dane kontaktowe",
   "errNoName": "Wpisz swoje imię",
@@ -24,5 +25,6 @@
   "errCountry": "Nazwa kraju musi się składać z min. 4 znaków",
   "errNoPhoneNumber": "Podaj numer telefonu",
   "errPhoneNumber": "Numer telefonu jest nieprawidłowy",
+  "errAdditional": "Maksymalnie 120 znaków",
   "errCondition": "Pozwól na przetwarzanie Twoich danych"
 }

@@ -32,6 +32,7 @@ const DeliveryForm = () => {
         /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
         t('errPhoneNumber'),
       ),
+    additional: Yup.string().max(120, t('errAdditional')),
   });
 
   return (
@@ -46,6 +47,7 @@ const DeliveryForm = () => {
           city: '',
           country: '',
           phoneNumber: '',
+          additional: '',
         }}
         validationSchema={validationSchema}
         onSubmit={async (values) => {
@@ -125,6 +127,16 @@ const DeliveryForm = () => {
                 className="form-input"
               ></Field>
               <Error name="phoneNumber" />
+            </div>
+            <div className="relative">
+              <Field
+                name="additional"
+                component="textarea"
+                placeholder={`${t('additional')}`}
+                className="mb-6 h-32 w-full border-b border-black bg-[#ededed] p-4 focus:border-transparent focus:outline focus:outline-2 focus:outline-black sm:w-96"
+              />
+
+              <Error name="additional" className="top-32" />
             </div>
             <div className="relative mb-6 flex">
               <Field type="checkbox" name="condition" />

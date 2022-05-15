@@ -6,6 +6,7 @@
   "city": "City",
   "country": "Country",
   "phoneNumber": "Phone Number",
+  "additional": "Additional data",
   "aggrementText": "I agree for the processing of my data",
   "confirmData": "Confirm Contact Data",
   "errNoName": "Enter your name",
@@ -24,5 +25,6 @@
   "errCountry": "Country name must consist of min. 4 characters",
   "errNoPhoneNumber": "Phone Number is required",
   "errPhoneNumber": "Phone number is not valid",
+  "errAdditional": "Maximum 120 characters",
   "errCondition": "You must agree for the processing of Your data"
 }
