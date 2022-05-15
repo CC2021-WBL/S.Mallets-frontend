@@ -1,5 +1,3 @@
-// import { CSSProperties } from 'react';
-
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 
 export default function Animation() {
@@ -16,7 +14,7 @@ export default function Animation() {
 
   return (
     <div
-      className="absolute -top-[185px] right-[152px] flex w-80 rotate-[25deg] flex-wrap place-content-center place-items-center   "
+      className="absolute -top-[185px] right-10  hidden w-80 rotate-[25deg] flex-wrap place-content-center place-items-center hover:cursor-pointer xl:flex    "
       onMouseMove={handleMouse}
     >
       <motion.img
