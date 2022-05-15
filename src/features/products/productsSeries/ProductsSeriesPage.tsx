@@ -18,12 +18,12 @@ const ProductsSeriesPage: React.FC<{ mockSeries: mockDataType[] }> = (
 
       <div className="relative mt-10 flex max-w-7xl flex-wrap justify-center sm:mt-0 sm:mb-16">
         <Animation />
-        {/* // eslint-disable-next-line react/prop-types */}
+
         {props.mockSeries.map((index: mockDataType) => (
           <Link
             key={index.id}
             className="mb-14 flex w-[21.8rem] flex-col items-center py-0 hover:cursor-pointer sm:mb-6 sm:rounded-lg sm:py-9 sm:hover:shadow-lg md:h-[27.8rem]"
-            to="/product-series"
+            to={`/products-page/${index.seriesName}`}
           >
             <img
               src={index.seriesImage}

@@ -36,7 +36,10 @@ function App() {
                   path="/products-series"
                   element={<ProductsSeriesPage mockSeries={mock} />}
                 />
-                <Route path="/products-page" element={<ProductsPage />} />
+                <Route
+                  path="/products-page/:seriesId"
+                  element={<ProductsPage />}
+                />
                 <Route path="/service" element={<ServicePage />} />
                 <Route path="/cart" element={<CartPage />} />
                 <Route path="/login" element={<LoginPage />} />

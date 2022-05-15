@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import ProductCard from './ProductCard';
@@ -32,7 +33,7 @@ const ProductsPage = () => {
   const [pending, setIsPending] = useState(true);
   const [productObjectArray, setProductObjectArray] =
     useState(initialStateMock);
-
+  const params = useParams();
   useEffect(() => {
     setTimeout(() => {
       const getSeriesObject = async () => {
@@ -57,6 +58,7 @@ const ProductsPage = () => {
 
   return (
     <div className="relative mx-auto w-full max-w-7xl">
+      {params.seriesId}
       {pending && <Loader />}
       <div className="py-4 px-12">
         <h1 className="py-2 text-2xl font-bold">{seriesMock.seriesName}</h1>
