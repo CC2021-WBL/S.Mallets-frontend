@@ -14,30 +14,34 @@ const ProductsSeriesPage: React.FC<{ mockSeries: mockDataType[] }> = (
   const language = i18n.language as 'pl' | 'en';
   return (
     <>
-      <p className="ml-8 mt-28 max-w-[33.3rem] text-xl">{t('textOnSeries')}</p>
+      <div className="mx-auto mt-8 mb-16 flex w-full max-w-7xl flex-col px-3 md:px-6 lg:px-8">
+        <p className="mt-28 max-w-[33.3rem] px-3 text-left text-xl md:px-6 lg:px-8">
+          {t('textOnSeries')}
+        </p>
 
-      <div className="relative mt-10 flex max-w-7xl flex-wrap justify-center sm:mt-0 sm:mb-16">
-        <Animation />
+        <div className="relative mt-10 flex w-full flex-wrap justify-center  sm:mb-16">
+          <Animation />
 
-        {props.mockSeries.map((index: mockDataType) => (
-          <Link
-            key={index.id}
-            className="mb-14 flex w-[21.8rem] flex-col items-center py-0 hover:cursor-pointer sm:mb-6 sm:rounded-lg sm:py-9 sm:hover:shadow-lg md:h-[27.8rem]"
-            to={`/products-page/${index.seriesName}`}
-          >
-            <img
-              src={index.seriesImage}
-              alt={
-                // index.altText
-                // i18n.language === 'en' ? index.altText.en : index.altText.pl
+          {props.mockSeries.map((index: mockDataType) => (
+            <Link
+              key={index.id}
+              className="mb-14 flex w-[21.8rem] flex-col items-center py-0 hover:cursor-pointer sm:mb-6 sm:rounded-lg sm:py-9 sm:hover:shadow-lg md:h-[27.8rem]"
+              to={`/products-page/${index.seriesName}`}
+            >
+              <img
+                src={index.seriesImage}
+                alt={
+                  // index.altText
+                  // i18n.language === 'en' ? index.altText.en : index.altText.pl
 
-                index.altText[language]
-              }
-              className="mb-10 h-52 w-52 rounded-full md:mb-20"
-            />
-            <p className="text-xl font-bold">{index.seriesName}</p>
-          </Link>
-        ))}
+                  index.altText[language]
+                }
+                className="mb-10 h-52 w-52 rounded-full md:mb-20"
+              />
+              <p className="text-xl font-bold">{index.seriesName}</p>
+            </Link>
+          ))}
+        </div>
       </div>
     </>
   );
