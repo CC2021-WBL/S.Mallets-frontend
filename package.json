@@ -5,6 +5,7 @@
   "dependencies": {
     "@emailjs/browser": "^3.6.2",
     "@reduxjs/toolkit": "^1.8.1",
+    "@splidejs/react-splide": "^0.7.5",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^14.1.1",
@@ -19,6 +20,7 @@
     "react-redux": "^8.0.1",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.29.0",
     "redux-immutable-state-invariant": "^2.1.0",
     "redux-thunk": "^2.4.1",
     "yup": "^0.32.11"
@@ -55,6 +57,7 @@
     "@types/react-dom": "^18.0.3",
     "@types/react-redux": "^7.1.24",
     "@types/react-router-dom": "^5.3.3",
+    "@types/react-slick": "^0.23.8",
     "@types/redux-thunk": "^2.1.0",
     "@typescript-eslint/eslint-plugin": "^5.22.0",
     "@typescript-eslint/parser": "^5.22.0",
