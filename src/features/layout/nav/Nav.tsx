@@ -65,7 +65,7 @@ const Nav = () => {
       </section>
       <div
         onClick={handleNav}
-        className="absolute right-7 top-7 z-10 block cursor-pointer sm:hidden"
+        className="absolute right-7 top-7 z-50 block cursor-pointer sm:hidden"
         aria-hidden="true"
       >
         {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
@@ -73,7 +73,7 @@ const Nav = () => {
       <aside
         className={
           nav
-            ? 'menu border-r-grey-900 fixed left-0 top-0 z-10 h-full w-3/5 border-r bg-white duration-500 ease-in-out'
+            ? 'menu border-r-grey-900 fixed left-0 top-0 z-50 h-full w-3/5 border-r bg-white duration-500 ease-in-out '
             : 'fixed left-[-100%]'
         }
       >
@@ -108,7 +108,7 @@ const Nav = () => {
           </NavLink>
         </section>
       </aside>
-      {nav && <Backdrop handleNav={handleNav} />}
+      {nav && <Backdrop handleClose={handleNav} />}
     </div>
   );
 };

@@ -24,10 +24,6 @@ const CartPage = () => {
   return (
     <>
       <div>CartPage</div>
-      {/* <div className="mx-8 my-8 w-auto">
-        Strona główna {'>'} Koszyk {'>'}
-        <b> Zarejestruj się</b>
-      </div> */}
       <Formik
         initialValues={{
           name: '',

@@ -1,45 +1,52 @@
 import { I18nextProvider } from 'react-i18next';
 import { Route, Routes } from 'react-router-dom';
-import { Suspense } from 'react';
+import { Suspense, lazy } from 'react';
 
-import AboutMe from './common/aboutUs/AboutUs';
-import AdminPage from './features/adminPage/AdminPage';
-import CartPage from './features/layout/cart/CartPage';
-import ContactPage from './common/contact/ContactPage';
-import HomePage from './features/homePage/HomePage';
-import Layout from './features/layout/Layout';
-import LoginPage from './features/loginPage/LoginPage';
-import ProductSeriesPage from './features/products/productSeries/ProductSeriesPage';
-import ServicePage from './common/service/ServicePage';
-import UserPage from './features/userPage/UserPage';
+import ScrollToTop from './tools/ScrollToTop';
 import i18n from './i18n';
 import { Loader } from './features/Loader';
+import { mock } from './assets/mockData/mockSeriesData';
 
-const FallbackLoader = () => (
-  <div className="App">
-    <Loader />
-  </div>
+const ServicePage = lazy(() => import('./common/service/ServicePage'));
+const UserPage = lazy(() => import('./features/userPage/UserPage'));
+const ProductsPage = lazy(() => import('./features/products/ProductsPage'));
+const ProductsSeriesPage = lazy(
+  () => import('./features/products/productsSeries/ProductsSeriesPage'),
 );
+const LoginPage = lazy(() => import('./features/loginPage/LoginPage'));
+const Layout = lazy(() => import('./features/layout/Layout'));
+const HomePage = lazy(() => import('./features/homePage/HomePage'));
+const ContactPage = lazy(() => import('./common/contact/ContactPage'));
+const CartPage = lazy(() => import('./features/layout/cart/CartPage'));
+const AdminPage = lazy(() => import('./features/adminPage/AdminPage'));
+const AboutMe = lazy(() => import('./common/aboutUs/AboutUs'));
+
 function App() {
   return (
     <I18nextProvider i18n={i18n}>
-      <Suspense fallback={<FallbackLoader />}>
-        <div className="App">
-          <Routes>
-            <Route element={<Layout />}>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/about" element={<AboutMe />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/product-series" element={<ProductSeriesPage />} />
-              <Route path="/service" element={<ServicePage />} />
-              <Route path="/cart" element={<CartPage />} />
-              <Route path="/login" element={<LoginPage />} />
-              <Route path="/user" element={<UserPage />} />
-              <Route path="/admin" element={<AdminPage />} />
-              <Route path="/service" element={<ServicePage />} />
-            </Route>
-          </Routes>
-        </div>
+      <Suspense fallback={<Loader />}>
+        <ScrollToTop>
+          <div className="App">
+            <Routes>
+              <Route element={<Layout />}>
+                <Route path="/" element={<HomePage mockSeries={mock} />} />
+                <Route path="/about" element={<AboutMe />} />
+                <Route path="/contact" element={<ContactPage />} />
+                <Route
+                  path="/products-series"
+                  element={<ProductsSeriesPage />}
+                />
+                <Route path="/products-page" element={<ProductsPage />} />
+                <Route path="/service" element={<ServicePage />} />
+                <Route path="/cart" element={<CartPage />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/user" element={<UserPage />} />
+                <Route path="/admin" element={<AdminPage />} />
+                <Route path="/service" element={<ServicePage />} />
+              </Route>
+            </Routes>
+          </div>
+        </ScrollToTop>
       </Suspense>
     </I18nextProvider>
   );

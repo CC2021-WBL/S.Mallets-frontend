@@ -20,7 +20,19 @@ code {
     @apply h-16 w-96 bg-[#232323] font-bold text-white hover:bg-slate-800;
   }
   .form-input {
-    /* @apply mb-12 h-16 w-96 border-b border-black bg-[#ededed] p-4; */
     @apply mb-6 h-16 w-96 border-b border-black bg-[#ededed] p-4;
   }
+}
+
+.hero {
+  max-width: 80rem;
+  height: 31.8rem;
+  background: url('./assets/hero.png');
+  background-size: cover;
+}
+
+.circle {
+  background: url('./assets/sticks.png');
+  background-repeat: no-repeat;
+  background-position: bottom right;
 }
