@@ -1,19 +1,25 @@
 {
   "name": "Imię",
   "lastname": "Nazwisko",
+  "phoneNumber": "Nr telefonu",
   "email": "Adres Email",
   "password": "Hasło",
   "register": "ZAREJESTRUJ SIĘ",
   "==": "==",
   "errNoName": "Wpisz swoje imię",
   "errName": "Imię musi się składac z nim. 3 znaków",
+  "errName2": "Imię może się składać max. z 15 znaków",
   "errNoLastname": "Wpisz nazwisko",
   "errLastname": "Nazwisko musi się składać z nim. 3 znaków",
+  "errLastname2": "Nazwisko może się składać max. z 15 znaków",
+  "errNoPhone": "Podaj kontaktowy nr telefonu (opcjonalnie)",
+  "errPhone": "Wpisałes niepoprawny numer telefonu",
   "errNoEmail": "Adres email jest wymagany",
   "errEmail": "Niepoprawny adres email",
   "errNoPassword": "Hasło jest wymagane",
-  "errPassword": "Hasło musi się składać z nim. 8 znaków",
+  "errPassword1": "Hasło musi się składać z nim. 8 znaków",
+  "errPassword2": "Stosowanie znaków diakrytycznych jest niedozwolone.",
   "===": "===",
-  "errAccountP1": "Wyglada na to, że masz już konto. Spróbuj zalogować się ponownie",
-  "errAccountP2": "Nie pamiętasz hasła - zresetuj je"
+  "errAccountP1": "Wystąpił błąd. Jeśli jesteś pewien, że podałeś właściwe dane,",
+  "errAccountP2": "spróbuj zalogować się lub zresetuj hasło"
 }
