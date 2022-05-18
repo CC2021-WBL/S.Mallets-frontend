@@ -28,7 +28,10 @@ const LoginPage = () => {
       headers: { 'Content-Type': 'application/json' },
     };
     // TODO: change to vercel/heroku/other
-    const res = await fetch('http://localhost:3030/auth/login', options);
+    const res = await fetch(
+      'https://s-mallets-backend.vercel.app/auth/login',
+      options,
+    );
     if (res.status !== 200) {
       console.log('ooooopsie');
       return;
