@@ -10,6 +10,7 @@ import LanguageButtons from './LanguageButtons';
 import NavBar from './NavBar';
 import logo from '../../../assets/s-logo.svg';
 import { activeLogCart, navBurgerStyles, navStyles } from './navStyles';
+import { useSelector } from 'react-redux';
 
 const Nav = () => {
   const { t, i18n } = useTranslation('navAndFooter');
@@ -22,6 +23,15 @@ const Nav = () => {
   const handleNav = () => {
     setNav(!nav);
   };
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const cart = useSelector((state) => state.cart);
+  const count = cart.reduce(
+    (accumulator: any, current: { quantity: any }) =>
+      accumulator + current.quantity,
+    0,
+  );
+
   return (
     <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between sm:h-36 sm:px-3 md:h-44 md:px-6 lg:px-8">
       <div
@@ -53,6 +63,7 @@ const Nav = () => {
           >
             <BsCart3 />
           </NavLink>
+          {count > 0 && <div>{count} products</div>}
           <LanguageButtons
             changeLanguage={changeLanguage}
             className={'text-sm'}

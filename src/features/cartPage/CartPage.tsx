@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchAsyncProducts } from '../slices/product-slice';
-import { Product } from '../slices/cart-slice';
+import { addToCart, Product } from '../slices/cart-slice';
+import Cart from './Cart';
 
 const CartPage = () => {
   const dispatch = useDispatch();
@@ -19,11 +20,21 @@ const CartPage = () => {
 
   return (
     <div>
-      <h1 className="p-8 text-center text-6xl">Cart Page</h1>
+      <h1 className="p-8 text-center text-6xl">Products</h1>
       {products &&
         products.map((product: Product) => {
-          return <p key={product.id}>{product.productName}</p>;
+          return (
+            <div key={product.id}>
+              <p>{product.productName}</p>
+              <p>{product.price} eurasków</p>
+              <button onClick={() => dispatch(addToCart(product))}>
+                DODAJ DO KOSZYKA
+              </button>
+              <p>------------------------------</p>
+            </div>
+          );
         })}
+      <Cart />
     </div>
   );
 };

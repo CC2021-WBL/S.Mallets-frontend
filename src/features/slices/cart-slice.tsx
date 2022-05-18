@@ -14,13 +14,26 @@ export interface Product {
   productAltTextKey: string;
   seriesId: string;
   quantity: number;
+  edited: boolean;
 }
+
 const initialState: Product[] = [];
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
+    toggleEdit: (state, { payload }) => {
+      return state.map((product) => {
+        if (product.id === payload) {
+          return {
+            ...product,
+            edited: !product.edited,
+          };
+        }
+        return product;
+      });
+    },
     addToCart: (state, { payload }) => {
       const { id } = payload;
       const productExist = state.find((product) => product.id === id);
@@ -41,6 +54,9 @@ const cartSlice = createSlice({
         });
       }
     },
+    removeFromCart: (state, { payload }) => {
+      return state.filter((product) => product.id !== payload);
+    },
     increment: (state, { payload }) => {
       return state.map((product) => {
         if (product.id === payload) {
@@ -55,10 +71,90 @@ const cartSlice = createSlice({
     decrement: (state, { payload }) => {
       return state.map((product) => {
         if (product.id === payload) {
-          return {
-            ...product,
-            quantity: product.quantity - 1,
-          };
+          if (product.quantity > 1) {
+            return {
+              ...product,
+              quantity: product.quantity - 1,
+            };
+          }
+        }
+        return product;
+      });
+    },
+    incrementHeadDiameter: (state, { payload }) => {
+      return state.map((product) => {
+        if (product.id === payload) {
+          if (product.headDiameter < 50) {
+            return {
+              ...product,
+              headDiameter: product.headDiameter + 1,
+            };
+          }
+        }
+        return product;
+      });
+    },
+    decrementHeadDiameter: (state, { payload }) => {
+      return state.map((product) => {
+        if (product.id === payload) {
+          if (product.headDiameter > 30) {
+            return {
+              ...product,
+              headDiameter: product.headDiameter - 1,
+            };
+          }
+        }
+        return product;
+      });
+    },
+    incrementStickLength: (state, { payload }) => {
+      return state.map((product) => {
+        if (product.id === payload) {
+          if (product.stickLength < 38) {
+            return {
+              ...product,
+              stickLength: product.stickLength + 0.5,
+            };
+          }
+        }
+        return product;
+      });
+    },
+    decrementStickLength: (state, { payload }) => {
+      return state.map((product) => {
+        if (product.id === payload) {
+          if (product.stickLength > 35) {
+            return {
+              ...product,
+              stickLength: product.stickLength - 0.5,
+            };
+          }
+        }
+        return product;
+      });
+    },
+    incrementWeight: (state, { payload }) => {
+      return state.map((product) => {
+        if (product.id === payload) {
+          if (product.weight < 38) {
+            return {
+              ...product,
+              weight: product.weight + 1,
+            };
+          }
+        }
+        return product;
+      });
+    },
+    decrementWeight: (state, { payload }) => {
+      return state.map((product) => {
+        if (product.id === payload) {
+          if (product.weight > 29) {
+            return {
+              ...product,
+              weight: product.weight - 1,
+            };
+          }
         }
         return product;
       });
@@ -68,7 +164,20 @@ const cartSlice = createSlice({
     },
   },
 });
-export const { addToCart, increment, decrement, clear } = cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  increment,
+  decrement,
+  incrementHeadDiameter,
+  decrementHeadDiameter,
+  incrementStickLength,
+  decrementStickLength,
+  incrementWeight,
+  decrementWeight,
+  clear,
+  toggleEdit,
+} = cartSlice.actions;
 
 const cartReducer = cartSlice.reducer;
 
