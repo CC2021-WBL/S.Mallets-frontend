@@ -21,6 +21,7 @@
     "react-scripts": "5.0.1",
     "redux-immutable-state-invariant": "^2.1.0",
     "redux-thunk": "^2.4.1",
+    "use-react-router-breadcrumbs": "^3.2.1",
     "yup": "^0.32.11"
   },
   "scripts": {
