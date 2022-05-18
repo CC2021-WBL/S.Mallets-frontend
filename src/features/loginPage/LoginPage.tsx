@@ -1,14 +1,15 @@
 /* eslint-disable import/named */
 
 import * as Yup from 'yup';
-import { AiOutlineClose } from 'react-icons/ai';
-import { Dispatch, useState } from 'react';
+import { Dispatch } from 'react';
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { authActions } from '../../app/store';
+
+// import { AiOutlineClose } from 'react-icons/ai';
 
 interface IFormValues {
   email: string;
@@ -16,16 +17,42 @@ interface IFormValues {
 }
 const LoginPage = () => {
   const dispatch: Dispatch<any> = useDispatch();
-  const navigate = useNavigate();
-  const [showModal, setShowModal] = useState<boolean>(false);
+  // const navigate = useNavigate();
+  // const [showModal, setShowModal] = useState<boolean>(false);
   const isAuth = useSelector((state: any) => state.auth.isAuthenticated);
-  const loginHandler = () => {
-    dispatch(authActions.login());
-
-    setShowModal(true);
+  const loginHandler = async (data: any) => {
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(data),
+      // mode: 'cors',
+      headers: { 'Content-Type': 'application/json' },
+    };
+    // TODO: change to vercel/heroku/other
+    const res = await fetch('http://localhost:3030/auth/login', options);
+    if (res.status !== 200) {
+      console.log('ooooopsie');
+      return;
+      // handle error
+    }
+    console.log(res);
+    const resJson = await res.json();
+    console.log(resJson);
+    // TODO: move resJson to store
+    if (res.status === 200) {
+      dispatch(
+        authActions.login({ email: resJson.email, password: resJson.password }),
+      );
+    }
+    console.log(data);
+    console.log(dispatch(authActions.login(data)));
+    // console.log(authActions.login);
+    // setShowModal(true);
+    console.log(isAuth);
   };
   const logoutHandler = () => {
     dispatch(authActions.logout());
+    console.log(dispatch(authActions.logout()));
+    console.log(isAuth);
   };
   const { t } = useTranslation('login');
   const loginSchema = Yup.object().shape({
@@ -55,8 +82,9 @@ const LoginPage = () => {
             values: IFormValues,
             actions: FormikHelpers<IFormValues>,
           ) => {
+            console.log(values);
             actions.setSubmitting(true);
-            loginHandler();
+            loginHandler(values);
           }}
         >
           <div className="">
@@ -108,7 +136,7 @@ const LoginPage = () => {
           {t('continue')}
         </button>
       </div>
-      {showModal ? (
+      {/* {showModal ? (
         <div
           onClick={() => navigate('/user')}
           onKeyDown={() => navigate('/user')}
@@ -135,7 +163,7 @@ const LoginPage = () => {
             </button>
           </div>
         </div>
-      ) : null}
+      ) : null} */}
     </div>
   );
 };
