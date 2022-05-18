@@ -25,7 +25,19 @@ export const SliderModal = () => {
             <img src="https://www.fillmurray.com/800/401" alt="" />
           </div>
           <div>
-            <img src="https://www.fillmurray.com/800/401" alt="" />
+            <img src="https://www.fillmurray.com/800/402" alt="" />
+          </div>
+          <div>
+            <img src="https://www.fillmurray.com/801/402" alt="" />
+          </div>
+          <div>
+            <img src="https://www.fillmurray.com/802/402" alt="" />
+          </div>
+          <div>
+            <img
+              src="https://source.unsplash.com/WLUHO9A_xik/1600x900"
+              alt=""
+            />
           </div>
         </Slider>
       </div>
