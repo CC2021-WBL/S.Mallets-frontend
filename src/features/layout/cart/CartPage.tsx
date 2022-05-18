@@ -129,6 +129,7 @@ const CartPage = () => {
                 <br />
                 <NavLink to="/reset">
                   <strong>{t('errAccountP2')}</strong>
+                  {/* "Error occurred. Try to log in again or", recover forgotten password." */}
                 </NavLink>
               </div>
             )}
