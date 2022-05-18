@@ -18,7 +18,7 @@
   "errEmail": "Niepoprawny adres email",
   "errNoPassword": "Hasło jest wymagane",
   "errPassword1": "Hasło musi się składać z nim. 8 znaków",
-  "errPassword2": "Stosowanie znaków diakrytycznych jest niedozwolone.",
+  "errPassword2": "Znaki specjalne są niedozwolone - używaj cyfr i liter bez polskich znaków.",
   "===": "===",
   "errAccountP1": "Wystąpił błąd. Jeśli jesteś pewien, że podałeś właściwe dane,",
   "errAccountP2": "spróbuj zalogować się lub zresetuj hasło"

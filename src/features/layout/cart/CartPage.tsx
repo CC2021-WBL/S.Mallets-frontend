@@ -24,7 +24,7 @@ const CartPage = () => {
     password: Yup.string()
       .required(t('errNoPassword'))
       .min(8, t('errPassword1'))
-      .matches(/[a-zA-Z]/, t('errPassword2')),
+      .matches(/^[a-zA-Z0-9 ]+$/, t('errPassword2')),
     email: Yup.string().required(t('errNoEmail')).email(t('errEmail')),
     phoneNumber: Yup.string().matches(phoneRegExp, t('errPhone')),
   });
