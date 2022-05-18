@@ -3,11 +3,11 @@ import { SliderModal } from './SliderModal';
 const ProductsSeriesPage = () => {
   return (
     <>
+      <h3 className="p-8 text-center text-6xl">ProductSeriesPage</h3>
       <SliderModal />
-      <h1 className="p-8 text-center text-6xl">ProductSeriesPage</h1>
       <div
         id="indicators-carousel"
-        className="relative mt-8 mb-8"
+        className="relative mt-8 mb-8 "
         data-carousel="static"
       >
         <div className=" relative h-[500px] w-[1000px] overflow-hidden rounded-lg">
@@ -47,7 +47,7 @@ const ProductsSeriesPage = () => {
             />
           </div>
         </div>
-        {/* <div className="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 space-x-3">
+        <div className="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 space-x-3">
           <button
             type="button"
             className="h-3 w-3 rounded-full"
@@ -83,7 +83,7 @@ const ProductsSeriesPage = () => {
             aria-label="Slide 5"
             data-carousel-slide-to="4"
           ></button>
-        </div> */}
+        </div>
         <button
           type="button"
           className="group absolute top-0 left-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none"

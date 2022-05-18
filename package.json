@@ -23,6 +23,8 @@
     "react-slick": "^0.29.0",
     "redux-immutable-state-invariant": "^2.1.0",
     "redux-thunk": "^2.4.1",
+    "slick": "^1.12.2",
+    "slick-carousel": "^1.8.1",
     "yup": "^0.32.11"
   },
   "scripts": {

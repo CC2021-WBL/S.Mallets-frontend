@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Backdrop from '../layout/nav/Backdrop';
+import { SliderModal } from './productsSeries/SliderModal';
 import { productDataType } from './productTypes';
 
 const ProductCard = (prop: { productObject: productDataType }) => {
@@ -10,6 +11,11 @@ const ProductCard = (prop: { productObject: productDataType }) => {
   const [detailsModal, setDetailsModal] = useState(false);
   const handleDetailsModal = () => {
     setDetailsModal(!detailsModal);
+    if (document.body.style.overflow !== 'hidden') {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'scroll';
+    }
   };
 
   const product = prop.productObject;
@@ -66,9 +72,7 @@ const ProductCard = (prop: { productObject: productDataType }) => {
       </div>
       {detailsModal && (
         <>
-          <h1 className="absolute top-1/2 left-1/2 z-30 -translate-x-1/2 -translate-y-1/2 bg-white text-6xl">
-            PRODUCT DETAILS
-          </h1>
+          <SliderModal />
           <Backdrop handleClose={handleDetailsModal} />
         </>
       )}
