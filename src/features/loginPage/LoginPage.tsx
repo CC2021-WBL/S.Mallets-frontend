@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import { authActions } from '../../app/store';
+import { authActions } from '../../app/store/authSlice';
 
 // import { AiOutlineClose } from 'react-icons/ai';
 
@@ -29,7 +29,8 @@ const LoginPage = () => {
     };
     // TODO: change to vercel/heroku/other
     const res = await fetch(
-      'https://s-mallets-backend.vercel.app/auth/login',
+      // 'https://s-mallets-backend.vercel.app/auth/login',
+      'http://localhost:3030/auth/login',
       options,
     );
     if (res.status !== 200) {
