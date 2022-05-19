@@ -58,12 +58,17 @@ const Nav = () => {
             to="/cart"
             aria-label="cart"
             className={({ isActive }) =>
-              isActive ? `${activeLogCart}` : undefined
+              isActive ? `${activeLogCart}` : `static`
             }
           >
             <BsCart3 />
+            {count > 0 && (
+              <div className="absolute -bottom-3 -right-4 z-50 flex h-5 w-5 items-center justify-center rounded-full border border-black bg-white">
+                <p className="text-xs">{count}</p>
+              </div>
+            )}
           </NavLink>
-          {count > 0 && <div>{count} products</div>}
+
           <LanguageButtons
             changeLanguage={changeLanguage}
             className={'text-sm'}
