@@ -1,19 +1,16 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchAsyncProducts } from '../slices/product-slice';
+import { fetchProducts } from '../slices/product-slice';
 import { addToCart, Product } from '../slices/cart-slice';
 import Cart from './Cart';
+import { AppDispatch, RootState } from '../../app/store';
 
 const CartPage = () => {
-  const dispatch = useDispatch();
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const products = useSelector((state) => state.products.list);
+  const dispatch: AppDispatch = useDispatch();
+  const products = useSelector((state: RootState) => state.products.list);
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    dispatch(fetchAsyncProducts());
+    dispatch(fetchProducts());
   }, []);
 
   console.log(products);
@@ -25,11 +22,8 @@ const CartPage = () => {
         products.map((product: Product) => {
           return (
             <div key={product.id}>
-              <p>{product.productName}</p>
-              <p>{product.price} eurasków</p>
-              <button onClick={() => dispatch(addToCart(product))}>
-                DODAJ DO KOSZYKA
-              </button>
+              <button onClick={() => dispatch(addToCart(product))}>🛒</button>
+              {product.productName} {product.price.toFixed(2)}€
               <p>------------------------------</p>
             </div>
           );

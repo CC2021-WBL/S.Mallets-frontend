@@ -13,12 +13,103 @@ import {
   incrementWeight,
   toggleEdit,
 } from '../slices/cart-slice';
+import { useEffect } from 'react';
+import { createServer } from 'miragejs';
+import { fetchDeliveries } from '../slices/delivery-slice';
+import { AppDispatch, RootState } from '../../app/store';
+
+createServer({
+  routes() {
+    this.get('/api/deliveries', () => [
+      {
+        id: '0a78645f-f742-4da1-b98f-45a13ecc6de8',
+        deliveryName: 'DPD',
+        deliveryArea: 'World',
+        deliveryPriceEuro: 20.0,
+      },
+      {
+        id: 'd17d00c2-b3ff-4b29-8d64-a67c7c077062',
+        deliveryName: 'odbiór osobisty',
+        deliveryArea: 'Gdańsk',
+        deliveryPriceEuro: 0,
+      },
+    ]);
+    this.get('/api/products', () => [
+      {
+        id: '1',
+        productName: 'Super pałeczki chińskie',
+        price: 74.99,
+        headDiameter: 32,
+        stickLength: 37,
+        weight: 31,
+        productImage: 'qwertyuiop',
+        modifiedAt: '',
+        createdAt: '',
+        productDescriptionKey: 'supermallets',
+        productAltTextKey: 'KM',
+        seriesId: 'Beethoven',
+      },
+      {
+        id: '13',
+        productName: 'Lody pałeczki',
+        price: 0.8,
+        headDiameter: 35,
+        stickLength: 36,
+        weight: 34,
+        productImage: 'qwertyuiop',
+        modifiedAt: '',
+        createdAt: '',
+        productDescriptionKey: 'supermallets',
+        productAltTextKey: 'KM',
+        seriesId: 'Beethoven',
+      },
+      {
+        id: '99',
+        productName: 'Pałeczki Major Tom',
+        price: 115.0,
+        headDiameter: 35,
+        stickLength: 36,
+        weight: 34,
+        productImage: 'qwertyuiop',
+        modifiedAt: '',
+        createdAt: '',
+        productDescriptionKey: 'supermallets',
+        productAltTextKey: 'KM',
+        seriesId: 'Beethoven',
+      },
+      {
+        id: '14',
+        productName: 'Za pałki Spa raliż',
+        price: 99.0,
+        headDiameter: 35,
+        stickLength: 36,
+        weight: 34,
+        productImage: 'qwertyuiop',
+        modifiedAt: '',
+        createdAt: '',
+        productDescriptionKey: 'supermallets',
+        productAltTextKey: 'KM',
+        seriesId: 'Beethoven',
+      },
+    ]);
+  },
+});
+interface delivery {
+  id: string;
+  deliveryName: string;
+  deliveryArea: string;
+  deliveryPriceEuro: number;
+}
 
 const Cart = () => {
-  const dispatch = useDispatch();
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const cart = useSelector((state) => state.cart);
+  const dispatch: AppDispatch = useDispatch();
+
+  const cart = useSelector((state: RootState) => state.cart);
+  const deliveries = useSelector((state: RootState) => state.deliveries.list);
+
+  useEffect(() => {
+    dispatch(fetchDeliveries());
+  }, []);
 
   return (
     <div>
@@ -148,7 +239,7 @@ const Cart = () => {
                       </div>
                     </div>
                   </td>
-                  <td>{product.price} €</td>
+                  <td>{product.price.toFixed(2)} €</td>
                   <td>
                     <div className="flex flex-col">
                       <button onClick={() => dispatch(toggleEdit(product.id))}>
@@ -175,6 +266,32 @@ const Cart = () => {
       >
         WYCZYŚĆ KOSZYK
       </button>
+
+      <div className="flex justify-center">
+        <div>
+          <div className="form-check">
+            {deliveries &&
+              deliveries.map((delivery: delivery) => (
+                <div key={delivery.id}>
+                  <input
+                    className="form-check-input float-left mt-1 mr-2 h-4 w-4 cursor-pointer appearance-none rounded-full border border-gray-300 bg-white bg-contain bg-center bg-no-repeat align-top transition duration-200 checked:border-blue-600 checked:bg-blue-600 focus:outline-none"
+                    type="radio"
+                    name="flexRadioDefault"
+                    id="flexRadioDefault1"
+                  />
+                  <label
+                    className="form-check-label inline-block text-gray-800"
+                    htmlFor="flexRadioDefault1"
+                  >
+                    {delivery.deliveryName}{' '}
+                    {delivery.deliveryPriceEuro.toFixed(2)}€ (
+                    {delivery.deliveryArea})
+                  </label>
+                </div>
+              ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -5,8 +5,8 @@ const initialState = {
   list: [],
 };
 
-const productsSlice = createSlice({
-  name: 'products',
+const deliveriesSlice = createSlice({
+  name: 'deliveries',
   initialState,
   reducers: {
     startFetch: (state) => {
@@ -20,17 +20,17 @@ const productsSlice = createSlice({
   },
 });
 
-export const { save, startFetch } = productsSlice.actions;
-export const fetchProducts = () => {
+export const { save, startFetch } = deliveriesSlice.actions;
+export const fetchDeliveries = () => {
   return async (dispatch: any) => {
     dispatch(save([]));
     dispatch(startFetch());
-    fetch('/api/products')
+    fetch('/api/deliveries')
       .then((response) => response.json())
-      .then((products) => dispatch(save(products)));
+      .then((deliveries) => dispatch(save(deliveries)));
   };
 };
 
-const productReducer = productsSlice.reducer;
+const deliveryReducer = deliveriesSlice.reducer;
 
-export default productReducer;
+export default deliveryReducer;
