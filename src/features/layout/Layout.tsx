@@ -7,12 +7,18 @@ import Nav from './nav/Nav';
 
 const Layout = () => {
   const { t } = useTranslation('breadcrumbs');
-
   const routes: any = [
     { path: '/', breadcrumb: `${t('home')}` },
     { path: '/about', breadcrumb: `${t('about')}` },
     { path: '/contact', breadcrumb: `${t('contact')}` },
+    { path: '/products-series', breadcrumb: `${t('series')}` },
+    { path: '/products-series/:seriesName', breadcrumb: `${t('products')}` },
+    { path: '/service', breadcrumb: `${t('service')}` },
+    { path: '/cart', breadcrumb: `${t('cart')}` },
+    { path: '/login', breadcrumb: `${t('login')}` },
+    { path: '/user', breadcrumb: `${t('user')}` },
   ];
+
   const breadcrumbs = useBreadcrumbs(routes);
   return (
     <>
@@ -22,9 +28,7 @@ const Layout = () => {
           <span key={match.pathname}>
             <NavLink
               to={match.pathname}
-              className={({ isActive }) =>
-                isActive ? 'font-bold underline' : ''
-              }
+              className={({ isActive }) => (isActive ? 'font-bold' : '')}
             >
               {breadcrumb} <span className="mr-2">{'>'}</span>
             </NavLink>
