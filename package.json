@@ -22,7 +22,6 @@
     "react-scripts": "5.0.1",
     "redux-immutable-state-invariant": "^2.1.0",
     "redux-thunk": "^2.4.1",
-    "redux-toolkit-persist": "^1.1.0",
     "yup": "^0.32.11"
   },
   "scripts": {
