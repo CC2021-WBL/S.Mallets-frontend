@@ -9,6 +9,7 @@
   "emailError": "Please enter a valid email address",
   "emailError2": "Please, add your email",
   "password2": "Password is required",
+  "toast": "We are checking your data",
   "toasOk": "You are log in.",
   "toastBad": "Something went wrong. Please try again later."
 }

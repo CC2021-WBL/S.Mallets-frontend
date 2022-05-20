@@ -34,12 +34,15 @@ const LoginPage = () => {
     };
     // TODO: change to vercel/heroku/other
     const res = await fetch(
-      'https://s-mallets-backend.vercel.app/auth/login',
-      // 'http://localhost:3030/auth/login',
+      // 'https://s-mallets-backend.vercel.app/auth/login',
+      'http://localhost:3030/auth/login',
       options,
     );
+
     if (res.status !== 200) {
-      toast.success(t('toastBad'));
+      // toast.success(t('toastBad'), {
+      //   position: 'bottom-center',
+      // });
       // handle error
     }
     console.log(res);
@@ -50,12 +53,13 @@ const LoginPage = () => {
       dispatch(
         authActions.login({ email: resJson.email, password: resJson.password }),
       );
-      toast.success(t('toastOk'));
+      // toast.success(t('toastOk'));
       navigate('/user');
     }
     console.log(data);
     console.log(dispatch(authActions.login(data)));
   };
+
   const logoutHandler = () => {
     dispatch(authActions.logout());
     console.log(dispatch(authActions.logout()));
@@ -86,7 +90,12 @@ const LoginPage = () => {
           ) => {
             console.log(values);
             actions.setSubmitting(true);
-            loginHandler(values);
+            // loginHandler(values);
+            toast.promise(loginHandler(values), {
+              loading: `${t('toast')}`,
+              success: `${t('toastOk')}`,
+              error: `${t('toastBad')}`,
+            });
           }}
         >
           <div className="">
