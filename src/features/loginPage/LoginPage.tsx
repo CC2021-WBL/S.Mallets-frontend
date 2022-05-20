@@ -1,15 +1,14 @@
 /* eslint-disable import/named */
 
 import * as Yup from 'yup';
+import toast from 'react-hot-toast';
 import { Dispatch } from 'react';
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { authActions } from '../../app/store/authSlice';
-
-// import { AiOutlineClose } from 'react-icons/ai';
 
 interface IFormValues {
   email: string;
@@ -17,9 +16,15 @@ interface IFormValues {
 }
 const LoginPage = () => {
   const dispatch: Dispatch<any> = useDispatch();
-  // const navigate = useNavigate();
-  // const [showModal, setShowModal] = useState<boolean>(false);
+  const navigate = useNavigate();
   const isAuth = useSelector((state: any) => state.auth.isAuthenticated);
+  const { t } = useTranslation('login');
+
+  const loginSchema = Yup.object().shape({
+    email: Yup.string().email(t('emailError')).required(t('emailError2')),
+    password: Yup.string().required(t('password2')),
+  });
+
   const loginHandler = async (data: any) => {
     const options = {
       method: 'POST',
@@ -29,13 +34,12 @@ const LoginPage = () => {
     };
     // TODO: change to vercel/heroku/other
     const res = await fetch(
-      // 'https://s-mallets-backend.vercel.app/auth/login',
-      'http://localhost:3030/auth/login',
+      'https://s-mallets-backend.vercel.app/auth/login',
+      // 'http://localhost:3030/auth/login',
       options,
     );
     if (res.status !== 200) {
-      console.log('ooooopsie');
-      return;
+      toast.success(t('toastBad'));
       // handle error
     }
     console.log(res);
@@ -46,23 +50,17 @@ const LoginPage = () => {
       dispatch(
         authActions.login({ email: resJson.email, password: resJson.password }),
       );
+      toast.success(t('toastOk'));
+      navigate('/user');
     }
     console.log(data);
     console.log(dispatch(authActions.login(data)));
-    // console.log(authActions.login);
-    // setShowModal(true);
-    console.log(isAuth);
   };
   const logoutHandler = () => {
     dispatch(authActions.logout());
     console.log(dispatch(authActions.logout()));
-    console.log(isAuth);
   };
-  const { t } = useTranslation('login');
-  const loginSchema = Yup.object().shape({
-    email: Yup.string().email(t('emailError')).required(t('emailError2')),
-    password: Yup.string().required(t('password2')),
-  });
+
   return (
     <div className="mx-auto mt-8 mb-16 flex w-full max-w-7xl flex-col sm:px-3 md:flex-row md:gap-20 md:px-6 lg:px-8 ">
       {isAuth ? (
@@ -140,34 +138,6 @@ const LoginPage = () => {
           {t('continue')}
         </button>
       </div>
-      {/* {showModal ? (
-        <div
-          onClick={() => navigate('/user')}
-          onKeyDown={() => navigate('/user')}
-          role="button"
-          tabIndex={0}
-        >
-          <div className="fixed top-0 left-0  z-20 h-full w-full bg-black opacity-20" />
-          <div
-            className="bg- fixed top-1/2 left-1/2  z-30 flex h-40 w-10/12 -translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-lg bg-stone-200 p-6 text-center shadow-xl hover:cursor-default sm:h-60 sm:p-8 sm:text-lg md:text-xl lg:text-2xl lg2:w-1/2 "
-            onClick={(e: any) => e.stopPropagation()}
-            onKeyDown={(e: any) => e.stopPropagation()}
-            role="button"
-            tabIndex={0}
-            // style={{ backgroundImage: `url(${logosm})` }}
-          >
-            {t('modalOk')}
-            <button
-              onClick={() => navigate('/user')}
-              onKeyDown={() => navigate('/user')}
-              aria-label="close handler"
-              className="absolute top-4 right-4 text-xl sm:top-10 sm:right-10"
-            >
-              <AiOutlineClose />
-            </button>
-          </div>
-        </div>
-      ) : null} */}
     </div>
   );
 };

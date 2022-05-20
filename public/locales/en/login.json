@@ -9,6 +9,6 @@
   "emailError": "Please enter a valid email address",
   "emailError2": "Please, add your email",
   "password2": "Password is required",
-  "modalOk": "You are log in.",
-  "modalBad": "Something went wrong. Please try again later."
+  "toasOk": "You are log in.",
+  "toastBad": "Something went wrong. Please try again later."
 }
