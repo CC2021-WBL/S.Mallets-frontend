@@ -41,7 +41,7 @@ const LoginPage = () => {
 
     try {
       const res = await fetch(
-        'https://s-mallets-backend-git-c-f-v-devsonthewaves.vercel.app/',
+        'https://s-mallets-backend-git-c-f-v-devsonthewaves.vercel.app/auth/login',
         options,
       );
       console.log(res.headers);
