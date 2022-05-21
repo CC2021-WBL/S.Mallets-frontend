@@ -1,3 +1,9 @@
-// this is where the store is going to be
+import { configureStore } from '@reduxjs/toolkit';
 
-export {};
+import { deliDataSlice } from './dliveryDataSlice';
+
+const store = configureStore({
+  reducer: { deliveryData: deliDataSlice.reducer },
+});
+
+export default store;

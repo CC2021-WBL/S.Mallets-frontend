@@ -1,12 +1,15 @@
 import * as Yup from 'yup';
 import { Field, Form, Formik } from 'formik';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import Error from './Error';
 import LogoCarpet from '../../tools/LogoCarpet';
+import { deliDataActions } from '../../app/dliveryDataSlice';
 
 const DeliveryForm = () => {
   const { t } = useTranslation('deliveryForm');
+  const dispatch = useDispatch();
 
   const validationSchema = Yup.object({
     name: Yup.string()
@@ -52,6 +55,18 @@ const DeliveryForm = () => {
         validationSchema={validationSchema}
         onSubmit={async (values) => {
           console.log('dupa');
+          dispatch(
+            deliDataActions.setDeliData({
+              name: values.name,
+              lastname: values.lastname,
+              streetAndHouseNr: values.streetAndHouseNr,
+              postalCode: values.postalCode,
+              city: values.city,
+              country: values.country,
+              phoneNumber: values.phoneNumber,
+              additional: values.additional,
+            }),
+          );
           await new Promise((r) => setTimeout(r, 500));
           alert(JSON.stringify(values, null, 6));
         }}
