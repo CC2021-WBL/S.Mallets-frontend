@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { RootState } from '../../app/store/store';
-import { authActions } from '../../app/store/authSlice';
+import { authActions, userActions } from '../../app/store/authSlice';
 
 // import { Dispatch } from 'react';
 
@@ -38,42 +38,51 @@ const LoginPage = () => {
       // mode: 'cors',
       headers: { 'Content-Type': 'application/json' },
     };
-    // TODO: change to vercel/heroku/other
-    const res = await fetch(
-      'https://s-mallets-backend.vercel.app/auth/login',
-      // 'http://localhost:3030/auth/login',
-      options,
-    );
 
-    if (res.status !== 200) {
-      // toast.error(t('toastBad'));
-      // handle error
-      toast.error('This did not work :(', {
-        id: toastId,
-      });
-    }
-    console.log(res);
-    const resJson = await res.json();
-    console.log(resJson);
-    // TODO: move resJson to store
-    if (res.status === 200) {
-      dispatch(
-        authActions.login({ email: resJson.email, password: resJson.password }),
+    try {
+      const res = await fetch(
+        'https://s-mallets-backend.vercel.app/auth/login',
+        options,
       );
-      // toast.success(t('toastOk'));
-      toast.success('This worked', {
-        id: toastId,
-      });
-      navigate('/user');
+
+      if (res.status !== 200) {
+        toast.error(t('toastBad'), {
+          id: toastId,
+        });
+      }
+      console.log(res);
+      const resJson = await res.json();
+      console.log(resJson);
+      // TODO: move resJson to store
+      if (res.status === 200) {
+        dispatch(authActions.login());
+        dispatch(
+          userActions.user({
+            email: resJson.email,
+            name: resJson.name,
+            lastname: resJson.lastname,
+            roles: resJson.roles,
+            phoneNumber: resJson.phoneNumber,
+          }),
+        );
+
+        toast.success(t('toastOk'), {
+          id: toastId,
+        });
+        navigate('/user');
+      }
+      console.log(data);
+    } catch (error) {
+      toast.error(t('toastBad'));
     }
-    console.log(data);
-    // console.log(dispatch(authActions.login(data)));
   };
 
   const logoutHandler = () => {
     dispatch(authActions.logout());
-    // console.log(dispatch(authActions.logout()));
-    // toast.success(t('toastOut'));
+    const toastId = toast.loading('Loading...');
+    toast.success(t('toastOut'), {
+      id: toastId,
+    });
   };
 
   return (
