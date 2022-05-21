@@ -37,7 +37,7 @@ function App() {
                   <Route path="/contact" element={<ContactPage />} />
                   <Route
                     path="/products-series"
-                    element={<ProductsSeriesPage />}
+                    element={<ProductsSeriesPage mockSeries={mock} />}
                   />
                   <Route
                     path="/products-page/:seriesId"
