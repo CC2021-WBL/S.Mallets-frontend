@@ -7,15 +7,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import { RootState } from '../../app/store/store';
-import { authActions, userActions } from '../../app/store/authSlice';
+import { RootState } from '../../app/store';
+import { authActions } from './authSlice';
+import { userActions } from './userSlice';
 
 // import { Dispatch } from 'react';
 
 interface IFormValues {
   email: string;
   password: string;
-  // e?: () => void;
 }
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -44,7 +44,7 @@ const LoginPage = () => {
         'https://s-mallets-backend.vercel.app/auth/login',
         options,
       );
-
+      console.log(data);
       if (res.status !== 200) {
         toast.error(t('toastBad'), {
           id: toastId,
@@ -53,7 +53,7 @@ const LoginPage = () => {
       console.log(res);
       const resJson = await res.json();
       console.log(resJson);
-      // TODO: move resJson to store
+
       if (res.status === 200) {
         dispatch(authActions.login());
         dispatch(
@@ -87,15 +87,13 @@ const LoginPage = () => {
 
   return (
     <div className="mx-auto mt-8 mb-16 flex w-full max-w-7xl flex-col sm:px-3 md:flex-row md:gap-20 md:px-6 lg:px-8 ">
-      {isAuth ? (
+      {isAuth && (
         <>
           <h1 className="fixed top-0 left-0 z-50">zalogowany</h1>
           <button onClick={logoutHandler} className="fixed top-10 left-0 z-50">
             Wyloguj
           </button>
         </>
-      ) : (
-        <h6>😥Niezalogowany</h6>
       )}
       <div className="h-fit-content  w-full p-3 md:w-1/2">
         <Formik
@@ -107,19 +105,9 @@ const LoginPage = () => {
           onSubmit={(
             values: IFormValues,
             actions: FormikHelpers<IFormValues>,
-            // e: any,
           ) => {
-            // e.preventDefault();
-            console.log(values);
             actions.setSubmitting(true);
             loginHandler(values);
-            // loginHandler(values);
-            // e.preventDefault();
-            // toast.promise(loginHandler(values), {
-            //   loading: `${t('toast')}`,
-            //   success: `${t('toastOk')}`,
-            //   error: `${t('toastBad')}`,
-            // });
           }}
         >
           <div className="">

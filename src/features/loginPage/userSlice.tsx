@@ -1,36 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// interface aaa {
-//   isAuthenticated: boolean;
-//   email: string;
-//   // password: string;
-// }
-const initialAuthState = {
-  isAuthenticated: false,
-  // email: '',
-  // password: '',
-};
+interface UserStateTypes {
+  email: string;
+  name: string;
+  lastname: string;
+  roles: string[];
+  phoneNumber: string | number;
+}
 
-export const authSlice = createSlice({
-  name: 'authentication',
-  initialState: initialAuthState,
-  reducers: {
-    login(state) {
-      state.isAuthenticated = true;
-    },
-    logout(state) {
-      state.isAuthenticated = false;
-    },
-  },
-});
-
-const initialUserState = {
+const initialUserState: UserStateTypes = {
   email: '',
   name: '',
   lastname: '',
   roles: [],
   phoneNumber: '',
 };
+
 export const userSlice = createSlice({
   name: 'user',
   initialState: initialUserState,
@@ -46,4 +31,3 @@ export const userSlice = createSlice({
 });
 
 export const userActions = userSlice.actions;
-export const authActions = authSlice.actions;
