@@ -72,8 +72,8 @@ const ProductCard = (prop: { productObject: productDataType }) => {
       </div>
       {detailsModal && (
         <>
-          <SliderModal />
           <Backdrop handleClose={handleDetailsModal} />
+          <SliderModal />
         </>
       )}
     </>
