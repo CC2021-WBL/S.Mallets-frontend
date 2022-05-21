@@ -40,7 +40,10 @@ const LoginPage = () => {
     };
 
     try {
-      const res = await fetch('http://localhost:3030/auth/login', options);
+      const res = await fetch(
+        'https://s-mallets-backend-git-c-f-v-devsonthewaves.vercel.app/',
+        options,
+      );
       console.log(res.headers);
       if (res.status !== 200) {
         toast.error(t('toastBad'), {
