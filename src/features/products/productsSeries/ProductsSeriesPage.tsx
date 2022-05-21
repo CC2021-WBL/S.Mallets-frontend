@@ -22,7 +22,7 @@ const ProductsSeriesPage: React.FC<{ mockSeries: mockDataType[] }> = (prop) => {
             <Link
               key={index.id}
               className="mb-14 flex w-[21.8rem] flex-col items-center py-0 hover:cursor-pointer sm:mb-6 sm:rounded-lg sm:py-9 sm:hover:shadow-lg md:h-[27.8rem]"
-              to={`/products-page/${index.seriesName}`}
+              to={`/products-series/${index.seriesName}`}
             >
               <img
                 src={index.seriesImage}

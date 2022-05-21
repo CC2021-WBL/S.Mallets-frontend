@@ -66,6 +66,7 @@ const ProductsPage = () => {
           {i18n.language === 'en' ? seriesLang.en : seriesLang.pl}
         </h2>
       </div>
+      {/* {params.seriesName} */}
       {!pending && (
         <img
           src={carpet}
