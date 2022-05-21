@@ -27,14 +27,14 @@ export const deliDataSlice = createSlice({
   initialState,
   reducers: {
     setDeliData(state, action) {
-      state.name = action.payload;
-      state.lastname = action.payload;
+      state.name = action.payload.name;
+      state.lastname = action.payload.lastname;
       state.streetAndHouseNr = action.payload;
-      state.postalCode = action.payload;
-      state.city = action.payload;
-      state.country = action.payload;
-      state.phoneNumber = action.payload;
-      state.additional = action.payload;
+      state.postalCode = action.payload.postalCode;
+      state.city = action.payload.city;
+      state.country = action.payload.country;
+      state.phoneNumber = action.payload.phoneNumber;
+      state.additional = action.payload.additional;
     },
   },
 });

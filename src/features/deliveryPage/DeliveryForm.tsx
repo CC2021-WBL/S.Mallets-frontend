@@ -54,7 +54,6 @@ const DeliveryForm = () => {
         }}
         validationSchema={validationSchema}
         onSubmit={async (values) => {
-          console.log('dupa');
           dispatch(
             deliDataActions.setDeliData({
               name: values.name,
