@@ -11,8 +11,6 @@ import { RootState } from '../../app/store';
 import { authActions } from './authSlice';
 import { userActions } from './userSlice';
 
-// import { Dispatch } from 'react';
-
 interface IFormValues {
   email: string;
   password: string;
@@ -35,7 +33,6 @@ const LoginPage = () => {
     const options = {
       method: 'POST',
       body: JSON.stringify(data),
-      // mode: 'cors',
       headers: { 'Content-Type': 'application/json' },
     };
 
@@ -123,7 +120,7 @@ const LoginPage = () => {
               <ErrorMessage
                 component="a"
                 name="email"
-                className="mt-3 mb-5 text-sm text-red-600"
+                className=" mb-5 text-sm text-red-600"
               />
 
               <Field
@@ -136,7 +133,7 @@ const LoginPage = () => {
               <ErrorMessage
                 component="a"
                 name="password"
-                className="mt-3 text-sm text-red-600"
+                className=" text-sm text-red-600"
               />
 
               <button
@@ -152,12 +149,18 @@ const LoginPage = () => {
       </div>
       <div className="flex w-full flex-col items-end justify-self-end  p-3 md:w-1/2 ">
         <h2 className=" self-start pb-7 text-xl lg:text-2xl">{t('first')}</h2>
-        <button className="mb-5 h-[3.75rem] w-full rounded bg-black text-white hover:opacity-75 ">
+        <Link
+          className="mb-5 flex h-[3.75rem] w-full items-center justify-center rounded bg-black text-white hover:opacity-75 "
+          to="/register"
+        >
           {t('register')}
-        </button>
-        <button className="h-[3.75rem] w-full rounded border border-black bg-white text-black hover:bg-black hover:text-white hover:opacity-75  ">
+        </Link>
+        <Link
+          className="flex h-[3.75rem] w-full items-center justify-center rounded border border-black bg-white text-black hover:bg-black hover:text-white hover:opacity-75"
+          to="/delivery"
+        >
           {t('continue')}
-        </button>
+        </Link>
       </div>
     </div>
   );
