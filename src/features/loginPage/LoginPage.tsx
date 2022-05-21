@@ -41,7 +41,7 @@ const LoginPage = () => {
 
     try {
       const res = await fetch(
-        'https://s-mallets-backend.vercel.app/auth/login',
+        'https://s-mallets-backend-git-cookie-fix-devsonthewaves.vercel.app/auth/login',
         options,
       );
 
