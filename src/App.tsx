@@ -34,12 +34,15 @@ function App() {
                 <Route element={<Layout />}>
                   <Route path="/" element={<HomePage mockSeries={mock} />} />
                   <Route path="/about" element={<AboutMe />} />
-                  <Route path="/contact</Provider>" element={<ContactPage />} />
+                  <Route path="/contact" element={<ContactPage />} />
                   <Route
                     path="/products-series"
                     element={<ProductsSeriesPage />}
                   />
-                  <Route path="/products-page" element={<ProductsPage />} />
+                  <Route
+                    path="/products-page/:seriesId"
+                    element={<ProductsPage />}
+                  />
                   <Route path="/service" element={<ServicePage />} />
                   <Route path="/cart" element={<CartPage />} />
                   <Route path="/login" element={<LoginPage />} />
