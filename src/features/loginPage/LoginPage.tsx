@@ -44,7 +44,7 @@ const LoginPage = () => {
         'https://s-mallets-backend-git-c-f-v-devsonthewaves.vercel.app/auth/login',
         options,
       );
-      const token = res.headers.get('set-cookie');
+      const token = res.headers.get('Set-cookie');
       console.log(token);
       if (token) {
         document.cookie = token;
