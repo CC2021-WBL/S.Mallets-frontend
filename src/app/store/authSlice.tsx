@@ -1,9 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialAuthState = {
+interface aaa {
+  isAuthenticated: boolean;
+  email: string;
+  password: string;
+}
+const initialAuthState: aaa = {
   isAuthenticated: false,
-  email: null,
-  password: null,
+  email: '',
+  password: '',
 };
 
 export const authSlice = createSlice({
@@ -17,8 +22,8 @@ export const authSlice = createSlice({
     },
     logout(state) {
       state.isAuthenticated = false;
-      state.email = null;
-      state.password = null;
+      state.email = '';
+      state.password = '';
     },
   },
 });

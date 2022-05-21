@@ -11,5 +11,6 @@
   "password2": "Password is required",
   "toast": "We are checking your data",
   "toasOk": "You are log in.",
-  "toastBad": "Something went wrong. Please try again later."
+  "toastBad": "Something went wrong. Please try again later.",
+  "toastOut": "You are log out"
 }

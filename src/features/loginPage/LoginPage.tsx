@@ -2,22 +2,27 @@
 
 import * as Yup from 'yup';
 import toast from 'react-hot-toast';
-import { Dispatch } from 'react';
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
+import { RootState } from '../../app/store/store';
 import { authActions } from '../../app/store/authSlice';
+
+// import { Dispatch } from 'react';
 
 interface IFormValues {
   email: string;
   password: string;
+  // e?: () => void;
 }
 const LoginPage = () => {
-  const dispatch: Dispatch<any> = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const isAuth = useSelector((state: any) => state.auth.isAuthenticated);
+  const isAuth = useSelector(
+    (state: RootState) => state.authentication.isAuthenticated,
+  );
   const { t } = useTranslation('login');
 
   const loginSchema = Yup.object().shape({
@@ -25,7 +30,7 @@ const LoginPage = () => {
     password: Yup.string().required(t('password2')),
   });
 
-  const loginHandler = async (data: any) => {
+  const loginHandler = async (data: object) => {
     const options = {
       method: 'POST',
       body: JSON.stringify(data),
@@ -34,15 +39,13 @@ const LoginPage = () => {
     };
     // TODO: change to vercel/heroku/other
     const res = await fetch(
-      // 'https://s-mallets-backend.vercel.app/auth/login',
-      'http://localhost:3030/auth/login',
+      'https://s-mallets-backend.vercel.app/auth/login',
+      // 'http://localhost:3030/auth/login',
       options,
     );
 
     if (res.status !== 200) {
-      // toast.success(t('toastBad'), {
-      //   position: 'bottom-center',
-      // });
+      // toast.error(t('toastBad'));
       // handle error
     }
     console.log(res);
@@ -53,16 +56,18 @@ const LoginPage = () => {
       dispatch(
         authActions.login({ email: resJson.email, password: resJson.password }),
       );
-      // toast.success(t('toastOk'));
+      toast.success(t('toastOk'));
+
       navigate('/user');
     }
     console.log(data);
-    console.log(dispatch(authActions.login(data)));
+    // console.log(dispatch(authActions.login(data)));
   };
 
   const logoutHandler = () => {
     dispatch(authActions.logout());
-    console.log(dispatch(authActions.logout()));
+    // console.log(dispatch(authActions.logout()));
+    // toast.success(t('toastOut'));
   };
 
   return (
@@ -87,10 +92,13 @@ const LoginPage = () => {
           onSubmit={(
             values: IFormValues,
             actions: FormikHelpers<IFormValues>,
+            // e: any,
           ) => {
             console.log(values);
             actions.setSubmitting(true);
             // loginHandler(values);
+            // loginHandler(values);
+            // e.preventDefault();
             toast.promise(loginHandler(values), {
               loading: `${t('toast')}`,
               success: `${t('toastOk')}`,
