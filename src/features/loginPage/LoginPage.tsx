@@ -31,6 +31,7 @@ const LoginPage = () => {
   });
 
   const loginHandler = async (data: object) => {
+    const toastId = toast.loading('Loading...');
     const options = {
       method: 'POST',
       body: JSON.stringify(data),
@@ -47,6 +48,9 @@ const LoginPage = () => {
     if (res.status !== 200) {
       // toast.error(t('toastBad'));
       // handle error
+      toast.error('This did not work :(', {
+        id: toastId,
+      });
     }
     console.log(res);
     const resJson = await res.json();
@@ -56,8 +60,10 @@ const LoginPage = () => {
       dispatch(
         authActions.login({ email: resJson.email, password: resJson.password }),
       );
-      toast.success(t('toastOk'));
-
+      // toast.success(t('toastOk'));
+      toast.success('This worked', {
+        id: toastId,
+      });
       navigate('/user');
     }
     console.log(data);
@@ -94,16 +100,17 @@ const LoginPage = () => {
             actions: FormikHelpers<IFormValues>,
             // e: any,
           ) => {
+            // e.preventDefault();
             console.log(values);
             actions.setSubmitting(true);
-            // loginHandler(values);
+            loginHandler(values);
             // loginHandler(values);
             // e.preventDefault();
-            toast.promise(loginHandler(values), {
-              loading: `${t('toast')}`,
-              success: `${t('toastOk')}`,
-              error: `${t('toastBad')}`,
-            });
+            // toast.promise(loginHandler(values), {
+            //   loading: `${t('toast')}`,
+            //   success: `${t('toastOk')}`,
+            //   error: `${t('toastBad')}`,
+            // });
           }}
         >
           <div className="">
