@@ -1,6 +1,7 @@
 {
   "name": "Name",
   "lastname": "Lastname",
+  "email": "email",
   "streetAndHouseNr": "Street and House number",
   "postalCode": "Postal Code",
   "city": "City",
@@ -15,6 +16,8 @@
   "errNoLastname": "Enter your lastname",
   "errLastname": "Lastname must consist of min. 3 characters",
   "errLastname2": "Lastname must consist of max. 15 characters",
+  "errNoEmail": "Email address is required",
+  "errEmail": "This is not a valid email address",
   "errNoStreetAndHouseNr": "Street and house number are required",
   "errStreetAndHouseNr": "Min. 6 characters",
   "errNoPostalCode": "Postal Code is required",

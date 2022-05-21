@@ -1,6 +1,7 @@
 {
   "name": "Imię",
   "lastname": "Nazwisko",
+  "email": "email",
   "streetAndHouseNr": "Ulica i numer domu",
   "postalCode": "Kod pocztowy",
   "city": "Miasto",
@@ -15,6 +16,8 @@
   "errNoLastname": "Wpisz nazwisko",
   "errLastname": "Nazwisko musi się składać z min. 3 znaków",
   "errLastname2": "Nazwisko musi się składać z max. 15 znaków",
+  "errNoEmail": "Adres email jest wymagany",
+  "errEmail": "Nieprawidłowy adres email",
   "errNoStreetAndHouseNr": "Podaj ulice i numer domu",
   "errStreetAndHouseNr": "Minimum 6 znaków",
   "errNoPostalCode": "Podaj kod pocztowy",

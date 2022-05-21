@@ -20,6 +20,7 @@ const DeliveryForm = () => {
       .required(t('errNoLastname'))
       .min(3, t('errLastname'))
       .max(15, t('errLastname2')),
+    email: Yup.string().required(t('errNoEmail')).email(t('errEmail')),
     streetAndHouseNr: Yup.string()
       .required(t('errNoStreetAndHouseNr'))
       .min(6, t('errStreetAndHouseNr')),
@@ -44,6 +45,7 @@ const DeliveryForm = () => {
         initialValues={{
           name: '',
           lastname: '',
+          email: '',
           streetAndHouseNr: '',
           postalCode: '',
           condition: false,
@@ -58,6 +60,7 @@ const DeliveryForm = () => {
             deliDataActions.setDeliData({
               name: values.name,
               lastname: values.lastname,
+              email: values.email,
               streetAndHouseNr: values.streetAndHouseNr,
               postalCode: values.postalCode,
               city: values.city,
@@ -91,6 +94,16 @@ const DeliveryForm = () => {
                 className="form-input"
               ></Field>
               <Error name="lastname" />
+            </div>
+            <div className="relative">
+              <Field
+                id="email"
+                name="email"
+                type="email"
+                placeholder={t('email')}
+                className="form-input"
+              ></Field>
+              <Error name="email" />
             </div>
             <div className="relative">
               <Field

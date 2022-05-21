@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 interface DeliDataState {
   name: string;
   lastname: string;
-  streetAndHouseNr: [];
+  email: string;
+  streetAndHouseNr: string;
   postalCode: string;
   city: string;
   country: string;
@@ -14,7 +15,8 @@ interface DeliDataState {
 const initialState: DeliDataState = {
   name: '',
   lastname: '',
-  streetAndHouseNr: [],
+  email: '',
+  streetAndHouseNr: '',
   postalCode: '',
   city: '',
   country: '',
@@ -29,7 +31,8 @@ export const deliDataSlice = createSlice({
     setDeliData(state, action) {
       state.name = action.payload.name;
       state.lastname = action.payload.lastname;
-      state.streetAndHouseNr = action.payload;
+      state.email = action.payload.email;
+      state.streetAndHouseNr = action.payload.streetAndHouseNr;
       state.postalCode = action.payload.postalCode;
       state.city = action.payload.city;
       state.country = action.payload.country;
