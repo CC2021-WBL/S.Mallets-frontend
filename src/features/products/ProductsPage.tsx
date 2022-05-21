@@ -66,6 +66,7 @@ const ProductsPage = () => {
           {i18n.language === 'en' ? seriesLang.en : seriesLang.pl}
         </h2>
       </div>
+      {/* {params.seriesName} */}
       {!pending && (
         <LogoCarpet className="absolute top-12 right-8 z-[1] hidden lg:block" />
       )}
