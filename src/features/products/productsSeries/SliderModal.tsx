@@ -5,8 +5,8 @@ import { useState } from 'react';
 import { Loader } from './../../Loader';
 
 const mockPics = [
-  'https://www.fillmurray.com/1200/675',
   'https://www.fillmurray.com/1201/675',
+  'https://www.fillmurray.com/1200/675',
   'https://www.fillmurray.com/1202/675',
   'https://www.fillmurray.com/1203/675',
   'https://www.fillmurray.com/1204/675',
