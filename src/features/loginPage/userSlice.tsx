@@ -24,8 +24,8 @@ export const userSlice = createSlice({
       state.email = action.payload.email;
       state.name = action.payload.name;
       state.lastname = action.payload.lastname;
-      state.phoneNumber = action.payload.phoneNumber;
       state.roles = action.payload.roles;
+      state.phoneNumber = action.payload.phoneNumber;
     },
   },
 });

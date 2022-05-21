@@ -41,15 +41,14 @@ const LoginPage = () => {
         'https://s-mallets-backend.vercel.app/auth/login',
         options,
       );
-      console.log(data);
+
       if (res.status !== 200) {
         toast.error(t('toastBad'), {
           id: toastId,
         });
       }
-      console.log(res);
+
       const resJson = await res.json();
-      console.log(resJson);
 
       if (res.status === 200) {
         dispatch(authActions.login());
@@ -68,7 +67,6 @@ const LoginPage = () => {
         });
         navigate('/user');
       }
-      console.log(data);
     } catch (error) {
       toast.error(t('toastBad'));
     }
@@ -145,7 +143,7 @@ const LoginPage = () => {
             </Form>
           </div>
         </Formik>
-        <Link to="#">{t('forgot')}</Link>
+        <Link to="/forgot">{t('forgot')}</Link>
       </div>
       <div className="flex w-full flex-col items-end justify-self-end  p-3 md:w-1/2 ">
         <h2 className=" self-start pb-7 text-xl lg:text-2xl">{t('first')}</h2>

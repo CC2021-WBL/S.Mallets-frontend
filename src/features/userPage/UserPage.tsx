@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../../app/store';
 
 const UserPage = () => {
-  const aaa = useSelector((state: RootState) => state.user.name);
+  const name = useSelector((state: RootState) => state.user.name);
   return (
     <h1 className="p-8 text-center text-6xl">
       User Page
-      {`Hello ${aaa}`}
+      {`Hello ${name}`}
     </h1>
   );
 };
