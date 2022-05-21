@@ -56,7 +56,7 @@ const ProductsPage = () => {
   const seriesLang = seriesMock.seriesDescription;
 
   return (
-    <div className="relative mx-auto w-full max-w-7xl">
+    <div className="max-w-7x relative mx-auto w-full">
       {pending && <Loader />}
       <div className="py-4 px-12">
         <h1 className="py-2 text-2xl font-bold">{seriesMock.seriesName}</h1>

@@ -141,12 +141,9 @@ const DeliveryForm = () => {
             <div className="relative mb-6 flex">
               <Field type="checkbox" name="condition" />
               <label htmlFor="condition" className="ml-5 text-sm font-semibold">
-                {/* <p className="ml-5 text-sm font-semibold"> */}
                 {t('aggrementText')}
-                {/* </p> */}
               </label>
-
-              <Error name="condition" className="top-5" />
+              <Error name="condition" className="-top-3" />
             </div>
             <button className="btn-primary">{t('confirmData')}</button>
           </div>
