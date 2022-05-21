@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import { deliDataSlice } from './dliveryDataSlice';
+import { deliDataSlice } from '../features/deliveryPage/deliveryDataSlice';
 
 const store = configureStore({
   reducer: { deliveryData: deliDataSlice.reducer },

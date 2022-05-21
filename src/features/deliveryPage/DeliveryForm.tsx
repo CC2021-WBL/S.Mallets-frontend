@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import Error from './Error';
 import LogoCarpet from '../../tools/LogoCarpet';
-import { deliDataActions } from '../../app/dliveryDataSlice';
+import { deliDataActions } from './deliveryDataSlice';
 
 const DeliveryForm = () => {
   const { t } = useTranslation('deliveryForm');
@@ -29,7 +29,10 @@ const DeliveryForm = () => {
       .min(4, t('errPostalCode')),
     condition: Yup.boolean().oneOf([true], t('errCondition')),
     city: Yup.string().required(t('errNoCity')).min(4, t('errCity')),
-    country: Yup.string().required(t('errNoCountry')).min(4, t('errCountry')),
+    country: Yup.string()
+      .required(t('errNoCountry'))
+      .min(4, t('errCountry'))
+      .max(15, t('errCountry')),
     phoneNumber: Yup.string()
       .required(t('errNoPhoneNumber'))
       .matches(
@@ -69,8 +72,6 @@ const DeliveryForm = () => {
               additional: values.additional,
             }),
           );
-          await new Promise((r) => setTimeout(r, 500));
-          alert(JSON.stringify(values, null, 6));
         }}
       >
         <Form>

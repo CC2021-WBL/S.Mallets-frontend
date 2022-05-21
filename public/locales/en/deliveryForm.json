@@ -25,7 +25,7 @@
   "errNoCity": "City name is required",
   "errCity": "City name must consist of min. 4 characters",
   "errNoCountry": "Country name is required",
-  "errCountry": "Country name must consist of min. 4 characters",
+  "errCountry": "Country name must consist of min. 4 and max 15 chars",
   "errNoPhoneNumber": "Phone Number is required",
   "errPhoneNumber": "Phone number is not valid",
   "errAdditional": "Maximum 120 characters",

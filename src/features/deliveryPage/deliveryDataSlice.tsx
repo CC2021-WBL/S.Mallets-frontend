@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface DeliDataState {
+interface DeliDataInterface {
   name: string;
   lastname: string;
   email: string;
@@ -8,11 +8,11 @@ interface DeliDataState {
   postalCode: string;
   city: string;
   country: string;
-  phoneNumber: number;
+  phoneNumber: number | string;
   additional: string;
 }
 
-const initialState: DeliDataState = {
+const initialState: DeliDataInterface = {
   name: '',
   lastname: '',
   email: '',
@@ -20,7 +20,7 @@ const initialState: DeliDataState = {
   postalCode: '',
   city: '',
   country: '',
-  phoneNumber: 0,
+  phoneNumber: '',
   additional: '',
 };
 
@@ -28,7 +28,12 @@ export const deliDataSlice = createSlice({
   name: 'deliveryData',
   initialState,
   reducers: {
-    setDeliData(state, action) {
+    setDeliData(
+      state: DeliDataInterface,
+      action: {
+        payload: DeliDataInterface;
+      },
+    ) {
       state.name = action.payload.name;
       state.lastname = action.payload.lastname;
       state.email = action.payload.email;

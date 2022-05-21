@@ -25,7 +25,7 @@
   "errNoCity": "Podaj miasto",
   "errCity": "Nazwa miasta musi się składać z min. 4 znaków",
   "errNoCountry": "Podaj kraj",
-  "errCountry": "Nazwa kraju musi się składać z min. 4 znaków",
+  "errCountry": "Nazwa kraju musi się składać z min. 4 max. 15 znaków",
   "errNoPhoneNumber": "Podaj numer telefonu",
   "errPhoneNumber": "Numer telefonu jest nieprawidłowy",
   "errAdditional": "Maksymalnie 120 znaków",
