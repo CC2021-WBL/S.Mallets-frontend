@@ -39,7 +39,7 @@ const LoginPage = () => {
 
     try {
       const res = await fetch(
-        'https://s-mallets-backend-rg2a3xwxz-devsonthewaves.vercel.app/auth/login',
+        'https://s-mallets-backend.vercel.app/auth/login',
         options,
       );
 
