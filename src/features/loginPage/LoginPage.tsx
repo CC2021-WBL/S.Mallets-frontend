@@ -44,11 +44,6 @@ const LoginPage = () => {
         'https://s-mallets-backend-git-c-f-v-devsonthewaves.vercel.app/auth/login',
         options,
       );
-      const token = res.headers.get('Set-cookie');
-      console.log(token);
-      if (token) {
-        document.cookie = token;
-      }
       if (res.status !== 200) {
         toast.error(t('toastBad'), {
           id: toastId,
@@ -58,6 +53,12 @@ const LoginPage = () => {
       const resJson = await res.json();
 
       if (res.status === 200) {
+        const token = resJson.token;
+        console.log(token);
+        if (token) {
+          document.cookie = token;
+        }
+
         dispatch(authActions.login());
         dispatch(
           userActions.user({
