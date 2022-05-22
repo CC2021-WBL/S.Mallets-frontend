@@ -13,6 +13,8 @@ const UserPage = () => {
       // headers.append('Content-Type', 'application/json');
       headers.append('credentials', 'include');
       headers.append('withCredentials', 'true');
+      const auth = localStorage.getItem('auth');
+      if (auth) headers.append('auth', auth);
       const options = {
         method: 'GET',
         headers: headers,

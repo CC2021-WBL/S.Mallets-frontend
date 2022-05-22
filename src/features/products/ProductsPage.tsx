@@ -50,7 +50,8 @@ const ProductsPage = () => {
       // const toastId = toast.loading('Loading...');
       const headers = new Headers();
       // headers.append('Content-Type', 'application/json');
-      headers.append('credentials', 'include');
+      const auth = localStorage.getItem('auth');
+      if (auth) headers.append('auth', auth);
       const options = {
         method: 'GET',
         // body: JSON.stringify(data),

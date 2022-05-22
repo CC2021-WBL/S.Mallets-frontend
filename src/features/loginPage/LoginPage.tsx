@@ -56,7 +56,7 @@ const LoginPage = () => {
         const token = resJson.token;
         console.log(token);
         if (token) {
-          document.cookie = token;
+          localStorage.setItem('auth', token);
         }
 
         dispatch(authActions.login());
