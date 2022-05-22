@@ -1,7 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
 const navLinkArray = [
-  ['mock', '/products-page'],
   ['products', '/products-series'],
   ['about', '/about'],
   ['service', '/service'],
