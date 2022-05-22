@@ -1,3 +1,10 @@
-// this is where the store is going to be
+import { configureStore } from '@reduxjs/toolkit';
 
-export {};
+import { authSlice } from '../features/loginPage/authSlice';
+import { userSlice } from '../features/loginPage/userSlice';
+
+const store = configureStore({
+  reducer: { authentication: authSlice.reducer, user: userSlice.reducer },
+});
+export type RootState = ReturnType<typeof store.getState>;
+export default store;
