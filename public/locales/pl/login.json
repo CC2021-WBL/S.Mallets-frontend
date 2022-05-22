@@ -1,0 +1,16 @@
+{
+  "loginText": "Masz konto?",
+  "password": "hasło",
+  "login": "ZALOGUJ SIĘ",
+  "forgot": "Zapomniałeś hasła?",
+  "first": "Pierwszy raz?",
+  "register": "ZAREJESTRUJ SIĘ",
+  "continue": "KONTYNUUJ JAKO GOŚĆ",
+  "emailError": "Wpisz poprawny adres email",
+  "emailError2": "Adres email jest wymagany",
+  "password2": "Hasło jest wymagane",
+  "toast": "Sprawdzamy Twoje dane",
+  "toastOk": "Jesteś zalogowany.",
+  "toastBad": "Coś poszło nie tak.Spróbuj ponownie później",
+  "toastOut": "Zostałeś wylogowany"
+}
