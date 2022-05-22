@@ -6,6 +6,8 @@ import carpet from '../../assets/carpet.png';
 import { Loader } from '../Loader';
 import { seriesMock } from '../../assets/mockData/mockPoductData';
 
+// import { useParams } from 'react-router-dom';
+
 export const initialStateMock = [
   {
     id: 0,
@@ -32,7 +34,7 @@ const ProductsPage = () => {
   const [pending, setIsPending] = useState(true);
   const [productObjectArray, setProductObjectArray] =
     useState(initialStateMock);
-
+  // const params = useParams();
   useEffect(() => {
     setTimeout(() => {
       const getSeriesObject = async () => {
@@ -64,6 +66,7 @@ const ProductsPage = () => {
           {i18n.language === 'en' ? seriesLang.en : seriesLang.pl}
         </h2>
       </div>
+      {/* {params.seriesName} */}
       {!pending && (
         <img
           src={carpet}

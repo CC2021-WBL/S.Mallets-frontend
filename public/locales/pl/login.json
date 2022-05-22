@@ -11,5 +11,6 @@
   "password2": "Hasło jest wymagane",
   "toast": "Sprawdzamy Twoje dane",
   "toastOk": "Jesteś zalogowany.",
-  "toastBad": "Coś poszło nie tak.Spróbuj ponownie później"
+  "toastBad": "Coś poszło nie tak.Spróbuj ponownie później",
+  "toastOut": "Zostałeś wylogowany"
 }
