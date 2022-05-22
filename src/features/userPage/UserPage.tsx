@@ -8,6 +8,7 @@ const UserPage = () => {
   // const [address, setAddress] = useState('');
   useEffect(() => {
     const getAdress = async () => {
+      // const isDev = window.location.href.includes('localhost');
       const headers = new Headers();
       headers.append('Content-Type', 'application/json');
       headers.append('credentials', 'include');
@@ -16,7 +17,7 @@ const UserPage = () => {
         headers: headers,
       };
       const res = await fetch(
-        'https://s-mallets-backend-git-c-f-v-devsonthewaves.vercel.app/adresses',
+        'https://s-mallets-backend-git-c-f-v-devsonthewaves.vercel.app/addresses',
         options,
       );
       if (res.status === 200) {
