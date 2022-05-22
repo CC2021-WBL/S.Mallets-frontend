@@ -3,11 +3,12 @@
 import * as Yup from 'yup';
 import toast from 'react-hot-toast';
 import { Dispatch } from 'react';
-import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
+import { Field, Form, Formik, FormikHelpers } from 'formik';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
+import Error from './Error';
 import { authActions } from '../../app/store/authSlice';
 
 interface IFormValues {
@@ -102,31 +103,25 @@ const LoginPage = () => {
             <h2 className="pb-7 text-xl lg:text-2xl">{t('loginText')}</h2>
 
             <Form className="flex flex-col">
-              <Field
-                id="email"
-                name="email"
-                placeholder="email"
-                className=" mb-5 flex  h-[3.75rem] border-b border-solid border-black bg-[#F0F0F0] p-6"
-              />
-              <ErrorMessage
-                component="a"
-                name="email"
-                className="mt-3 mb-5 text-sm text-red-600"
-              />
+              <div className="relative">
+                <Field
+                  id="email"
+                  name="email"
+                  placeholder="email"
+                  className="form-input"
+                />
+                <Error name="email" className="mb-5" />
+              </div>
+              <div className="relative">
+                <Field
+                  type="password"
+                  name="password"
+                  placeholder={`${t('password')}`}
+                  className=" mb-5 flex  h-[3.75rem] border-b border-solid border-black bg-[#F0F0F0] p-6"
+                />
 
-              <Field
-                type="password"
-                name="password"
-                placeholder={`${t('password')}`}
-                className=" mb-5 flex  h-[3.75rem] border-b border-solid border-black bg-[#F0F0F0] p-6"
-              />
-
-              <ErrorMessage
-                component="a"
-                name="password"
-                className="mt-3 text-sm text-red-600"
-              />
-
+                <Error name="password" />
+              </div>
               <button
                 type="submit"
                 className="my-6 h-[3.75rem] w-full rounded bg-black text-white hover:opacity-75"
