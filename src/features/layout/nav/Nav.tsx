@@ -64,7 +64,7 @@ const Nav = () => {
               tabIndex={0}
               className="border-1 rounded border border-black p-1 px-2 text-xs"
             >
-              Wyloguj
+              {t('logout')}
             </button>
           )}
           <NavLink
