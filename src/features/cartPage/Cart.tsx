@@ -1,22 +1,23 @@
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  increment,
-  decrement,
-  incrementHeadDiameter,
-  decrementHeadDiameter,
-  incrementStickLength,
-  decrementStickLength,
-  Product,
-  removeFromCart,
-  clear,
-  decrementWeight,
-  incrementWeight,
-  toggleEdit,
-} from '../slices/cart-slice';
-import { useEffect } from 'react';
 import { createServer } from 'miragejs';
-import { fetchDeliveries } from '../slices/delivery-slice';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
 import { AppDispatch, RootState } from '../../app/store';
+import {
+  Product,
+  clear,
+  decrement,
+  decrementHeadDiameter,
+  decrementStickLength,
+  decrementWeight,
+  increment,
+  incrementHeadDiameter,
+  incrementStickLength,
+  incrementWeight,
+  removeFromCart,
+  toggleEdit,
+} from './slices/cartSlice';
+import { fetchDeliveries } from './slices/deliverySlice';
 
 createServer({
   routes() {

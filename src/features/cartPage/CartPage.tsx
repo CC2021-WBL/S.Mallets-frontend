@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { fetchProducts } from '../slices/product-slice';
-import { addToCart, Product } from '../slices/cart-slice';
+
 import Cart from './Cart';
 import { AppDispatch, RootState } from '../../app/store';
+import { Product, addToCart } from './slices/cartSlice';
+import { fetchProducts } from './slices/productSlice';
 
 const CartPage = () => {
   const dispatch: AppDispatch = useDispatch();
