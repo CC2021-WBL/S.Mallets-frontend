@@ -67,7 +67,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="mx-auto mt-8 mb-16 flex w-full max-w-7xl flex-col sm:px-3 md:flex-row md:gap-20 md:px-6 lg:px-8 ">
+    <>
       {isAuth ? (
         <>
           <h1 className="fixed top-0 left-0 z-50">zalogowany</h1>
@@ -78,71 +78,68 @@ const LoginPage = () => {
       ) : (
         <h6>😥Niezalogowany</h6>
       )}
-      <div className="h-fit-content  w-full p-3 md:w-1/2">
-        <Formik
-          initialValues={{
-            email: '',
-            password: '',
-          }}
-          validationSchema={loginSchema}
-          onSubmit={(
-            values: IFormValues,
-            actions: FormikHelpers<IFormValues>,
-          ) => {
-            console.log(values);
-            actions.setSubmitting(true);
-            // loginHandler(values);
-            toast.promise(loginHandler(values), {
-              loading: `${t('toast')}`,
-              success: `${t('toastOk')}`,
-              error: `${t('toastBad')}`,
-            });
-          }}
-        >
-          <div className="">
-            <h2 className="pb-7 text-xl lg:text-2xl">{t('loginText')}</h2>
+      <div className="mx-auto mt-8 mb-16 flex w-full max-w-7xl flex-col sm:px-3 md:flex-row md:gap-20 md:px-6 lg:px-8 ">
+        <div className="h-fit-content  w-full p-3 md:w-1/2">
+          <Formik
+            initialValues={{
+              email: '',
+              password: '',
+            }}
+            validationSchema={loginSchema}
+            onSubmit={(
+              values: IFormValues,
+              actions: FormikHelpers<IFormValues>,
+            ) => {
+              console.log(values);
+              actions.setSubmitting(true);
+              // loginHandler(values);
+              toast.promise(loginHandler(values), {
+                loading: `${t('toast')}`,
+                success: `${t('toastOk')}`,
+                error: `${t('toastBad')}`,
+              });
+            }}
+          >
+            <div className="">
+              <h2 className="pb-7 text-xl lg:text-2xl">{t('loginText')}</h2>
 
-            <Form className="flex flex-col">
-              <div className="relative">
-                <Field
-                  id="email"
-                  name="email"
-                  placeholder="email"
-                  className="form-input"
-                />
-                <Error name="email" className="mb-5" />
-              </div>
-              <div className="relative">
-                <Field
-                  type="password"
-                  name="password"
-                  placeholder={`${t('password')}`}
-                  className=" mb-5 flex  h-[3.75rem] border-b border-solid border-black bg-[#F0F0F0] p-6"
-                />
+              <Form className="flex flex-col">
+                <div className="relative">
+                  <Field
+                    id="email"
+                    name="email"
+                    placeholder="email"
+                    className="form-input"
+                  />
+                  <Error name="email" className="mb-5" />
+                </div>
+                <div className="relative">
+                  <Field
+                    type="password"
+                    name="password"
+                    placeholder={`${t('password')}`}
+                    className="form-input"
+                  />
 
-                <Error name="password" />
-              </div>
-              <button
-                type="submit"
-                className="my-6 h-[3.75rem] w-full rounded bg-black text-white hover:opacity-75"
-              >
-                {t('login')}
-              </button>
-            </Form>
-          </div>
-        </Formik>
-        <Link to="#">{t('forgot')}</Link>
+                  <Error name="password" />
+                </div>
+                <button type="submit" className="btn-primary mb-5">
+                  {t('login')}
+                </button>
+              </Form>
+            </div>
+          </Formik>
+          <Link to="#">{t('forgot')}</Link>
+        </div>
+        <div className="flex w-full flex-col items-end justify-self-end  p-3 md:w-1/2 ">
+          <h2 className="self-start pb-7 text-xl lg:text-2xl">{t('first')}</h2>
+          <button className="btn-primary mb-6 self-start ">
+            {t('register')}
+          </button>
+          <button className="btn-primary self-start ">{t('continue')}</button>
+        </div>
       </div>
-      <div className="flex w-full flex-col items-end justify-self-end  p-3 md:w-1/2 ">
-        <h2 className=" self-start pb-7 text-xl lg:text-2xl">{t('first')}</h2>
-        <button className="mb-5 h-[3.75rem] w-full rounded bg-black text-white hover:opacity-75 ">
-          {t('register')}
-        </button>
-        <button className="h-[3.75rem] w-full rounded border border-black bg-white text-black hover:bg-black hover:text-white hover:opacity-75  ">
-          {t('continue')}
-        </button>
-      </div>
-    </div>
+    </>
   );
 };
 
