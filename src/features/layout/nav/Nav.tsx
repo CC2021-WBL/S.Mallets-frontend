@@ -59,16 +59,12 @@ const Nav = () => {
       <section className="hidden sm:block">
         <div className="flex justify-end gap-8 p-4 pl-8 text-2xl">
           {isAuth && (
-            <button
-              onClick={logoutHandler}
-              tabIndex={0}
-              className="border-1 rounded border border-black p-1 px-2 text-xs"
-            >
+            <button onClick={logoutHandler} tabIndex={0} className="text-xs">
               {t('logout')}
             </button>
           )}
           <NavLink
-            to="/login"
+            to={isAuth ? '/user' : '/login'}
             aria-label="login"
             className={({ isActive }) =>
               isActive ? `${activeLogCart}` : undefined
@@ -124,10 +120,17 @@ const Nav = () => {
         <section className="px-4">
           <NavLink
             className="flex w-full justify-between gap-8 p-2 px-4 hover:underline"
-            to="/login"
-            onClick={handleNav}
+            to={isAuth ? '/user' : '/login'}
+            onClick={() => {
+              handleNav();
+              {
+                isAuth && logoutHandler();
+              }
+            }}
           >
-            <p className="text-sm tracking-wider">{t('login')}</p>
+            <p className="text-sm tracking-wider">
+              {isAuth ? t('logout') : t('login')}
+            </p>
             <BiUser className="text-2xl" />
           </NavLink>
           <NavLink

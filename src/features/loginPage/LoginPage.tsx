@@ -88,36 +88,37 @@ const LoginPage = () => {
         >
           <div className="">
             <h2 className="pb-7 text-xl lg:text-2xl">{t('loginText')}</h2>
+            <Form className="flex flex-col gap-7">
+              <div className="relative">
+                <Field
+                  id="email"
+                  name="email"
+                  placeholder="email"
+                  className="flex h-[3.75rem] w-full border-b border-solid border-black bg-[#F0F0F0] p-6 focus:border-transparent focus:outline focus:outline-2 focus:outline-black"
+                />
+                <ErrorMessage
+                  component="a"
+                  name="email"
+                  className="absolute top-16 text-xs text-red-600"
+                />
+              </div>
+              <div className="relative">
+                <Field
+                  type="password"
+                  name="password"
+                  placeholder={`${t('password')}`}
+                  className="mb-5 flex h-[3.75rem] w-full border-b border-solid border-black bg-[#F0F0F0] p-6 focus:border-transparent focus:outline focus:outline-2 focus:outline-black"
+                />
 
-            <Form className="flex flex-col">
-              <Field
-                id="email"
-                name="email"
-                placeholder="email"
-                className=" mb-5 flex  h-[3.75rem] border-b border-solid border-black bg-[#F0F0F0] p-6"
-              />
-              <ErrorMessage
-                component="a"
-                name="email"
-                className=" mb-5 text-sm text-red-600"
-              />
-
-              <Field
-                type="password"
-                name="password"
-                placeholder={`${t('password')}`}
-                className=" mb-5 flex  h-[3.75rem] border-b border-solid border-black bg-[#F0F0F0] p-6"
-              />
-
-              <ErrorMessage
-                component="a"
-                name="password"
-                className=" text-sm text-red-600"
-              />
-
+                <ErrorMessage
+                  component="a"
+                  name="password"
+                  className="absolute top-16 text-xs text-red-600"
+                />
+              </div>
               <button
                 type="submit"
-                className="my-6 h-[3.75rem] w-full rounded bg-black text-white hover:opacity-75"
+                className="mb-7 h-[3.75rem] w-full rounded bg-black text-white hover:opacity-75 "
               >
                 {t('login')}
               </button>
@@ -126,10 +127,10 @@ const LoginPage = () => {
         </Formik>
         <Link to="/forgot">{t('forgot')}</Link>
       </div>
-      <div className="flex w-full flex-col items-end justify-self-end  p-3 md:w-1/2 ">
+      <div className="flex w-full flex-col items-end justify-self-end p-3 md:w-1/2">
         <h2 className=" self-start pb-7 text-xl lg:text-2xl">{t('first')}</h2>
         <Link
-          className="mb-5 flex h-[3.75rem] w-full items-center justify-center rounded bg-black text-white hover:opacity-75 "
+          className="mb-7 flex h-[3.75rem] w-full items-center justify-center rounded bg-black text-white hover:opacity-75 "
           to="/register"
         >
           {t('register')}
