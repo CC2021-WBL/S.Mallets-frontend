@@ -59,7 +59,7 @@ const Nav = () => {
       <section className="hidden sm:block">
         <div className="flex justify-end gap-8 p-4 pl-8 text-2xl">
           {isAuth && (
-            <button onClick={logoutHandler} tabIndex={0} className="text-xs">
+            <button onClick={logoutHandler} className="text-xs">
               {t('logout')}
             </button>
           )}

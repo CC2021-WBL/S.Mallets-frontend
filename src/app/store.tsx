@@ -1,5 +1,3 @@
-/* eslint-disable import/named */
-
 import { configureStore } from '@reduxjs/toolkit';
 
 import { authSlice } from '../features/loginPage/authSlice';
