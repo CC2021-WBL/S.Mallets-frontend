@@ -47,8 +47,8 @@ const CartPage = () => {
           console.log(submitObject);
         }}
       >
-        <Form>
-          <div className="form-wrapper m-[1.5rem_1.5rem_1.5rem_2rem] flex flex-col">
+        <div className="form-wrapper m-[1.5rem_1.5rem_1.5rem_2rem] flex  w-full flex-col">
+          <Form>
             <div className="relative">
               <Field
                 id="name"
@@ -128,13 +128,14 @@ const CartPage = () => {
                 <br />
                 <br />
                 <NavLink to="/reset">
+                  {/* link to password reset */}
                   <strong>{t('errAccountP2')}</strong>
                   {/* "Error occurred. Try to log in again or", recover forgotten password." */}
                 </NavLink>
               </div>
             )}
-          </div>
-        </Form>
+          </Form>
+        </div>
       </Formik>
     </>
   );
