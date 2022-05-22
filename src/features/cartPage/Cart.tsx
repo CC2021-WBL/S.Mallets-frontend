@@ -113,65 +113,69 @@ const Cart = () => {
   }, []);
 
   return (
-    <div>
-      <h1 className="p-8 text-center text-6xl">Cart Page {}</h1>
-
-      <table className="table-auto">
-        <thead>
+    <div className="p-4">
+      <table className="w-full table-auto">
+        <thead className="table-head w-full">
           <tr>
             <th></th>
-            <th>Nazwa serii</th>
-            <th>Model</th>
-            <th>Średnica</th>
-            <th>Długość kijka</th>
-            <th>Waga</th>
-            <th>Sztuk</th>
-            <th>Cena</th>
+            <th scope="col" className="font-thin">
+              Nazwa serii
+            </th>
+            <th scope="col">Model</th>
+            <th scope="col">Średnica</th>
+            <th scope="col">Długość kijka</th>
+            <th scope="col">Waga</th>
+            <th scope="col">Sztuk</th>
+            <th scope="col">Cena</th>
             <th></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="text-center">
           {cart &&
             cart.map((product: Product, index: number) => {
               return (
-                <tr key={product.id}>
+                <tr key={product.id} className="h-14">
                   <td>{index + 1}</td>
-                  <td>{product.seriesId}</td>
+                  <td className="font-semibold uppercase">
+                    {product.seriesId}
+                  </td>
 
                   <td>
                     <div className="flex justify-center">
                       {product.productAltTextKey}
                     </div>
                   </td>
-                  <td>
+                  <td className="relative">
                     {!product.edited ? (
                       <div className="flex justify-center">
                         {product.headDiameter} mm
                       </div>
                     ) : (
-                      <div className="a flex flex-row items-center justify-center">
+                      <div className="flex flex-row items-center justify-center font-semibold">
                         {product.headDiameter} mm
                         <div className="flex flex-col">
                           <button
+                            className="absolute bottom-8 right-1/2 -rotate-90"
                             onClick={() =>
                               dispatch(incrementHeadDiameter(product.id))
                             }
                           >
-                            +
+                            {'>'}
                           </button>
                           <button
+                            className="absolute right-[48.2%] top-8 rotate-90"
                             onClick={() =>
                               dispatch(decrementHeadDiameter(product.id))
                             }
                           >
-                            -
+                            {'>'}
                           </button>
                         </div>
                       </div>
                     )}
                   </td>
 
-                  <td>
+                  <td className="relative">
                     {!product.edited ? (
                       <div className="flex justify-center">
                         {product.stickLength.toFixed(1)} cm
@@ -181,25 +185,27 @@ const Cart = () => {
                         {product.stickLength.toFixed(1)} cm
                         <div className="flex flex-col">
                           <button
+                            className="absolute bottom-8 right-1/2 -rotate-90"
                             onClick={() =>
                               dispatch(incrementStickLength(product.id))
                             }
                           >
-                            +
+                            {'>'}
                           </button>
                           <button
+                            className="absolute right-[48.2%] top-8 rotate-90"
                             onClick={() =>
                               dispatch(decrementStickLength(product.id))
                             }
                           >
-                            -
+                            {'>'}
                           </button>
                         </div>
                       </div>
                     )}
                   </td>
 
-                  <td>
+                  <td className="relative">
                     {!product.edited ? (
                       <div className="flex justify-center">
                         {product.weight} g
@@ -209,33 +215,41 @@ const Cart = () => {
                         {product.weight} g
                         <div className="flex flex-col">
                           <button
+                            className="absolute bottom-8 right-1/2 -rotate-90"
                             onClick={() =>
                               dispatch(incrementWeight(product.id))
                             }
                           >
-                            +
+                            {'>'}
                           </button>
                           <button
+                            className="absolute right-[48.2%] top-8 rotate-90"
                             onClick={() =>
                               dispatch(decrementWeight(product.id))
                             }
                           >
-                            -
+                            {'>'}
                           </button>
                         </div>
                       </div>
                     )}
                   </td>
 
-                  <td>
+                  <td className="relative">
                     <div className="a flex flex-row items-center justify-center">
                       {product.quantity}
                       <div className="flex flex-col">
-                        <button onClick={() => dispatch(increment(product.id))}>
-                          +
+                        <button
+                          className="absolute bottom-8 right-1/2 -rotate-90"
+                          onClick={() => dispatch(increment(product.id))}
+                        >
+                          {'>'}
                         </button>
-                        <button onClick={() => dispatch(decrement(product.id))}>
-                          -
+                        <button
+                          className="absolute right-[48.2%] top-8 rotate-90"
+                          onClick={() => dispatch(decrement(product.id))}
+                        >
+                          {'>'}
                         </button>
                       </div>
                     </div>
@@ -243,10 +257,14 @@ const Cart = () => {
                   <td>{product.price.toFixed(2)} €</td>
                   <td>
                     <div className="flex flex-col">
-                      <button onClick={() => dispatch(toggleEdit(product.id))}>
-                        {!product.edited ? 'edytuj' : 'zapisz zmiany'}
+                      <button
+                        className="text-xs"
+                        onClick={() => dispatch(toggleEdit(product.id))}
+                      >
+                        {!product.edited ? 'edytuj' : 'zapisz'}
                       </button>
                       <button
+                        className="text-xs"
                         onClick={() => dispatch(removeFromCart(product.id))}
                       >
                         usuń

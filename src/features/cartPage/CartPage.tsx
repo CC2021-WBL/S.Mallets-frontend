@@ -17,7 +17,7 @@ const CartPage = () => {
   console.log(products);
 
   return (
-    <div>
+    <div className="mx-auto w-full max-w-7xl sm:px-3 md:px-6 lg:px-8">
       <h1 className="p-8 text-center text-6xl">Products</h1>
       {products &&
         products.map((product: Product) => {
