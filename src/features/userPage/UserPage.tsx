@@ -10,8 +10,9 @@ const UserPage = () => {
     const getAdress = async () => {
       // const isDev = window.location.href.includes('localhost');
       const headers = new Headers();
-      headers.append('Content-Type', 'application/json');
+      // headers.append('Content-Type', 'application/json');
       headers.append('credentials', 'include');
+      headers.append('withCredentials', 'true');
       const options = {
         method: 'GET',
         headers: headers,
