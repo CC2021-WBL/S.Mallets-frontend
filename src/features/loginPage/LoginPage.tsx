@@ -4,10 +4,9 @@ import * as Yup from 'yup';
 import toast from 'react-hot-toast';
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
 import { Link, useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import { RootState } from '../../app/store';
 import { authActions } from './authSlice';
 import { userActions } from './userSlice';
 
@@ -18,9 +17,6 @@ interface IFormValues {
 const LoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const isAuth = useSelector(
-    (state: RootState) => state.authentication.isAuthenticated,
-  );
   const { t } = useTranslation('login');
 
   const loginSchema = Yup.object().shape({
@@ -73,28 +69,8 @@ const LoginPage = () => {
     return;
   };
 
-  const logoutHandler = () => {
-    const toastId = toast.loading('Loading...');
-
-    dispatch(authActions.logout());
-    dispatch(userActions.userLogout());
-
-    toast.success(t('toastOut'), {
-      id: toastId,
-    });
-    return;
-  };
-
   return (
     <div className="mx-auto mt-8 mb-16 flex w-full max-w-7xl flex-col sm:px-3 md:flex-row md:gap-20 md:px-6 lg:px-8 ">
-      {isAuth && (
-        <>
-          <h1 className="fixed top-0 left-0 z-50">zalogowany</h1>
-          <button onClick={logoutHandler} className="fixed top-10 left-0 z-50">
-            Wyloguj
-          </button>
-        </>
-      )}
       <div className="h-fit-content  w-full p-3 md:w-1/2">
         <Formik
           initialValues={{
