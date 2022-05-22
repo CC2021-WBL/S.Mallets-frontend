@@ -20,12 +20,19 @@ export const userSlice = createSlice({
   name: 'user',
   initialState: initialUserState,
   reducers: {
-    user(state, action) {
+    userLogin(state, action) {
       state.email = action.payload.email;
       state.name = action.payload.name;
       state.lastname = action.payload.lastname;
       state.roles = action.payload.roles;
       state.phoneNumber = action.payload.phoneNumber;
+    },
+    userLogout(state) {
+      state.email = '';
+      state.name = '';
+      state.lastname = '';
+      state.roles = [];
+      state.phoneNumber = '';
     },
   },
 });

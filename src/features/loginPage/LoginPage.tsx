@@ -53,7 +53,7 @@ const LoginPage = () => {
       if (res.status === 200) {
         dispatch(authActions.login());
         dispatch(
-          userActions.user({
+          userActions.userLogin({
             email: resJson.email,
             name: resJson.name,
             lastname: resJson.lastname,
@@ -70,14 +70,19 @@ const LoginPage = () => {
     } catch (error) {
       toast.error(t('toastBad'));
     }
+    return;
   };
 
   const logoutHandler = () => {
-    dispatch(authActions.logout());
     const toastId = toast.loading('Loading...');
+
+    dispatch(authActions.logout());
+    dispatch(userActions.userLogout());
+
     toast.success(t('toastOut'), {
       id: toastId,
     });
+    return;
   };
 
   return (
