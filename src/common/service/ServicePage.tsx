@@ -16,7 +16,7 @@ const ServicePage = () => {
           <p className="mb-10">Masz wątpliwości? Skontaktuj się z nami</p>
           <Link
             to="/contact"
-            className="flex h-[3.75rem] w-[230px] items-center justify-center rounded bg-black text-white hover:opacity-75"
+            className="flex h-16 w-full items-center justify-center rounded bg-black text-white hover:opacity-75 md:w-96"
           >
             Kontakt
           </Link>
