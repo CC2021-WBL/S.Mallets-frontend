@@ -27,3 +27,9 @@ code {
   background-repeat: no-repeat;
   background-position: bottom right;
 }
+.hero-service {
+  max-width: 80rem;
+  height: 31.8rem;
+  background: url('./assets/serviceHero.png');
+  background-size: cover;
+}
