@@ -12,7 +12,7 @@ const UserPage = () => {
       headers.append('Content-Type', 'application/json');
       headers.append('credentials', 'include');
       const options = {
-        method: 'POST',
+        method: 'GET',
         headers: headers,
       };
       const res = await fetch(
