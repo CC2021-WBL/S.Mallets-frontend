@@ -38,18 +38,49 @@ const ProductsPage = () => {
   useEffect(() => {
     setTimeout(() => {
       const getSeriesObject = async () => {
+        // try {
+        // // const response = await fetch();
+        // const response = seriesMock;
+        // if (!response) {
+        //   throw new Error();
+        // } else {
+        //   setProductObjectArray(seriesMock.products);
+        // }
+
+        // const toastId = toast.loading('Loading...');
+        const headers = new Headers();
+        // headers.append('Content-Type', 'application/json');
+        headers.append('credentials', 'include');
+        const options = {
+          method: 'GET',
+          // body: JSON.stringify(data),
+          headers: headers,
+        };
+
         try {
-          // const response = await fetch();
-          const response = seriesMock;
-          if (!response) {
-            throw new Error();
-          } else {
-            setProductObjectArray(seriesMock.products);
+          const res = await fetch(
+            'https://s-mallets-backend-git-c-f-v-devsonthewaves.vercel.app/products',
+            options,
+          );
+          if (res.status !== 200) {
+            // toast.error(t('toastBad'), {
+            //   id: toastId,
+            // });
           }
+
+          if (res.status === 200) {
+            const resJson = await res.json();
+            // const token = resJson.token;
+            console.log(resJson);
+            // if (token) {
+            //   document.cookie = token;
+          }
+          // }
         } catch (error) {
           console.log(error);
         }
         setIsPending(false);
+        setProductObjectArray(seriesMock.products);
       };
       getSeriesObject();
     }, 1000);

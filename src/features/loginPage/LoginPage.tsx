@@ -83,6 +83,7 @@ const LoginPage = () => {
   const logoutHandler = () => {
     dispatch(authActions.logout());
     const toastId = toast.loading('Loading...');
+    // TODO: remove cookie
     toast.success(t('toastOut'), {
       id: toastId,
     });
