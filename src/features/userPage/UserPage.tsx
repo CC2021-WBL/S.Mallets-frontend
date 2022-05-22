@@ -8,7 +8,7 @@ const UserPage = () => {
   const phone = useSelector((state: RootState) => state.user.phoneNumber);
 
   useEffect(() => {
-    const getPhone = async () => {
+    const getAddress = async () => {
       const headers = new Headers();
       headers.append('credentials', 'include');
       headers.append('withCredentials', 'true');
@@ -19,8 +19,7 @@ const UserPage = () => {
         headers: headers,
       };
       const res = await fetch(
-        // 'https://s-mallets-backend.vercel.app/auth/login',
-        'https://s-mallets-backend-git-c-f-v-devsonthewaves.vercel.app/auth/login',
+        'https://s-mallets-backend-git-c-f-v-devsonthewaves.vercel.app/addresses',
         options,
       );
       if (res.status === 200) {
@@ -28,7 +27,7 @@ const UserPage = () => {
         console.log(resJson);
       }
     };
-    getPhone();
+    getAddress();
   }, []);
 
   return (
