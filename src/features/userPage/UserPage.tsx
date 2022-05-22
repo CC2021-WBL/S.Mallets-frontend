@@ -10,8 +10,6 @@ const UserPage = () => {
   useEffect(() => {
     const getAddress = async () => {
       const headers = new Headers();
-      headers.append('credentials', 'include');
-      headers.append('withCredentials', 'true');
       const auth = localStorage.getItem('auth');
       if (auth) headers.append('auth', auth);
       const options = {
