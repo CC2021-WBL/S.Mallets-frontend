@@ -61,20 +61,6 @@ const ProductsSeriesPage = () => {
         <div className="relative mt-10 flex w-full flex-wrap justify-center  sm:mb-16">
           <Animation />
           {isPending && <Loader />}
-          {/* {prop.mockSeries.map((index: mockDataType) => (
-            <Link
-              key={index.id}
-              className="mb-14 flex w-[21.8rem] flex-col items-center py-0 hover:cursor-pointer sm:mb-6 sm:rounded-lg sm:py-9 sm:hover:shadow-lg md:h-[27.8rem]"
-              to={`/products-series/${index.seriesName}`}
-            >
-              <img
-                src={index.seriesImage}
-                alt={index.altText[language]}
-                className="mb-10 h-52 w-52 rounded-full md:mb-20"
-              />
-              <p className="text-xl font-bold">{index.seriesName}</p>
-            </Link>
-          ))} */}
 
           {seriesData &&
             Array.from(seriesData).map((index: any) => (
@@ -84,7 +70,7 @@ const ProductsSeriesPage = () => {
                 to={`/products-series/${index.seriesName}`}
               >
                 <img
-                  src={index.seriesImage}
+                  src={'data:image/png;base64,' + index.seriesImage}
                   alt={index.seriesAltText[language]}
                   className="mb-10 h-52 w-52 rounded-full md:mb-20"
                 />
