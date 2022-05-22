@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { authActions } from './authSlice';
-import { userActions } from './userSlice';
+import { userActions } from '../userPage/userSlice';
 
 interface IFormValues {
   email: string;
@@ -26,15 +26,19 @@ const LoginPage = () => {
 
   const loginHandler = async (data: object) => {
     const toastId = toast.loading('Loading...');
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('credentials', 'include');
     const options = {
       method: 'POST',
       body: JSON.stringify(data),
-      headers: { 'Content-Type': 'application/json' },
+      headers: headers,
     };
 
     try {
       const res = await fetch(
-        'https://s-mallets-backend.vercel.app/auth/login',
+        'https://s-mallets-backend-git-c-f-v-devsonthewaves.vercel.app/auth/login',
+        // 'https://s-mallets-backend.vercel.app/auth/login',
         options,
       );
 
@@ -47,6 +51,10 @@ const LoginPage = () => {
       const resJson = await res.json();
 
       if (res.status === 200) {
+        const token = resJson.token;
+        if (token) {
+          localStorage.setItem('auth', token);
+        }
         dispatch(authActions.login());
         dispatch(
           userActions.userLogin({
