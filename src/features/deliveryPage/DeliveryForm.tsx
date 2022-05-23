@@ -43,24 +43,30 @@ const DeliveryForm = () => {
   const validationSchema = Yup.object({
     name: Yup.string()
       .required(t('errNoName'))
-      .min(3, t('errName'))
+      .min(2, t('errName'))
       .max(15, t('errName2')),
     lastname: Yup.string()
       .required(t('errNoLastname'))
-      .min(3, t('errLastname'))
-      .max(15, t('errLastname2')),
+      .min(2, t('errLastname'))
+      .max(20, t('errLastname2')),
     email: Yup.string().required(t('errNoEmail')).email(t('errEmail')),
     streetAndNumber: Yup.string()
       .required(t('errNoStreetAndNumber'))
-      .min(6, t('errStreetAndNumber'))
-      .max(20, t('errStreetAndNumber')),
-    zipCode: Yup.string().required(t('errNoZipCode')).min(4, t('errZipCode')),
+      .min(1, t('errStreetAndNumber'))
+      .max(60, t('errStreetAndNumber')),
+    zipCode: Yup.string()
+      .required(t('errNoZipCode'))
+      .min(4, t('errZipCode'))
+      .max(15, t('errZipCode')),
     condition: Yup.boolean().oneOf([true], t('errCondition')),
-    city: Yup.string().required(t('errNoCity')).min(4, t('errCity')),
+    city: Yup.string()
+      .required(t('errNoCity'))
+      .min(2, t('errCity'))
+      .max(70, t('errZipCode')),
     country: Yup.string()
       .required(t('errNoCountry'))
-      .min(4, t('errCountry'))
-      .max(15, t('errCountry')),
+      .min(2, t('errCountry'))
+      .max(70, t('errCountry')),
     phoneNumber: Yup.string()
       .required(t('errNoPhoneNumber'))
       .matches(
