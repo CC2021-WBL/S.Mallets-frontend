@@ -43,6 +43,9 @@ const Nav = () => {
     toast.success(t('toastOut'), {
       id: toastId,
     });
+    if (localStorage.getItem('auth')) {
+      localStorage.removeItem('auth');
+    }
     navigate('/');
     return;
   };
