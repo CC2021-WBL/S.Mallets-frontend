@@ -18,7 +18,7 @@
   "errEmail": "Invalid email address",
   "errNoPassword": "Password is required",
   "errPassword1": "Password must consist of min. 8 characters",
-  "errPassword2": "Diacritical characters are not allowed",
+  "errPassword2": "Passworrd must consist of a letter, number and a special character",
   "===": "===",
   "errAccountP1": "Error occurred. Try to log in again or",
   "errAccountP2": "recover forgotten password."

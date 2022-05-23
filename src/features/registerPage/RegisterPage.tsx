@@ -1,18 +1,8 @@
-/* eslint-disable import/named */
-
 import * as Yup from 'yup';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-
-// interface IFormValues {
-//   name: string;
-//   lastname: string;
-//   email: string;
-//   password: string;
-//   phoneNumber: string;
-// }
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -49,7 +39,6 @@ const RegisterPage = () => {
       .matches(phoneRegExp, t('errPhone'))
       .required(t('errNoPhone')),
   });
-  ////
 
   const registerHandler = async (data: object) => {
     const options = {
@@ -73,8 +62,6 @@ const RegisterPage = () => {
 
       if (res.status === 201) {
         setUserData(resJson);
-        console.log(resJson);
-        console.log(userData);
         navigate('/login');
       }
     } catch (error) {
@@ -82,7 +69,6 @@ const RegisterPage = () => {
     }
     return;
   };
-  ////
 
   return (
     <div className="relative mx-auto mb-3 w-full max-w-7xl p-6 md:p-12">
