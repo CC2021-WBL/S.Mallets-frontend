@@ -67,7 +67,9 @@ const ProductsSeriesPage = () => {
                   alt={index.seriesAltText[language]}
                   className="mb-10 h-52 w-52 rounded-full md:mb-20"
                 />
-                <p className="text-xl font-bold">{index.seriesName}</p>
+                <p className="text-xl font-bold">
+                  {index.seriesName.replace('-', ' ')}
+                </p>
               </Link>
             ))}
         </div>

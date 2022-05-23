@@ -2,22 +2,23 @@
 
 import * as Yup from 'yup';
 import emailjs from '@emailjs/browser';
-import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 import { AiOutlineClose } from 'react-icons/ai';
 import { ErrorMessage, Field, Form, Formik, FormikHelpers } from 'formik';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import group from '../../assets/groupLogo.png';
 import logosm from '../../assets/logosmall.png';
-import { mockDataType } from '../../assets/mockData/mockSeriesData';
+import { Loader } from '../Loader';
 
 interface IFormValues {
   email: string;
   message: string;
 }
 
-const HomePage: React.FC<{ mockSeries: mockDataType[] }> = (props) => {
+const HomePage = () => {
   const { t, i18n } = useTranslation('home');
   const language = i18n.language as 'pl' | 'en';
   const [showModal, setShowModal] = useState<boolean>(false);
@@ -28,6 +29,31 @@ const HomePage: React.FC<{ mockSeries: mockDataType[] }> = (props) => {
     email: Yup.string().email(t('emailError')).required(t('emailError2')),
     message: Yup.string().min(50, t('message')).required(t('message2')),
   });
+
+  const [seriesData, setSeriesData] = useState(null);
+  const [isPending, setIsPending] = useState(true);
+
+  useEffect(() => {
+    async function fetchSeriesData() {
+      try {
+        const series = await fetch(
+          'https://s-mallets-backend.vercel.app/series/all',
+          { method: 'GET', redirect: 'follow' },
+        );
+        const resJson = await series.json();
+        if (series.status === 200) {
+          setSeriesData(resJson);
+          setIsPending(false);
+          toast.success(t('toastOk'));
+        } else {
+          toast.error(t('toastBad'));
+        }
+      } catch (error) {
+        toast.error(t('toastBad'));
+      }
+    }
+    fetchSeriesData();
+  }, []);
 
   return (
     <div className="mx-auto w-full max-w-7xl">
@@ -54,28 +80,27 @@ const HomePage: React.FC<{ mockSeries: mockDataType[] }> = (props) => {
         <h2 className="mb-9 text-center text-2xl sm:mb-6">{t('subtitle')}</h2>
       </div>
       <div className="relative flex max-w-7xl flex-wrap justify-center sm:mb-16">
-        {props.mockSeries
-          .sort(() => 0.5 - Math.random())
-          .slice(0, 6)
-          .map((index: mockDataType) => (
-            <Link
-              key={index.id}
-              className="mb-14 flex w-[21.8rem] flex-col items-center py-0 hover:cursor-pointer sm:mb-6 sm:rounded-lg sm:py-9 sm:hover:shadow-lg md:h-[27.8rem]"
-              to="/products-series"
-            >
-              <img
-                src={index.seriesImage}
-                alt={
-                  // index.altText
-                  // i18n.language === 'en' ? index.altText.en : index.altText.pl
-
-                  index.altText[language]
-                }
-                className="mb-10 h-52 w-52 rounded-full md:mb-20"
-              />
-              <h3 className="text-xl font-bold">{index.seriesName}</h3>
-            </Link>
-          ))}
+        {isPending && <Loader />}
+        {seriesData &&
+          Array.from(seriesData)
+            .sort(() => 0.5 - Math.random())
+            .slice(0, 6)
+            .map((index: any) => (
+              <Link
+                key={index.id}
+                className="mb-14 flex w-[21.8rem] flex-col items-center py-0 hover:cursor-pointer sm:mb-6 sm:rounded-lg sm:py-9 sm:hover:shadow-lg md:h-[27.8rem]"
+                to={`/products-series/${index.seriesName}`}
+              >
+                <img
+                  src={'data:image/png;base64,' + index.seriesImage}
+                  alt={index.seriesAltText[language]}
+                  className="mb-10 h-52 w-52 rounded-full md:mb-20"
+                />
+                <h3 className="text-xl font-bold">
+                  {index.seriesName.replace('-', ' ')}
+                </h3>
+              </Link>
+            ))}
       </div>
 
       <div className="mx-6 mb-20 flex max-w-7xl justify-between sm:px-3 md:px-6 lg:px-8">
