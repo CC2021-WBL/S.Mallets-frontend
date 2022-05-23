@@ -5,5 +5,7 @@
   "doubts": "Do you have doubts? Contact us.",
   "contact": "Contact",
   "before": "Before",
-  "after": "After"
+  "after": "After",
+  "toasOk": "Data downloaded.",
+  "toastBad": "Something went wrong. Please try again later."
 }

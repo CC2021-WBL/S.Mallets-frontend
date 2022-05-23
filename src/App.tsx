@@ -9,7 +9,6 @@ import SummaryPage from './features/summaryPage/SummaryPage';
 import i18n from './i18n';
 import store from './app/store';
 import { Loader } from './features/Loader';
-import { mock } from './assets/mockData/mockSeriesData';
 
 const ServicePage = lazy(() => import('./common/service/ServicePage'));
 const UserPage = lazy(() => import('./features/userPage/UserPage'));
@@ -37,12 +36,12 @@ function App() {
             <Provider store={store}>
               <Routes>
                 <Route element={<Layout />}>
-                  <Route path="/" element={<HomePage mockSeries={mock} />} />
+                  <Route path="/" element={<HomePage />} />
                   <Route path="/about" element={<AboutMe />} />
                   <Route path="/contact" element={<ContactPage />} />
                   <Route
                     path="/products-series"
-                    element={<ProductsSeriesPage mockSeries={mock} />}
+                    element={<ProductsSeriesPage />}
                   />
                   <Route
                     path="/products-series/:seriesName"
