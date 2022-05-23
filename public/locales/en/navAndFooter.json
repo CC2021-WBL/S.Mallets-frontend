@@ -6,5 +6,7 @@
   "login": "log in",
   "cart": "your cart",
   "contactData": "Contact data",
-  "mock": "mock"
+  "toastOut": "You are log out",
+  "logout": "logout",
+  "user": "my account"
 }
