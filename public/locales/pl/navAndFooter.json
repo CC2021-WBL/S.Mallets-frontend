@@ -7,5 +7,6 @@
   "cart": "twój koszyk",
   "contactData": "Dane kontaktowe",
   "toastOut": "Zostałeś wylogowany",
-  "logout": "wyloguj"
+  "logout": "wyloguj",
+  "user": "moje konto"
 }
