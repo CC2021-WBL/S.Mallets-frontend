@@ -12,7 +12,6 @@ const Layout = () => {
     { path: '/about', breadcrumb: `${t('about')}` },
     { path: '/contact', breadcrumb: `${t('contact')}` },
     { path: '/products-series', breadcrumb: `${t('series')}` },
-    { path: '/products-series/:seriesName', breadcrumb: `${t('products')}` },
     { path: '/service', breadcrumb: `${t('service')}` },
     { path: '/cart', breadcrumb: `${t('cart')}` },
     { path: '/login', breadcrumb: `${t('login')}` },
