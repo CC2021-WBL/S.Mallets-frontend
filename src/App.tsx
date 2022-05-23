@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 
 import ScrollToTop from './tools/ScrollToTop';
+import SummaryPage from './features/summaryPage/SummaryPage';
 import i18n from './i18n';
 import { Loader } from './features/Loader';
 import { mock } from './assets/mockData/mockSeriesData';
@@ -42,6 +43,7 @@ function App() {
                 />
                 <Route path="/service" element={<ServicePage />} />
                 <Route path="/cart" element={<CartPage />} />
+                <Route path="/cart/summary" element={<SummaryPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/user" element={<UserPage />} />
                 <Route path="/admin" element={<AdminPage />} />
