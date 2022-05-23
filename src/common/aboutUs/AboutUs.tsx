@@ -14,7 +14,7 @@ const AboutMe = () => {
       <div className="relative mx-4 mb-14 flex h-[655px] items-center bg-[#ededed]">
         <div className="about-right absolute right-0 -top-[400px] h-[565px] w-[495px]" />
         <div className="about-left h-[550px] w-1/2" />
-        <div className="wrap flex w-1/2 flex-col pl-20">
+        <div className="wrap flex w-1/2 flex-col pl-24">
           <p className="mb-10 text-xl">Co robię?</p>
           <p className="pr-4">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum,
