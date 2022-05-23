@@ -1,17 +1,30 @@
+import { NavLink } from 'react-router-dom';
+
+import DeliveryData from './DeliveryData';
+import LogoCarpet from '../../tools/LogoCarpet';
+
 const SummaryPage = () => {
   return (
-    <div className="mx-auto w-full max-w-7xl">
-      <main
-        className="
-      p-6  sm:h-fit sm:w-full sm:flex-row sm:justify-between md:flex-row md:p-12"
-      >
-        <section className="order-field border-1 mb-10 max-w-[441px] rounded border border-black">
-          <h1 className="p-4 text-2xl font-semibold">Twoje zamówienie</h1>
-          <p className="py-2 px-4">pierwszy produkt</p>
-          <p className="py-2 px-4">drugi produkt</p>
-          <p className="py-2 px-4">trzeci produkt</p>
+    <div className="relative mx-auto w-full max-w-7xl">
+      <LogoCarpet className="absolute top-12 right-8 z-[1] hidden lg:block" />
+      <main className="flex max-w-2xl flex-col p-6 sm:w-full sm:justify-between md:p-10">
+        <section className="order-field border-1 mb-6 flex flex-col justify-center rounded border border-black p-6">
+          <h2 className="p-2 text-2xl font-semibold">Twoje zamówienie</h2>
+
+          <NavLink to="/cart" className="p-2 font-bold">
+            edytuj
+          </NavLink>
         </section>
-        <section className="address-field border-1 h-6 max-w-[441px] rounded border border-black"></section>
+        <section className="address-field border-1 mb-6 flex flex-col justify-center rounded border border-black p-6">
+          <h2 className="p-2 text-2xl font-semibold">Dane do wysyłki</h2>
+          <DeliveryData />
+          <NavLink to="/about" className="p-2 font-bold">
+            edytuj
+          </NavLink>
+        </section>
+        <button className="btn-primary w-full font-semibold tracking-widest">
+          Potwierdź zamówienie
+        </button>
       </main>
     </div>
   );

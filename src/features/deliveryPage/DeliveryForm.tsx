@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 import { Field, Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import Error from './Error';
@@ -10,6 +11,7 @@ import { deliDataActions } from './deliveryDataSlice';
 const DeliveryForm = () => {
   const { t } = useTranslation('deliveryForm');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const validationSchema = Yup.object({
     name: Yup.string()
@@ -72,6 +74,7 @@ const DeliveryForm = () => {
               additional: values.additional,
             }),
           );
+          navigate('/cart/summary');
         }}
       >
         <Form>
