@@ -7,6 +7,9 @@ import DeliveryData from './DeliveryData';
 import LogoCarpet from '../../tools/LogoCarpet';
 import { RootState } from '../../app/store';
 
+const sectionStyles =
+  'border-1 mb-6 flex flex-col justify-center rounded border border-black p-6';
+
 const SummaryPage = () => {
   const deliveryData = useSelector((state: RootState) => state.deliveryData);
   const { t } = useTranslation('summary');
@@ -43,14 +46,13 @@ const SummaryPage = () => {
     <div className="relative mx-auto w-full max-w-7xl">
       <LogoCarpet className="absolute top-12 right-8 z-[1] hidden lg:block" />
       <main className="flex max-w-2xl flex-col p-6 sm:w-full sm:justify-between md:p-10">
-        <section className="order-field border-1 mb-6 flex flex-col justify-center rounded border border-black p-6">
+        <section className={sectionStyles}>
           <h2 className="p-2 text-2xl font-semibold">{t('yourOrder')}</h2>
-
           <NavLink to="/cart" className="p-2 font-bold">
             {t('edit')}
           </NavLink>
         </section>
-        <section className="address-field border-1 mb-6 flex flex-col justify-center rounded border border-black p-6">
+        <section className={sectionStyles}>
           <h2 className="p-2 text-2xl font-semibold">{t('shippingData')}</h2>
           <DeliveryData deliveryData={deliveryData} />
           <NavLink to="/cart/delivery" className="p-2 font-bold">
