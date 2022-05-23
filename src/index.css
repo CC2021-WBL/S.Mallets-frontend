@@ -27,6 +27,14 @@ code {
   background-repeat: no-repeat;
   background-position: bottom right;
 }
+
+.hero-service {
+  max-width: 80rem;
+  height: 31.8rem;
+  background: url('./assets/serviceHero.png');
+  background-size: cover;
+}
+
 @layer components {
   .btn-primary {
     @apply h-16 w-full bg-[#232323] font-bold text-white hover:bg-slate-800 sm:w-96;
