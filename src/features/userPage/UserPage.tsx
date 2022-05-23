@@ -17,7 +17,7 @@ const UserPage = () => {
         headers: headers,
       };
       const res = await fetch(
-        'https://s-mallets-backend.vercel.app/auth/addresses',
+        'https://s-mallets-backend.vercel.app/addresses',
         options,
       );
       if (res.status === 200) {
