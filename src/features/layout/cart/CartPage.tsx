@@ -7,7 +7,8 @@ const CartPage = () => {
   const { t } = useTranslation('registerForm');
   const phoneRegExp =
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
-
+  const passRegExp =
+    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
   const errDB = undefined;
 
   let submitObject;
@@ -24,14 +25,60 @@ const CartPage = () => {
     password: Yup.string()
       .required(t('errNoPassword'))
       .min(8, t('errPassword1'))
-      .matches(/^[a-zA-Z0-9 ]+$/, t('errPassword2')),
+      .matches(passRegExp, t('errPassword2')),
     email: Yup.string().required(t('errNoEmail')).email(t('errEmail')),
     phoneNumber: Yup.string().matches(phoneRegExp, t('errPhone')),
   });
+  ////
+
+  // const registerHandler = async (data: object) => {
+  //   // const toastId = toast.loading('Loading...');
+  //   const options = {
+  //     method: 'POST',
+  //     body: JSON.stringify(data),
+  //     headers: { 'Content-Type': 'application/json' },
+  //   };
+
+  //   try {
+  //     const res = await fetch(
+  //       'https://s-mallets-backend.vercel.app/auth/register',
+  //       options,
+  //     );
+
+  //     if (res.status !== 200) {
+  //       alert('toastBad'), console.log('');
+  //     }
+
+  //     // const resJson = await res.json();
+
+  //     //     if (res.status === 200) {
+  //     //       dispatch(authActions.register());
+  //     //       dispatch(
+  //     //         userActions.userRegister({
+  //     //           email: resJson.email,
+  //     //           name: resJson.name,
+  //     //           lastname: resJson.lastname,
+  //     //           roles: resJson.roles,
+  //     //           phoneNumber: resJson.phoneNumber,
+  //     //         }),
+  //     //       );
+
+  //     //       toast.success(t('toastOk'), {
+  //     //         id: toastId,
+  //     //       });
+  //     //       navigate('/user');
+  //     //     }
+  //   } catch (error) {
+  //     // toast.error(t('toastBad'));
+  //     console.log('catch');
+  //   }
+  //   return;
+  // };
+
+  ////
 
   return (
     <>
-      <div className="breadcrums mock">HomePage/Cart/register</div>
       <Formik
         initialValues={{
           name: '',
@@ -47,7 +94,7 @@ const CartPage = () => {
           console.log(submitObject);
         }}
       >
-        <div className="form-wrapper m-[1.5rem_1.5rem_1.5rem_2rem] flex  w-full flex-col">
+        <div className="form-wrapper m-[1.5rem_1rem_1.5rem_1rem] flex w-full  flex-col p-2">
           <Form>
             <div className="relative">
               <Field

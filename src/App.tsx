@@ -41,7 +41,8 @@ function App() {
                   element={<ProductsPage />}
                 />
                 <Route path="/service" element={<ServicePage />} />
-                <Route path="/cart" element={<CartPage />} />
+                <Route path="/register" element={<CartPage />} />
+                <Route path="/cart/register" element={<CartPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/user" element={<UserPage />} />
                 <Route path="/admin" element={<AdminPage />} />
