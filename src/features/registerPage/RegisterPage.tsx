@@ -1,16 +1,18 @@
+/* eslint-disable import/named */
+
 import * as Yup from 'yup';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-interface IFormValues {
-  name: string;
-  lastname: string;
-  email: string;
-  password: string;
-  phoneNumber: string;
-}
+// interface IFormValues {
+//   name: string;
+//   lastname: string;
+//   email: string;
+//   password: string;
+//   phoneNumber: string;
+// }
 
 const RegisterPage = () => {
   const navigate = useNavigate();
@@ -49,28 +51,30 @@ const RegisterPage = () => {
   });
   ////
 
-  const registerHandler = async () => {
+  const registerHandler = async (data: object) => {
     const options = {
       method: 'POST',
-      body: JSON.stringify(userData),
+      body: JSON.stringify(data),
       headers: { 'Content-Type': 'application/json' },
     };
+
     try {
       const res = await fetch(
         'https://s-mallets-backend.vercel.app/auth/register',
         options,
       );
 
-      if (res.status !== 200) {
-        alert('toastBad');
+      if (res.status !== 201) {
+        alert('wyebao');
+        console.log('wyjebao');
       }
 
       const resJson = await res.json();
 
-      if (res.status === 200) {
+      if (res.status === 201) {
         setUserData(resJson);
-        console.log('navigate');
-        alert('toastgood');
+        console.log(resJson);
+        console.log(userData);
         navigate('/login');
       }
     } catch (error) {
@@ -78,7 +82,6 @@ const RegisterPage = () => {
     }
     return;
   };
-
   ////
 
   return (
@@ -86,9 +89,8 @@ const RegisterPage = () => {
       <Formik
         initialValues={userData}
         validationSchema={validationSchema}
-        onSubmit={(values: IFormValues) => {
-          alert(values);
-          registerHandler();
+        onSubmit={async (values: object) => {
+          registerHandler(values);
         }}
       >
         <Form>
