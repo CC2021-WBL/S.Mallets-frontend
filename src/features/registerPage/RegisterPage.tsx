@@ -13,13 +13,13 @@ const RegisterPage = () => {
     phoneNumber: '',
     password: '',
   });
+  const [error, setError] = useState(false);
   const { t } = useTranslation('registerForm');
 
   const phoneRegExp =
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
   const passRegExp =
     /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
-  const errDB = undefined;
 
   const validationSchema = Yup.object({
     name: Yup.string()
@@ -54,8 +54,7 @@ const RegisterPage = () => {
       );
 
       if (res.status !== 201) {
-        alert('wyebao');
-        console.log('wyjebao');
+        setError(true);
       }
 
       const resJson = await res.json();
@@ -153,15 +152,13 @@ const RegisterPage = () => {
           <button type="submit" className="btn-primary">
             {t('register')}
           </button>
-          {errDB && (
-            <div className=" my-8 w-96 border border-black p-4 text-sm opacity-10 ">
+          {error && (
+            <div className=" my-8 border border-black p-4 text-sm sm:max-w-[24rem] ">
               {t('errAccountP1')}
               <br />
               <br />
               <NavLink to="/reset">
-                {/* link to password reset */}
                 <strong>{t('errAccountP2')}</strong>
-                {/* "Error occurred. Try to log in again or", recover forgotten password." */}
               </NavLink>
             </div>
           )}
