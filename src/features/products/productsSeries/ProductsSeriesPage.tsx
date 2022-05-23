@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import Animation from './Animation';
+import LogoCarpet from '../../../tools/LogoCarpet';
 import i18n from '../../../i18n';
 import { Loader } from '../../Loader';
 
@@ -44,12 +44,12 @@ const ProductsSeriesPage = () => {
   return (
     <>
       <div className="mx-auto mt-8 mb-16 flex w-full max-w-7xl flex-col px-3 md:px-6 lg:px-8">
-        <p className="mt-28 max-w-[33.3rem] px-3 text-left text-xl md:px-6 lg:px-8">
+        <p className=" max-w-[33.3rem] px-3 text-left text-xl md:px-6 lg:px-8">
           {t('textOnSeries')}
         </p>
 
         <div className="relative mt-10 flex w-full flex-wrap justify-center  sm:mb-16">
-          <Animation />
+          <LogoCarpet className="absolute -top-[11.5625rem] right-8 z-[1] hidden lg:block" />
           {isPending && <Loader />}
 
           {seriesData &&
