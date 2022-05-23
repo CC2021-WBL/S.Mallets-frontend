@@ -1,27 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface DeliDataInterface {
+export interface DeliDataInterface {
   name: string;
   lastname: string;
   email: string;
-  streetAndHouseNr: string;
-  postalCode: string;
+  streetAndNumber: string;
+  zipCode: string;
   city: string;
   country: string;
   phoneNumber: number | string;
-  additional: string;
+  messageFromUser: string;
 }
 
 const initialState: DeliDataInterface = {
   name: '',
   lastname: '',
   email: '',
-  streetAndHouseNr: '',
-  postalCode: '',
+  streetAndNumber: '',
+  zipCode: '',
   city: '',
   country: '',
   phoneNumber: '',
-  additional: '',
+  messageFromUser: '',
 };
 
 export const deliDataSlice = createSlice({
@@ -37,12 +37,12 @@ export const deliDataSlice = createSlice({
       state.name = action.payload.name;
       state.lastname = action.payload.lastname;
       state.email = action.payload.email;
-      state.streetAndHouseNr = action.payload.streetAndHouseNr;
-      state.postalCode = action.payload.postalCode;
+      state.streetAndNumber = action.payload.streetAndNumber;
+      state.zipCode = action.payload.zipCode;
       state.city = action.payload.city;
       state.country = action.payload.country;
       state.phoneNumber = action.payload.phoneNumber;
-      state.additional = action.payload.additional;
+      state.messageFromUser = action.payload.messageFromUser;
     },
   },
 });
