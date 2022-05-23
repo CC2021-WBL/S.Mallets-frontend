@@ -1,9 +1,13 @@
 import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import DeliveryData from './DeliveryData';
 import LogoCarpet from '../../tools/LogoCarpet';
+import { RootState } from '../../app/store';
 
 const SummaryPage = () => {
+  const deliveryData = useSelector((state: RootState) => state.deliveryData);
+
   return (
     <div className="relative mx-auto w-full max-w-7xl">
       <LogoCarpet className="absolute top-12 right-8 z-[1] hidden lg:block" />
@@ -17,7 +21,7 @@ const SummaryPage = () => {
         </section>
         <section className="address-field border-1 mb-6 flex flex-col justify-center rounded border border-black p-6">
           <h2 className="p-2 text-2xl font-semibold">Dane do wysyłki</h2>
-          <DeliveryData />
+          <DeliveryData deliveryData={deliveryData} />
           <NavLink to="/cart/delivery" className="p-2 font-bold">
             edytuj
           </NavLink>

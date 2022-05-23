@@ -1,12 +1,8 @@
-import { useSelector } from 'react-redux';
-
-import { RootState } from '../../app/store';
+import { DeliDataInterface } from '../deliveryPage/deliveryDataSlice';
 
 const addressStyles = 'py-2 px-2';
 
-const DeliveryData = () => {
-  const deliveryData = useSelector((state: RootState) => state.deliveryData);
-
+const DeliveryData = (prop: { deliveryData: DeliDataInterface }) => {
   const {
     name,
     lastname,
@@ -17,7 +13,7 @@ const DeliveryData = () => {
     country,
     phoneNumber,
     messageFromUser,
-  } = deliveryData;
+  } = prop.deliveryData;
 
   const dataArray = [
     `${name} ${lastname}`,

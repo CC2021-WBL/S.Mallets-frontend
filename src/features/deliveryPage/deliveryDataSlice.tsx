@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface DeliDataInterface {
+export interface DeliDataInterface {
   name: string;
   lastname: string;
   email: string;
