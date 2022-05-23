@@ -6,31 +6,31 @@ const addressStyles = 'py-2 px-2';
 
 const DeliveryData = () => {
   const deliveryData = useSelector((state: RootState) => state.deliveryData);
-  console.log(deliveryData);
+
   const {
     name,
     lastname,
     email,
-    streetAndHouseNr,
-    postalCode,
+    streetAndNumber,
+    zipCode,
     city,
     country,
     phoneNumber,
-    additional,
+    messageFromUser,
   } = deliveryData;
 
-  const addressArray = [
+  const dataArray = [
     `${name} ${lastname}`,
-    `${streetAndHouseNr}`,
-    `${postalCode} ${city}`,
+    `${streetAndNumber}`,
+    `${zipCode} ${city}`,
     `${country}`,
     `${email}`,
     `${phoneNumber}`,
-    `${additional}`,
+    `${messageFromUser}`,
   ];
   return (
     <>
-      {addressArray.map((data, key) => (
+      {dataArray.map((data, key) => (
         <p className={addressStyles} key={key}>
           {data}
         </p>

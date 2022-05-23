@@ -1,6 +1,4 @@
-import DeliveryForm from '../../features/deliveryPage/DeliveryForm';
-
 const AboutMe = () => {
-  return <DeliveryForm />;
+  return <p>About</p>;
 };
 export default AboutMe;

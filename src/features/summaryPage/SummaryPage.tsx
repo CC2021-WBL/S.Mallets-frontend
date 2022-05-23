@@ -18,7 +18,7 @@ const SummaryPage = () => {
         <section className="address-field border-1 mb-6 flex flex-col justify-center rounded border border-black p-6">
           <h2 className="p-2 text-2xl font-semibold">Dane do wysyłki</h2>
           <DeliveryData />
-          <NavLink to="/about" className="p-2 font-bold">
+          <NavLink to="/cart/delivery" className="p-2 font-bold">
             edytuj
           </NavLink>
         </section>

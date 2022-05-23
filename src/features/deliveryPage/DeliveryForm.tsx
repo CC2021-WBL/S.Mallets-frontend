@@ -2,16 +2,43 @@ import * as Yup from 'yup';
 import { Field, Form, Formik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import Error from './Error';
 import LogoCarpet from '../../tools/LogoCarpet';
+import { RootState } from '../../app/store';
 import { deliDataActions } from './deliveryDataSlice';
+
+const initialDeliveryFormState = {
+  name: '',
+  lastname: '',
+  email: '',
+  streetAndNumber: '',
+  zipCode: '',
+  condition: false,
+  city: '',
+  country: '',
+  phoneNumber: '',
+  messageFromUser: '',
+};
 
 const DeliveryForm = () => {
   const { t } = useTranslation('deliveryForm');
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  // TODO: checking if authorized and user data from user Slice is there
+  // if (isAuth) {
+  //   const userData = useSelector((state: RootState) => state.userDataObject);
+  //   const initialDeliveryValues = userData
+  //     ? userData
+  //     : initialDeliveryFormState;
+  // }
+  const deliveryData = useSelector((state: RootState) => state.deliveryData);
+  const initialFormState = deliveryData
+    ? { ...deliveryData, condition: false }
+    : initialDeliveryFormState;
 
   const validationSchema = Yup.object({
     name: Yup.string()
@@ -23,12 +50,11 @@ const DeliveryForm = () => {
       .min(3, t('errLastname'))
       .max(15, t('errLastname2')),
     email: Yup.string().required(t('errNoEmail')).email(t('errEmail')),
-    streetAndHouseNr: Yup.string()
-      .required(t('errNoStreetAndHouseNr'))
-      .min(6, t('errStreetAndHouseNr')),
-    postalCode: Yup.string()
-      .required(t('errNoPostalCode'))
-      .min(4, t('errPostalCode')),
+    streetAndNumber: Yup.string()
+      .required(t('errNoStreetAndNumber'))
+      .min(6, t('errStreetAndNumber'))
+      .max(20, t('errStreetAndNumber')),
+    zipCode: Yup.string().required(t('errNoZipCode')).min(4, t('errZipCode')),
     condition: Yup.boolean().oneOf([true], t('errCondition')),
     city: Yup.string().required(t('errNoCity')).min(4, t('errCity')),
     country: Yup.string()
@@ -41,24 +67,13 @@ const DeliveryForm = () => {
         /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
         t('errPhoneNumber'),
       ),
-    additional: Yup.string().max(120, t('errAdditional')),
+    messageFromUser: Yup.string().max(120, t('errMessageFromUser')),
   });
 
   return (
     <div className="relative mx-auto mb-3 w-full max-w-7xl p-6 md:p-12">
       <Formik
-        initialValues={{
-          name: '',
-          lastname: '',
-          email: '',
-          streetAndHouseNr: '',
-          postalCode: '',
-          condition: false,
-          city: '',
-          country: '',
-          phoneNumber: '',
-          additional: '',
-        }}
+        initialValues={initialFormState}
         validationSchema={validationSchema}
         onSubmit={async (values) => {
           dispatch(
@@ -66,15 +81,15 @@ const DeliveryForm = () => {
               name: values.name,
               lastname: values.lastname,
               email: values.email,
-              streetAndHouseNr: values.streetAndHouseNr,
-              postalCode: values.postalCode,
+              streetAndNumber: values.streetAndNumber,
+              zipCode: values.zipCode,
               city: values.city,
               country: values.country,
               phoneNumber: values.phoneNumber,
-              additional: values.additional,
+              messageFromUser: values.messageFromUser,
             }),
           );
-          navigate('/cart/summary');
+          navigate('/cart/delivery/summary');
         }}
       >
         <Form>
@@ -111,23 +126,23 @@ const DeliveryForm = () => {
             </div>
             <div className="relative">
               <Field
-                id="streetAndHouseNr"
-                name="streetAndHouseNr"
+                id="streetAndNumber"
+                name="streetAndNumber"
                 type="text"
-                placeholder={t('streetAndHouseNr')}
+                placeholder={t('streetAndNumber')}
                 className="form-input"
               ></Field>
-              <Error name="streetAndHouseNr" />
+              <Error name="streetAndNumber" />
             </div>
             <div className="relative">
               <Field
-                id="postalCode"
-                name="postalCode"
+                id="zipCode"
+                name="zipCode"
                 type="text"
-                placeholder={t('postalCode')}
+                placeholder={t('zipCode')}
                 className="form-input"
               ></Field>
-              <Error name="postalCode" />
+              <Error name="zipCode" />
             </div>
             <div className="relative">
               <Field
@@ -161,13 +176,13 @@ const DeliveryForm = () => {
             </div>
             <div className="relative">
               <Field
-                name="additional"
+                name="messageFromUser"
                 component="textarea"
-                placeholder={`${t('additional')}`}
+                placeholder={`${t('messageFromUser')}`}
                 className="mb-6 h-32 w-full border-b border-black bg-[#ededed] p-4 focus:border-transparent focus:outline focus:outline-2 focus:outline-black sm:w-96"
               />
 
-              <Error name="additional" className="top-32" />
+              <Error name="messageFromUser" className="top-32" />
             </div>
             <div className="relative mb-6 flex">
               <Field type="checkbox" name="condition" />
