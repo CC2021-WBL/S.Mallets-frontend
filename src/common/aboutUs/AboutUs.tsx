@@ -4,7 +4,7 @@ const AboutMe = () => {
       <div className="hero-about mx-4 mb-14" />
       <div className=" mx-4 mb-14 h-fit w-full md:w-1/2 lg2:mb-0 lg2:h-[400px] ">
         <p className="mb-10 text-xl">Kim jestem?</p>
-        <p className="">
+        <p className="w-[80%]">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum,
           reiciendis! Hic reprehenderit impedit numquam ipsa eos, obcaecati
           architecto corporis et.
