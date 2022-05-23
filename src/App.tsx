@@ -1,9 +1,11 @@
 import { I18nextProvider } from 'react-i18next';
+import { Provider } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 
 import ScrollToTop from './tools/ScrollToTop';
 import i18n from './i18n';
+import store from './app/store';
 import { Loader } from './features/Loader';
 import { mock } from './assets/mockData/mockSeriesData';
 
@@ -27,26 +29,29 @@ function App() {
       <Suspense fallback={<Loader />}>
         <ScrollToTop>
           <div className="App">
-            <Routes>
-              <Route element={<Layout />}>
-                <Route path="/" element={<HomePage mockSeries={mock} />} />
-                <Route path="/about" element={<AboutMe />} />
-                <Route path="/contact" element={<ContactPage />} />
-                <Route
-                  path="/products-series"
-                  element={<ProductsSeriesPage mockSeries={mock} />}
-                />
-                <Route
-                  path="/products-series/:seriesName"
-                  element={<ProductsPage />}
-                />
-                <Route path="/service" element={<ServicePage />} />
-                <Route path="/cart" element={<CartPage />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/user" element={<UserPage />} />
-                <Route path="/admin" element={<AdminPage />} />
-              </Route>
-            </Routes>
+            <Provider store={store}>
+              <Routes>
+                <Route element={<Layout />}>
+                  <Route path="/" element={<HomePage mockSeries={mock} />} />
+                  <Route path="/about" element={<AboutMe />} />
+                  <Route path="/contact" element={<ContactPage />} />
+                  <Route
+                    path="/products-series"
+                    element={<ProductsSeriesPage mockSeries={mock} />}
+                  />
+                  <Route
+                    path="/products-series/:seriesName"
+                    element={<ProductsPage />}
+                  />
+                  <Route path="/service" element={<ServicePage />} />
+                  <Route path="/cart" element={<CartPage />} />
+                  <Route path="/login" element={<LoginPage />} />
+                  <Route path="/user" element={<UserPage />} />
+                  <Route path="/admin" element={<AdminPage />} />
+                  <Route path="/service" element={<ServicePage />} />
+                </Route>
+              </Routes>
+            </Provider>
           </div>
         </ScrollToTop>
       </Suspense>
