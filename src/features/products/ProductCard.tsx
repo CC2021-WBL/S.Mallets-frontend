@@ -2,9 +2,12 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Backdrop from '../layout/nav/Backdrop';
-import { productDataType } from './productTypes';
+import { addToCart, Product } from '../cartPage/slices/cartSlice';
+import { AppDispatch } from '../../app/store';
+import { useDispatch } from 'react-redux';
 
-const ProductCard = (prop: { productObject: productDataType }) => {
+const ProductCard = (prop: { product: Product }) => {
+  const dispatch: AppDispatch = useDispatch();
   const { t, i18n } = useTranslation('productCard');
 
   const [detailsModal, setDetailsModal] = useState(false);
@@ -12,7 +15,7 @@ const ProductCard = (prop: { productObject: productDataType }) => {
     setDetailsModal(!detailsModal);
   };
 
-  const product = prop.productObject;
+  const product = prop.product;
 
   return (
     <>
@@ -23,11 +26,13 @@ const ProductCard = (prop: { productObject: productDataType }) => {
         >
           <div className="flex justify-center sm:h-64 sm:justify-between md:h-fit md:w-64">
             <img
-              src={product.productImage}
+              src={'data:image/png;base64,' + product.productImages[0]}
               alt={
-                i18n.language === 'en' ? product.altText.en : product.altText.pl
+                i18n.language === 'en'
+                  ? product.productAltText.en
+                  : product.productAltText.pl
               }
-              className="h-36 w-36 max-w-[192px] cursor-pointer rounded-full shadow-none transition-shadow duration-300 ease-in-out hover:shadow-xl 
+              className="h-36 w-36 max-w-[192px] cursor-pointer rounded-full shadow-none transition-shadow duration-300 ease-in-out hover:shadow-xl
           sm:h-48 sm:w-48 md:mb-0 md:h-full md:w-full"
               onClick={handleDetailsModal}
               aria-hidden="true"
@@ -35,7 +40,7 @@ const ProductCard = (prop: { productObject: productDataType }) => {
           </div>
           <div className="card-data flex flex-col items-center gap-5 sm:items-end md:w-full md:items-stretch md:justify-between md:pl-4">
             <div className="flex h-10 items-center justify-between gap-20 text-xl font-bold leading-6 sm:flex-col sm:items-end sm:justify-center sm:gap-2 md:flex-row md:items-center md:justify-between">
-              <h3 className="model sm:pt-8 md:pt-0">{product.productName}</h3>
+              <h3 className="model sm:pt-8 md:pt-0">{product.productModel}</h3>
               <div className="price h-full rounded-md border border-black p-2 text-center">
                 {product.price} € / {t('pair')}
               </div>
@@ -55,8 +60,9 @@ const ProductCard = (prop: { productObject: productDataType }) => {
                 </p>
               </div>
               <button
-                className="bottom-0 mt-10 h-12 w-56 rounded-md bg-[#232323] px-6 font-bold uppercase text-white shadow-none transition-shadow 
+                className="bottom-0 mt-10 h-12 w-56 rounded-md bg-[#232323] px-6 font-bold uppercase text-white shadow-none transition-shadow
           duration-300 ease-in-out hover:shadow-xl  sm:mt-0 md:static"
+                onClick={() => dispatch(addToCart(product))}
               >
                 {t('addToCart')}
               </button>
@@ -75,5 +81,4 @@ const ProductCard = (prop: { productObject: productDataType }) => {
     </>
   );
 };
-
 export default ProductCard;

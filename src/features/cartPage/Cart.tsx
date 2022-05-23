@@ -137,12 +137,12 @@ const Cart = () => {
                 <tr key={product.id} className="h-14">
                   <td>{index + 1}</td>
                   <td className="font-semibold uppercase">
-                    {product.seriesId}
+                    {product.seriesName}
                   </td>
 
                   <td>
                     <div className="flex justify-center">
-                      {product.productAltTextKey}
+                      {product.productModel}
                     </div>
                   </td>
                   <td className="relative">

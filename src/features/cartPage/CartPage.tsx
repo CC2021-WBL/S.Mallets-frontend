@@ -26,7 +26,7 @@ const CartPage = () => {
           return (
             <div key={product.id}>
               <button onClick={() => dispatch(addToCart(product))}>🛒</button>
-              {product.productName} {product.price.toFixed(2)}€
+              {product.productModel} {product.price.toFixed(2)}€
               <p>------------------------------</p>
             </div>
           );

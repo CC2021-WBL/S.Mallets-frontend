@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export interface Product {
   id: number;
-  productName: string;
+  productModel: string;
   price: number;
   headDiameter: number;
   stickLength: number;
@@ -12,9 +12,19 @@ export interface Product {
   createdAt: Date;
   productDescriptionKey: string;
   productAltTextKey: string;
-  seriesId: string;
+  seriesName: string;
   quantity: number;
   edited: boolean;
+  productAltText: {
+    pl: string;
+    en: string;
+  };
+  productDescription: {
+    key: string;
+    pl: string;
+    en: string;
+  };
+  productImages: string[];
 }
 
 const initialState: Product[] = [];
