@@ -44,7 +44,6 @@ const HomePage = () => {
         if (series.status === 200) {
           setSeriesData(resJson);
           setIsPending(false);
-          toast.success(t('toastOk'));
         } else {
           toast.error(t('toastBad'));
         }

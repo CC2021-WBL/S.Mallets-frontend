@@ -7,8 +7,6 @@ import Animation from './Animation';
 import i18n from '../../../i18n';
 import { Loader } from '../../Loader';
 
-// import { mockDataType } from '../../../assets/mockData/mockSeriesData';
-
 export interface SeriesTypes {
   id: number;
   seriesImage: string;
@@ -19,7 +17,7 @@ const ProductsSeriesPage = () => {
   const { t } = useTranslation('others');
   const language = i18n.language as 'pl' | 'en';
 
-  const [seriesData, setSeriesData] = useState(null);
+  const [seriesData, setSeriesData] = useState<null | SeriesTypes[]>(null);
   const [isPending, setIsPending] = useState(true);
 
   useEffect(() => {
@@ -33,7 +31,6 @@ const ProductsSeriesPage = () => {
         if (series.status === 200) {
           setSeriesData(resJson);
           setIsPending(false);
-          toast.success(t('toastOk'));
         } else {
           toast.error(t('toastBad'));
         }
@@ -56,7 +53,7 @@ const ProductsSeriesPage = () => {
           {isPending && <Loader />}
 
           {seriesData &&
-            Array.from(seriesData).map((index: any) => (
+            Array.from(seriesData).map((index: SeriesTypes) => (
               <Link
                 key={index.id}
                 className="mb-14 flex w-[21.8rem] flex-col items-center py-0 hover:cursor-pointer sm:mb-6 sm:rounded-lg sm:py-9 sm:hover:shadow-lg md:h-[27.8rem]"
