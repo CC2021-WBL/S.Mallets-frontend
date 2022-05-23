@@ -3,7 +3,7 @@ import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-const CartPage = () => {
+const RegisterPage = () => {
   const { t } = useTranslation('registerForm');
   const phoneRegExp =
     /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
@@ -187,4 +187,4 @@ const CartPage = () => {
     </>
   );
 };
-export default CartPage;
+export default RegisterPage;
