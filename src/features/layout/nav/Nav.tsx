@@ -118,6 +118,20 @@ const Nav = () => {
 
         <nav className="z-50 flex flex-col p-4 tracking-wider">
           <NavBar t={t} className={navBurgerStyles} handleNav={handleNav} />
+          {isAuth && (
+            <NavLink
+              to="/user"
+              key="user"
+              onClick={handleNav}
+              className={({ isActive }) =>
+                isActive
+                  ? `${navBurgerStyles} font-medium sm:scale-110 md:scale-125`
+                  : navBurgerStyles
+              }
+            >
+              {t('user')}
+            </NavLink>
+          )}
         </nav>
         <section className="px-4">
           <NavLink
