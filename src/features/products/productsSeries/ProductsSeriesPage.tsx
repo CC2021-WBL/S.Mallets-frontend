@@ -21,7 +21,7 @@ const ProductsSeriesPage = () => {
 
   const [seriesData, setSeriesData] = useState(null);
   const [isPending, setIsPending] = useState(true);
-  // const toastId = toast.loading('Loading...');
+
   useEffect(() => {
     async function fetchSeriesData() {
       try {
@@ -33,19 +33,12 @@ const ProductsSeriesPage = () => {
         if (series.status === 200) {
           setSeriesData(resJson);
           setIsPending(false);
-          console.log(series);
-          console.log(resJson);
+          toast.success(t('toastOk'));
         } else {
-          toast.error('Buuu');
-          // toast.error(t('toastBad'), {
-          //   id: toastId,
-          // });
+          toast.error(t('toastBad'));
         }
       } catch (error) {
-        toast.error(':((((');
-        // toast.error(t('toastBad'), {
-        //   id: toastId,
-        // });
+        toast.error(t('toastBad'));
       }
     }
     fetchSeriesData();
