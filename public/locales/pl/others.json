@@ -1,3 +1,11 @@
 {
-  "textOnSeries": "Pałeczki S.mallets to doskonałej jakości produkt, który jest odpowiedzią na potrzeby profesjonalistów."
+  "textOnSeries": "Pałeczki S.mallets to doskonałej jakości produkt, który jest odpowiedzią na potrzeby profesjonalistów.",
+  "service": "Serwis",
+  "motto": "Dla nas nie ma rzeczy niemożliwych. Naprawimy wszystkie pałeczki.",
+  "doubts": "Masz wątpliwości? Skontaktuj się z nami.",
+  "contact": "Kontakt",
+  "before": "Przed",
+  "after": "Po",
+  "toastOk": "Pobrano dane.",
+  "toastBad": "Coś poszło nie tak.Spróbuj ponownie później"
 }

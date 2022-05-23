@@ -1,11 +1,14 @@
 import { I18nextProvider } from 'react-i18next';
+import { Provider } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 
+import DeliveryPage from './features/deliveryPage/DeliveryPage';
 import ScrollToTop from './tools/ScrollToTop';
+import SummaryPage from './features/summaryPage/SummaryPage';
 import i18n from './i18n';
+import store from './app/store';
 import { Loader } from './features/Loader';
-import { mock } from './assets/mockData/mockSeriesData';
 
 const ServicePage = lazy(() => import('./common/service/ServicePage'));
 const UserPage = lazy(() => import('./features/userPage/UserPage'));
@@ -27,26 +30,34 @@ function App() {
       <Suspense fallback={<Loader />}>
         <ScrollToTop>
           <div className="App">
-            <Routes>
-              <Route element={<Layout />}>
-                <Route path="/" element={<HomePage mockSeries={mock} />} />
-                <Route path="/about" element={<AboutMe />} />
-                <Route path="/contact" element={<ContactPage />} />
-                <Route
-                  path="/products-series"
-                  element={<ProductsSeriesPage mockSeries={mock} />}
-                />
-                <Route
-                  path="/products-series/:seriesName"
-                  element={<ProductsPage />}
-                />
-                <Route path="/service" element={<ServicePage />} />
-                <Route path="/cart" element={<CartPage />} />
-                <Route path="/login" element={<LoginPage />} />
-                <Route path="/user" element={<UserPage />} />
-                <Route path="/admin" element={<AdminPage />} />
-              </Route>
-            </Routes>
+            <Provider store={store}>
+              <Routes>
+                <Route element={<Layout />}>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/about" element={<AboutMe />} />
+                  <Route path="/contact" element={<ContactPage />} />
+                  <Route
+                    path="/products-series"
+                    element={<ProductsSeriesPage />}
+                  />
+                  <Route
+                    path="/products-series/:seriesName"
+                    element={<ProductsPage />}
+                  />
+                  <Route path="/service" element={<ServicePage />} />
+                  <Route path="/cart" element={<CartPage />} />
+                  <Route path="/cart/delivery" element={<DeliveryPage />} />
+                  <Route
+                    path="/cart/delivery/summary"
+                    element={<SummaryPage />}
+                  />
+                  <Route path="/login" element={<LoginPage />} />
+                  <Route path="/user" element={<UserPage />} />
+                  <Route path="/admin" element={<AdminPage />} />
+                  <Route path="/service" element={<ServicePage />} />
+                </Route>
+              </Routes>
+            </Provider>
           </div>
         </ScrollToTop>
       </Suspense>

@@ -6,6 +6,8 @@ import { AppDispatch, RootState } from '../../app/store';
 import { Product, addToCart } from './slices/cartSlice';
 import { fetchProducts } from './slices/productSlice';
 
+import { NavLink } from 'react-router-dom';
+
 const CartPage = () => {
   const dispatch: AppDispatch = useDispatch();
   const products = useSelector((state: RootState) => state.products.list);
@@ -30,6 +32,8 @@ const CartPage = () => {
           );
         })}
       <Cart />
+      <NavLink to="/cart/delivery">Dostawa form</NavLink>
+      <NavLink to="/cart/delivery/summary">Podsumowanie</NavLink>
     </div>
   );
 };
