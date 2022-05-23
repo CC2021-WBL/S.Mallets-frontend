@@ -39,7 +39,7 @@ export const SliderModal = () => {
       // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
       tabIndex={0}
       role="img"
-      className=" first-letter: lg2:9/12 fixed top-1/2 left-1/2 z-50 w-full -translate-x-1/2 -translate-y-1/2 p-1 md:w-11/12 lg:w-10/12 xl:w-8/12 2xl:w-6/12"
+      className=" first-letter: lg2:9/12 fixed top-1/2 left-1/2 z-50 w-full -translate-x-1/2 -translate-y-1/2 p-4 md:w-11/12 lg:w-10/12 xl:w-8/12 2xl:w-6/12"
     >
       {isPending && <Loader />}
       {!isPending && (

@@ -51,10 +51,6 @@ code {
   color: black;
 }
 
-.slick-slide img {
-  border-radius: 20px;
-}
-
 .slick-dots li button::before {
   font-size: 20px;
 }
