@@ -2,7 +2,7 @@ import toast from 'react-hot-toast';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { BiUser } from 'react-icons/bi';
 import { BsCart3 } from 'react-icons/bs';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -14,11 +14,12 @@ import logo from '../../../assets/s-logo.svg';
 import { RootState } from '../../../app/store';
 import { activeLogCart, navBurgerStyles, navStyles } from './navStyles';
 import { authActions } from '../../loginPage/authSlice';
-import { userActions } from '../../loginPage/userSlice';
+import { userActions } from '../../userPage/userSlice';
 
 const Nav = () => {
   const { t, i18n } = useTranslation('navAndFooter');
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const isAuth = useSelector(
     (state: RootState) => state.authentication.isAuthenticated,
@@ -42,6 +43,10 @@ const Nav = () => {
     toast.success(t('toastOut'), {
       id: toastId,
     });
+    if (localStorage.getItem('auth')) {
+      localStorage.removeItem('auth');
+    }
+    navigate('/');
     return;
   };
 
@@ -116,6 +121,20 @@ const Nav = () => {
 
         <nav className="z-50 flex flex-col p-4 tracking-wider">
           <NavBar t={t} className={navBurgerStyles} handleNav={handleNav} />
+          {isAuth && (
+            <NavLink
+              to="/user"
+              key="user"
+              onClick={handleNav}
+              className={({ isActive }) =>
+                isActive
+                  ? `${navBurgerStyles} font-medium sm:scale-110 md:scale-125`
+                  : navBurgerStyles
+              }
+            >
+              {t('user')}
+            </NavLink>
+          )}
         </nav>
         <section className="px-4">
           <NavLink
