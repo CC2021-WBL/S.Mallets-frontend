@@ -5,5 +5,8 @@
   "contact": "contact",
   "login": "log in",
   "cart": "your cart",
-  "contactData": "Contact data"
+  "contactData": "Contact data",
+  "toastOut": "You are log out",
+  "logout": "logout",
+  "user": "my account"
 }

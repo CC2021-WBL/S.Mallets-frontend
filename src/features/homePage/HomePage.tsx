@@ -61,7 +61,7 @@ const HomePage: React.FC<{ mockSeries: mockDataType[] }> = (props) => {
             <Link
               key={index.id}
               className="mb-14 flex w-[21.8rem] flex-col items-center py-0 hover:cursor-pointer sm:mb-6 sm:rounded-lg sm:py-9 sm:hover:shadow-lg md:h-[27.8rem]"
-              to="/product-series"
+              to="/products-series"
             >
               <img
                 src={index.seriesImage}
@@ -167,7 +167,7 @@ const HomePage: React.FC<{ mockSeries: mockDataType[] }> = (props) => {
 
               <button
                 type="submit"
-                className="mt-6 h-[3.75rem] w-full bg-black text-white hover:opacity-75"
+                className="mt-6 h-[3.75rem] w-full rounded bg-black text-white hover:opacity-75"
               >
                 {t('send')}
               </button>

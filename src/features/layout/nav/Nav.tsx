@@ -1,7 +1,9 @@
+import toast from 'react-hot-toast';
 import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 import { BiUser } from 'react-icons/bi';
 import { BsCart3 } from 'react-icons/bs';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -9,10 +11,19 @@ import Backdrop from './Backdrop';
 import LanguageButtons from './LanguageButtons';
 import NavBar from './NavBar';
 import logo from '../../../assets/s-logo.svg';
+import { RootState } from '../../../app/store';
 import { activeLogCart, navBurgerStyles, navStyles } from './navStyles';
+import { authActions } from '../../loginPage/authSlice';
+import { userActions } from '../../userPage/userSlice';
 
 const Nav = () => {
   const { t, i18n } = useTranslation('navAndFooter');
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const isAuth = useSelector(
+    (state: RootState) => state.authentication.isAuthenticated,
+  );
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
@@ -22,6 +33,23 @@ const Nav = () => {
   const handleNav = () => {
     setNav(!nav);
   };
+
+  const logoutHandler = () => {
+    const toastId = toast.loading('Loading...');
+
+    dispatch(authActions.logout());
+    dispatch(userActions.userLogout());
+
+    toast.success(t('toastOut'), {
+      id: toastId,
+    });
+    if (localStorage.getItem('auth')) {
+      localStorage.removeItem('auth');
+    }
+    navigate('/');
+    return;
+  };
+
   return (
     <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between sm:h-36 sm:px-3 md:h-44 md:px-6 lg:px-8">
       <div
@@ -35,8 +63,13 @@ const Nav = () => {
       </div>
       <section className="hidden sm:block">
         <div className="flex justify-end gap-8 p-4 pl-8 text-2xl">
+          {isAuth && (
+            <button onClick={logoutHandler} className="text-xs">
+              {t('logout')}
+            </button>
+          )}
           <NavLink
-            to="/login"
+            to={isAuth ? '/user' : '/login'}
             aria-label="login"
             className={({ isActive }) =>
               isActive ? `${activeLogCart}` : undefined
@@ -88,14 +121,35 @@ const Nav = () => {
 
         <nav className="z-50 flex flex-col p-4 tracking-wider">
           <NavBar t={t} className={navBurgerStyles} handleNav={handleNav} />
+          {isAuth && (
+            <NavLink
+              to="/user"
+              key="user"
+              onClick={handleNav}
+              className={({ isActive }) =>
+                isActive
+                  ? `${navBurgerStyles} font-medium sm:scale-110 md:scale-125`
+                  : navBurgerStyles
+              }
+            >
+              {t('user')}
+            </NavLink>
+          )}
         </nav>
         <section className="px-4">
           <NavLink
             className="flex w-full justify-between gap-8 p-2 px-4 hover:underline"
-            to="/login"
-            onClick={handleNav}
+            to={isAuth ? '/user' : '/login'}
+            onClick={() => {
+              handleNav();
+              {
+                isAuth && logoutHandler();
+              }
+            }}
           >
-            <p className="text-sm tracking-wider">{t('login')}</p>
+            <p className="text-sm tracking-wider">
+              {isAuth ? t('logout') : t('login')}
+            </p>
             <BiUser className="text-2xl" />
           </NavLink>
           <NavLink

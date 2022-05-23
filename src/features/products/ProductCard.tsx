@@ -22,10 +22,10 @@ const ProductCard = (prop: { productObject: productDataType }) => {
 
   return (
     <>
-      <div className="relative z-10 max-w-7xl">
+      <div className="relative z-10 mx-4 max-w-7xl">
         <div
-          className="mb-3 flex w-full max-w-[810px] grow
-     flex-col gap-5 p-6 hover:shadow-xl sm:h-fit sm:w-full sm:flex-row sm:justify-between md:flex-row md:p-12"
+          className="mb-8 flex max-w-[810px] grow
+     flex-col gap-8 p-8 hover:shadow-xl sm:h-fit sm:w-full sm:flex-row sm:justify-between sm:p-10 md:flex-row md:p-12"
         >
           <div className="flex justify-center sm:h-64 sm:justify-between md:h-fit md:w-64">
             <img
