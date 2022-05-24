@@ -7,7 +7,7 @@ import DeliveryData from './DeliveryData';
 import LogoCarpet from '../../tools/LogoCarpet';
 import { RootState } from '../../app/store';
 
-const sectionStyles =
+export const sectionStyles =
   'border-1 mb-6 flex flex-col justify-center rounded border border-black p-6';
 
 const SummaryPage = () => {
