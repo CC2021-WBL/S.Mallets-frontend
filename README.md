@@ -54,6 +54,7 @@ User can:
 - prettier
 - husky
 - emailJs
+- vercel
 
 ### Continued development
 
