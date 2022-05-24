@@ -43,6 +43,7 @@ User can:
 ### Built with
 
 - react
+- react router
 - typescript
 - redux toolkit
 - tailwind css
@@ -52,12 +53,14 @@ User can:
 - eslint
 - prettier
 - husky
+- emailJs
 
 ### Continued development
 
 Ours ideas for future:
 - admin account
 - link the payments
+- dark mode
 
 
 ## Authors
