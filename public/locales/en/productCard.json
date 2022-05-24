@@ -2,5 +2,6 @@
   "pair": "pair",
   "headDiameter": "Head Diameter",
   "stickLength": "Stick Length",
-  "addToCart": "Add to cart"
+  "addToCart": "Add to cart",
+  "productAddedToCart": "Product added to cart"
 }
