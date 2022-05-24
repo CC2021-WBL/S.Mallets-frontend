@@ -47,9 +47,27 @@ const orderSlice = createSlice({
         order: { ...state.order, deliveryId: payload },
       };
     },
+    fetchOrderData: (state, { payload }) => {
+      return {
+        ...state,
+        order: {
+          ...state.order,
+          messageFromUser: payload.messageFromUser,
+          name: payload.name,
+          lastname: payload.lastname,
+          email: payload.email,
+          phoneNumber: payload.phoneNumber,
+          country: payload.country,
+          city: payload.city,
+          streetAndNumber: payload.streetAndNumber,
+          zipCode: payload.zipCode,
+        },
+      };
+    },
   },
 });
-export const { fetchOrderDetails, fetchDeliveryId } = orderSlice.actions;
+export const { fetchOrderDetails, fetchDeliveryId, fetchOrderData } =
+  orderSlice.actions;
 
 const orderReducer = orderSlice.reducer;
 
