@@ -1,5 +1,7 @@
 ![logo-devs-on-the-waves-stroke](https://user-images.githubusercontent.com/19845958/148255475-9f24bd68-7020-42e8-a0d7-c2ed885848e5.png)
 
+![image](https://user-images.githubusercontent.com/56206231/170011760-015dca37-7b16-4ed6-874f-a9cb0aab44ae.png)
+
 
 # CodersCamp 2021 - Fullstack Project- Frontend Part
 **CodersCamp (https://www.coderscamp.edu.pl/) - Biggest free programming course** 
