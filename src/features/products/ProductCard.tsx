@@ -42,9 +42,15 @@ const ProductCard = (prop: { product: Product }) => {
           <div className="card-data flex flex-col items-center gap-5 sm:items-end md:w-full md:items-stretch md:justify-between md:pl-4">
             <div className="flex h-10 items-center justify-between gap-20 text-xl font-bold leading-6 sm:flex-col sm:items-end sm:justify-center sm:gap-2 md:flex-row md:items-center md:justify-between">
               <h3 className="model sm:pt-8 md:pt-0">{product.productModel}</h3>
-              <div className="price h-full rounded-md border border-black p-2 text-center">
+              <button
+                onClick={() => {
+                  toast.success(t('productAddedToCart'));
+                  dispatch(addToCart(product));
+                }}
+                className="price h-full rounded-md border border-black p-2 text-center"
+              >
                 {product.price} € / {t('pair')}
-              </div>
+              </button>
             </div>
             <p className="text-center text-lg sm:pt-8 sm:text-right sm:text-xl md:pt-0">
               {i18n.language === 'en'
