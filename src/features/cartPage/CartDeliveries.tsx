@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { AppDispatch, RootState } from '../../app/store';
-import { fetchDeliveries } from '../deliveryPage/deliverySlice';
+import { chosenDelivery, fetchDeliveries } from '../deliveryPage/deliverySlice';
 
 interface delivery {
   id: string;
@@ -29,6 +29,7 @@ const CartDeliveries = () => {
                   type="radio"
                   name="flexRadioDefault"
                   id="flexRadioDefault1"
+                  onClick={() => dispatch(chosenDelivery(delivery))}
                 />
                 <label
                   className="form-check-label inline-block text-gray-800"

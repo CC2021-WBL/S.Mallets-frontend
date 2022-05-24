@@ -3,6 +3,9 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   loading: false,
   list: [],
+  chosenDelivery: {
+    deliveryPriceEuro: 0,
+  },
 };
 
 const deliveriesSlice = createSlice({
@@ -17,10 +20,17 @@ const deliveriesSlice = createSlice({
       state.loading = false;
       state.list = payload;
     },
+    chosenDelivery: (state, action) => {
+      const { payload } = action;
+      return {
+        ...state,
+        chosenDelivery: payload,
+      };
+    },
   },
 });
 
-export const { save, startFetch } = deliveriesSlice.actions;
+export const { save, startFetch, chosenDelivery } = deliveriesSlice.actions;
 export const fetchDeliveries = () => {
   return async (dispatch: any) => {
     dispatch(save([]));
