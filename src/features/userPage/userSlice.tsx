@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 interface UserStateTypes {
+  id: string;
   email: string;
   name: string;
   lastname: string;
@@ -9,6 +10,7 @@ interface UserStateTypes {
 }
 
 const initialUserState: UserStateTypes = {
+  id: '',
   email: '',
   name: '',
   lastname: '',
@@ -21,6 +23,7 @@ export const userSlice = createSlice({
   initialState: initialUserState,
   reducers: {
     userLogin(state, action) {
+      state.id = action.payload.id;
       state.email = action.payload.email;
       state.name = action.payload.name;
       state.lastname = action.payload.lastname;
@@ -28,6 +31,7 @@ export const userSlice = createSlice({
       state.phoneNumber = action.payload.phoneNumber;
     },
     userLogout(state) {
+      state.id = '';
       state.email = '';
       state.name = '';
       state.lastname = '';
