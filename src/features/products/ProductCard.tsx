@@ -91,7 +91,7 @@ const ProductCard = (prop: { product: Product }) => {
       {detailsModal && (
         <>
           <Backdrop handleClose={handleDetailsModal} />
-          <SliderModal />
+          <SliderModal id={product.id} />
         </>
       )}
     </>
