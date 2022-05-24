@@ -74,6 +74,8 @@ Ours ideas for future:
  - [Alicja Kondrat](https://github.com/pierwszazlewej) as UI/UX Designer
  - [Tomasz Skrętkowski](https://github.com/n0macx) as Product Owner, Development Manager and Frontend Tech Leader
  - [Robert Sołdyński](https://github.com/RobertS-ki) 
+ - [Monika Krella](https://github.com/MonikaKrella)
+ - [Adam Smycz](https://github.com/Smyku6) 
 
 ## Acknowledgments
 
