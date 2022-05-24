@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import DeliveryData from './DeliveryData';
 import LogoCarpet from '../../tools/LogoCarpet';
+import { Product } from '../cartPage/cartSlice';
 import { RootState } from '../../app/store';
 
 export const sectionStyles =
@@ -14,6 +15,16 @@ const SummaryPage = () => {
   const deliveryData = useSelector((state: RootState) => state.deliveryData);
   const { t } = useTranslation('summary');
   const navigate = useNavigate();
+  const cart = useSelector((state: RootState) => state.cart);
+  const delivery = useSelector((state: RootState) => state.deliveries);
+
+  const sumProducts = cart.products
+    .map((product) => product.quantity * product.price)
+    .reduce((a, b) => a + b, 0);
+
+  const deliveryPrice = Number(delivery.chosenDelivery.deliveryPriceEuro) || 0;
+
+  const sum = sumProducts + deliveryPrice;
 
   //TODO: unmock this fetch
   const confirmHandler = async () => {
@@ -48,6 +59,20 @@ const SummaryPage = () => {
       <main className="flex max-w-2xl flex-col p-6 sm:w-full sm:justify-between md:p-10">
         <section className={sectionStyles}>
           <h2 className="p-2 text-2xl font-semibold">{t('yourOrder')}</h2>
+          {cart &&
+            cart.products.map((product: Product, index: number) => {
+              return (
+                <div className="flex gap-2" key={index}>
+                  <p>{index + 1}</p>
+                  <p>{product.seriesName}</p>
+                  <p>{product.productModel}</p>
+                  <p>{product.headDiameter} mm</p>
+                  <p>{product.weight} g</p>
+                  <p>{product.quantity} pcs.</p>
+                </div>
+              );
+            })}
+          <div>suma {sum} €</div>
           <NavLink to="/cart" className="p-2 font-bold">
             {t('edit')}
           </NavLink>
