@@ -5,6 +5,7 @@ import { Suspense, lazy } from 'react';
 
 import DeliveryPage from './features/deliveryPage/DeliveryPage';
 import NoAccess from './common/NoAccess';
+import RegisterPage from './features/registerPage/RegisterPage';
 import ScrollToTop from './tools/ScrollToTop';
 import SummaryPage from './features/summaryPage/SummaryPage';
 import i18n from './i18n';
@@ -57,6 +58,8 @@ function App() {
                   <Route path="/admin" element={<AdminPage />} />
                   <Route path="/service" element={<ServicePage />} />
                   <Route path="/no" element={<NoAccess />} />
+                  <Route path="/register" element={<RegisterPage />} />
+                  <Route path="/cart/register" element={<RegisterPage />} />
                 </Route>
               </Routes>
             </Provider>
