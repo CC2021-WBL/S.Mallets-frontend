@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 
 import DeliveryPage from './features/deliveryPage/DeliveryPage';
+import NotFoundPage from './features/notFoundPage/NotFoundPage';
 import ScrollToTop from './tools/ScrollToTop';
 import SummaryPage from './features/summaryPage/SummaryPage';
 import i18n from './i18n';
@@ -55,6 +56,7 @@ function App() {
                   <Route path="/user" element={<UserPage />} />
                   <Route path="/admin" element={<AdminPage />} />
                   <Route path="/service" element={<ServicePage />} />
+                  <Route path="*" element={<NotFoundPage />} />
                 </Route>
               </Routes>
             </Provider>
