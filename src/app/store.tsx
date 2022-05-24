@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import cartReducer from '../features/cartPage/slices/cartSlice';
-import deliveryReducer from '../features/cartPage/slices/deliverySlice';
-import productReducer from '../features/cartPage/slices/productSlice';
-import uiReducer from '../features/cartPage/slices/uiSlice';
+import cartReducer from '../features/cartPage/cartSlice';
+import deliveryReducer from '../features/deliveryPage/deliverySlice';
+import productReducer from '../features/products/productSlice';
+import uiReducer from '../tools/uiSlice';
 import { authSlice } from '../features/loginPage/authSlice';
 import { deliDataSlice } from '../features/deliveryPage/deliveryDataSlice';
 import { userSlice } from '../features/userPage/userSlice';

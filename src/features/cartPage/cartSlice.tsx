@@ -27,14 +27,22 @@ export interface Product {
   productImages: string[];
 }
 
-const initialState: Product[] = [];
+interface CartInterface {
+  products: Product[];
+  counter: number;
+}
+
+const initialState: CartInterface = {
+  products: [],
+  counter: 0,
+};
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
     toggleEdit: (state, { payload }) => {
-      return state.map((product) => {
+      const productsS = state.products.map((product: Product) => {
         if (product.id === payload) {
           return {
             ...product,
@@ -43,12 +51,15 @@ const cartSlice = createSlice({
         }
         return product;
       });
+      return { ...state, products: productsS };
     },
     addToCart: (state, { payload }) => {
       const { id } = payload;
-      const productExist = state.find((product) => product.id === id);
+      const productExist = state.products.find(
+        (product: Product) => product.id === id,
+      );
       if (productExist) {
-        return state.map((product) => {
+        const newProducts = state.products.map((product: Product) => {
           if (product.id === id) {
             return {
               ...product,
@@ -57,18 +68,37 @@ const cartSlice = createSlice({
           }
           return product;
         });
+        return { ...state, products: newProducts, counter: state.counter + 1 };
       } else {
-        state.push({
-          ...payload,
-          quantity: 1,
-        });
+        return {
+          ...state,
+          products: [...state.products, { ...payload, quantity: 1 }],
+          counter: state.counter + 1,
+        };
       }
     },
     removeFromCart: (state, { payload }) => {
-      return state.filter((product) => product.id !== payload);
+      let removedProductQuantity;
+      const removedProduct: Product | undefined = state.products.find(
+        (product: Product) => product.id == payload,
+      );
+      if (removedProduct == undefined) {
+        removedProductQuantity = 0;
+      } else {
+        removedProductQuantity = removedProduct.quantity;
+      }
+      const newProducts = state.products.filter(
+        (product: Product) => product.id !== payload,
+      );
+
+      return {
+        ...state,
+        products: newProducts,
+        counter: state.counter - removedProductQuantity,
+      };
     },
     increment: (state, { payload }) => {
-      return state.map((product) => {
+      const newProducts = state.products.map((product: Product) => {
         if (product.id === payload) {
           return {
             ...product,
@@ -77,9 +107,10 @@ const cartSlice = createSlice({
         }
         return product;
       });
+      return { ...state, products: newProducts, counter: state.counter + 1 };
     },
     decrement: (state, { payload }) => {
-      return state.map((product) => {
+      const newProducts = state.products.map((product: Product) => {
         if (product.id === payload) {
           if (product.quantity > 1) {
             return {
@@ -90,9 +121,10 @@ const cartSlice = createSlice({
         }
         return product;
       });
+      return { ...state, products: newProducts, counter: state.counter - 1 };
     },
     incrementHeadDiameter: (state, { payload }) => {
-      return state.map((product) => {
+      const updatedProducts = state.products.map((product: Product) => {
         if (product.id === payload) {
           if (product.headDiameter < 50) {
             return {
@@ -103,9 +135,10 @@ const cartSlice = createSlice({
         }
         return product;
       });
+      return { ...state, products: updatedProducts, counter: state.counter };
     },
     decrementHeadDiameter: (state, { payload }) => {
-      return state.map((product) => {
+      const updatedProducts = state.products.map((product: Product) => {
         if (product.id === payload) {
           if (product.headDiameter > 30) {
             return {
@@ -116,9 +149,10 @@ const cartSlice = createSlice({
         }
         return product;
       });
+      return { ...state, products: updatedProducts };
     },
     incrementStickLength: (state, { payload }) => {
-      return state.map((product) => {
+      const updatedProducts = state.products.map((product: Product) => {
         if (product.id === payload) {
           if (product.stickLength < 38) {
             return {
@@ -129,9 +163,10 @@ const cartSlice = createSlice({
         }
         return product;
       });
+      return { ...state, products: updatedProducts };
     },
     decrementStickLength: (state, { payload }) => {
-      return state.map((product) => {
+      const updatedProducts = state.products.map((product: Product) => {
         if (product.id === payload) {
           if (product.stickLength > 35) {
             return {
@@ -142,9 +177,10 @@ const cartSlice = createSlice({
         }
         return product;
       });
+      return { ...state, products: updatedProducts };
     },
     incrementWeight: (state, { payload }) => {
-      return state.map((product) => {
+      const updatedProducts = state.products.map((product: Product) => {
         if (product.id === payload) {
           if (product.weight < 38) {
             return {
@@ -155,9 +191,10 @@ const cartSlice = createSlice({
         }
         return product;
       });
+      return { ...state, products: updatedProducts };
     },
     decrementWeight: (state, { payload }) => {
-      return state.map((product) => {
+      const updatedProducts = state.products.map((product: Product) => {
         if (product.id === payload) {
           if (product.weight > 29) {
             return {
@@ -168,9 +205,12 @@ const cartSlice = createSlice({
         }
         return product;
       });
+      return { ...state, products: updatedProducts };
     },
     clear: () => {
-      return [];
+      return {
+        ...initialState,
+      };
     },
   },
 });

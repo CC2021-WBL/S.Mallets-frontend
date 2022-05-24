@@ -2,5 +2,6 @@
   "pair": "para",
   "headDiameter": "Średnica główki",
   "stickLength": "Długość kijka",
-  "addToCart": "Dodaj do koszyka"
+  "addToCart": "Dodaj do koszyka",
+  "productAddedToCart": "Produkt dodano do koszyka"
 }

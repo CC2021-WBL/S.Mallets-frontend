@@ -25,7 +25,7 @@ export const fetchDeliveries = () => {
   return async (dispatch: any) => {
     dispatch(save([]));
     dispatch(startFetch());
-    fetch('/api/deliveries')
+    fetch('https://s-mallets-backend.vercel.app/delivery')
       .then((response) => response.json())
       .then((deliveries) => dispatch(save(deliveries)));
   };

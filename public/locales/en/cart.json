@@ -1,0 +1,14 @@
+{
+  "seriesName": "Series name",
+  "productModel": "Model",
+  "headDiameter": "Head Diameter",
+  "stickLength": "Stick Length",
+  "weight": "Weight",
+  "quantity": "Quantity",
+  "price": "Price",
+  "edit": "edit",
+  "save": "save",
+  "remove": "remove",
+  "productRemovedFromCart": "Product has been removed from cart",
+  "allProductsRemovedFromCart": "All products have been removed from cart"
+}

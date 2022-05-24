@@ -7,14 +7,17 @@ import { Loader } from '../Loader';
 import { seriesMock } from '../../assets/mockData/mockPoductData';
 import { AppDispatch, RootState } from '../../app/store';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../cartPage/slices/productSlice';
-import { Product } from '../cartPage/slices/cartSlice';
+import { fetchProducts } from './productSlice';
+import { Product } from '../cartPage/cartSlice';
+import { useParams } from 'react-router-dom';
 
 const ProductsPage = () => {
+  const { seriesName } = useParams();
   const dispatch: AppDispatch = useDispatch();
   const products = useSelector((state: RootState) => state.products.list);
-
-  console.log(products);
+  const filteredProducts = products.filter(
+    (product: Product) => product.seriesName == seriesName,
+  );
 
   const { i18n } = useTranslation();
   const [pending, setIsPending] = useState(true);
@@ -39,7 +42,7 @@ const ProductsPage = () => {
         <LogoCarpet className="absolute top-12 right-8 z-[1] hidden lg:block" />
       )}
       {!pending &&
-        products.map((product: Product) => (
+        filteredProducts.map((product: Product) => (
           <ProductCard product={product} key={product.id} />
         ))}
     </div>

@@ -1,0 +1,14 @@
+{
+  "seriesName": "Nazwa serii",
+  "productModel": "Model",
+  "headDiameter": "Średnica główki",
+  "stickLength": "Długość kijka",
+  "weight": "Masa",
+  "quantity": "Ilość",
+  "price": "Cena",
+  "edit": "edytuj",
+  "save": "zapisz",
+  "remove": "usuń",
+  "productRemovedFromCart": "Produkt został usunięty z koszyka",
+  "allProductsRemovedFromCart": "Wszystkie produkty zostały usunięte z koszyka"
+}

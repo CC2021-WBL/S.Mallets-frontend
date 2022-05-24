@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Backdrop from '../layout/nav/Backdrop';
-import { addToCart, Product } from '../cartPage/slices/cartSlice';
+import { addToCart, Product } from '../cartPage/cartSlice';
 import { AppDispatch } from '../../app/store';
 import { useDispatch } from 'react-redux';
+import toast from 'react-hot-toast';
 
 const ProductCard = (prop: { product: Product }) => {
   const dispatch: AppDispatch = useDispatch();
@@ -62,7 +63,10 @@ const ProductCard = (prop: { product: Product }) => {
               <button
                 className="bottom-0 mt-10 h-12 w-56 rounded-md bg-[#232323] px-6 font-bold uppercase text-white shadow-none transition-shadow
           duration-300 ease-in-out hover:shadow-xl  sm:mt-0 md:static"
-                onClick={() => dispatch(addToCart(product))}
+                onClick={() => {
+                  toast.success(t('productAddedToCart'));
+                  dispatch(addToCart(product));
+                }}
               >
                 {t('addToCart')}
               </button>

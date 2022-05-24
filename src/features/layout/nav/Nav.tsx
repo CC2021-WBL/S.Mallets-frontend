@@ -35,14 +35,6 @@ const Nav = () => {
   const handleNav = () => {
     setNav(!nav);
   };
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const cart = useSelector((state) => state.cart);
-  const count = cart.reduce(
-    (accumulator: any, current: { quantity: any }) =>
-      accumulator + current.quantity,
-    0,
-  );
 
   const logoutHandler = () => {
     const toastId = toast.loading('Loading...');
@@ -59,6 +51,10 @@ const Nav = () => {
     navigate('/');
     return;
   };
+
+  const cart = useSelector((state: RootState) => {
+    return { ...state.cart };
+  });
 
   return (
     <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between sm:h-36 sm:px-3 md:h-44 md:px-6 lg:px-8">
@@ -95,11 +91,9 @@ const Nav = () => {
             }
           >
             <BsCart3 />
-            {count > 0 && (
-              <div className="absolute -bottom-3 -right-4 z-50 flex h-5 w-5 items-center justify-center rounded-full border border-black bg-white">
-                <p className="text-xs">{count}</p>
-              </div>
-            )}
+            <div className="absolute -bottom-3 -right-4 z-50 flex h-5 w-5 items-center justify-center rounded-full border border-black bg-white">
+              <p className="text-xs">{cart.counter}</p>
+            </div>
           </NavLink>
 
           <LanguageButtons
