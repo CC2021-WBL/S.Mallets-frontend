@@ -4,33 +4,48 @@ import { useState } from 'react';
 
 import { Loader } from './../../Loader';
 
-const mockPics = [
-  'https://www.fillmurray.com/1201/675',
-  'https://www.fillmurray.com/1200/675',
-  'https://www.fillmurray.com/1202/675',
-  'https://www.fillmurray.com/1203/675',
-  'https://www.fillmurray.com/1204/675',
-];
+// const mockPics = [
+//   'https://www.fillmurray.com/1201/675',
+//   'https://www.fillmurray.com/1200/675',
+//   'https://www.fillmurray.com/1202/675',
+//   'https://www.fillmurray.com/1203/675',
+//   'https://www.fillmurray.com/1204/675',
+// ];
+
+export interface ProductTypes {
+  id: number;
+  productImages: string;
+  seriesAltText: { pl: string; en: string };
+  seriesName: string;
+}
+
 export const SliderModal = () => {
+  const [productPics, setProductPics] = useState<null | ProductTypes[]>(null);
   const [isPending, setIsPending] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
       const getProductPics = async () => {
         try {
-          // const response = await fetch();
-          const response = mockPics;
-          if (!response) {
-            throw new Error();
+          const products = await fetch(
+            'https://s-mallets-backend.vercel.app/products',
+            { method: 'GET', redirect: 'follow' },
+          );
+          const resJson = await products.json();
+          if (products.status === 200) {
+            console.log('status 200');
+            setProductPics(resJson);
+            console.log('setProductPics');
+            setIsPending(false);
           } else {
-            null;
+            throw new Error();
           }
         } catch (error) {
           console.log(error);
         }
-        setIsPending(false);
       };
       getProductPics();
+      console.log(productPics);
     }, 1000);
   }, []);
 
@@ -52,11 +67,16 @@ export const SliderModal = () => {
           autoplaySpeed={3000}
           accessibility={true}
         >
-          {mockPics.map((item, i) => (
-            <div key={i}>
-              <img src={item} alt="img" />
-            </div>
-          ))}
+          {productPics &&
+            // Array.from(productPics).map((item: ProductTypes) => (
+            productPics.map((item: ProductTypes) => (
+              <div key={item.id}>
+                <img
+                  src={'data:image/png;base64,' + item.productImages}
+                  alt={`img${item.id}`}
+                />
+              </div>
+            ))}
         </Slider>
       )}
     </div>
