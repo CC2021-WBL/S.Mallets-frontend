@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { AppDispatch, RootState } from '../../app/store';
 import { chosenDelivery, fetchDeliveries } from '../deliveryPage/deliverySlice';
+import { useTranslation } from 'react-i18next';
 
 interface Delivery {
   id?: number;
@@ -13,6 +14,8 @@ interface Delivery {
 }
 
 const CartDeliveries = () => {
+  const { t } = useTranslation('cart');
+
   const dispatch: AppDispatch = useDispatch();
   const deliveries = useSelector((state: RootState) => state.deliveries.list);
 
@@ -23,6 +26,7 @@ const CartDeliveries = () => {
   return (
     <div className=" my-5 flex flex justify-center justify-between rounded-2xl border-2 border-black p-4">
       <div>
+        {t('chooseDelivery')}
         <div className="form-check">
           {deliveries &&
             deliveries.map((delivery: Delivery) => (

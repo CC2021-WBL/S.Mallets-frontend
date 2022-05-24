@@ -6,10 +6,16 @@
   "weight": "Masa",
   "quantity": "Ilość",
   "price": "Cena",
+  "totalPrice": "Łącznie",
   "edit": "edytuj",
   "save": "zapisz",
   "remove": "usuń",
+  "removeAll": "Usuń wszystko",
   "productRemovedFromCart": "Produkt został usunięty z koszyka",
   "allProductsRemovedFromCart": "Wszystkie produkty zostały usunięte z koszyka",
-  "next": "DALEJ >"
+  "next": "DALEJ >",
+  "cartOpenerText": "\tZa pomocą tego formularza wyślij zapytanie na wybrane pałeczki. Potrzebujesz dodatkowej customizacji? Możesz zedytować parametry, pałeczki aby stworzyć dokładnie to czego potrzebujesz.",
+  "emptyCart": "Koszyk pusty",
+  "orderSummary": "Podsumowanie zamówienia",
+  "chooseDelivery": "Wybierz formę dostawy:"
 }

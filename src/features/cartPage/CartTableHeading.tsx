@@ -1,31 +1,35 @@
+import { useTranslation } from 'react-i18next';
+
 const CartTableHeading = () => {
+  const { t } = useTranslation('cart');
+
   return (
     <thead className="table-head w-full">
       <tr>
         <th></th>
         <th scope="col" className="font-thin">
-          Nazwa serii
+          {t('seriesName')}
         </th>
         <th scope="col" className="font-thin">
-          Model
+          {t('productModel')}
         </th>
         <th scope="col" className="font-thin">
-          Średnica
+          {t('headDiameter')}
         </th>
         <th scope="col" className="font-thin">
-          Długość kijka
+          {t('stickLength')}
         </th>
         <th scope="col" className="font-thin">
-          Waga
+          {t('weight')}
         </th>
         <th scope="col" className="font-thin">
-          Sztuk
+          {t('quantity')}
         </th>
         <th scope="col" className="font-thin">
-          Cena
+          {t('price')}
         </th>
         <th scope="col" className="font-thin">
-          Łącznie
+          {t('totalPrice')}
         </th>
         <th></th>
       </tr>

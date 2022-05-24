@@ -34,9 +34,9 @@ const CartPage = () => {
     dispatch(fetchOrderDetails(orderDetails));
     dispatch(fetchDeliveryId(chosenDelivery.id));
 
-    if (isAuth) {
+    if (isAuth && Object.keys(chosenDelivery).length > 0) {
       navigate('/cart/delivery/summary');
-    } else {
+    } else if (Object.keys(chosenDelivery).length > 0) {
       navigate('/cart/delivery');
     }
   };
@@ -45,16 +45,19 @@ const CartPage = () => {
     <div className="mx-auto w-full max-w-7xl sm:px-3 md:px-6 lg:px-8">
       {cart.counter !== 0 ? (
         <>
+          {t('cartOpenerText')}
           <Cart />
-          <button
-            className="btn-primary w-full font-semibold tracking-widest"
-            onClick={nextHandler}
-          >
-            {t('next')}
-          </button>
+          {Object.keys(chosenDelivery).length > 0 && (
+            <button
+              className="btn-primary w-full font-semibold tracking-widest"
+              onClick={nextHandler}
+            >
+              {t('next')}
+            </button>
+          )}
         </>
       ) : (
-        <div>Koszyk pusty</div>
+        <div>{t('emptyCart')}</div>
       )}
     </div>
   );

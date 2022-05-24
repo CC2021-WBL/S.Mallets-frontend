@@ -17,7 +17,7 @@ const CartRemoveButton = () => {
         dispatch(clear());
       }}
     >
-      WYCZYŚĆ KOSZYK
+      {t('removeAll')}
     </button>
   );
 };

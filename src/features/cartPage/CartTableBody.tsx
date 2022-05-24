@@ -152,7 +152,7 @@ const CartTableBody = () => {
                     className="text-xs"
                     onClick={() => dispatch(toggleEdit(product.id))}
                   >
-                    {!product.edited ? 'edytuj' : 'zapisz'}
+                    {!product.edited ? t('edit') : t('save')}
                   </button>
                   <button
                     className="text-xs"
@@ -161,7 +161,7 @@ const CartTableBody = () => {
                       dispatch(removeFromCart(product.id));
                     }}
                   >
-                    usuń
+                    {t('remove')}
                   </button>
                 </div>
               </td>
