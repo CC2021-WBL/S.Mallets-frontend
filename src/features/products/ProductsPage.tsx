@@ -5,54 +5,26 @@ import LogoCarpet from '../../tools/LogoCarpet';
 import ProductCard from './ProductCard';
 import { Loader } from '../Loader';
 import { seriesMock } from '../../assets/mockData/mockPoductData';
-
-// import { useParams } from 'react-router-dom';
-
-export const initialStateMock = [
-  {
-    id: 0,
-    productName: '',
-    productDescription: {
-      pl: '',
-      en: '',
-    },
-    headDiameter: 0,
-    stickLength: 0,
-    weight: 0,
-    price: 0,
-    productImage: ``,
-    altText: {
-      en: '',
-      pl: '',
-    },
-    seriesId: 0,
-  },
-];
+import { AppDispatch, RootState } from '../../app/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProducts } from './productSlice';
+import { Product } from '../cartPage/cartSlice';
+import { useParams } from 'react-router-dom';
 
 const ProductsPage = () => {
+  const { seriesName } = useParams();
+  const dispatch: AppDispatch = useDispatch();
+  const products = useSelector((state: RootState) => state.products.list);
+  const filteredProducts = products.filter(
+    (product: Product) => product.seriesName == seriesName,
+  );
+
   const { i18n } = useTranslation();
   const [pending, setIsPending] = useState(true);
-  const [productObjectArray, setProductObjectArray] =
-    useState(initialStateMock);
-  // const params = useParams();
+
   useEffect(() => {
-    setTimeout(() => {
-      const getSeriesObject = async () => {
-        try {
-          // const response = await fetch();
-          const response = seriesMock;
-          if (!response) {
-            throw new Error();
-          } else {
-            setProductObjectArray(seriesMock.products);
-          }
-        } catch (error) {
-          console.log(error);
-        }
-        setIsPending(false);
-      };
-      getSeriesObject();
-    }, 1000);
+    dispatch(fetchProducts());
+    setIsPending(!pending);
   }, []);
 
   const seriesLang = seriesMock.seriesDescription;
@@ -66,13 +38,12 @@ const ProductsPage = () => {
           {i18n.language === 'en' ? seriesLang.en : seriesLang.pl}
         </h2>
       </div>
-      {/* {params.seriesName} */}
       {!pending && (
         <LogoCarpet className="absolute top-12 right-8 z-[1] hidden lg:block" />
       )}
       {!pending &&
-        productObjectArray.map((object, index) => (
-          <ProductCard productObject={object} key={index} />
+        filteredProducts.map((product: Product) => (
+          <ProductCard product={product} key={product.id} />
         ))}
     </div>
   );

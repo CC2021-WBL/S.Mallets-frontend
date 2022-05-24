@@ -26,6 +26,15 @@ code {
   background-position-x: -11.25rem;
 }
 
+@layer components {
+  .btn-primary {
+    @apply h-16 w-96 bg-[#232323] font-bold text-white hover:bg-slate-800;
+  }
+  .form-input {
+    @apply mb-6 h-16 w-96 border-b border-black bg-[#ededed] p-4;
+  }
+}
+
 .hero {
   background: url('./assets/hero2.png');
 }

@@ -1,11 +1,17 @@
+import toast from 'react-hot-toast';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Backdrop from '../layout/nav/Backdrop';
+import { AppDispatch } from '../../app/store';
+import { Product, addToCart } from '../cartPage/cartSlice';
 import { SliderModal } from './productsSeries/SliderModal';
-import { productDataType } from './productTypes';
 
-const ProductCard = (prop: { productObject: productDataType }) => {
+// import { productDataType } from './productTypes';
+
+const ProductCard = (prop: { product: Product }) => {
+  const dispatch: AppDispatch = useDispatch();
   const { t, i18n } = useTranslation('productCard');
 
   const [detailsModal, setDetailsModal] = useState(false);
@@ -18,7 +24,7 @@ const ProductCard = (prop: { productObject: productDataType }) => {
     }
   };
 
-  const product = prop.productObject;
+  const product = prop.product;
 
   return (
     <>
@@ -29,22 +35,30 @@ const ProductCard = (prop: { productObject: productDataType }) => {
         >
           <div className="flex justify-center sm:h-64 sm:justify-between md:h-fit md:w-64">
             <img
-              src={product.productImage}
+              src={'data:image/png;base64,' + product.productImages[0]}
               alt={
-                i18n.language === 'en' ? product.altText.en : product.altText.pl
+                i18n.language === 'en'
+                  ? product.productAltText.en
+                  : product.productAltText.pl
               }
-              className="h-36 w-36 max-w-[192px] cursor-pointer rounded-full shadow-none transition-shadow duration-300 ease-in-out hover:shadow-xl 
-          sm:h-48 sm:w-48 md:mb-0 md:h-full md:w-full"
+              className="h-36 w-36 max-w-[192px] cursor-pointer rounded-full shadow-none transition-shadow duration-300 ease-in-out hover:shadow-xl
+          sm:h-48 sm:w-48 md:mb-0"
               onClick={handleDetailsModal}
               aria-hidden="true"
             />
           </div>
           <div className="card-data flex flex-col items-center gap-5 sm:items-end md:w-full md:items-stretch md:justify-between md:pl-4">
             <div className="flex h-10 items-center justify-between gap-20 text-xl font-bold leading-6 sm:flex-col sm:items-end sm:justify-center sm:gap-2 md:flex-row md:items-center md:justify-between">
-              <h3 className="model sm:pt-8 md:pt-0">{product.productName}</h3>
-              <div className="price h-full rounded-md border border-black p-2 text-center">
+              <h3 className="model sm:pt-8 md:pt-0">{product.productModel}</h3>
+              <button
+                onClick={() => {
+                  toast.success(t('productAddedToCart'));
+                  dispatch(addToCart(product));
+                }}
+                className="price h-full rounded-md border border-black p-2 text-center"
+              >
                 {product.price} € / {t('pair')}
-              </div>
+              </button>
             </div>
             <p className="text-center text-lg sm:pt-8 sm:text-right sm:text-xl md:pt-0">
               {i18n.language === 'en'
@@ -54,15 +68,19 @@ const ProductCard = (prop: { productObject: productDataType }) => {
             <div className="flex h-fit flex-col items-center sm:items-stretch sm:justify-between md:h-12 md:flex-row">
               <div className="text-center text-sm sm:text-right sm:text-base md:text-left">
                 <p className="py-1 sm:py-0">
-                  {t('headDiameter')}: {product.headDiameter} mm Ø
+                  {t('headDiameter')}: {product.headDiameter} mm
                 </p>
                 <p className="sm:pb-8 md:py-0">
                   {t('stickLength')}: {product.stickLength} cm
                 </p>
               </div>
               <button
-                className="bottom-0 mt-10 h-12 w-56 rounded-md bg-[#232323] px-6 font-bold uppercase text-white shadow-none transition-shadow 
+                className="bottom-0 mt-10 h-12 w-56 rounded-md bg-[#232323] px-6 font-bold uppercase text-white shadow-none transition-shadow
           duration-300 ease-in-out hover:shadow-xl  sm:mt-0 md:static"
+                onClick={() => {
+                  toast.success(t('productAddedToCart'));
+                  dispatch(addToCart(product));
+                }}
               >
                 {t('addToCart')}
               </button>
@@ -79,5 +97,4 @@ const ProductCard = (prop: { productObject: productDataType }) => {
     </>
   );
 };
-
 export default ProductCard;

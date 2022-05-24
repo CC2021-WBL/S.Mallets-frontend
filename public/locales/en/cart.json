@@ -1,0 +1,21 @@
+{
+  "seriesName": "Series name",
+  "productModel": "Model",
+  "headDiameter": "Head diameter",
+  "stickLength": "Stick length",
+  "weight": "Weight",
+  "quantity": "Quantity",
+  "price": "Price",
+  "totalPrice": "Total price",
+  "edit": "edit",
+  "save": "save",
+  "remove": "remove",
+  "removeAll": "Remove all",
+  "productRemovedFromCart": "Product has been removed from cart",
+  "allProductsRemovedFromCart": "All products have been removed from cart",
+  "next": "NEXT >",
+  "cartOpenerText": "Use this form to send an inquiry for selected mallets. Do you need additional customization? You can edit the parameters, sticks to create exactly what you need.",
+  "emptyCart": "The cart is empty",
+  "orderSummary": "Order summary",
+  "chooseDelivery": "Choose the form of delivery:"
+}
