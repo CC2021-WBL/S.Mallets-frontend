@@ -13,6 +13,7 @@ export const sectionStyles =
 
 const SummaryPage = () => {
   const deliveryData = useSelector((state: RootState) => state.deliveryData);
+  const userAddressData = useSelector((state: RootState) => state.user);
   const { t } = useTranslation('summary');
   const navigate = useNavigate();
   const cart = useSelector((state: RootState) => state.cart);
@@ -79,7 +80,11 @@ const SummaryPage = () => {
         </section>
         <section className={sectionStyles}>
           <h2 className="p-2 text-2xl font-semibold">{t('shippingData')}</h2>
-          <DeliveryData deliveryData={deliveryData} />
+          {userAddressData ? (
+            <div>DUPA</div>
+          ) : (
+            <DeliveryData deliveryData={deliveryData} />
+          )}
           <NavLink to="/cart/delivery" className="p-2 font-bold">
             {t('edit')}
           </NavLink>

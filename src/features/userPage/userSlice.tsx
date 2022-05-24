@@ -7,6 +7,18 @@ interface UserStateTypes {
   lastname: string;
   roles: string[];
   phoneNumber: string | number;
+  address: Address;
+}
+
+interface Address {
+  name: string;
+  lastname: string;
+  email: string;
+  streetAndNumber: string;
+  zipCode: string;
+  city: string;
+  country: string;
+  phoneNumber: string;
 }
 
 const initialUserState: UserStateTypes = {
@@ -16,6 +28,16 @@ const initialUserState: UserStateTypes = {
   lastname: '',
   roles: [],
   phoneNumber: '',
+  address: {
+    name: '',
+    lastname: '',
+    email: '',
+    streetAndNumber: '',
+    zipCode: '',
+    city: '',
+    country: '',
+    phoneNumber: '',
+  },
 };
 
 export const userSlice = createSlice({
@@ -29,6 +51,7 @@ export const userSlice = createSlice({
       state.lastname = action.payload.lastname;
       state.roles = action.payload.roles;
       state.phoneNumber = action.payload.phoneNumber;
+      state.address = action.payload.address;
     },
     userLogout(state) {
       state.id = '';
@@ -37,6 +60,7 @@ export const userSlice = createSlice({
       state.lastname = '';
       state.roles = [];
       state.phoneNumber = '';
+      state.address = {};
     },
   },
 });

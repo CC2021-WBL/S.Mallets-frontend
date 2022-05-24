@@ -63,6 +63,7 @@ const LoginPage = () => {
             lastname: resJson.lastname,
             roles: resJson.roles,
             phoneNumber: resJson.phoneNumber,
+            address: resJson.address,
           }),
         );
 
