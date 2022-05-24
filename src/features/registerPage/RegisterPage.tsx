@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+import toast from 'react-hot-toast';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
@@ -55,11 +56,13 @@ const RegisterPage = () => {
 
       if (res.status !== 201) {
         setError(true);
+        toast.error(t('toastBad'));
       }
 
       const resJson = await res.json();
 
       if (res.status === 201) {
+        toast.success(t('toastOk'));
         setUserData(resJson);
         navigate('/login');
       }

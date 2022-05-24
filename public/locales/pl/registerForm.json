@@ -21,5 +21,8 @@
   "errPassword2": "Hasło musi zawierać literę, cyfrę i jeden znak specjalny.",
   "===": "===",
   "errAccountP1": "Wystąpił błąd. Jeśli jesteś pewien, że podałeś właściwe dane,",
-  "errAccountP2": "spróbuj zalogować się lub zresetuj hasło"
+  "errAccountP2": "spróbuj zalogować się lub zresetuj hasło",
+  "====": "====",
+  "toastOk": "Zostałeś zarejestrowany",
+  "toastBad": "Coś poszło nie tak. Spróbuj ponownie później"
 }
