@@ -81,21 +81,23 @@ const UserPage = () => {
       <main className="flex max-w-[47rem] flex-col p-6 sm:w-full sm:justify-between md:p-10">
         <section className={sectionStyles}>
           <h2 className="p-2 text-2xl font-semibold">{t('yourOrders')}</h2>
-          <table className="table-auto">
-            <tbody>
+          <table className="user-table table-auto">
+            <tbody className="user-table">
               {orders &&
                 Array.from(orders).map((index: any) => (
-                  <tr key={index.id} className="mb-6 md:mb-0">
-                    <td className="py-2 px-2">
+                  <tr key={index.id} className="user-table mb-6 md:mb-0">
+                    <td className="user-table py-2 px-2">
                       {index.modifiedAt.slice(0, 10)}
                     </td>
-                    <td className="px-2 font-semibold md:px-0">
+                    <td className="user-table px-2 font-semibold md:px-0">
                       Zamówienie nr: {index.id.slice(0, 5)}
                     </td>
-                    <td className="px-2 md:px-0">{index.finalCostEuro} €</td>
-                    <td>
+                    <td className="user-table px-2 md:px-0">
+                      {index.finalCostEuro} €
+                    </td>
+                    <td className="user-table">
                       <button
-                        className="px-2 font-semibold md:px-0 md:pl-4"
+                        className="px-2 font-semibold md:px-0 md:pl-4 "
                         onClick={detailsModalHandler}
                       >
                         więcej szczegółów {'>'}
