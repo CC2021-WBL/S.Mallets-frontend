@@ -1,8 +1,11 @@
 import { DeliDataInterface } from '../deliveryPage/deliveryDataSlice';
+import { userWithOrder } from '../userPage/UserPage';
 
 const addressStyles = 'py-2 px-2';
 
-const DeliveryData = (prop: { deliveryData: DeliDataInterface }) => {
+const DeliveryData = (prop: {
+  deliveryData: DeliDataInterface | userWithOrder;
+}) => {
   const {
     name,
     lastname,

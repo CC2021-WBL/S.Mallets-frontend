@@ -1,21 +1,16 @@
 import toast from 'react-hot-toast';
 import { NavLink } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import DeliveryData from '../summaryPage/DeliveryData';
 import LogoCarpet from '../../tools/LogoCarpet';
-import { RootState } from '../../app/store';
 import { sectionStyles } from '../summaryPage/SummaryPage';
-
-// import { userWithOrdersActions } from '../../app/userWithOrdersSlice';
 
 export interface UserWithOrdersArray {
   orders: userWithOrder[];
 }
-interface userWithOrder {
+export interface userWithOrder {
   city: string;
   country: string;
   createdAt: string;
@@ -37,7 +32,7 @@ const UserPage = () => {
   const [orders, setOrders] = useState(null);
   // const dispatch = useDispatch();
   const { t } = useTranslation('summary');
-  const deliveryData = useSelector((state: RootState) => state.deliveryData);
+  // const deliveryData = useSelector((state: RootState) => state.deliveryData);
 
   const detailsModalHandler = () => {
     console.log('modal is opened');
@@ -107,8 +102,8 @@ const UserPage = () => {
           </table>
         </section>
         <section className={sectionStyles}>
-          <h2 className="p-2 text-2xl font-semibold">{t('shippingData')}</h2>
-          <DeliveryData deliveryData={deliveryData} />
+          <h2 className="p-2 text-2xl font-semibold">{t('yourData')}</h2>
+          {orders && <DeliveryData deliveryData={orders[0]} />}
           <NavLink to="/cart/delivery" className="p-2 font-bold">
             {t('edit')}
           </NavLink>
