@@ -20,7 +20,7 @@ code {
 
 .hero-about {
   background: url('./assets/aboutHero.png');
-  background-position-x: -180px;
+  background-position-x: -11.25rem;
 }
 
 .hero {
@@ -28,7 +28,7 @@ code {
 }
 .about-sticks {
   background: url('./assets/aboutSticks.png');
-  background-position-x: -180px;
+  background-position-x: -11.25rem;
 }
 
 .about-left {
