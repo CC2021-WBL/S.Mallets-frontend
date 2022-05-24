@@ -1,11 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
+interface Delivery {
+  id?: number;
+  deliveryName?: string;
+  deliveryArea?: string;
+  deliveryPriceEuro?: string;
+  createdAt?: string;
+  modifiedAt?: string;
+}
+
+interface DeliveryInterface {
+  loading: boolean;
+  list: Delivery[];
+  chosenDelivery: Delivery;
+}
+
+const initialState: DeliveryInterface = {
   loading: false,
   list: [],
-  chosenDelivery: {
-    deliveryPriceEuro: 0,
-  },
+  chosenDelivery: {},
 };
 
 const deliveriesSlice = createSlice({

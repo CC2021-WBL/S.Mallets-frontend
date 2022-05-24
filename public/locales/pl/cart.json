@@ -10,5 +10,6 @@
   "save": "zapisz",
   "remove": "usuń",
   "productRemovedFromCart": "Produkt został usunięty z koszyka",
-  "allProductsRemovedFromCart": "Wszystkie produkty zostały usunięte z koszyka"
+  "allProductsRemovedFromCart": "Wszystkie produkty zostały usunięte z koszyka",
+  "next": "DALEJ >"
 }

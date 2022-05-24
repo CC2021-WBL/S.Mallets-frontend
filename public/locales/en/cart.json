@@ -10,5 +10,6 @@
   "save": "save",
   "remove": "remove",
   "productRemovedFromCart": "Product has been removed from cart",
-  "allProductsRemovedFromCart": "All products have been removed from cart"
+  "allProductsRemovedFromCart": "All products have been removed from cart",
+  "next": "NEXT >"
 }

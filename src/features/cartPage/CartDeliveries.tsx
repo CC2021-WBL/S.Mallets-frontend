@@ -3,12 +3,15 @@ import { useEffect } from 'react';
 import { AppDispatch, RootState } from '../../app/store';
 import { chosenDelivery, fetchDeliveries } from '../deliveryPage/deliverySlice';
 
-interface delivery {
-  id: string;
-  deliveryName: string;
-  deliveryArea: string;
-  deliveryPriceEuro: number;
+interface Delivery {
+  id?: number;
+  deliveryName?: string;
+  deliveryArea?: string;
+  deliveryPriceEuro?: string;
+  createdAt?: string;
+  modifiedAt?: string;
 }
+
 const CartDeliveries = () => {
   const dispatch: AppDispatch = useDispatch();
   const deliveries = useSelector((state: RootState) => state.deliveries.list);
@@ -22,7 +25,7 @@ const CartDeliveries = () => {
       <div>
         <div className="form-check">
           {deliveries &&
-            deliveries.map((delivery: delivery) => (
+            deliveries.map((delivery: Delivery) => (
               <div key={delivery.id}>
                 <input
                   className="form-check-input checked:border-black-600 border-black-300 float-left mt-1 mr-2 h-4 w-4 cursor-pointer appearance-none rounded-full border bg-white bg-contain bg-center bg-no-repeat align-top transition duration-200 checked:bg-slate-900 focus:outline-none"
