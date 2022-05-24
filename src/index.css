@@ -72,3 +72,14 @@ code {
     @apply absolute top-16 text-xs text-red-600;
   }
 }
+
+@media only screen and (max-width: 768px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+}

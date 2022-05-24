@@ -85,17 +85,17 @@ const UserPage = () => {
             <tbody>
               {orders &&
                 Array.from(orders).map((index: any) => (
-                  <tr key={index.id}>
+                  <tr key={index.id} className="mb-6 md:mb-0">
                     <td className="py-2 px-2">
                       {index.modifiedAt.slice(0, 10)}
                     </td>
-                    <td className="font-semibold">
-                      Zamówienie nr {index.id.slice(0, 5)}
+                    <td className="px-2 font-semibold md:px-0">
+                      Zamówienie nr: {index.id.slice(0, 5)}
                     </td>
-                    <td>{index.finalCostEuro} €</td>
+                    <td className="px-2 md:px-0">{index.finalCostEuro} €</td>
                     <td>
                       <button
-                        className="pl-4 font-semibold"
+                        className="px-2 font-semibold md:px-0 md:pl-4"
                         onClick={detailsModalHandler}
                       >
                         więcej szczegółów {'>'}
