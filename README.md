@@ -56,6 +56,7 @@ User can:
 - emailJs
 - vercel
 - figma
+- jira
 
 ### Continued development
 
