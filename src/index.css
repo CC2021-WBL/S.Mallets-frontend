@@ -17,14 +17,47 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.hero-service {
+  background: url('./assets/serviceHero.png');
+}
+
+.hero-about {
+  background: url('./assets/aboutHero.png');
+  background-position-x: -11.25rem;
+}
 
 .hero {
-  max-width: 80rem;
-  height: 31.8rem;
   background: url('./assets/hero2.png');
+}
+.about-sticks {
+  background: url('./assets/aboutSticks.png');
+  background-position-x: -11.25rem;
+}
+
+.about-left {
+  background: url('./assets/aboutLeft.png');
   background-size: cover;
 }
 
+.about-right {
+  background: url('./assets/aboutRight.png');
+  background-size: cover;
+}
+@media screen and (min-width: 576px) {
+  .hero-about,
+  .about-sticks {
+    background-position-x: 0;
+  }
+}
+
+.hero,
+.hero-service,
+.hero-about,
+.about-sticks {
+  max-width: 80rem;
+  height: 31.8rem;
+  background-size: cover;
+}
 .circle {
   background: url('./assets/sticks.png');
   background-repeat: no-repeat;
