@@ -1,11 +1,15 @@
 import toast from 'react-hot-toast';
 import { NavLink } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import DeliveryData from '../summaryPage/DeliveryData';
 import LogoCarpet from '../../tools/LogoCarpet';
+import { RootState } from '../../app/store';
 import { sectionStyles } from '../summaryPage/SummaryPage';
+import { userWithOrdersActions } from '../../app/userWithOrdersSlice';
 
 export interface UserWithOrdersArray {
   orders: userWithOrder[];
@@ -28,11 +32,9 @@ export interface userWithOrder {
 }
 
 const UserPage = () => {
-  // const orders = useSelector((state: RootState) => state.userWithOrders);
-  const [orders, setOrders] = useState(null);
-  // const dispatch = useDispatch();
+  const orders = useSelector((state: RootState) => state.userWithOrders.orders);
+  const dispatch = useDispatch();
   const { t } = useTranslation('summary');
-  // const deliveryData = useSelector((state: RootState) => state.deliveryData);
 
   const detailsModalHandler = () => {
     console.log('modal is opened');
@@ -58,8 +60,11 @@ const UserPage = () => {
           console.log(resJson);
           const userWithOrdersArray = resJson.orders;
           console.log(userWithOrdersArray);
-          setOrders(userWithOrdersArray);
-          // dispatch(userWithOrdersActions.setOrdersData(userWithOrdersArray));
+          dispatch(
+            userWithOrdersActions.setOrdersData({
+              orders: userWithOrdersArray,
+            }),
+          );
         } else {
           toast.error(t('toastBad'));
         }

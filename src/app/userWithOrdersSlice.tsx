@@ -1,13 +1,37 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState: any[] = [];
+import { UserWithOrdersArray } from '../features/userPage/UserPage';
+
+const initialState = {
+  orders: [
+    {
+      city: '',
+      country: '',
+      createdAt: '',
+      email: '',
+      finalCostEuro: '',
+      id: '',
+      lastname: '',
+      messageFromUser: '',
+      modifiedAt: '',
+      name: '',
+      orderStatus: '',
+      phoneNumber: '',
+      streetAndNumber: '',
+      zipCode: '',
+    },
+  ],
+};
 
 export const userWithOrdersSlice = createSlice({
   name: 'userWithOrders',
   initialState,
   reducers: {
-    setOrdersData(state: any[], action: any) {
-      state.push(action.payload);
+    setOrdersData(
+      state: { orders: any[] },
+      action: { payload: UserWithOrdersArray },
+    ) {
+      state.orders = action.payload.orders;
     },
   },
 });
