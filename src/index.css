@@ -46,6 +46,11 @@ code {
     background-position-x: 0;
   }
 }
+@media only screen and (max-width: 768px) {
+  .user-table {
+    display: block;
+  }
+}
 
 .hero,
 .hero-service,
