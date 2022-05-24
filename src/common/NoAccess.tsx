@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
+import LogoCarpet from '../tools/LogoCarpet';
 import cross from '../assets/cross.png';
 
 function NoAccess() {
   const { t } = useTranslation('others');
   return (
-    <div className="mx-6 my-12 flex max-w-7xl flex-col items-center ">
+    <div className="relative mx-6 my-12 flex w-full max-w-7xl flex-col items-center ">
+      <LogoCarpet className="absolute -top-[9.7rem] right-14 z-[1] hidden lg:block " />
       <img
         src={cross}
         alt="crossed sticks"
