@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+import { AppDispatch } from '../../app/store';
+
 const initialState = {
   loading: false,
   list: [],
@@ -22,7 +24,7 @@ const productsSlice = createSlice({
 
 export const { save, startFetch } = productsSlice.actions;
 export const fetchProducts = () => {
-  return async (dispatch: any) => {
+  return async (dispatch: AppDispatch) => {
     dispatch(save([]));
     dispatch(startFetch());
     fetch('https://s-mallets-backend.vercel.app/products')

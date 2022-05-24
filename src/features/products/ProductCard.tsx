@@ -1,11 +1,11 @@
+import toast from 'react-hot-toast';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import Backdrop from '../layout/nav/Backdrop';
-import { addToCart, Product } from '../cartPage/cartSlice';
 import { AppDispatch } from '../../app/store';
-import { useDispatch } from 'react-redux';
-import toast from 'react-hot-toast';
+import { Product, addToCart } from '../cartPage/cartSlice';
 
 const ProductCard = (prop: { product: Product }) => {
   const dispatch: AppDispatch = useDispatch();
@@ -34,7 +34,7 @@ const ProductCard = (prop: { product: Product }) => {
                   : product.productAltText.pl
               }
               className="h-36 w-36 max-w-[192px] cursor-pointer rounded-full shadow-none transition-shadow duration-300 ease-in-out hover:shadow-xl
-          sm:h-48 sm:w-48 md:mb-0 md:h-full md:w-full"
+          sm:h-48 sm:w-48 md:mb-0"
               onClick={handleDetailsModal}
               aria-hidden="true"
             />
@@ -54,7 +54,7 @@ const ProductCard = (prop: { product: Product }) => {
             <div className="flex h-fit flex-col items-center sm:items-stretch sm:justify-between md:h-12 md:flex-row">
               <div className="text-center text-sm sm:text-right sm:text-base md:text-left">
                 <p className="py-1 sm:py-0">
-                  {t('headDiameter')}: {product.headDiameter} mm Ø
+                  {t('headDiameter')}: {product.headDiameter} mm
                 </p>
                 <p className="sm:pb-8 md:py-0">
                   {t('stickLength')}: {product.stickLength} cm

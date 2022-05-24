@@ -1,4 +1,7 @@
+import toast from 'react-hot-toast';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+
 import { AppDispatch, RootState } from '../../app/store';
 import {
   Product,
@@ -13,9 +16,6 @@ import {
   removeFromCart,
   toggleEdit,
 } from './cartSlice';
-
-import { useTranslation } from 'react-i18next';
-import toast from 'react-hot-toast';
 
 const CartTableBody = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -113,7 +113,7 @@ const CartTableBody = () => {
                         {'>'}
                       </button>
                       <button
-                        className="absolute right-[48.2%] top-8 rotate-90"
+                        className="absolute right-[47.2%] top-8 rotate-90"
                         onClick={() => dispatch(decrementWeight(product.id))}
                       >
                         {'>'}
@@ -128,13 +128,13 @@ const CartTableBody = () => {
                   {product.quantity}
                   <div className="flex flex-col">
                     <button
-                      className="absolute bottom-8 right-1/2 -rotate-90"
+                      className="absolute bottom-8 right-[46.2%] -rotate-90"
                       onClick={() => dispatch(increment(product.id))}
                     >
                       {'>'}
                     </button>
                     <button
-                      className="absolute right-[48.2%] top-8 rotate-90"
+                      className="absolute right-[42.8%] top-8 rotate-90"
                       onClick={() => dispatch(decrement(product.id))}
                     >
                       {'>'}
