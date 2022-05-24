@@ -16,7 +16,7 @@ const CartSummaryRow = () => {
   const sum = sumProducts + deliveryPrice;
 
   return (
-    <div className="my-10 flex justify-between border-y-2 border-black p-4">
+    <div className="my-3 flex justify-between border-y-2 border-black p-4">
       <div className="text-xl font-semibold">{t('orderSummary')}</div>
       <div className="text-xl font-semibold">{sum} €</div>
     </div>

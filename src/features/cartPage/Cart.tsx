@@ -13,7 +13,7 @@ const Cart = () => {
         <CartTableBody />
       </table>
 
-      <div className="my-4 flex items-center justify-between ">
+      <div className="my-3 flex items-center justify-between ">
         <CartRemoveButton />
         <CartDeliveries />
       </div>

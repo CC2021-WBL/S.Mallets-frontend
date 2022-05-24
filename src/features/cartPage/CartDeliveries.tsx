@@ -24,7 +24,7 @@ const CartDeliveries = () => {
   }, []);
 
   return (
-    <div className=" my-5 flex flex justify-center justify-between rounded-2xl border-2 border-black p-4">
+    <div className=" my-3 flex flex justify-center justify-between rounded-2xl border-2 border-black p-4">
       <div>
         {t('chooseDelivery')}
         <div className="form-check">

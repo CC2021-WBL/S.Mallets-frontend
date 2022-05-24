@@ -42,18 +42,23 @@ const CartPage = () => {
   };
 
   return (
-    <div className="mx-auto w-full max-w-7xl sm:px-3 md:px-6 lg:px-8">
+    <div className="mx-auto mt-8 mb-16 flex w-full max-w-7xl flex-col px-3 md:px-6 lg:px-8">
       {cart.counter !== 0 ? (
         <>
-          {t('cartOpenerText')}
+          <p className=" max-w-[33.3rem] px-3 text-left text-xl md:px-6 lg:px-8">
+            {t('cartOpenerText')}
+          </p>
+
           <Cart />
           {Object.keys(chosenDelivery).length > 0 && (
-            <button
-              className="btn-primary w-full font-semibold tracking-widest"
-              onClick={nextHandler}
-            >
-              {t('next')}
-            </button>
+            <div className="flex justify-end">
+              <button
+                className="btn-primary w-50 font-semibold tracking-widest"
+                onClick={nextHandler}
+              >
+                {t('next')}
+              </button>
+            </div>
           )}
         </>
       ) : (
