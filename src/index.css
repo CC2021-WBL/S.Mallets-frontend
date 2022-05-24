@@ -15,17 +15,11 @@ code {
     monospace;
 }
 .hero-service {
-  /* max-width: 80rem;
-  height: 31.8rem; */
   background: url('./assets/serviceHero.png');
-  /* background-size: cover; */
 }
 
 .hero-about {
-  /* max-width: 80rem;
-  height: 31.8rem; */
   background: url('./assets/aboutHero.png');
-  /* background-size: cover; */
   background-position-x: -180px;
 }
 
