@@ -55,6 +55,7 @@ User can:
 - husky
 - emailJs
 - vercel
+- figma
 
 ### Continued development
 
