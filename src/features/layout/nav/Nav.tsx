@@ -52,6 +52,10 @@ const Nav = () => {
     return;
   };
 
+  const cart = useSelector((state: RootState) => {
+    return { ...state.cart };
+  });
+
   return (
     <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between sm:h-36 sm:px-3 md:h-44 md:px-6 lg:px-8">
       <div
@@ -83,11 +87,15 @@ const Nav = () => {
             to="/cart"
             aria-label="cart"
             className={({ isActive }) =>
-              isActive ? `${activeLogCart}` : undefined
+              isActive ? `${activeLogCart}` : `static`
             }
           >
             <BsCart3 />
+            <div className="absolute -bottom-3 -right-4 z-50 flex h-5 w-5 items-center justify-center rounded-full border border-black bg-white">
+              <p className="text-xs">{cart.counter}</p>
+            </div>
           </NavLink>
+
           <LanguageButtons
             changeLanguage={changeLanguage}
             className={'text-sm'}

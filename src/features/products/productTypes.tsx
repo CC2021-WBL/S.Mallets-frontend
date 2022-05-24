@@ -1,7 +1,11 @@
 export interface productDataType {
   id: number;
-  productName: string;
+  productModel: string;
   productDescription: {
+    pl: string;
+    en: string;
+  };
+  productAltText: {
     pl: string;
     en: string;
   };
@@ -14,5 +18,5 @@ export interface productDataType {
     pl: string;
     en: string;
   };
-  seriesId: number;
+  seriesName: string;
 }
