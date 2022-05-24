@@ -1,48 +1,80 @@
-# Getting Started with Create React App
+![logo-devs-on-the-waves-stroke](https://user-images.githubusercontent.com/19845958/148255475-9f24bd68-7020-42e8-a0d7-c2ed885848e5.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
 
-## Available Scripts
+# CodersCamp 2021 - Fullstack Project- Frontend Part
+**CodersCamp (https://www.coderscamp.edu.pl/) - Biggest free programming course** 
 
-In the project directory, you can run:
+## Smallets Shop
 
-### `npm start`
+This is our last team task on course. We want to help our friend with selling sticks so we decided to do online shop with mallets.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Table of contents
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Links](#links)
+- [Process](#process)
+  - [Built with](#built-with)
+  - [Continued development](#continued-development)
+- [Authors](#authors)
+- [Acknowledgments](#acknowledgments)
+-  [Screenshots](#screenshots)
 
-### `npm test`
+## Overview
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### The challenge
 
-### `npm run build`
+User can:
+- buy sticks with or without registration
+- get more information (and photos) about product
+- check earlier orders on user's page and change user data
+- modify order before confirmation
+- send message via contact form.
+- switch language (english/polish)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Links
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Demo](https://s-mallets-frontend.vercel.app/)
+- [Design](https://www.figma.com/file/GUgGbIYMb28LwIPjgdHGmc/Smallets?node-id=183%3A3518)
+- [Backend part](https://github.com/CC2021-WBL/S.Mallets-backend)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Process
 
-### `npm run eject`
+### Built with
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- react
+- typescript
+- redux toolkit
+- tailwind css
+- formik
+- yup
+- react-i18next
+- eslint
+- prettier
+- husky
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Continued development
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Ours ideas for future:
+- admin account
+- link the payments
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Authors
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ - [Katarzyna Chmielecka](https://github.com/KatarzynaChmielecka)
+ - [Alicja Kondrat](https://github.com/pierwszazlewej) as UI/UX Designer
+ - [Tomasz Skrętkowski](https://github.com/n0macx) as Product Owner, Development Manager and Frontend Tech Leader
+ - [Robert Sołdyński](https://github.com/RobertS-ki) 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Acknowledgments
 
-We are using Vercel
+Special thanks to our mentor, [Weronika Boszko Lucena](https://github.com/vieraboschkova). We appreciate everything you have done for us ♥ 
+
+### Screenshots
+![image](https://user-images.githubusercontent.com/56206231/169922954-b868e6ca-6835-44eb-8fc6-aea5d886aac8.png)
+![image](https://user-images.githubusercontent.com/56206231/169923009-13da5abe-2725-4f80-a889-00bb2ef94329.png)
+
+
+
+
