@@ -57,6 +57,7 @@ const LoginPage = () => {
         dispatch(authActions.login());
         dispatch(
           userActions.userLogin({
+            id: resJson.id,
             email: resJson.email,
             name: resJson.name,
             lastname: resJson.lastname,
