@@ -5,7 +5,6 @@
   "email": "Email address",
   "password": "Password",
   "register": "REGISTER",
-  "==": "==",
   "errNoName": "Enter your name",
   "errName": "Name must consist of min. 3 characters",
   "errName2": "Name must consist of max. 15 characters",
@@ -19,7 +18,8 @@
   "errNoPassword": "Password is required",
   "errPassword1": "Password must consist of min. 8 characters",
   "errPassword2": "Passworrd must consist of a letter, number and a special character",
-  "===": "===",
   "errAccountP1": "Error occurred. Try to log in again or",
-  "errAccountP2": "recover forgotten password."
+  "errAccountP2": "recover forgotten password.",
+  "toastOk": "You've been registered.",
+  "toastBad": "Ups, something went wrong. Try again later"
 }

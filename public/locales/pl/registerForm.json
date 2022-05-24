@@ -5,7 +5,6 @@
   "email": "Adres Email",
   "password": "Hasło",
   "register": "ZAREJESTRUJ SIĘ",
-  "==": "==",
   "errNoName": "Wpisz swoje imię",
   "errName": "Imię musi się składac z nim. 3 znaków",
   "errName2": "Imię może się składać max. z 15 znaków",
@@ -19,10 +18,8 @@
   "errNoPassword": "Hasło jest wymagane",
   "errPassword1": "Hasło musi się składać z nim. 8 znaków",
   "errPassword2": "Hasło musi zawierać literę, cyfrę i jeden znak specjalny.",
-  "===": "===",
   "errAccountP1": "Wystąpił błąd. Jeśli jesteś pewien, że podałeś właściwe dane,",
   "errAccountP2": "spróbuj zalogować się lub zresetuj hasło",
-  "====": "====",
   "toastOk": "Zostałeś zarejestrowany",
   "toastBad": "Coś poszło nie tak. Spróbuj ponownie później"
 }
