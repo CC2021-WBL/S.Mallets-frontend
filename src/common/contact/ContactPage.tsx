@@ -24,7 +24,7 @@ const ContactPage = () => {
     message: Yup.string().min(50, t('message')).required(t('message2')),
   });
   return (
-    <div className=" mt-8 mb-20 flex w-full max-w-7xl flex-col justify-between self-start md:ml-6 md:flex-row  md:px-6  lg:px-8 ">
+    <div className=" mt-8 mb-20 flex w-full max-w-7xl   md:ml-6   md:px-6  lg:px-8 ">
       <Formik
         initialValues={{
           email: '',
@@ -121,17 +121,6 @@ const ContactPage = () => {
           </Form>
         </div>
       </Formik>
-      <div className=" mt-10 flex w-full  flex-col items-end pr-4 md:mt-0  md:mr-4 md:w-1/2">
-        <h2 className="text-xl">{t('contactData')}</h2>
-        <div className="flex flex-col  items-end leading-[150%]">
-          <p className="mt-3 font-bold sm:mt-8 "> S.mallets</p>
-          <p>Tomasz Skrętkowski</p>
-          <a href="tel:+48660748918">tel: +48 660 748 918</a>
-          <a href="mailto:s.mallets.mail@gmail.com">
-            e-mail: s.mallets.mail@gmail.com
-          </a>
-        </div>
-      </div>
     </div>
   );
 };
