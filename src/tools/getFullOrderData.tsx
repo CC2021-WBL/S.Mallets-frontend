@@ -1,3 +1,4 @@
+import { CreateProductDTO } from '../features/summaryPage/createDeliveryProducts';
 import { DeliDataInterface } from '../features/deliveryPage/deliveryDataSlice';
 import { Product } from '../features/cartPage/cartSlice';
 
@@ -7,7 +8,7 @@ export type SingleOrderedProduct = Pick<
 >;
 
 export const getFullOrderData = (
-  orderedProducts: SingleOrderedProduct[],
+  orderedProducts: CreateProductDTO[],
   userData: DeliDataInterface,
   deliveryId: number,
   userId?: string,

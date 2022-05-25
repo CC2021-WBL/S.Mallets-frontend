@@ -9,6 +9,7 @@ import { DeliDataInterface } from '../deliveryPage/deliveryDataSlice';
 import { Product } from '../cartPage/cartSlice';
 import { RootState } from '../../app/store';
 import { createDeliveryData, options } from './createDeliveryData';
+import { createDeliveryProducts } from './createDeliveryProducts';
 import { getFullOrderData } from '../../tools/getFullOrderData';
 
 export const sectionStyles =
@@ -54,16 +55,18 @@ const SummaryPage = () => {
       deliveryId = chosenDelivery.id;
     }
     const finalDeliveryData = createDeliveryData(options);
-    const body = getFullOrderData(cart.products, finalDeliveryData, deliveryId);
+    const readyProducts = createDeliveryProducts(cart.products);
+    const body = getFullOrderData(readyProducts, finalDeliveryData, deliveryId);
+    const jsonBody = JSON.stringify(body);
     console.log(body);
     const requestOptions = {
       method: 'POST',
-      body: JSON.stringify({ body }),
+      body: jsonBody,
       headers: { 'Content-Type': 'application/json' },
     };
     try {
       const response = await fetch(
-        'https://s-mallets-backend.vercel.app/orders',
+        'http://localhost:3030/orders',
         requestOptions,
       );
       if (response.status !== 201) {
