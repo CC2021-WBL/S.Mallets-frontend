@@ -66,7 +66,7 @@ const SummaryPage = () => {
     };
     try {
       const response = await fetch(
-        'http://localhost:3030/orders',
+        'https://s-mallets-backend.vercel.app/orders',
         requestOptions,
       );
       if (response.status !== 201) {
