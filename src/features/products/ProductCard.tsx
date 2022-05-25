@@ -6,6 +6,9 @@ import { useTranslation } from 'react-i18next';
 import Backdrop from '../layout/nav/Backdrop';
 import { AppDispatch } from '../../app/store';
 import { Product, addToCart } from '../cartPage/cartSlice';
+import { SliderModal } from './productsSeries/SliderModal';
+
+// import { productDataType } from './productTypes';
 
 const ProductCard = (prop: { product: Product }) => {
   const dispatch: AppDispatch = useDispatch();
@@ -14,6 +17,11 @@ const ProductCard = (prop: { product: Product }) => {
   const [detailsModal, setDetailsModal] = useState(false);
   const handleDetailsModal = () => {
     setDetailsModal(!detailsModal);
+    if (document.body.style.overflow !== 'hidden') {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'scroll';
+    }
   };
 
   const product = prop.product;
@@ -82,10 +90,8 @@ const ProductCard = (prop: { product: Product }) => {
       </div>
       {detailsModal && (
         <>
-          <h1 className="absolute top-1/2 left-1/2 z-30 -translate-x-1/2 -translate-y-1/2 bg-white text-6xl">
-            PRODUCT DETAILS
-          </h1>
           <Backdrop handleClose={handleDetailsModal} />
+          <SliderModal id={product.id} />
         </>
       )}
     </>
