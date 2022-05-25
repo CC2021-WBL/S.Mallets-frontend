@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 import DeliveryData from '../summaryPage/DeliveryData';
 import LogoCarpet from '../../tools/LogoCarpet';
+import NoAccess from '../../common/NoAccess';
 import logosm from '../../assets/logosmall.png';
 import { RootState } from '../../app/store';
 import { sectionStyles } from '../summaryPage/SummaryPage';
@@ -37,7 +38,9 @@ const UserPage = () => {
   const orders = useSelector((state: RootState) => state.userWithOrders.orders);
   const dispatch = useDispatch();
   const { t } = useTranslation('summary');
-
+  const isAuth = useSelector(
+    (state: RootState) => state.authentication.isAuthenticated,
+  );
   const [showModal, setShowModal] = useState<boolean>(false);
   const closeModal = () => {
     setShowModal(false);
@@ -81,75 +84,81 @@ const UserPage = () => {
   }, []);
 
   return (
-    <div className="relative mx-auto w-full max-w-7xl">
-      <LogoCarpet className="absolute top-12 right-8 z-[1] hidden lg:block" />
-      <main className="flex max-w-[47rem] flex-col p-6 sm:w-full sm:justify-between md:p-10">
-        <section className={sectionStyles}>
-          <h2 className="p-2 text-2xl font-semibold">{t('yourOrders')}</h2>
-          <table className="user-table table-auto">
-            <tbody className="user-table">
-              {orders &&
-                Array.from(orders).map((index: any) => (
-                  <tr key={index.id} className="user-table mb-6 md:mb-0">
-                    <td className="user-table py-2 px-2">
-                      {index.modifiedAt.slice(0, 10)}
-                    </td>
-                    <td className="user-table px-2 font-semibold md:px-0">
-                      Zamówienie nr: {index.id.slice(0, 5)}
-                    </td>
-                    <td className="user-table px-2 md:px-0">
-                      {index.finalCostEuro} €
-                    </td>
-                    <td className="user-table">
-                      <button
-                        className="px-2 font-semibold md:px-0 md:pl-4 "
-                        onClick={detailsModalHandler}
-                      >
-                        więcej szczegółów {'>'}
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-            </tbody>
-          </table>
-        </section>
-        <section className={sectionStyles}>
-          <h2 className="p-2 text-2xl font-semibold">{t('yourData')}</h2>
-          {orders && <DeliveryData deliveryData={orders[0]} />}
-          <NavLink to="/cart/delivery" className="p-2 font-bold">
-            {t('edit')}
-          </NavLink>
-        </section>
-      </main>
-      {showModal ? (
-        <div
-          onClick={closeModal}
-          onKeyDown={closeModal}
-          role="button"
-          tabIndex={0}
-        >
-          <div className="fixed top-0 left-0  z-20 h-full w-full bg-black opacity-20" />
-          <div
-            className="bg- fixed top-1/2 left-1/2  z-30 flex h-40 w-10/12 -translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-lg bg-stone-200 p-6 text-center shadow-xl hover:cursor-default sm:h-60 sm:p-8 sm:text-lg md:text-xl lg:text-2xl lg2:w-1/2 "
-            onClick={(e: any) => e.stopPropagation()}
-            onKeyDown={(e: any) => e.stopPropagation()}
-            role="button"
-            tabIndex={0}
-            style={{ backgroundImage: `url(${logosm})` }}
-          >
-            {t('modal')}
-            <button
+    <>
+      {isAuth ? (
+        <div className="relative mx-auto w-full max-w-7xl">
+          <LogoCarpet className="absolute top-12 right-8 z-[1] hidden lg:block" />
+          <div className="flex max-w-[47rem] flex-col p-6 sm:w-full sm:justify-between md:p-10">
+            <section className={sectionStyles}>
+              <h2 className="p-2 text-2xl font-semibold">{t('yourOrders')}</h2>
+              <table className="user-table table-auto">
+                <tbody className="user-table">
+                  {orders &&
+                    Array.from(orders).map((index: any) => (
+                      <tr key={index.id} className="user-table mb-6 md:mb-0">
+                        <td className="user-table py-2 px-2">
+                          {index.modifiedAt.slice(0, 10)}
+                        </td>
+                        <td className="user-table px-2 font-semibold md:px-0">
+                          Zamówienie nr: {index.id.slice(0, 5)}
+                        </td>
+                        <td className="user-table px-2 md:px-0">
+                          {index.finalCostEuro} €
+                        </td>
+                        <td className="user-table">
+                          <button
+                            className="px-2 font-semibold md:px-0 md:pl-4 "
+                            onClick={detailsModalHandler}
+                          >
+                            więcej szczegółów {'>'}
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            </section>
+            <section className={sectionStyles}>
+              <h2 className="p-2 text-2xl font-semibold">{t('yourData')}</h2>
+              {orders && <DeliveryData deliveryData={orders[0]} />}
+              <NavLink to="/cart/delivery" className="p-2 font-bold">
+                {t('edit')}
+              </NavLink>
+            </section>
+          </div>
+          {showModal ? (
+            <div
               onClick={closeModal}
               onKeyDown={closeModal}
-              aria-label="close handler"
-              className="absolute top-4 right-4 text-xl sm:top-10 sm:right-10"
+              role="button"
+              tabIndex={0}
             >
-              <AiOutlineClose />
-            </button>
-          </div>
+              <div className="fixed top-0 left-0  z-20 h-full w-full bg-black opacity-20" />
+              <div
+                className="bg- fixed top-1/2 left-1/2  z-30 flex h-40 w-10/12 -translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-lg bg-stone-200 p-6 text-center shadow-xl hover:cursor-default sm:h-60 sm:p-8 sm:text-lg md:text-xl lg:text-2xl lg2:w-1/2 "
+                onClick={(e: any) => e.stopPropagation()}
+                onKeyDown={(e: any) => e.stopPropagation()}
+                role="button"
+                tabIndex={0}
+                style={{ backgroundImage: `url(${logosm})` }}
+              >
+                {t('modal')}
+                <button
+                  onClick={closeModal}
+                  onKeyDown={closeModal}
+                  aria-label="close handler"
+                  className="absolute top-4 right-4 text-xl sm:top-10 sm:right-10"
+                >
+                  <AiOutlineClose />
+                </button>
+              </div>
+            </div>
+          ) : null}
         </div>
-      ) : null}
-    </div>
+      ) : (
+        <NoAccess />
+      )}
+    </>
   );
 };
 
