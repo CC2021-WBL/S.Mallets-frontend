@@ -7,5 +7,9 @@
   "before": "Przed",
   "after": "Po",
   "toastOk": "Pobrano dane.",
-  "toastBad": "Coś poszło nie tak.Spróbuj ponownie później"
+  "toastBad": "Coś poszło nie tak.Spróbuj ponownie później",
+  "noAccess": "Nie masz uprawnień, aby zobaczyć tę stronę.",
+  "noAccessBack": "Zaloguj się na konto z uprawnieniami lub wróć do przeglądania strony  głównej",
+  "login": "Zaloguj się",
+  "back": "Wróć do strony głównej"
 }

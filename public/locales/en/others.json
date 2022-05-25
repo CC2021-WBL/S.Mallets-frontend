@@ -7,5 +7,9 @@
   "before": "Before",
   "after": "After",
   "toasOk": "Data downloaded.",
-  "toastBad": "Something went wrong. Please try again later."
+  "toastBad": "Something went wrong. Please try again later.",
+  "noAccess": "You are not authorized to view this page.",
+  "noAccessBack": "Log in to an account with permissions or go back to browsing the main site.",
+  "login": "Login",
+  "back": "Go back to the home page"
 }

@@ -1,14 +1,18 @@
+import { ErrorBoundary } from 'react-error-boundary';
 import { I18nextProvider } from 'react-i18next';
 import { Provider } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 
 import DeliveryPage from './features/deliveryPage/DeliveryPage';
+import ErrorPage from './features/ErrorPage';
+import NotFoundPage from './features/notFoundPage/NotFoundPage';
 import RegisterPage from './features/registerPage/RegisterPage';
 import ScrollToTop from './tools/ScrollToTop';
 import SummaryPage from './features/summaryPage/SummaryPage';
 import i18n from './i18n';
 import store from './app/store';
+import { ErrorFallback, errorHandler } from './tools/ErrorFallback';
 import { Loader } from './features/Loader';
 
 const ServicePage = lazy(() => import('./common/service/ServicePage'));
@@ -30,45 +34,52 @@ const ConfirmationPage = lazy(
 
 function App() {
   return (
-    <I18nextProvider i18n={i18n}>
-      <Suspense fallback={<Loader />}>
-        <ScrollToTop>
-          <div className="App">
-            <Provider store={store}>
-              <Routes>
-                <Route element={<Layout />}>
-                  <Route path="/" element={<HomePage />} />
-                  <Route path="/about" element={<AboutMe />} />
-                  <Route path="/contact" element={<ContactPage />} />
-                  <Route
-                    path="/products-series"
-                    element={<ProductsSeriesPage />}
-                  />
-                  <Route
-                    path="/products-series/:seriesName"
-                    element={<ProductsPage />}
-                  />
-                  <Route path="/service" element={<ServicePage />} />
-                  <Route path="/cart" element={<CartPage />} />
-                  <Route path="/cart/delivery" element={<DeliveryPage />} />
-                  <Route
-                    path="/cart/delivery/summary"
-                    element={<SummaryPage />}
-                  />
-                  <Route path="/login" element={<LoginPage />} />
-                  <Route path="/user" element={<UserPage />} />
-                  <Route path="/admin" element={<AdminPage />} />
-                  <Route path="/service" element={<ServicePage />} />
-                  <Route path="/confirmation" element={<ConfirmationPage />} />
-                  <Route path="/register" element={<RegisterPage />} />
-                  <Route path="/cart/register" element={<RegisterPage />} />
-                </Route>
-              </Routes>
-            </Provider>
-          </div>
-        </ScrollToTop>
-      </Suspense>
-    </I18nextProvider>
+    <ErrorBoundary FallbackComponent={ErrorFallback} onError={errorHandler}>
+      <I18nextProvider i18n={i18n}>
+        <Suspense fallback={<Loader />}>
+          <ScrollToTop>
+            <div className="App">
+              <Provider store={store}>
+                <Routes>
+                  <Route element={<Layout />}>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/about" element={<AboutMe />} />
+                    <Route path="/contact" element={<ContactPage />} />
+                    <Route
+                      path="/products-series"
+                      element={<ProductsSeriesPage />}
+                    />
+                    <Route
+                      path="/products-series/:seriesName"
+                      element={<ProductsPage />}
+                    />
+                    <Route path="/service" element={<ServicePage />} />
+                    <Route path="/cart" element={<CartPage />} />
+                    <Route path="/cart/delivery" element={<DeliveryPage />} />
+                    <Route
+                      path="/cart/delivery/summary"
+                      element={<SummaryPage />}
+                    />
+                    <Route path="/login" element={<LoginPage />} />
+                    <Route path="/user" element={<UserPage />} />
+                    <Route path="/admin" element={<AdminPage />} />
+                    <Route path="/service" element={<ServicePage />} />
+                    <Route
+                      path="/confirmation"
+                      element={<ConfirmationPage />}
+                    />
+                    <Route path="/register" element={<RegisterPage />} />
+                    <Route path="/cart/register" element={<RegisterPage />} />
+                    <Route path="/error" element={<ErrorPage />} />
+                    <Route path="*" element={<NotFoundPage />} />
+                  </Route>
+                </Routes>
+              </Provider>
+            </div>
+          </ScrollToTop>
+        </Suspense>
+      </I18nextProvider>
+    </ErrorBoundary>
   );
 }
 
