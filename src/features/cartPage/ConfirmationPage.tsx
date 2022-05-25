@@ -13,8 +13,8 @@ const ConfirmationPage = () => {
       <div className="max-w-[40rem] ">
         <p className="mb-5">{t('thanks')}</p>
         <p className="mb-5">
-          {t('number')}
-          <span className="font-bold">{location.state.id}</span>.
+          {t('number')}:
+          <span className="font-bold"> {location.state.id.slice(0, 5)}</span>.
         </p>
         <p className="mb-10">{t('future')}</p>
         <p>{t('questions')}</p>
