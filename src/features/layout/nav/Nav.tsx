@@ -91,9 +91,11 @@ const Nav = () => {
             }
           >
             <BsCart3 />
-            <div className="absolute -bottom-3 -right-4 z-50 flex h-5 w-5 items-center justify-center rounded-full border border-black bg-white">
-              <p className="text-xs">{cart.counter}</p>
-            </div>
+            {cart.counter > 0 && (
+              <div className="absolute -bottom-3 -right-4 z-50 flex h-5 w-5 items-center justify-center rounded-full border border-black bg-white">
+                <p className="text-xs">{cart.counter}</p>
+              </div>
+            )}
           </NavLink>
 
           <LanguageButtons
