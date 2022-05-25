@@ -102,7 +102,7 @@ const HomePage = () => {
             ))}
       </div>
 
-      <div className="mx-6 mb-20 flex max-w-7xl justify-between sm:px-3 md:px-6 lg:px-8">
+      <div className="mx-4 mb-20 flex max-w-7xl justify-between sm:px-3 md:px-6 lg:px-8">
         <Formik
           initialValues={{
             email: '',
@@ -168,25 +168,25 @@ const HomePage = () => {
                 id="email"
                 name="email"
                 placeholder="Email"
-                className=" flex h-[3.75rem]  border-b border-solid border-black bg-[#F0F0F0] p-6 "
+                className=" flex h-[3.75rem]  border-b border-solid border-black bg-[#F0F0F0] p-6 focus:border-transparent focus:outline focus:outline-2 focus:outline-black "
               />
               <ErrorMessage
                 component="a"
                 name="email"
-                className="mt-3 text-red-600"
+                className="mt-3 text-xs text-red-600"
               />
 
               <Field
                 name="message"
                 component="textarea"
                 placeholder={`${t('message2')}`}
-                className="mt-9 h-56 border-b border-solid border-black bg-[#F0F0F0] p-6 "
+                className="mt-9 h-56 border-b border-solid border-black bg-[#F0F0F0] p-6 focus:border-transparent focus:outline focus:outline-2 focus:outline-black"
               />
 
               <ErrorMessage
                 component="a"
                 name="message"
-                className="mt-3 text-red-600"
+                className="mt-3 text-xs text-red-600"
               />
 
               <button

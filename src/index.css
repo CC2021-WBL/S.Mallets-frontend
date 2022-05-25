@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
 
 body {
   margin: 0;
@@ -8,6 +10,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: 0.05em;
+  transition: all 1s ease-in-out;
 }
 
 code {
@@ -21,6 +24,15 @@ code {
 .hero-about {
   background: url('./assets/aboutHero.png');
   background-position-x: -11.25rem;
+}
+
+@layer components {
+  .btn-primary {
+    @apply h-16 w-96 bg-[#232323] font-bold text-white hover:bg-slate-800;
+  }
+  .form-input {
+    @apply mb-6 h-16 w-96 border-b border-black bg-[#ededed] p-4;
+  }
 }
 
 .hero {
@@ -46,6 +58,11 @@ code {
     background-position-x: 0;
   }
 }
+@media only screen and (max-width: 768px) {
+  .user-table {
+    display: block;
+  }
+}
 
 .hero,
 .hero-service,
@@ -59,6 +76,38 @@ code {
   background: url('./assets/sticks.png');
   background-repeat: no-repeat;
   background-position: bottom right;
+}
+
+.slick-prev {
+  left: 2px;
+}
+.slick-next {
+  right: 2px;
+}
+
+.slick-prev,
+.slick-next {
+  width: 3rem;
+  height: 100%;
+  z-index: 30;
+  opacity: 0.7;
+  filter: invert(20%);
+}
+.slick-prev::before,
+.slick-next::before {
+  font-size: 3rem;
+  color: black;
+}
+
+.slick-dots li button::before {
+  font-size: 20px;
+}
+
+.hero-service {
+  max-width: 80rem;
+  height: 31.8rem;
+  background: url('./assets/serviceHero.png');
+  background-size: cover;
 }
 
 @layer components {

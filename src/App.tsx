@@ -7,6 +7,7 @@ import { Suspense, lazy } from 'react';
 import DeliveryPage from './features/deliveryPage/DeliveryPage';
 import ErrorPage from './features/ErrorPage';
 import NotFoundPage from './features/notFoundPage/NotFoundPage';
+import RegisterPage from './features/registerPage/RegisterPage';
 import ScrollToTop from './tools/ScrollToTop';
 import SummaryPage from './features/summaryPage/SummaryPage';
 import i18n from './i18n';
@@ -60,9 +61,9 @@ function App() {
                     <Route path="/user" element={<UserPage />} />
                     <Route path="/admin" element={<AdminPage />} />
                     <Route path="/service" element={<ServicePage />} />
-
+                    <Route path="/register" element={<RegisterPage />} />
+                    <Route path="/cart/register" element={<RegisterPage />} />
                     <Route path="/error" element={<ErrorPage />} />
-
                     <Route path="*" element={<NotFoundPage />} />
                   </Route>
                 </Routes>

@@ -10,5 +10,6 @@
   "message2": "Wpisz wiadomość",
   "modal": "Dziękujemy za wiadomość. Odpowiemy najszybciej jak to możliwe.",
   "toastOk": "Pobrano dane.",
-  "toastBad": "Coś poszło nie tak.Spróbuj ponownie później"
+  "toastBad": "Coś poszło nie tak.Spróbuj ponownie później",
+  "contactData": "Dane kontaktowe"
 }
