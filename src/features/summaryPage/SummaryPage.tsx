@@ -93,10 +93,10 @@ const SummaryPage = () => {
           {cart &&
             cart.products.map((product: Product, index: number) => {
               return (
-                <div className="flex gap-4 p-2" key={index}>
+                <div className="flex flex-wrap gap-4 p-2" key={index}>
                   <p>{index + 1}</p>
-                  <p>{product.seriesName}</p>
-                  <p>{product.productModel}</p>
+                  <p className="font-semibold">{product.seriesName}</p>
+                  <p className="font-semibold">{product.productModel}</p>
                   <p>{product.headDiameter} mm</p>
                   <p>{product.weight} g</p>
                   <p>{product.quantity} pcs.</p>
