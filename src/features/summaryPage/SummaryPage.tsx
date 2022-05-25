@@ -65,7 +65,6 @@ const SummaryPage = () => {
       body = getFullOrderData(readyProducts, finalDeliveryData, deliveryId);
     }
     const jsonBody = JSON.stringify(body);
-    console.log(body);
     const requestOptions = {
       method: 'POST',
       body: jsonBody,
@@ -81,7 +80,6 @@ const SummaryPage = () => {
       }
       const resJson = await response.json();
       if (response.status === 201) {
-        console.log(resJson);
         toast.success(t('toastOk'));
         dispatch(clear());
         navigate('/confirmation', {
