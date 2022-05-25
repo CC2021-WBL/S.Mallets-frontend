@@ -48,7 +48,6 @@ const LoginPage = () => {
       }
 
       const resJson = await res.json();
-
       if (res.status === 200) {
         const token = resJson.token;
         if (token) {
@@ -57,11 +56,13 @@ const LoginPage = () => {
         dispatch(authActions.login());
         dispatch(
           userActions.userLogin({
+            id: resJson.id,
             email: resJson.email,
             name: resJson.name,
             lastname: resJson.lastname,
             roles: resJson.roles,
             phoneNumber: resJson.phoneNumber,
+            address: resJson.address,
           }),
         );
 
@@ -77,7 +78,7 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="mx-auto mt-8 mb-16 flex w-full max-w-7xl flex-col sm:px-3 md:flex-row md:gap-20 md:px-6 lg:px-8 ">
+    <div className="mx-auto mt-8 mb-16 flex w-full max-w-7xl flex-col px-3 md:flex-row md:gap-20 md:px-6 lg:px-8 ">
       <div className="h-fit-content  w-full p-3 md:w-1/2">
         <Formik
           initialValues={{

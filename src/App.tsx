@@ -25,6 +25,9 @@ const ContactPage = lazy(() => import('./common/contact/ContactPage'));
 const CartPage = lazy(() => import('./features/cartPage/CartPage'));
 const AdminPage = lazy(() => import('./features/adminPage/AdminPage'));
 const AboutMe = lazy(() => import('./common/aboutUs/AboutUs'));
+const ConfirmationPage = lazy(
+  () => import('./features/cartPage/ConfirmationPage'),
+);
 
 function App() {
   return (
@@ -58,6 +61,7 @@ function App() {
                   <Route path="/admin" element={<AdminPage />} />
                   <Route path="/service" element={<ServicePage />} />
                   <Route path="/no" element={<NoAccess />} />
+                  <Route path="/confirmation" element={<ConfirmationPage />} />
                   <Route path="/register" element={<RegisterPage />} />
                   <Route path="/cart/register" element={<RegisterPage />} />
                 </Route>
