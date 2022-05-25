@@ -89,6 +89,7 @@ const UserPage = () => {
           <table className="user-table table-auto">
             <tbody className="user-table">
               {orders &&
+                orders.length !== 0 &&
                 Array.from(orders).map((index: any) => (
                   <tr key={index.id} className="user-table mb-6 md:mb-0">
                     <td className="user-table py-2 px-2">
@@ -115,7 +116,9 @@ const UserPage = () => {
         </section>
         <section className={sectionStyles}>
           <h2 className="p-2 text-2xl font-semibold">{t('yourData')}</h2>
-          {orders && <DeliveryData deliveryData={orders[0]} />}
+          {orders && orders.length !== 0 && (
+            <DeliveryData deliveryData={orders[0]} />
+          )}
           <NavLink to="/cart/delivery" className="p-2 font-bold">
             {t('edit')}
           </NavLink>
