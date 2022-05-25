@@ -15,6 +15,7 @@ import { RootState } from '../../../app/store';
 import { activeLogCart, navBurgerStyles, navStyles } from './navStyles';
 import { logout } from '../../../app/slices/authSlice';
 import { userLogout } from '../../../app/slices/userSlice';
+import { clear } from '../../../app/slices/cartSlice';
 
 const Nav = () => {
   const { t, i18n } = useTranslation('navAndFooter');
@@ -38,10 +39,9 @@ const Nav = () => {
 
   const logoutHandler = () => {
     const toastId = toast.loading('Loading...');
-
     dispatch(logout());
     dispatch(userLogout());
-
+    dispatch(clear());
     toast.success(t('toastOut'), {
       id: toastId,
     });
