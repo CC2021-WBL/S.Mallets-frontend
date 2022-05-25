@@ -10,6 +10,7 @@ import DeliveryData from '../summaryPage/DeliveryData';
 import LogoCarpet from '../../tools/LogoCarpet';
 import logosm from '../../assets/logosmall.png';
 import { RootState } from '../../app/store';
+import { refactorUserData } from './userHelperTools';
 import { sectionStyles } from '../summaryPage/SummaryPage';
 import { userWithOrdersActions } from '../../app/userWithOrdersSlice';
 
@@ -35,8 +36,11 @@ export interface userWithOrder {
 
 const UserPage = () => {
   const orders = useSelector((state: RootState) => state.userWithOrders.orders);
+  const userData = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
   const { t } = useTranslation('summary');
+
+  const userDataToShow = refactorUserData(userData);
 
   const [showModal, setShowModal] = useState<boolean>(false);
   const closeModal = () => {
@@ -89,6 +93,7 @@ const UserPage = () => {
           <table className="user-table table-auto">
             <tbody className="user-table">
               {orders &&
+                orders.length !== 0 &&
                 Array.from(orders).map((index: any) => (
                   <tr key={index.id} className="user-table mb-6 md:mb-0">
                     <td className="user-table py-2 px-2">
@@ -115,7 +120,9 @@ const UserPage = () => {
         </section>
         <section className={sectionStyles}>
           <h2 className="p-2 text-2xl font-semibold">{t('yourData')}</h2>
-          {orders && <DeliveryData deliveryData={orders[0]} />}
+
+          <DeliveryData deliveryData={userDataToShow} />
+
           <NavLink to="/cart/delivery" className="p-2 font-bold">
             {t('edit')}
           </NavLink>

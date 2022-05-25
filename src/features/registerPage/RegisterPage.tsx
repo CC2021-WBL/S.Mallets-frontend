@@ -17,10 +17,10 @@ const RegisterPage = () => {
   const [error, setError] = useState(false);
   const { t } = useTranslation('registerForm');
 
-  const phoneRegExp =
-    /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+  // const phoneRegExp =
+  //   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
   const passRegExp =
-    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,}$/;
 
   const validationSchema = Yup.object({
     name: Yup.string()
@@ -33,12 +33,15 @@ const RegisterPage = () => {
       .max(20, t('errLastname2')),
     password: Yup.string()
       .required(t('errNoPassword'))
-      .min(8, t('errPassword1'))
+      .min(6, t('errPassword1'))
       .matches(passRegExp, t('errPassword2')),
     email: Yup.string().required(t('errNoEmail')).email(t('errEmail')),
     phoneNumber: Yup.string()
-      .matches(phoneRegExp, t('errPhone'))
-      .required(t('errNoPhone')),
+      .required(t('errNoPhone'))
+      .matches(
+        /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/,
+        t('errPhone'),
+      ),
   });
 
   const registerHandler = async (data: object) => {
