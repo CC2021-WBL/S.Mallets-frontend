@@ -7,11 +7,16 @@ import DeliveryData from './DeliveryData';
 import LogoCarpet from '../../tools/LogoCarpet';
 import { Product } from '../cartPage/cartSlice';
 import { RootState } from '../../app/store';
+import { createDeliveryData, options } from './createDeliveryData';
+import { getFullOrderData } from '../../tools/getFullOrderData';
 
 export const sectionStyles =
   'border-1 mb-6 flex flex-col justify-center rounded border border-black p-6';
 
 const SummaryPage = () => {
+  const { chosenDelivery } = useSelector(
+    (state: RootState) => state.deliveries,
+  );
   const deliveryData = useSelector((state: RootState) => state.deliveryData);
   const userAddressData = useSelector((state: RootState) => state.user);
   const { t } = useTranslation('summary');
@@ -29,9 +34,23 @@ const SummaryPage = () => {
 
   //TODO: unmock this fetch
   const confirmHandler = async () => {
+    let options: options = { deliveryData: deliveryData };
+    if (userAddressData) {
+      options = {
+        deliveryData: deliveryData,
+        userAddressData: userAddressData.address,
+      };
+    }
+    let deliveryId = 1;
+    if (chosenDelivery && chosenDelivery.id) {
+      deliveryId = chosenDelivery.id;
+    }
+    const finalDeliveryData = createDeliveryData(options);
+    const body = getFullOrderData(cart.products, finalDeliveryData, deliveryId);
+    console.log(body);
     const requestOptions = {
       method: 'POST',
-      body: JSON.stringify({ deliveryData }),
+      body: JSON.stringify({ body }),
       headers: { 'Content-Type': 'application/json' },
     };
     try {
@@ -80,8 +99,10 @@ const SummaryPage = () => {
         </section>
         <section className={sectionStyles}>
           <h2 className="p-2 text-2xl font-semibold">{t('shippingData')}</h2>
-          {userAddressData ? (
-            <div>DUPA</div>
+          {deliveryData.name.length !== 0 ? (
+            <DeliveryData deliveryData={deliveryData} />
+          ) : userAddressData.id.length !== 0 ? (
+            <p>DUPA</p>
           ) : (
             <DeliveryData deliveryData={deliveryData} />
           )}

@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface UserStateTypes {
+export interface UserStateTypes {
   id: string;
   email: string;
   name: string;
@@ -10,7 +10,7 @@ interface UserStateTypes {
   address: Address;
 }
 
-interface Address {
+export interface Address {
   name: string;
   lastname: string;
   email: string;
@@ -60,7 +60,16 @@ export const userSlice = createSlice({
       state.lastname = '';
       state.roles = [];
       state.phoneNumber = '';
-      state.address = {};
+      state.address = {
+        name: '',
+        lastname: '',
+        email: '',
+        streetAndNumber: '',
+        zipCode: '',
+        city: '',
+        country: '',
+        phoneNumber: '',
+      };
     },
   },
 });
