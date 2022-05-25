@@ -8,6 +8,7 @@ import LogoCarpet from '../../tools/LogoCarpet';
 import { DeliDataInterface } from '../deliveryPage/deliveryDataSlice';
 import { Product } from '../cartPage/cartSlice';
 import { RootState } from '../../app/store';
+import { countFinalPrice, getDeliId } from './helperTools';
 import { createDeliveryData, options } from './createDeliveryData';
 import { createDeliveryProducts } from './createDeliveryProducts';
 import { getFullOrderData } from '../../tools/getFullOrderData';
@@ -16,11 +17,16 @@ export const sectionStyles =
   'border-1 mb-6 flex flex-col justify-center rounded border border-black p-6';
 
 const SummaryPage = () => {
+  const { t } = useTranslation('summary');
+  const navigate = useNavigate();
+  const cart = useSelector((state: RootState) => state.cart);
+  const delivery = useSelector((state: RootState) => state.deliveries);
+  const deliveryData = useSelector((state: RootState) => state.deliveryData);
+  const userAddressData = useSelector((state: RootState) => state.user);
   const { chosenDelivery } = useSelector(
     (state: RootState) => state.deliveries,
   );
-  const deliveryData = useSelector((state: RootState) => state.deliveryData);
-  const userAddressData = useSelector((state: RootState) => state.user);
+
   const updatedUserAddress: DeliDataInterface = {
     messageFromUser: '',
     ...userAddressData.address,
@@ -29,18 +35,11 @@ const SummaryPage = () => {
     email: userAddressData.email,
     phoneNumber: userAddressData.phoneNumber,
   };
-  const { t } = useTranslation('summary');
-  const navigate = useNavigate();
-  const cart = useSelector((state: RootState) => state.cart);
-  const delivery = useSelector((state: RootState) => state.deliveries);
 
-  const sumProducts = cart.products
-    .map((product) => product.quantity * product.price)
-    .reduce((a, b) => a + b, 0);
-
-  const deliveryPrice = Number(delivery.chosenDelivery.deliveryPriceEuro) || 0;
-
-  const sum = sumProducts + deliveryPrice;
+  const finalPrice = countFinalPrice(
+    cart.products,
+    Number(delivery.chosenDelivery.deliveryPriceEuro),
+  );
 
   const confirmHandler = async () => {
     let options: options = { deliveryData: deliveryData };
@@ -50,13 +49,20 @@ const SummaryPage = () => {
         userAddressData: updatedUserAddress,
       };
     }
-    let deliveryId = 1;
-    if (chosenDelivery && chosenDelivery.id) {
-      deliveryId = chosenDelivery.id;
-    }
+    const deliveryId = getDeliId(chosenDelivery);
     const finalDeliveryData = createDeliveryData(options);
     const readyProducts = createDeliveryProducts(cart.products);
-    const body = getFullOrderData(readyProducts, finalDeliveryData, deliveryId);
+    let body;
+    if (userAddressData) {
+      body = getFullOrderData(
+        readyProducts,
+        finalDeliveryData,
+        deliveryId,
+        userAddressData.id,
+      );
+    } else {
+      body = getFullOrderData(readyProducts, finalDeliveryData, deliveryId);
+    }
     const jsonBody = JSON.stringify(body);
     console.log(body);
     const requestOptions = {
@@ -107,7 +113,7 @@ const SummaryPage = () => {
                 </div>
               );
             })}
-          <div className="self-end p-4 font-bold">suma {sum} €</div>
+          <div className="self-end p-4 font-bold">suma {finalPrice} €</div>
           <NavLink to="/cart" className="p-2 font-bold">
             {t('edit')}
           </NavLink>

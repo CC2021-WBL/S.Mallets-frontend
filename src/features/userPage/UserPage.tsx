@@ -11,6 +11,7 @@ import LogoCarpet from '../../tools/LogoCarpet';
 import NoAccess from '../../common/NoAccess';
 import logosm from '../../assets/logosmall.png';
 import { RootState } from '../../app/store';
+import { refactorUserData } from './userHelperTools';
 import { sectionStyles } from '../summaryPage/SummaryPage';
 import { userWithOrdersActions } from '../../app/userWithOrdersSlice';
 
@@ -36,11 +37,15 @@ export interface userWithOrder {
 
 const UserPage = () => {
   const orders = useSelector((state: RootState) => state.userWithOrders.orders);
+  const userData = useSelector((state: RootState) => state.user);
   const dispatch = useDispatch();
   const { t } = useTranslation('summary');
   const isAuth = useSelector(
     (state: RootState) => state.authentication.isAuthenticated,
   );
+
+  const userDataToShow = refactorUserData(userData);
+
   const [showModal, setShowModal] = useState<boolean>(false);
   const closeModal = () => {
     setShowModal(false);
@@ -88,19 +93,20 @@ const UserPage = () => {
       {isAuth ? (
         <div className="relative mx-auto w-full max-w-7xl">
           <LogoCarpet className="absolute top-12 right-8 z-[1] hidden lg:block" />
-          <div className="flex max-w-[47rem] flex-col p-6 sm:w-full sm:justify-between md:p-10">
+          <main className="flex max-w-[47rem] flex-col p-6 sm:w-full sm:justify-between md:p-10">
             <section className={sectionStyles}>
               <h2 className="p-2 text-2xl font-semibold">{t('yourOrders')}</h2>
               <table className="user-table table-auto">
                 <tbody className="user-table">
                   {orders &&
+                    orders.length !== 0 &&
                     Array.from(orders).map((index: any) => (
                       <tr key={index.id} className="user-table mb-6 md:mb-0">
                         <td className="user-table py-2 px-2">
                           {index.modifiedAt.slice(0, 10)}
                         </td>
                         <td className="user-table px-2 font-semibold md:px-0">
-                          {t('order')} nr: {index.id.slice(0, 5)}
+                          Zamówienie nr: {index.id.slice(0, 5)}
                         </td>
                         <td className="user-table px-2 md:px-0">
                           {index.finalCostEuro} €
@@ -110,7 +116,7 @@ const UserPage = () => {
                             className="px-2 font-semibold md:px-0 md:pl-4 "
                             onClick={detailsModalHandler}
                           >
-                            {t('more')} {'>'}
+                            więcej szczegółów {'>'}
                           </button>
                         </td>
                       </tr>
@@ -120,12 +126,14 @@ const UserPage = () => {
             </section>
             <section className={sectionStyles}>
               <h2 className="p-2 text-2xl font-semibold">{t('yourData')}</h2>
-              {orders && <DeliveryData deliveryData={orders[0]} />}
+
+              <DeliveryData deliveryData={userDataToShow} />
+
               <NavLink to="/cart/delivery" className="p-2 font-bold">
                 {t('edit')}
               </NavLink>
             </section>
-          </div>
+          </main>
           {showModal ? (
             <div
               onClick={closeModal}

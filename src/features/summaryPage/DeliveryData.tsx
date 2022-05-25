@@ -6,6 +6,7 @@ const addressStyles = 'py-2 px-2';
 const DeliveryData = (prop: {
   deliveryData: DeliDataInterface | userWithOrder;
 }) => {
+  console.log(prop.deliveryData);
   const {
     name,
     lastname,

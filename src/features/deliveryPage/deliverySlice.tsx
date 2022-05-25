@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface Delivery {
+export interface Delivery {
   id?: number;
   deliveryName?: string;
   deliveryArea?: string;
