@@ -49,7 +49,7 @@ const ProductsSeriesPage = () => {
         </p>
 
         <div className="relative mt-10 flex w-full flex-wrap justify-center  sm:mb-16">
-          <LogoCarpet className="absolute -top-[11.5625rem] right-8 z-[1] hidden lg:block" />
+          <LogoCarpet className="absolute -top-[11.5625rem] right-8 -z-[1] hidden lg:block" />
           {isPending && <Loader />}
 
           {seriesData &&
