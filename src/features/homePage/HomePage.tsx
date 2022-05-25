@@ -102,7 +102,7 @@ const HomePage = () => {
             ))}
       </div>
 
-      <div className="mx-6 mb-20 flex max-w-7xl justify-between sm:px-3 md:px-6 lg:px-8">
+      <div className="mx-4 mb-20 flex max-w-7xl justify-between sm:px-3 md:px-6 lg:px-8">
         <Formik
           initialValues={{
             email: '',
