@@ -1,5 +1,5 @@
-import { Delivery } from '../deliveryPage/deliverySlice';
-import { Product } from '../cartPage/cartSlice';
+import { Delivery } from '../../app/slices/deliverySlice';
+import { Product } from '../../app/slices/cartSlice';
 
 export function getDeliId(chosenDelivery: Delivery | undefined) {
   let deliveryId = 1;

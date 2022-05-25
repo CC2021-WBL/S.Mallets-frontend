@@ -1,12 +1,12 @@
 import toast from 'react-hot-toast';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import DeliveryData from './DeliveryData';
 import LogoCarpet from '../../tools/LogoCarpet';
-import { DeliDataInterface } from '../deliveryPage/deliveryDataSlice';
-import { Product } from '../cartPage/cartSlice';
+import { DeliDataInterface } from '../../app/slices/deliveryDataSlice';
+import { clear, Product } from '../../app/slices/cartSlice';
 import { RootState } from '../../app/store';
 import { countFinalPrice, getDeliId } from './helperTools';
 import { createDeliveryData, options } from './createDeliveryData';
@@ -19,6 +19,7 @@ export const sectionStyles =
 const SummaryPage = () => {
   const { t } = useTranslation('summary');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const cart = useSelector((state: RootState) => state.cart);
   const delivery = useSelector((state: RootState) => state.deliveries);
   const deliveryData = useSelector((state: RootState) => state.deliveryData);
@@ -64,7 +65,6 @@ const SummaryPage = () => {
       body = getFullOrderData(readyProducts, finalDeliveryData, deliveryId);
     }
     const jsonBody = JSON.stringify(body);
-    console.log(body);
     const requestOptions = {
       method: 'POST',
       body: jsonBody,
@@ -80,8 +80,8 @@ const SummaryPage = () => {
       }
       const resJson = await response.json();
       if (response.status === 201) {
-        console.log(resJson);
         toast.success(t('toastOk'));
+        dispatch(clear());
         navigate('/confirmation', {
           state: {
             id: resJson.id,

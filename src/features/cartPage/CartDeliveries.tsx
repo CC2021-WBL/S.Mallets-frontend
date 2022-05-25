@@ -1,7 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { AppDispatch, RootState } from '../../app/store';
-import { chosenDelivery, fetchDeliveries } from '../deliveryPage/deliverySlice';
+import {
+  chosenDelivery,
+  fetchDeliveries,
+} from '../../app/slices/deliverySlice';
 import { useTranslation } from 'react-i18next';
 
 interface Delivery {

@@ -13,8 +13,8 @@ import NavBar from './NavBar';
 import logo from '../../../assets/s-logo.svg';
 import { RootState } from '../../../app/store';
 import { activeLogCart, navBurgerStyles, navStyles } from './navStyles';
-import { authActions } from '../../loginPage/authSlice';
-import { userActions } from '../../userPage/userSlice';
+import { logout } from '../../../app/slices/authSlice';
+import { userLogout } from '../../../app/slices/userSlice';
 
 const Nav = () => {
   const { t, i18n } = useTranslation('navAndFooter');
@@ -39,8 +39,8 @@ const Nav = () => {
   const logoutHandler = () => {
     const toastId = toast.loading('Loading...');
 
-    dispatch(authActions.logout());
-    dispatch(userActions.userLogout());
+    dispatch(logout());
+    dispatch(userLogout());
 
     toast.success(t('toastOut'), {
       id: toastId,

@@ -47,4 +47,8 @@ export const deliDataSlice = createSlice({
   },
 });
 
-export const deliDataActions = deliDataSlice.actions;
+export const { setDeliData } = deliDataSlice.actions;
+
+const deliDataReducer = deliDataSlice.reducer;
+
+export default deliDataReducer;

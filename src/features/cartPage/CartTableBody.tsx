@@ -15,7 +15,7 @@ import {
   incrementWeight,
   removeFromCart,
   toggleEdit,
-} from './cartSlice';
+} from '../../app/slices/cartSlice';
 
 const CartTableBody = () => {
   const dispatch: AppDispatch = useDispatch();

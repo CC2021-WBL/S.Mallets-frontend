@@ -1,25 +1,23 @@
 import { configureStore } from '@reduxjs/toolkit';
 
-import cartReducer from '../features/cartPage/cartSlice';
-import deliveryReducer from '../features/deliveryPage/deliverySlice';
-import orderReducer from '../features/order/orderSlice';
-import productReducer from '../features/products/productSlice';
-import uiReducer from '../tools/uiSlice';
-import { authSlice } from '../features/loginPage/authSlice';
-import { deliDataSlice } from '../features/deliveryPage/deliveryDataSlice';
-import { userSlice } from '../features/userPage/userSlice';
-import { userWithOrdersSlice } from './userWithOrdersSlice';
+import cartReducer from './slices/cartSlice';
+import deliveryReducer from './slices/deliverySlice';
+import orderReducer from './slices/orderSlice';
+import productReducer from './slices/productSlice';
+import authReducer from './slices/authSlice';
+import deliDataReducer from './slices/deliveryDataSlice';
+import userReducer from './slices/userSlice';
+import userWithOrderReducer from './slices/userWithOrdersSlice';
 
 const store = configureStore({
   reducer: {
-    authentication: authSlice.reducer,
-    user: userSlice.reducer,
+    authentication: authReducer,
+    user: userReducer,
     products: productReducer,
     deliveries: deliveryReducer,
     cart: cartReducer,
-    ui: uiReducer,
-    deliveryData: deliDataSlice.reducer,
-    userWithOrders: userWithOrdersSlice.reducer,
+    deliveryData: deliDataReducer,
+    userWithOrders: userWithOrderReducer,
     order: orderReducer,
   },
 });

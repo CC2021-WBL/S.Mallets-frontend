@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { AppDispatch } from '../../app/store';
+import { AppDispatch } from '../store';
 
 const initialState = {
   loading: false,

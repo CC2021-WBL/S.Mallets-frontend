@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 import Error from './Error';
 import LogoCarpet from '../../tools/LogoCarpet';
 import { RootState } from '../../app/store';
-import { deliDataActions } from './deliveryDataSlice';
+import { setDeliData } from '../../app/slices/deliveryDataSlice';
 
 const initialDeliveryFormState = {
   name: '',
@@ -83,7 +83,7 @@ const DeliveryForm = () => {
         validationSchema={validationSchema}
         onSubmit={async (values) => {
           dispatch(
-            deliDataActions.setDeliData({
+            setDeliData({
               name: values.name,
               lastname: values.lastname,
               email: values.email,

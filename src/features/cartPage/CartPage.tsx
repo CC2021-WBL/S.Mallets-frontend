@@ -5,7 +5,10 @@ import { RootState } from '../../app/store';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { fetchDeliveryId, fetchOrderDetails } from '../order/orderSlice';
+import {
+  fetchDeliveryId,
+  fetchOrderDetails,
+} from '../../app/slices/orderSlice';
 
 const CartPage = () => {
   const { t } = useTranslation('cart');

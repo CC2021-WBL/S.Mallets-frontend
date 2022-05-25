@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 
 import { AppDispatch } from '../../app/store';
-import { clear } from './cartSlice';
+import { clear } from '../../app/slices/cartSlice';
 import { useTranslation } from 'react-i18next';
 import toast from 'react-hot-toast';
 
