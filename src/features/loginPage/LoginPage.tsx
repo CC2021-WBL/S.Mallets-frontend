@@ -48,7 +48,7 @@ const LoginPage = () => {
       }
 
       const resJson = await res.json();
-
+      console.log(resJson.address);
       if (res.status === 200) {
         const token = resJson.token;
         if (token) {

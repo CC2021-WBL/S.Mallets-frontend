@@ -67,8 +67,6 @@ const UserPage = () => {
           const resJson = await res.json();
           console.log(resJson);
           const userWithOrdersArray = resJson.orders;
-          const userAddress = resJson.address;
-          console.log(userAddress);
           dispatch(
             userWithOrdersActions.setOrdersData({
               orders: userWithOrdersArray,

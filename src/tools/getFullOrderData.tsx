@@ -8,17 +8,38 @@ export type SingleOrderedProduct = Pick<
 
 export const getFullOrderData = (
   orderedProducts: SingleOrderedProduct[],
-  address: DeliDataInterface,
+  userData: DeliDataInterface,
   deliveryId: number,
   userId?: string,
 ) => {
   if (userId) {
-    const body = { ...address, deliveryId, userId, orderedProducts };
+    const body = {
+      name: userData.name,
+      lastname: userData.lastname,
+      email: userData.email,
+      streetAndNumber: userData.streetAndNumber,
+      zipCode: userData.zipCode,
+      city: userData.city,
+      country: userData.country,
+      phoneNumber: userData.phoneNumber,
+      messageFromUser: userData.messageFromUser,
+      deliveryId,
+      userId,
+      orderedProducts,
+    };
     return body;
   }
 
   const body = {
-    ...address,
+    name: userData.name,
+    lastname: userData.lastname,
+    email: userData.email,
+    streetAndNumber: userData.streetAndNumber,
+    zipCode: userData.zipCode,
+    city: userData.city,
+    country: userData.country,
+    phoneNumber: userData.phoneNumber,
+    messageFromUser: userData.messageFromUser,
     deliveryId,
     orderedProducts,
   };

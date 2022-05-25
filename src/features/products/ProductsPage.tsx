@@ -9,8 +9,6 @@ import { Loader } from '../Loader';
 import { Product } from '../cartPage/cartSlice';
 import { fetchProducts } from './productSlice';
 
-// import { useTranslation } from 'react-i18next';
-
 const ProductsPage = () => {
   const { seriesName } = useParams();
   const dispatch: AppDispatch = useDispatch();
@@ -18,8 +16,6 @@ const ProductsPage = () => {
   const filteredProducts = products.filter(
     (product: Product) => product.seriesName == seriesName,
   );
-
-  // const { i18n } = useTranslation();
   const [pending, setIsPending] = useState(true);
 
   useEffect(() => {
@@ -31,10 +27,9 @@ const ProductsPage = () => {
     <div className="max-w-7x relative mx-auto w-full">
       {pending && <Loader />}
       <div className="py-4 px-12">
-        <h1 className="py-2 text-2xl font-bold">{seriesName}</h1>
-        {/* <h2 className="max-w-3xl py-2 text-xl">
-          {i18n.language === 'en' ? seriesLang.en : seriesLang.pl}
-        </h2> */}
+        <h1 className="py-2 text-2xl font-bold">
+          {seriesName?.replace('-', ' ')}
+        </h1>
       </div>
       {!pending && (
         <LogoCarpet className="absolute top-12 right-8 z-[1] hidden lg:block" />

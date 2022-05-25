@@ -1,8 +1,7 @@
-import { Address } from '../userPage/userSlice';
 import { DeliDataInterface } from '../deliveryPage/deliveryDataSlice';
 
 export interface options {
-  userAddressData?: Address;
+  userAddressData?: DeliDataInterface;
   deliveryData: DeliDataInterface;
 }
 

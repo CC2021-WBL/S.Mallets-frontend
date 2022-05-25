@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import DeliveryData from './DeliveryData';
 import LogoCarpet from '../../tools/LogoCarpet';
+import { DeliDataInterface } from '../deliveryPage/deliveryDataSlice';
 import { Product } from '../cartPage/cartSlice';
 import { RootState } from '../../app/store';
 import { createDeliveryData, options } from './createDeliveryData';
@@ -19,6 +20,14 @@ const SummaryPage = () => {
   );
   const deliveryData = useSelector((state: RootState) => state.deliveryData);
   const userAddressData = useSelector((state: RootState) => state.user);
+  const updatedUserAddress: DeliDataInterface = {
+    messageFromUser: '',
+    ...userAddressData.address,
+    name: userAddressData.name,
+    lastname: userAddressData.lastname,
+    email: userAddressData.email,
+    phoneNumber: userAddressData.phoneNumber,
+  };
   const { t } = useTranslation('summary');
   const navigate = useNavigate();
   const cart = useSelector((state: RootState) => state.cart);
@@ -32,13 +41,12 @@ const SummaryPage = () => {
 
   const sum = sumProducts + deliveryPrice;
 
-  //TODO: unmock this fetch
   const confirmHandler = async () => {
     let options: options = { deliveryData: deliveryData };
     if (userAddressData) {
       options = {
         deliveryData: deliveryData,
-        userAddressData: userAddressData.address,
+        userAddressData: updatedUserAddress,
       };
     }
     let deliveryId = 1;
@@ -55,7 +63,7 @@ const SummaryPage = () => {
     };
     try {
       const response = await fetch(
-        'https://jsonplaceholder.typicode.com/posts',
+        'https://s-mallets-backend.vercel.app/orders',
         requestOptions,
       );
       if (response.status !== 201) {
@@ -82,7 +90,7 @@ const SummaryPage = () => {
           {cart &&
             cart.products.map((product: Product, index: number) => {
               return (
-                <div className="flex gap-2" key={index}>
+                <div className="flex gap-4 p-2" key={index}>
                   <p>{index + 1}</p>
                   <p>{product.seriesName}</p>
                   <p>{product.productModel}</p>
@@ -92,7 +100,7 @@ const SummaryPage = () => {
                 </div>
               );
             })}
-          <div>suma {sum} €</div>
+          <div className="self-end p-4 font-bold">suma {sum} €</div>
           <NavLink to="/cart" className="p-2 font-bold">
             {t('edit')}
           </NavLink>
@@ -102,7 +110,7 @@ const SummaryPage = () => {
           {deliveryData.name.length !== 0 ? (
             <DeliveryData deliveryData={deliveryData} />
           ) : userAddressData.id.length !== 0 ? (
-            <p>DUPA</p>
+            <DeliveryData deliveryData={updatedUserAddress} />
           ) : (
             <DeliveryData deliveryData={deliveryData} />
           )}
