@@ -55,7 +55,7 @@ const ContactPage = () => {
             });
         }}
       >
-        <div className="h-fit-content  my-14 mx-3 w-11/12 self-start px-3 md:w-8/12 md:px-6 lg:w-7/12 lg:px-8 lg2:w-1/2 ">
+        <div className="h-fit-content w-fit-content max-w-11/12 my-14 mx-3 self-start px-3 md:w-8/12 md:px-6 lg:w-7/12 lg:px-8 lg2:w-1/2 ">
           <LogoCarpet className="absolute  -top-[6.5rem] right-12 hidden lg:block " />
           <h2 className="pb-7 text-2xl">{t('more')}</h2>
           <h3 className="pb-7">{t('contactForm')}</h3>

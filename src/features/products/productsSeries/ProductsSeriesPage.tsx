@@ -43,13 +43,13 @@ const ProductsSeriesPage = () => {
 
   return (
     <>
-      <div className="mx-auto mt-8 mb-16 flex w-full max-w-7xl flex-col px-3 md:px-6 lg:px-8">
-        <p className=" max-w-[33.3rem] px-3 text-left text-xl md:px-6 lg:px-8">
+      <div className="relative mx-auto mt-8 mb-16 flex w-full max-w-7xl flex-col px-3 md:px-6 lg:px-11">
+        <p className=" max-w-[33.3rem] px-3 text-left text-xl md:px-6 lg:px-0">
           {t('textOnSeries')}
         </p>
 
-        <div className="relative mt-10 flex w-full flex-wrap justify-center  sm:mb-16">
-          <LogoCarpet className="absolute -top-[11.5625rem] right-8 -z-[1] hidden lg:block" />
+        <LogoCarpet className="absolute -top-16 right-10 -z-[1] hidden lg:block" />
+        <div className=" mt-10 flex w-full flex-wrap justify-center  sm:mb-16">
           {isPending && <Loader />}
 
           {seriesData &&
