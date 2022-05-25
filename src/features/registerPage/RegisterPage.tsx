@@ -1,7 +1,7 @@
 import * as Yup from 'yup';
 import toast from 'react-hot-toast';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -163,9 +163,13 @@ const RegisterPage = () => {
               {t('errAccountP1')}
               <br />
               <br />
-              <NavLink to="/reset">
-                <strong>{t('errAccountP2')}</strong>
-              </NavLink>
+              <Link to="/login" className="font-bold">
+                {t('errAccountP2a')}
+              </Link>{' '}
+              <br />
+              <Link to="/reset" className="font-bold">
+                {t('errAccountP2b')}
+              </Link>
             </div>
           )}
         </Form>
