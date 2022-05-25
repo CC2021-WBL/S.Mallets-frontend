@@ -39,11 +39,9 @@ const Nav = () => {
 
   const logoutHandler = () => {
     const toastId = toast.loading('Loading...');
-
     dispatch(logout());
     dispatch(userLogout());
     dispatch(clear());
-
     toast.success(t('toastOut'), {
       id: toastId,
     });
