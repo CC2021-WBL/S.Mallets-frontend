@@ -19,17 +19,22 @@ const Footer = () => {
                 e-mail: s.mallets.mail@gmail.com
               </a>
             </div>
-            <a
-              href="https://www.facebook.com/skrettomasz"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <BsFacebook
-                className="mt-8 text-2xl sm:mt-14"
-                role="link"
-                aria-label="Link to fb"
-              />
-            </a>
+            <div className="flex gap-10">
+              <a
+                href="https://www.facebook.com/skrettomasz"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <BsFacebook
+                  className="mt-8 text-2xl sm:mt-14"
+                  role="link"
+                  aria-label="Link to fb"
+                />
+              </a>
+              <a href="https://github.com/CC2021-WBL" className="self-end">
+                DevsOnTheWaves @2022
+              </a>
+            </div>
           </div>
 
           <div className="mb-8 flex flex-col items-start gap-y-4 pr-4 sm:items-end sm:gap-y-8 sm:text-right">
