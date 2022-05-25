@@ -7,7 +7,7 @@ import cross from '../assets/cross.png';
 function NoAccess() {
   const { t } = useTranslation('others');
   return (
-    <div className="relative mx-6 my-12 flex w-full max-w-7xl flex-col items-center ">
+    <div className="relative mx-6 my-12 flex w-full max-w-7xl flex-col items-center px-6 md:px-10 ">
       <LogoCarpet className="absolute -top-[9.7rem] right-14 z-[1] hidden lg:block " />
       <img
         src={cross}
