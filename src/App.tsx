@@ -4,7 +4,6 @@ import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 
 import DeliveryPage from './features/deliveryPage/DeliveryPage';
-import NoAccess from './common/NoAccess';
 import RegisterPage from './features/registerPage/RegisterPage';
 import ScrollToTop from './tools/ScrollToTop';
 import SummaryPage from './features/summaryPage/SummaryPage';
@@ -60,7 +59,6 @@ function App() {
                   <Route path="/user" element={<UserPage />} />
                   <Route path="/admin" element={<AdminPage />} />
                   <Route path="/service" element={<ServicePage />} />
-                  <Route path="/no" element={<NoAccess />} />
                   <Route path="/confirmation" element={<ConfirmationPage />} />
                   <Route path="/register" element={<RegisterPage />} />
                   <Route path="/cart/register" element={<RegisterPage />} />
