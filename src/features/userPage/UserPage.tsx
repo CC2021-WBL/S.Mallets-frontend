@@ -44,9 +44,8 @@ const UserPage = () => {
   };
 
   const detailsModalHandler = () => {
-    console.log('modal is opened');
     setShowModal(true);
-    //modal takes data from orderSlice ?? or state
+    //TODO: modal takes data from orderSlice
   };
 
   useEffect(() => {
@@ -65,7 +64,6 @@ const UserPage = () => {
         );
         if (res.status === 200) {
           const resJson = await res.json();
-          console.log(resJson);
           const userWithOrdersArray = resJson.orders;
           dispatch(
             userWithOrdersActions.setOrdersData({
