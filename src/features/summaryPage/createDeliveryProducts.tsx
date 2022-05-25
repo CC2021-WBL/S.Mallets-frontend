@@ -1,4 +1,4 @@
-import { Product } from '../cartPage/cartSlice';
+import { Product } from '../../app/slices/cartSlice';
 
 export interface CreateProductDTO {
   productId: number;

@@ -7,8 +7,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
-import { authActions } from './authSlice';
-import { userActions } from '../userPage/userSlice';
+import { login } from '../../app/slices/authSlice';
+import { userLogin } from '../../app/slices/userSlice';
 
 interface IFormValues {
   email: string;
@@ -53,9 +53,9 @@ const LoginPage = () => {
         if (token) {
           localStorage.setItem('auth', token);
         }
-        dispatch(authActions.login());
+        dispatch(login());
         dispatch(
-          userActions.userLogin({
+          userLogin({
             id: resJson.id,
             email: resJson.email,
             name: resJson.name,

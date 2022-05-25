@@ -12,7 +12,7 @@ import logosm from '../../assets/logosmall.png';
 import { RootState } from '../../app/store';
 import { refactorUserData } from './userHelperTools';
 import { sectionStyles } from '../summaryPage/SummaryPage';
-import { userWithOrdersActions } from '../../app/userWithOrdersSlice';
+import { setOrdersData } from '../../app/slices/userWithOrdersSlice';
 
 export interface UserWithOrdersArray {
   orders: userWithOrder[];
@@ -70,7 +70,7 @@ const UserPage = () => {
           const resJson = await res.json();
           const userWithOrdersArray = resJson.orders;
           dispatch(
-            userWithOrdersActions.setOrdersData({
+            setOrdersData({
               orders: userWithOrdersArray,
             }),
           );

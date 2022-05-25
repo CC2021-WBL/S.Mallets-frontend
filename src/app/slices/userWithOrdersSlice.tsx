@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { UserWithOrdersArray } from '../features/userPage/UserPage';
+import { UserWithOrdersArray } from '../../features/userPage/UserPage';
 
 const initialState = {
   orders: [
@@ -36,4 +36,8 @@ export const userWithOrdersSlice = createSlice({
   },
 });
 
-export const userWithOrdersActions = userWithOrdersSlice.actions;
+export const { setOrdersData } = userWithOrdersSlice.actions;
+
+const userWithOrderReducer = userWithOrdersSlice.reducer;
+
+export default userWithOrderReducer;

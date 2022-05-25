@@ -6,8 +6,8 @@ import LogoCarpet from '../../tools/LogoCarpet';
 import ProductCard from './ProductCard';
 import { AppDispatch, RootState } from '../../app/store';
 import { Loader } from '../Loader';
-import { Product } from '../cartPage/cartSlice';
-import { fetchProducts } from './productSlice';
+import { Product } from '../../app/slices/cartSlice';
+import { fetchProducts } from '../../app/slices/productSlice';
 
 const ProductsPage = () => {
   const { seriesName } = useParams();

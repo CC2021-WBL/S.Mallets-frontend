@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import Backdrop from '../layout/nav/Backdrop';
 import { AppDispatch } from '../../app/store';
-import { Product, addToCart } from '../cartPage/cartSlice';
+import { Product, addToCart } from '../../app/slices/cartSlice';
 import { SliderModal } from './productsSeries/SliderModal';
 
 // import { productDataType } from './productTypes';

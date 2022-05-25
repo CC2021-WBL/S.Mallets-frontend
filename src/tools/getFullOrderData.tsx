@@ -1,6 +1,6 @@
 import { CreateProductDTO } from '../features/summaryPage/createDeliveryProducts';
-import { DeliDataInterface } from '../features/deliveryPage/deliveryDataSlice';
-import { Product } from '../features/cartPage/cartSlice';
+import { DeliDataInterface } from '../app/slices/deliveryDataSlice';
+import { Product } from '../app/slices/cartSlice';
 
 export type SingleOrderedProduct = Pick<
   Product,

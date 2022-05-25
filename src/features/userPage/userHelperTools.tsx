@@ -1,5 +1,5 @@
-import { DeliDataInterface } from '../deliveryPage/deliveryDataSlice';
-import { UserStateTypes } from './userSlice';
+import { DeliDataInterface } from '../../app/slices/deliveryDataSlice';
+import { UserStateTypes } from '../../app/slices/userSlice';
 
 export const refactorUserData = (user: UserStateTypes): DeliDataInterface => {
   const base = {

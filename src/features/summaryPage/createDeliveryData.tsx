@@ -1,4 +1,4 @@
-import { DeliDataInterface } from '../deliveryPage/deliveryDataSlice';
+import { DeliDataInterface } from '../../app/slices/deliveryDataSlice';
 
 export interface options {
   userAddressData?: DeliDataInterface;

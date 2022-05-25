@@ -1,4 +1,4 @@
-import { DeliDataInterface } from '../deliveryPage/deliveryDataSlice';
+import { DeliDataInterface } from '../../app/slices/deliveryDataSlice';
 import { userWithOrder } from '../userPage/UserPage';
 
 const addressStyles = 'py-2 px-2';

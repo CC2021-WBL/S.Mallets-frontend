@@ -5,8 +5,8 @@ import { useTranslation } from 'react-i18next';
 
 import DeliveryData from './DeliveryData';
 import LogoCarpet from '../../tools/LogoCarpet';
-import { DeliDataInterface } from '../deliveryPage/deliveryDataSlice';
-import { Product } from '../cartPage/cartSlice';
+import { DeliDataInterface } from '../../app/slices/deliveryDataSlice';
+import { Product } from '../../app/slices/cartSlice';
 import { RootState } from '../../app/store';
 import { countFinalPrice, getDeliId } from './helperTools';
 import { createDeliveryData, options } from './createDeliveryData';
