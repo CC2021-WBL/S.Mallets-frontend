@@ -1,9 +1,5 @@
-import { Link } from 'react-router-dom';
-
 import ErrorTextCart from '../features/notFoundPage/ErrorTextCart';
 import LogoCarpet from './LogoCarpet';
-
-// { error, resetErrorBoundary }
 
 export function ErrorFallback() {
   return (
@@ -14,10 +10,6 @@ export function ErrorFallback() {
           mainText="Ooops, coś poszło nie tak"
           subtext="Odśwież stronę"
         ></ErrorTextCart>
-        <h1>
-          <Link to="/">Home page</Link>
-        </h1>
-        {/* <button onClick={resetErrorBoundary}>Try again</button> */}
       </div>
     </div>
   );
