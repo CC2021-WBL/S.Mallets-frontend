@@ -76,7 +76,11 @@ const SummaryPage = () => {
       if (response.status === 201) {
         console.log(resJson);
         toast.success(t('toastOk'));
-        navigate('/confirmation');
+        navigate('/confirmation', {
+          state: {
+            id: resJson.id,
+          },
+        });
       }
     } catch (error) {
       toast.error(t('toastBad'));
