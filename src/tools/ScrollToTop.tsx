@@ -7,7 +7,6 @@ const ScrollToTop = (props: any) => {
     // TODO: firefox seems to not work on first click
     window.scroll({ top: 0, behavior: 'smooth' });
   }, [location]);
-
   return <>{props.children}</>;
 };
 
