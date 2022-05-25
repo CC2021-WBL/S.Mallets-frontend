@@ -7,5 +7,7 @@
   "confirmation": "Potwierdź zamówienie",
   "toast": "Sprawdzamy dane",
   "toastOk": "Dane zostały zaakceptowane",
-  "toastBad": "Coś poszło nie tak.Spróbuj ponownie później"
+  "toastBad": "Coś poszło nie tak.Spróbuj ponownie później",
+  "order": "Zamówienie",
+  "more": "więcej szczegółów"
 }

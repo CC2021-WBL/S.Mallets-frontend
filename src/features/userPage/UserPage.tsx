@@ -100,7 +100,7 @@ const UserPage = () => {
                           {index.modifiedAt.slice(0, 10)}
                         </td>
                         <td className="user-table px-2 font-semibold md:px-0">
-                          Zamówienie nr: {index.id.slice(0, 5)}
+                          {t('order')} nr: {index.id.slice(0, 5)}
                         </td>
                         <td className="user-table px-2 md:px-0">
                           {index.finalCostEuro} €
@@ -110,7 +110,7 @@ const UserPage = () => {
                             className="px-2 font-semibold md:px-0 md:pl-4 "
                             onClick={detailsModalHandler}
                           >
-                            więcej szczegółów {'>'}
+                            {t('more')} {'>'}
                           </button>
                         </td>
                       </tr>
