@@ -87,7 +87,7 @@ const Nav = () => {
             to="/cart"
             aria-label="cart"
             className={({ isActive }) =>
-              isActive ? `${activeLogCart}` : `static`
+              isActive ? `${activeLogCart}` : `relative`
             }
           >
             <BsCart3 />
