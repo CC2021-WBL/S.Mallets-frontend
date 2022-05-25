@@ -10,5 +10,6 @@
   "message2": "Please enter your message",
   "modal": "Thank you for your message. We will reply as soon as possible.",
   "toasOk": "Data downloaded.",
-  "toastBad": "Something went wrong. Please try again later."
+  "toastBad": "Something went wrong. Please try again later.",
+  "contactData": "Contact data"
 }
