@@ -56,6 +56,7 @@ User can:
 ![figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white)
 ![jira](https://img.shields.io/badge/Jira-0052CC?style=for-the-badge&logo=Jira&logoColor=white)
 - react-i18next
+- react-hot-toast
 - formik
 - yup
 - husky
