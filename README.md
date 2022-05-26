@@ -28,7 +28,7 @@ This is our last team task on course. We want to help our friend with his busine
 ### The challenge
 
 User can:
-- buy sticks with or without registration
+- order sticks with or without registration
 - get more information (and photos) about product
 - check earlier orders on user's page and change user data
 - modify order before confirmation
