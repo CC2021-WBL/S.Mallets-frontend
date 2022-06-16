@@ -27,11 +27,11 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-#     - name: Run the tests and generate coverage report
-#       run: npm test -- --coverage
+    - name: Run the tests and generate coverage report
+      run: npm test -- --coverage
 
-#     - name: Upload coverage to Codecov
-#       uses: codecov/codecov-action@v1
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
 
     - name: Build
       run: npm run build
@@ -45,5 +45,5 @@ jobs:
       env:
         user_name: 'github-actions[bot]'
         user_email: 'github-actions[bot]@users.noreply.github.com'
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
         repository: ${{ github.repository }}
