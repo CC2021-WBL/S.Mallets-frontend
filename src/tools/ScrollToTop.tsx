@@ -11,3 +11,5 @@ const ScrollToTop = (props: any) => {
 };
 
 export default ScrollToTop;
+
+// Error when run tests:  Error: Uncaught [Error: useLocation() may be used only in the context of a <Router> component.]
