@@ -2,6 +2,7 @@
   "name": "s.mallets-frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://cc2021-wbl.github.io/S.Mallets-frontend/",
   "dependencies": {
     "@emailjs/browser": "^3.6.2",
     "@reduxjs/toolkit": "^1.8.1",
@@ -9,6 +10,7 @@
     "@testing-library/react": "^13.1.1",
     "@testing-library/user-event": "^14.1.1",
     "formik": "^2.2.9",
+    "gh-pages": "^4.0.0",
     "i18next": "^21.6.16",
     "i18next-browser-languagedetector": "^6.1.4",
     "i18next-http-backend": "^1.4.0",
@@ -34,7 +36,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
