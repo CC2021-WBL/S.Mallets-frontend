@@ -37,7 +37,7 @@ User can:
 
 ### Links
 
-- [Demo](https://devsonthewaves.netlify.app/)
+- [Demo](https://smallets.netlify.app/)
 - [Design](https://www.figma.com/file/GUgGbIYMb28LwIPjgdHGmc/Smallets?node-id=183%3A3518)
 - [Backend part](https://github.com/CC2021-WBL/S.Mallets-backend)
 
