@@ -27,7 +27,7 @@ export const fetchProducts = () => {
   return async (dispatch: AppDispatch) => {
     dispatch(save([]));
     dispatch(startFetch());
-    fetch('https://s-mallets-backend.vercel.app/products')
+    fetch('https://smallets-back.herokuapp.com/products')
       .then((response) => response.json())
       .then((products) => dispatch(save(products)));
   };

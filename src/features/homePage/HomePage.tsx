@@ -37,7 +37,7 @@ const HomePage = () => {
     async function fetchSeriesData() {
       try {
         const series = await fetch(
-          'https://s-mallets-backend.vercel.app/series/all',
+          'https://smallets-back.herokuapp.com/series/all',
           { method: 'GET', redirect: 'follow' },
         );
         const resJson = await series.json();

@@ -67,7 +67,7 @@ const UserPage = () => {
           headers: headers,
         };
         const res = await fetch(
-          'https://s-mallets-backend.vercel.app/users/complete',
+          'https://smallets-back.herokuapp.com/users/complete',
           options,
         );
         if (res.status === 200) {

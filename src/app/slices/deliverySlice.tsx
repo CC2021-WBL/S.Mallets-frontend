@@ -48,7 +48,7 @@ export const fetchDeliveries = () => {
   return async (dispatch: any) => {
     dispatch(save([]));
     dispatch(startFetch());
-    fetch('https://s-mallets-backend.vercel.app/delivery')
+    fetch('https://smallets-back.herokuapp.com/delivery')
       .then((response) => response.json())
       .then((deliveries) => dispatch(save(deliveries)));
   };

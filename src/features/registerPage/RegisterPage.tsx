@@ -53,7 +53,7 @@ const RegisterPage = () => {
 
     try {
       const res = await fetch(
-        'https://s-mallets-backend.vercel.app/auth/register',
+        'https://smallets-back.herokuapp.com/auth/register',
         options,
       );
 

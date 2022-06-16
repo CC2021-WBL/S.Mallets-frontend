@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import DeliveryData from './DeliveryData';
 import LogoCarpet from '../../tools/LogoCarpet';
 import { DeliDataInterface } from '../../app/slices/deliveryDataSlice';
-import { clear, Product } from '../../app/slices/cartSlice';
+import { Product, clear } from '../../app/slices/cartSlice';
 import { RootState } from '../../app/store';
 import { countFinalPrice, getDeliId } from './helperTools';
 import { createDeliveryData, options } from './createDeliveryData';
@@ -72,7 +72,7 @@ const SummaryPage = () => {
     };
     try {
       const response = await fetch(
-        'https://s-mallets-backend.vercel.app/orders',
+        'https://smallets-back.herokuapp.com/orders',
         requestOptions,
       );
       if (response.status !== 201) {
