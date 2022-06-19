@@ -1,16 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux';
-import Cart from './Cart';
-import { RootState } from '../../app/store';
-
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import Cart from './Cart';
+import DeleteCartModal from '../universalModal/UniversalModal';
+import { RootState } from '../../app/store';
 import {
   fetchDeliveryId,
   fetchOrderDetails,
 } from '../../app/slices/orderSlice';
 
 const CartPage = () => {
+  const [showModal, setShowModal] = useState(false);
   const { t } = useTranslation('cart');
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -44,6 +46,14 @@ const CartPage = () => {
     }
   };
 
+  const openModalHandler = () => {
+    setShowModal(true);
+  };
+
+  const closeModalHandler = () => {
+    setShowModal(false);
+  };
+
   return (
     <div className="mx-auto mt-8 mb-16 flex w-full max-w-7xl flex-col px-3 md:px-6 lg:px-8">
       {cart.counter !== 0 ? (
@@ -52,7 +62,7 @@ const CartPage = () => {
             {t('cartOpenerText')}
           </p>
 
-          <Cart />
+          <Cart openModalHandler={openModalHandler} />
           {Object.keys(chosenDelivery).length > 0 && (
             <div className="flex justify-end">
               <button
@@ -67,6 +77,13 @@ const CartPage = () => {
       ) : (
         <div>{t('emptyCart')}</div>
       )}
+      {showModal ? (
+        <DeleteCartModal
+          closeModal={closeModalHandler}
+          languageJsonFileName={'deletecartmodal'}
+          propertyFromJson={'info'}
+        />
+      ) : null}
     </div>
   );
 };
