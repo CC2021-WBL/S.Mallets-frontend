@@ -68,13 +68,23 @@ const cartSlice = createSlice({
           }
           return product;
         });
-        return { ...state, products: newProducts, counter: state.counter + 1 };
+        const prevState = {
+          ...state,
+          products: newProducts,
+          counter: state.counter + 1,
+        };
+        const newState = Object.assign({}, prevState);
+
+        return newState;
       } else {
-        return {
+        const prevState = {
           ...state,
           products: [...state.products, { ...payload, quantity: 1 }],
           counter: state.counter + 1,
         };
+        const newState = Object.assign({}, prevState);
+
+        return newState;
       }
     },
     removeFromCart: (state, { payload }) => {
