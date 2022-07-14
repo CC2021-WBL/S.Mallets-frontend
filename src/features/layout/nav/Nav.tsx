@@ -13,11 +13,11 @@ import NavBar from './NavBar';
 import logo from '../../../assets/s-logo.svg';
 import { RootState } from '../../../app/store';
 import { activeLogCart, navBurgerStyles, navStyles } from './navStyles';
+import { clear } from '../../../app/slices/cartSlice';
 import { logout } from '../../../app/slices/authSlice';
 import { userLogout } from '../../../app/slices/userSlice';
-import { clear } from '../../../app/slices/cartSlice';
 
-const Nav = () => {
+const Nav = (prop: { counter: number }) => {
   const { t, i18n } = useTranslation('navAndFooter');
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -51,10 +51,6 @@ const Nav = () => {
     navigate('/');
     return;
   };
-
-  const cart = useSelector((state: RootState) => {
-    return { ...state.cart };
-  });
 
   return (
     <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between sm:h-36 sm:px-3 md:h-44 md:px-6 lg:px-8">
@@ -91,9 +87,9 @@ const Nav = () => {
             }
           >
             <BsCart3 />
-            {cart.counter > 0 && (
+            {prop.counter > 0 && (
               <div className="absolute -bottom-3 -right-4 z-50 flex h-5 w-5 items-center justify-center rounded-full border border-black bg-white">
-                <p className="text-xs">{cart.counter}</p>
+                <p className="text-xs">{prop.counter}</p>
               </div>
             )}
           </NavLink>

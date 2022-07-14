@@ -1,11 +1,15 @@
 import useBreadcrumbs from 'use-react-router-breadcrumbs';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import Footer from './footer/Footer';
 import Nav from './nav/Nav';
+import { RootState } from '../../app/store';
 
 const Layout = () => {
+  const counter = useSelector((state: RootState) => state.cart.counter);
+  console.log(counter + ' layout');
   const { t } = useTranslation('breadcrumbs');
   const routes: any = [
     { path: '/', breadcrumb: `${t('home')}` },
@@ -22,7 +26,7 @@ const Layout = () => {
   const location = useLocation();
   return (
     <>
-      <Nav />
+      <Nav counter={counter} />
       {location.pathname === '/' ? null : (
         <div className="mx-auto  mt-14 max-w-7xl px-6 md:px-9 lg:px-12">
           {breadcrumbs.map(({ match, breadcrumb }) => (
