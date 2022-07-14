@@ -3,6 +3,7 @@ import { I18nextProvider } from 'react-i18next';
 import { Provider } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
+import { useSelector } from 'react-redux';
 
 import DeliveryPage from './features/deliveryPage/DeliveryPage';
 import ErrorPage from './features/ErrorPage';
@@ -11,7 +12,7 @@ import RegisterPage from './features/registerPage/RegisterPage';
 import ScrollToTop from './tools/ScrollToTop';
 import SummaryPage from './features/summaryPage/SummaryPage';
 import i18n from './i18n';
-import store from './app/store';
+import store, { RootState } from './app/store';
 import { ErrorFallback, errorHandler } from './tools/ErrorFallback';
 import { Loader } from './features/Loader';
 
@@ -33,6 +34,8 @@ const ConfirmationPage = lazy(
 );
 
 function App() {
+  const counter = useSelector((state: RootState) => state.cart.counter);
+  console.log(counter + ' app');
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback} onError={errorHandler}>
       <I18nextProvider i18n={i18n}>
