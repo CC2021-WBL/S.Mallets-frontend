@@ -14,7 +14,7 @@ const AboutMe = () => {
         <p className="w-[80%]">
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum,
           reiciendis! Hic reprehenderit impedit numquam ipsa eos, obcaecati
-          architecto corporis et.
+          architecto corporis et. TEST
         </p>
       </div>
 
