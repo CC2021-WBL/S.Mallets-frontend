@@ -72,7 +72,7 @@ const SummaryPage = () => {
     };
     try {
       const response = await fetch(
-        'https://smallets-back.herokuapp.com/orders',
+        `${process.env.REACT_APP_BACKEND_URL}orders`,
         requestOptions,
       );
       if (response.status !== 201) {

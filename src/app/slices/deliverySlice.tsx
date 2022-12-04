@@ -48,7 +48,7 @@ export const fetchDeliveries = () => {
   return async (dispatch: any) => {
     dispatch(save([]));
     dispatch(startFetch());
-    fetch('https://smallets-back.herokuapp.com/delivery')
+    fetch(`${process.env.REACT_APP_BACKEND_URL}delivery`)
       .then((response) => response.json())
       .then((deliveries) => dispatch(save(deliveries)));
   };

@@ -24,7 +24,7 @@ const ProductsSeriesPage = () => {
     async function fetchSeriesData() {
       try {
         const series = await fetch(
-          'https://smallets-back.herokuapp.com/series/all',
+          `${process.env.REACT_APP_BACKEND_URL}series/all`,
           { method: 'GET', redirect: 'follow' },
         );
         const resJson = await series.json();

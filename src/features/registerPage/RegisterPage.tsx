@@ -53,7 +53,7 @@ const RegisterPage = () => {
 
     try {
       const res = await fetch(
-        'https://smallets-back.herokuapp.com/auth/register',
+        `${process.env.REACT_APP_BACKEND_URL}auth/register`,
         options,
       );
 

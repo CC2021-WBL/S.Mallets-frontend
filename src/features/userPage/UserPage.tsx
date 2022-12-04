@@ -67,7 +67,7 @@ const UserPage = () => {
           headers: headers,
         };
         const res = await fetch(
-          'https://smallets-back.herokuapp.com/users/complete',
+          `${process.env.REACT_APP_BACKEND_URL}users/complete`,
           options,
         );
         if (res.status === 200) {

@@ -27,7 +27,7 @@ export const fetchProducts = () => {
   return async (dispatch: AppDispatch) => {
     dispatch(save([]));
     dispatch(startFetch());
-    fetch('https://smallets-back.herokuapp.com/products')
+    fetch(`${process.env.REACT_APP_BACKEND_URL}products`)
       .then((response) => response.json())
       .then((products) => dispatch(save(products)));
   };

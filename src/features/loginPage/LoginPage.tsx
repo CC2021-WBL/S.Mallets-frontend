@@ -37,7 +37,7 @@ const LoginPage = () => {
 
     try {
       const res = await fetch(
-        'https://smallets-back.herokuapp.com/auth/login',
+        `${process.env.REACT_APP_BACKEND_URL}auth/login`,
         options,
       );
 
